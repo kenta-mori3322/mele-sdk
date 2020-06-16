@@ -1,2 +1,4 @@
 import * as Utils from './utils';
-export { Utils };
+import { Mele } from './mele';
+export * from './query';
+export { Mele, Utils };
