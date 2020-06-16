@@ -7,7 +7,7 @@
   "module": "lib/mele-sdk.esm.js",
   "browser": "lib/mele-sdk.umd.js",
   "files": [
-      "lib"
+    "lib"
   ],
   "scripts": {
     "build": "rollup -c",
@@ -27,6 +27,7 @@
     "bech32": "^1.1.4",
     "bip32": "^2.0.5",
     "bip39": "^3.0.2",
+    "cross-fetch": "^3.0.5",
     "elliptic": "^6.5.2",
     "ripemd160": "^2.0.2",
     "sha.js": "^2.4.11"
