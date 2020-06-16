@@ -1,7 +1,12 @@
-const { Utils } = require('../lib/mele-sdk.cjs.js')
+const { Mele, Utils } = require('../lib/mele-sdk.cjs.js')
 const assert = require('assert')
 const bip39 = require('bip39')
 
+
+const mele = new Mele({
+    nodeUrl: 'http://localhost:26657/',
+    chainId: 'test',
+})
 
 describe('Mele Blockchain', function() {
     this.timeout(0)
@@ -75,6 +80,28 @@ describe('Mele Blockchain', function() {
             )
         })
 
+    })
+
+    describe('Utils', () => {
+        it('Block data can be fetched for given height', async () => {
+            const block = await mele.query.getBlock(2)
+
+            console.log(JSON.stringify(block, null, 4))
+
+            assert.ok(block)
+            assert.ok(block.block)
+            assert.ok(block.block.header)
+            assert.ok(block.block.header.height === '2')
+        })
+
+        it('Status can be fetched', async () => {
+            const status = await mele.query.getStatus()
+
+            console.log(JSON.stringify(status, null, 4))
+
+            assert.ok(status)
+            assert.ok(status.node_info)    
+        })
     })
 
 })
