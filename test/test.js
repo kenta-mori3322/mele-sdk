@@ -105,6 +105,8 @@ describe('Mele Blockchain', function() {
     })
 
     describe('Tests with an accounts', () => {
+        let txHash
+
         const mnemonicA = 'betray theory cargo way left cricket doll room donkey wire reunion fall left surprise hamster corn village happy bulb token artist twelve whisper expire'
         let keyPairA
         let addressA
@@ -130,16 +132,6 @@ describe('Mele Blockchain', function() {
 
             addressB = Utils.getAddressFromPublicKey(keyPairB.publicKey)
             assert.ok(addressB)
-        })
-
-        describe('Query', () => {
-            it('Account info can be fetched', async () => {
-                const acc = await mele.query.getAccountInfo(addressA)
-
-                console.log(acc)
-
-                assert.ok(acc)
-            })
         })
 
         describe('Bank', () => {
@@ -179,6 +171,26 @@ describe('Mele Blockchain', function() {
 
                 assert.ok(newAcc2.value)
                 assert.ok(Number(newAcc2.value.coins[0].amount) === (Number(acc2.value.coins[0].amount) + amount))
+
+                txHash = tx.hash
+            })
+        })
+
+        describe('Query', () => {
+            it('Account info can be fetched', async () => {
+                const acc = await mele.query.getAccountInfo(addressA)
+
+                console.log(acc)
+
+                assert.ok(acc)
+            })
+
+            it('Transaction info can be fetched', async () => {
+                const transaction = await mele.query.getTx(txHash)
+
+                console.log(JSON.stringify(transaction, null, 4))
+
+                assert.ok(transaction)
             })
         })
 
