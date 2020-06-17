@@ -17,6 +17,11 @@ export interface Data {
     txs: string[]
 }
 
+const DefaultABCIQueryOptions = {
+    height: '0',
+    trusted: false,
+}
+
 export interface ResultStatus {
     node_info: NodeInfo
     sync_info: SyncInfo
@@ -37,6 +42,28 @@ export interface SyncInfo {
     latest_block_hash: string
     latest_block_height: string
     latest_block_time: string
+}
+
+export interface ResultABCIQuery {
+    response: ResponseQuery
+}
+
+export interface ResponseQuery {
+    code: number
+    log: string
+    info: string
+    index: number
+    key: string
+    value: any
+    proof: string
+    height: number
+}
+
+export interface ResultBroadcastTx {
+    code: number
+    data: any
+    log: string
+    hash: any
 }
 
 export class Rpc {
@@ -85,6 +112,56 @@ export class Rpc {
             .then((data: JsonRpcResponse<ResultStatus>) => {
                 if (isJsonRpcSuccess(data)) {
                     return data.result as ResultStatus
+                } else {
+                    throw data.error
+                }
+            })
+    }
+
+    abciQuery(path: string, key: string, opts = DefaultABCIQueryOptions): Promise<ResultABCIQuery> {
+        return fetch(this._nodeUrl, {
+            headers: { 'Content-Type': 'text/json' },
+            body: JSON.stringify({
+                jsonrpc: '2.0',
+                id: 'jsonrpc-client',
+                method: 'abci_query',
+                params: {
+                    ...opts,
+                    path,
+                    data: key,
+                },
+            }),
+            method: 'POST',
+            mode: 'cors',
+        })
+            .then(response => response.json())
+            .then((data: JsonRpcResponse<ResultABCIQuery>) => {
+                if ('result' in data) {
+                    return data.result as ResultABCIQuery
+                } else {
+                    throw data.error
+                }
+            })
+    }
+
+    broadcastTxSync(tx: string): Promise<ResultBroadcastTx> {
+        return fetch(this._nodeUrl, {
+            headers: { 'Content-Type': 'text/json' },
+            body: JSON.stringify({
+                jsonrpc: '2.0',
+                id: 'jsonrpc-client',
+                method: 'broadcast_tx_sync',
+                params: {
+                    tx: tx,
+                },
+            }),
+            method: 'POST',
+            mode: 'cors',
+        })
+            .then(response => response.json())
+            .then((data: JsonRpcResponse<ResultBroadcastTx>) => {
+                if (isJsonRpcSuccess(data)) {
+                    return data.result as ResultBroadcastTx
                 } else {
                     throw data.error
                 }
