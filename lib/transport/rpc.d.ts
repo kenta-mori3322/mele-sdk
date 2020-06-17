@@ -29,9 +29,33 @@ export interface SyncInfo {
     latest_block_height: string;
     latest_block_time: string;
 }
+export interface ResultABCIQuery {
+    response: ResponseQuery;
+}
+export interface ResponseQuery {
+    code: number;
+    log: string;
+    info: string;
+    index: number;
+    key: string;
+    value: any;
+    proof: string;
+    height: number;
+}
+export interface ResultBroadcastTx {
+    code: number;
+    data: any;
+    log: string;
+    hash: any;
+}
 export declare class Rpc {
     private _nodeUrl;
     constructor(nodeUrl: string);
     block(height: number): Promise<ResultBlock>;
     status(): Promise<ResultStatus>;
+    abciQuery(path: string, key: string, opts?: {
+        height: string;
+        trusted: boolean;
+    }): Promise<ResultABCIQuery>;
+    broadcastTxSync(tx: string): Promise<ResultBroadcastTx>;
 }
