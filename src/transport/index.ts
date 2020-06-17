@@ -4,6 +4,7 @@ import { encodeMsg, encodeSignMsg, encodeTx } from './encoder'
 import {
     ResultBlock,
     ResultStatus,
+    ResultTx,
     ResultBroadcastTx,
     Rpc
 } from './rpc'
@@ -11,6 +12,7 @@ import {
 export interface ITransport {
     block(height: number): Promise<ResultBlock>
     status(): Promise<ResultStatus>
+    tx(hash: string): Promise<ResultTx>
     query<T = any>(key: string[], data: string, storeName: string, subStoreName: string): Promise<T>
     signAndBuild(msgs: any[], privKeyHex: string, seq: number, accNum: number): string
     broadcastRawMsgBytesSync(tx: string): Promise<ResultBroadcastTx>
@@ -46,6 +48,12 @@ export class Transport implements ITransport {
     status(): Promise<ResultStatus> {
         return this._rpc.status().then(result => {
             return result as ResultStatus
+        })
+    }
+
+    tx(hash: string): Promise<ResultTx> {
+        return this._rpc.tx(String(Buffer.from(hash, 'hex').toString('base64'))).then(result => {
+            return result as ResultTx
         })
     }
 

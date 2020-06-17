@@ -1,6 +1,33 @@
 import fetch from 'cross-fetch'
 import { JsonRpcResponse, isJsonRpcSuccess } from './jsonrpc2'
 
+export interface ResultTx {
+    hash: string
+    height: string
+    tx: string
+    tx_result: TxDetail
+}
+
+export interface TxDetail {
+    code: number
+    data: any
+    log: string
+    info: string
+    gasWanted: string
+    gasUsed: string
+    events: TxEvent[]
+    codespace: string
+}
+
+export interface TxEvent {
+    type: string
+    attributes: TxEventAttribute[]
+}
+
+export interface TxEventAttribute {
+    key: string
+    value: string
+}
 
 export interface ResultBlock {
     block: Block
@@ -168,4 +195,33 @@ export class Rpc {
             })
     }
 
+    tx(hash: string): Promise<ResultTx> {
+        return fetch(this._nodeUrl, {
+            headers: { 'Content-Type': 'text/json' },
+            body: JSON.stringify({
+                jsonrpc: '2.0',
+                id: 'jsonrpc-client',
+                method: 'tx',
+                params: {
+                    hash: hash,
+                },
+            }),
+            method: 'POST',
+            mode: 'cors',
+        })
+            .then(response => response.json())
+            .then((data: JsonRpcResponse<ResultTx>) => {
+                if (isJsonRpcSuccess(data)) {
+                    let res: ResultTx = {
+                        hash: data.result.hash,
+                        tx_result: data.result.tx_result,
+                        height: data.result.height,
+                        tx: data.result.tx,
+                    }
+                    return res
+                } else {
+                    throw data.error
+                }
+            })
+    }
 }

@@ -1,6 +1,6 @@
 import * as Types from '../common'
 import { ITransport } from '../transport'
-import { ResultBlock, ResultStatus } from '../transport/rpc'
+import { ResultBlock, ResultStatus, ResultTx } from '../transport/rpc'
 
 namespace Keys {
     export const Query = {
@@ -22,6 +22,10 @@ export default class Query {
 
     getStatus(): Promise<ResultStatus> {
         return this._transport.status()
+    }
+
+    getTx(hash: string): Promise<ResultTx> {
+        return this._transport.tx(hash)
     }
 
     getAccountInfo(address: string): Promise<Types.Account> {
