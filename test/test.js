@@ -104,4 +104,90 @@ describe('Mele Blockchain', function() {
         })
     })
 
+    describe('Tests with an accounts', () => {
+        const mnemonicA = 'betray theory cargo way left cricket doll room donkey wire reunion fall left surprise hamster corn village happy bulb token artist twelve whisper expire'
+        let keyPairA
+        let addressA
+
+        const mnemonicB = 'toss sense candy point cost rookie jealous snow ankle electric sauce forward oblige tourist stairs horror grunt tenant afford master violin final genre reason'
+        let keyPairB
+        let addressB            
+
+        before(async () => {
+            const masterKey = Utils.deriveMasterKey(mnemonicA)
+            keyPairA = Utils.deriveKeyPairFromAccountAndIndex(masterKey)
+
+            assert.ok(keyPairA)
+
+            addressA = Utils.getAddressFromPublicKey(keyPairA.publicKey)
+
+            assert.ok(addressA)
+
+            const masterKeyNU = Utils.deriveMasterKey(mnemonicB)
+            keyPairB = Utils.deriveKeyPairFromAccountAndIndex(masterKeyNU)
+            
+            assert.ok(keyPairB)
+
+            addressB = Utils.getAddressFromPublicKey(keyPairB.publicKey)
+            assert.ok(addressB)
+        })
+
+        describe('Query', () => {
+            it('Account info can be fetched', async () => {
+                const acc = await mele.query.getAccountInfo(addressA)
+
+                console.log(acc)
+
+                assert.ok(acc)
+            })
+        })
+
+        describe('Bank', () => {
+            it('Users can transfer funds', async () => {
+                const amount = 10000
+
+                const acc1 = await mele.query.getAccountInfo(addressA)
+                const acc2 = await mele.query.getAccountInfo(addressB)
+
+                assert.ok(acc1)
+                assert.ok(acc2)
+
+                console.log(JSON.stringify(acc1, null, 4))
+                console.log(JSON.stringify(acc2, null, 4))
+
+                assert.ok(acc1.value)
+                assert.ok(acc2.value)
+
+                const tx = await mele.transfer(addressA, addressB, [{denom: 'umele', amount: String(amount)}], keyPairA.privateKey)
+
+                assert.ok(tx)
+                assert.ok(tx.code === 0)
+
+                await delay(7000)
+
+                const newAcc1 = await mele.query.getAccountInfo(addressA)
+                const newAcc2 = await mele.query.getAccountInfo(addressB)   
+
+                assert.ok(newAcc1)
+                assert.ok(newAcc2)      
+
+                console.log(JSON.stringify(newAcc1, null, 4))
+                console.log(JSON.stringify(newAcc2, null, 4))
+
+                assert.ok(newAcc1.value)
+                assert.ok(Number(newAcc1.value.coins[0].amount) === (Number(acc1.value.coins[0].amount) - amount))    
+
+                assert.ok(newAcc2.value)
+                assert.ok(Number(newAcc2.value.coins[0].amount) === (Number(acc2.value.coins[0].amount) + amount))
+            })
+        })
+
+    })
+
 })
+
+const delay = (ms = 1000) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(resolve, ms)
+    })
+}
