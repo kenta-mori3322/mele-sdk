@@ -1,5 +1,13 @@
+import * as Types from '../common'
 import { ITransport } from '../transport'
 import { ResultBlock, ResultStatus } from '../transport/rpc'
+
+namespace Keys {
+    export const Query = {
+        AuthModuleQueryPath: 'acc',
+        AccountPath: 'account'
+    }
+}
 
 export default class Query {
     private _transport: ITransport
@@ -14,6 +22,28 @@ export default class Query {
 
     getStatus(): Promise<ResultStatus> {
         return this._transport.status()
+    }
+
+    getAccountInfo(address: string): Promise<Types.Account> {
+        const AuthModuleQueryPath = Keys.Query.AuthModuleQueryPath
+        const AccountPath = Keys.Query.AccountPath
+
+        return this._transport.query<Types.Account>(
+            [],
+            JSON.stringify({ Address: address }),
+            AuthModuleQueryPath,
+            AccountPath
+        )
+    }
+
+    async getAccSignInfo(address: string): Promise<Types.AccSignInfo> {
+        let accountInfo = await this.getAccountInfo(address)
+
+        return <Types.AccSignInfo>{
+            address: accountInfo.value.address,
+            accountNumber: accountInfo.value.account_number,
+            sequence: accountInfo.value.sequence,
+        }
     }
 
 }
