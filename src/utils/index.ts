@@ -7,6 +7,8 @@ import bech32 from 'bech32'
 import ripemd160 from 'ripemd160'
 import shajs from 'sha.js'
 
+import { encodeAddr } from '../transport/encoder'
+
 const ec = new EC('secp256k1')
 
 export interface KeyPair {
@@ -97,12 +99,4 @@ export function validatePublicKey(pubKey: string): boolean {
     } catch (e) {
         return false
     }
-}
-
-export function encodeAddr(addr: Buffer): string {
-    return bech32.encode(_PREFIX.PrefixAddress, bech32.toWords(addr))
-}
-
-export const _PREFIX = {
-    PrefixAddress: 'mele'
 }
