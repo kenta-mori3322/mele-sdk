@@ -1,3 +1,27 @@
+export interface ResultTx {
+    hash: string;
+    height: string;
+    tx: string;
+    tx_result: TxDetail;
+}
+export interface TxDetail {
+    code: number;
+    data: any;
+    log: string;
+    info: string;
+    gasWanted: string;
+    gasUsed: string;
+    events: TxEvent[];
+    codespace: string;
+}
+export interface TxEvent {
+    type: string;
+    attributes: TxEventAttribute[];
+}
+export interface TxEventAttribute {
+    key: string;
+    value: string;
+}
 export interface ResultBlock {
     block: Block;
     block_meta: BlockMeta;
@@ -58,4 +82,5 @@ export declare class Rpc {
         trusted: boolean;
     }): Promise<ResultABCIQuery>;
     broadcastTxSync(tx: string): Promise<ResultBroadcastTx>;
+    tx(hash: string): Promise<ResultTx>;
 }

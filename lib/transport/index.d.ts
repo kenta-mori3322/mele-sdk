@@ -1,7 +1,8 @@
-import { ResultBlock, ResultStatus, ResultBroadcastTx } from './rpc';
+import { ResultBlock, ResultStatus, ResultTx, ResultBroadcastTx } from './rpc';
 export interface ITransport {
     block(height: number): Promise<ResultBlock>;
     status(): Promise<ResultStatus>;
+    tx(hash: string): Promise<ResultTx>;
     query<T = any>(key: string[], data: string, storeName: string, subStoreName: string): Promise<T>;
     signAndBuild(msgs: any[], privKeyHex: string, seq: number, accNum: number): string;
     broadcastRawMsgBytesSync(tx: string): Promise<ResultBroadcastTx>;
@@ -22,6 +23,7 @@ export declare class Transport implements ITransport {
     constructor(opt: ITransportOptions);
     block(height: number): Promise<ResultBlock>;
     status(): Promise<ResultStatus>;
+    tx(hash: string): Promise<ResultTx>;
     query<T>(keys: string[], data: string, storeName: string, subStoreName: string): Promise<T>;
     signAndBuild(msgs: any[], privKeyHex: string, seq: number, accNum: number): string;
     broadcastRawMsgBytesSync(tx: string): Promise<ResultBroadcastTx>;
