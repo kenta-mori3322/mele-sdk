@@ -21,10 +21,7 @@ export default class Broadcast {
         fromAddress: string,
         toAddress: string,
         amount: Types.SDKCoin[],
-        privKey: string,
-        seq: number,
-        accNum: number
-    ): string {
+    ): any[] {
         const msg = new Msgs[_types.TransferMsgType](
             fromAddress,
             toAddress,
@@ -38,7 +35,7 @@ export default class Broadcast {
             },
         ]
 
-        return this._transport.signAndBuild(msgs, privKey, seq, accNum)
+        return msgs
     }
 
 }
