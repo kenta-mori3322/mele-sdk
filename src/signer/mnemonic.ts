@@ -52,7 +52,7 @@ export class MnemonicSigner implements Signer {
         ).toString('hex')
 
         const tx = encodeTx(
-            msgs.map(msg => encodeMsg(msg.value)),
+            msgs.map((msg) => encodeMsg(msg.value)),
             new Array<string>(key.getPublic(true, 'hex')),
             new Array<string>(sigDERHex),
             fee
@@ -64,9 +64,7 @@ export class MnemonicSigner implements Signer {
     signMessage(msg: string): string {
         const key = ec.keyFromPrivate(this._privateKey, 'hex')
 
-        const signByte = shajs('sha256')
-            .update(msg)
-            .digest()
+        const signByte = shajs('sha256').update(msg).digest()
 
         const sig = key.sign(signByte, { canonical: true })
 

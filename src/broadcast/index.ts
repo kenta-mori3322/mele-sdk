@@ -1,4 +1,3 @@
-  
 import * as Types from '../common'
 
 import { ITransport } from '../transport'
@@ -17,15 +16,11 @@ export default class Broadcast {
         this._transport = transport
     }
 
-    makeTransferMsg(
-        fromAddress: string,
-        toAddress: string,
-        amount: Types.SDKCoin[],
-    ): any[] {
+    makeTransferMsg(fromAddress: string, toAddress: string, amount: Types.SDKCoin[]): any[] {
         const msg = new Msgs[_types.TransferMsgType](
             fromAddress,
             toAddress,
-            amount.map(am => new Coin(am.denom, am.amount))
+            amount.map((am) => new Coin(am.denom, am.amount))
         )
 
         const msgs = [
@@ -37,5 +32,4 @@ export default class Broadcast {
 
         return msgs
     }
-
 }

@@ -5,7 +5,7 @@ import { ResultBlock, ResultStatus, ResultTx } from '../transport/rpc'
 namespace Keys {
     export const Query = {
         AuthModuleQueryPath: 'acc',
-        AccountPath: 'account'
+        AccountPath: 'account',
     }
 }
 
@@ -49,5 +49,4 @@ export default class Query {
             sequence: accountInfo.value.sequence,
         }
     }
-
 }

@@ -1,14 +1,10 @@
 import { ec as EC } from 'elliptic'
-import { encodeMsg, encodeSignMsg, encodeTx } from './encoder'
 import { Signer } from '../signer'
+import { encodeMsg, encodeSignMsg, encodeTx } from './encoder'
 
-import {
-    ResultBlock,
-    ResultStatus,
-    ResultTx,
-    ResultBroadcastTx,
-    Rpc
-} from './rpc'
+import { ResultBlock, ResultBroadcastTx, ResultStatus, ResultTx, Rpc } from './rpc'
+
+import { BroadCastErrorEnum, BroadcastError } from '../transactions/errors'
 
 export interface ITransport {
     block(height: number): Promise<ResultBlock>
@@ -20,13 +16,6 @@ export interface ITransport {
 
 export interface ITransportOptions {
     nodeUrl: string
-    chainId?: string
-    timeout?: number
-    maxAttempts?: number
-    txConfirmInterval?: number
-    txConfirmMaxAttempts?: number
-    maxFeeInCoin?: number
-    signer?: Signer
 }
 
 export class Transport implements ITransport {
@@ -37,19 +26,19 @@ export class Transport implements ITransport {
     }
 
     block(height: number): Promise<ResultBlock> {
-        return this._rpc.block(height).then(result => {
+        return this._rpc.block(height).then((result) => {
             return result as ResultBlock
         })
     }
 
     status(): Promise<ResultStatus> {
-        return this._rpc.status().then(result => {
+        return this._rpc.status().then((result) => {
             return result as ResultStatus
         })
     }
 
     tx(hash: string): Promise<ResultTx> {
-        return this._rpc.tx(String(Buffer.from(hash, 'hex').toString('base64'))).then(result => {
+        return this._rpc.tx(String(Buffer.from(hash, 'hex').toString('base64'))).then((result) => {
             return result as ResultTx
         })
     }
@@ -57,13 +46,13 @@ export class Transport implements ITransport {
     query<T>(keys: string[], data: string, storeName: string, subStoreName: string): Promise<T> {
         let path = `/custom/${storeName}/${subStoreName}`
 
-        keys.forEach(key => {
+        keys.forEach((key) => {
             path += '/' + key
         })
 
         return this._rpc
             .abciQuery(path, Buffer.from(data, 'utf-8').toString('hex'))
-            .then(result => {
+            .then((result) => {
                 if (!result.response || !result.response.value) {
                     throw new QueryError(result.response.log, result.response.code)
                 }
@@ -75,7 +64,7 @@ export class Transport implements ITransport {
     }
 
     broadcastRawMsgBytesSync(tx: string): Promise<ResultBroadcastTx> {
-        return this._rpc.broadcastTxSync(tx).then(result => {
+        return this._rpc.broadcastTxSync(tx).then((result) => {
             if (result.code !== 0) {
                 throw new BroadcastError(BroadCastErrorEnum.CheckTx, result.log, result.code)
             }
@@ -90,23 +79,6 @@ export class QueryError extends Error {
     constructor(log: string, code: number) {
         super(log)
         Object.setPrototypeOf(this, QueryError.prototype)
-        this.code = code
-    }
-}
-
-export enum BroadCastErrorEnum {
-    CheckTx,
-    DeliverTx,
-}
-
-export class BroadcastError extends Error {
-    readonly code: number
-    readonly type: BroadCastErrorEnum
-
-    constructor(type: BroadCastErrorEnum, log: string, code: number) {
-        super(log)
-        Object.setPrototypeOf(this, BroadcastError.prototype)
-        this.type = type
         this.code = code
     }
 }

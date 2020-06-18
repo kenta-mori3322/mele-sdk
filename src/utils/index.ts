@@ -76,9 +76,7 @@ export function getAddressFromPublicKey(pubKey: string): string {
         throw new Error('Invalid public key.')
     }
 
-    const hashResult = shajs('sha256')
-        .update(Buffer.from(pubKey, 'hex'))
-        .digest() as string
+    const hashResult = shajs('sha256').update(Buffer.from(pubKey, 'hex')).digest() as string
 
     const addr = new ripemd160().update(hashResult).digest()
 

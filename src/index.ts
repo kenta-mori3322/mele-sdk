@@ -1,6 +1,6 @@
-import * as Utils from './utils'
-import { KeyPairSigner, MnemonicSigner, DefaultSigner } from './signer'
 import { Mele } from './mele'
+import { DefaultSigner, KeyPairSigner, MnemonicSigner } from './signer'
+import * as Utils from './utils'
 
 export * from './query'
 
