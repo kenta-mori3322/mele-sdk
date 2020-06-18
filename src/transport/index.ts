@@ -1,5 +1,6 @@
 import { ec as EC } from 'elliptic'
 import { encodeMsg, encodeSignMsg, encodeTx } from './encoder'
+import { Signer } from '../signer'
 
 import {
     ResultBlock,
@@ -14,7 +15,6 @@ export interface ITransport {
     status(): Promise<ResultStatus>
     tx(hash: string): Promise<ResultTx>
     query<T = any>(key: string[], data: string, storeName: string, subStoreName: string): Promise<T>
-    signAndBuild(msgs: any[], privKeyHex: string, seq: number, accNum: number): string
     broadcastRawMsgBytesSync(tx: string): Promise<ResultBroadcastTx>
 }
 
@@ -26,17 +26,14 @@ export interface ITransportOptions {
     txConfirmInterval?: number
     txConfirmMaxAttempts?: number
     maxFeeInCoin?: number
+    signer?: Signer
 }
 
 export class Transport implements ITransport {
-    private _chainId: string
     private _rpc: Rpc
-    private _maxFeeInCoin: number
 
     constructor(opt: ITransportOptions) {
         this._rpc = new Rpc(opt.nodeUrl)
-        this._chainId = opt.chainId || 'test'
-        this._maxFeeInCoin = opt.maxFeeInCoin || 0
     }
 
     block(height: number): Promise<ResultBlock> {
@@ -75,27 +72,6 @@ export class Transport implements ITransport {
 
                 return JSON.parse(jsonStr) as T
             })
-    }
-
-    signAndBuild(msgs: any[], privKeyHex: string, seq: number, accNum: number): string {
-        let ec = new EC('secp256k1')
-        let key = ec.keyFromPrivate(privKeyHex, 'hex')
-
-        const signMsgHash = encodeSignMsg(msgs, this._chainId, seq, accNum, this._maxFeeInCoin)
-
-        const sig = key.sign(signMsgHash, { canonical: true })
-        const sigDERHex = Buffer.from(
-            sig.r.toArray('be', 32).concat(sig.s.toArray('be', 32))
-        ).toString('hex')
-
-        const tx = encodeTx(
-            msgs.map(msg => encodeMsg(msg.value)),
-            new Array<string>(key.getPublic(true, 'hex')),
-            new Array<string>(sigDERHex),
-            this._maxFeeInCoin
-        )
-
-        return tx
     }
 
     broadcastRawMsgBytesSync(tx: string): Promise<ResultBroadcastTx> {

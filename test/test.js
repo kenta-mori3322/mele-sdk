@@ -1,4 +1,4 @@
-const { Mele, Utils } = require('../lib/mele-sdk.cjs.js')
+const { Mele, Utils, KeyPairSigner, MnemonicSigner } = require('../lib/mele-sdk.cjs.js')
 const assert = require('assert')
 const bip39 = require('bip39')
 
@@ -6,6 +6,7 @@ const bip39 = require('bip39')
 const mele = new Mele({
     nodeUrl: 'http://localhost:26657/',
     chainId: 'test',
+    signer: new KeyPairSigner('7238378070a5168733402d838033d7c9faa576ad906fcfd6693ed365f0ae0d16')
 })
 
 describe('Mele Blockchain', function() {
@@ -107,39 +108,14 @@ describe('Mele Blockchain', function() {
     describe('Tests with an accounts', () => {
         let txHash
 
-        const mnemonicA = 'betray theory cargo way left cricket doll room donkey wire reunion fall left surprise hamster corn village happy bulb token artist twelve whisper expire'
-        let keyPairA
-        let addressA
-
-        const mnemonicB = 'toss sense candy point cost rookie jealous snow ankle electric sauce forward oblige tourist stairs horror grunt tenant afford master violin final genre reason'
-        let keyPairB
-        let addressB            
-
-        before(async () => {
-            const masterKey = Utils.deriveMasterKey(mnemonicA)
-            keyPairA = Utils.deriveKeyPairFromAccountAndIndex(masterKey)
-
-            assert.ok(keyPairA)
-
-            addressA = Utils.getAddressFromPublicKey(keyPairA.publicKey)
-
-            assert.ok(addressA)
-
-            const masterKeyNU = Utils.deriveMasterKey(mnemonicB)
-            keyPairB = Utils.deriveKeyPairFromAccountAndIndex(masterKeyNU)
-            
-            assert.ok(keyPairB)
-
-            addressB = Utils.getAddressFromPublicKey(keyPairB.publicKey)
-            assert.ok(addressB)
-        })
+        const accountB = new MnemonicSigner('toss sense candy point cost rookie jealous snow ankle electric sauce forward oblige tourist stairs horror grunt tenant afford master violin final genre reason')      
 
         describe('Bank', () => {
             it('Users can transfer funds', async () => {
                 const amount = 100
 
-                const acc1 = await mele.query.getAccountInfo(addressA)
-                const acc2 = await mele.query.getAccountInfo(addressB)
+                const acc1 = await mele.query.getAccountInfo(mele.signer.getAddress())
+                const acc2 = await mele.query.getAccountInfo(accountB.getAddress())
 
                 assert.ok(acc1)
                 assert.ok(acc2)
@@ -150,15 +126,15 @@ describe('Mele Blockchain', function() {
                 assert.ok(acc1.value)
                 assert.ok(acc2.value)
 
-                const tx = await mele.transfer(addressA, addressB, [{denom: 'umele', amount: String(amount)}], keyPairA.privateKey)
+                const tx = await mele.transfer(accountB.getAddress(), [{denom: 'umele', amount: String(amount)}])
 
                 assert.ok(tx)
                 assert.ok(tx.code === 0)
 
                 await delay(7000)
 
-                const newAcc1 = await mele.query.getAccountInfo(addressA)
-                const newAcc2 = await mele.query.getAccountInfo(addressB)   
+                const newAcc1 = await mele.query.getAccountInfo(mele.signer.getAddress())
+                const newAcc2 = await mele.query.getAccountInfo(accountB.getAddress())   
 
                 assert.ok(newAcc1)
                 assert.ok(newAcc2)      
@@ -178,7 +154,7 @@ describe('Mele Blockchain', function() {
 
         describe('Query', () => {
             it('Account info can be fetched', async () => {
-                const acc = await mele.query.getAccountInfo(addressA)
+                const acc = await mele.query.getAccountInfo(mele.signer.getAddress())
 
                 console.log(acc)
 

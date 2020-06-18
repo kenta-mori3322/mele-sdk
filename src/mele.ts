@@ -1,5 +1,6 @@
 import Query from './query'
 import Broadcast from './broadcast'
+import { DefaultSigner, Signer } from './signer'
 
 import * as Types from './common'
 
@@ -18,32 +19,44 @@ export class Mele {
     private _transport: ITransport
     private _query: Query
     private _broadcast: Broadcast
+    private _signer: Signer
+    private _chainId: string
+    private _maxFeeInCoin: number
 
     constructor(opt: ITransportOptions) {
         this._options = opt
         this._transport = new Transport(opt)
         this._query = new Query(this._transport)
         this._broadcast = new Broadcast(this._transport)
+        this._signer = opt.signer || new DefaultSigner()
+
+        this._chainId = opt.chainId || 'test'
+        this._maxFeeInCoin = opt.maxFeeInCoin || 0
     }
 
     get query(): Query {
         return this._query
     }
 
+    get signer(): Signer {
+        return this._signer
+    }
+
     async transfer(
-        fromAddress: string,
         toAddress: string,
         amount: Types.SDKCoin[],
-        privKeyHex: string
     ): Promise<ResultBroadcastTx> {
-        const that = this
+        const msgs = this._broadcast.makeTransferMsg(this._signer.getAddress(), toAddress, amount)
 
-        return this._safeBroadcast([fromAddress], function(accSignInfos) {
-            return that._broadcast.makeTransferMsg(
-                fromAddress,
-                toAddress,
-                amount,
-                privKeyHex,
+        return this.sendTransaction(msgs)
+    }
+
+    async sendTransaction(msgs: any[]): Promise<ResultBroadcastTx> {
+        return this._safeBroadcast([this._signer.getAddress()], accSignInfos => {
+            return this._signer.signTransaction(
+                msgs,
+                this._chainId,
+                this._maxFeeInCoin,
                 accSignInfos[0].sequence,
                 accSignInfos[0].accountNumber
             )
