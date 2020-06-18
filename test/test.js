@@ -126,12 +126,35 @@ describe('Mele Blockchain', function() {
                 assert.ok(acc1.value)
                 assert.ok(acc2.value)
 
-                const tx = await mele.transfer(accountB.getAddress(), [{denom: 'umele', amount: String(amount)}])
+                const txEvents = mele.transfer(accountB.getAddress(), [{denom: 'umele', amount: String(amount)}]).sendTransaction()
 
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            console.log(confirmation)
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
+
+                let tx = await txPromise
                 assert.ok(tx)
-                assert.ok(tx.code === 0)
+                assert.ok(tx.hash)
 
-                await delay(7000)
+                assert.ok(tx.tx_result)
+                assert.ok(tx.tx_result.code === 0)
+                assert.ok(tx.height)
 
                 const newAcc1 = await mele.query.getAccountInfo(mele.signer.getAddress())
                 const newAcc2 = await mele.query.getAccountInfo(accountB.getAddress())   
