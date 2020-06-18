@@ -1,4 +1,3 @@
-import { Signer } from '../signer';
 import { ResultBlock, ResultStatus, ResultTx, ResultBroadcastTx } from './rpc';
 export interface ITransport {
     block(height: number): Promise<ResultBlock>;
@@ -9,13 +8,6 @@ export interface ITransport {
 }
 export interface ITransportOptions {
     nodeUrl: string;
-    chainId?: string;
-    timeout?: number;
-    maxAttempts?: number;
-    txConfirmInterval?: number;
-    txConfirmMaxAttempts?: number;
-    maxFeeInCoin?: number;
-    signer?: Signer;
 }
 export declare class Transport implements ITransport {
     private _rpc;
@@ -29,13 +21,4 @@ export declare class Transport implements ITransport {
 export declare class QueryError extends Error {
     readonly code: number;
     constructor(log: string, code: number);
-}
-export declare enum BroadCastErrorEnum {
-    CheckTx = 0,
-    DeliverTx = 1
-}
-export declare class BroadcastError extends Error {
-    readonly code: number;
-    readonly type: BroadCastErrorEnum;
-    constructor(type: BroadCastErrorEnum, log: string, code: number);
 }

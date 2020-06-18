@@ -1,8 +1,18 @@
 import Query from './query';
 import { Signer } from './signer';
 import * as Types from './common';
-import { ITransportOptions } from './transport';
-import { ResultBroadcastTx } from './transport/rpc';
+import { TransactionEvents } from './transactions/events';
+import { Transaction } from './transactions';
+export interface Options {
+    nodeUrl: string;
+    chainId?: string;
+    timeout?: number;
+    maxAttempts?: number;
+    txConfirmTries?: number;
+    txConfirmInterval?: number;
+    maxFeeInCoin?: number;
+    signer?: Signer;
+}
 export declare class Mele {
     private _options;
     private _transport;
@@ -11,10 +21,9 @@ export declare class Mele {
     private _signer;
     private _chainId;
     private _maxFeeInCoin;
-    constructor(opt: ITransportOptions);
+    constructor(opt: Options);
     readonly query: Query;
     readonly signer: Signer;
-    transfer(toAddress: string, amount: Types.SDKCoin[]): Promise<ResultBroadcastTx>;
-    sendTransaction(msgs: any[]): Promise<ResultBroadcastTx>;
-    _safeBroadcast(signers: string[], makeTxFunc: Function): Promise<ResultBroadcastTx>;
+    sendTransaction(msgs: any[]): TransactionEvents;
+    transfer(toAddress: string, amount: Types.SDKCoin[]): Transaction;
 }
