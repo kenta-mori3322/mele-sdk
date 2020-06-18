@@ -136,7 +136,7 @@ describe('Mele Blockchain', function() {
 
         describe('Bank', () => {
             it('Users can transfer funds', async () => {
-                const amount = 10000
+                const amount = 100
 
                 const acc1 = await mele.query.getAccountInfo(addressA)
                 const acc2 = await mele.query.getAccountInfo(addressB)
