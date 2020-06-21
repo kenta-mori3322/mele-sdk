@@ -12,7 +12,7 @@ export const Bank = {
         const msg = new Codec[_types.TransferMsgType](
             fromAddress,
             toAddress,
-            amount.map((am) => new Coin(am.denom, am.amount))
+            amount.map(am => new Coin(am.denom, am.amount))
         )
 
         return [msg]

@@ -9,7 +9,8 @@
                 "trailingComma": "es5",
                 "tabWidth": 4,
                 "semi": false,
-                "printWidth": 100
+                "printWidth": 100,
+                "arrowParens": "avoid"
             }
         ],
         "arrow-parens": [true, "ban-single-arg-parens"],

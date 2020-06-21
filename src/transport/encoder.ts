@@ -19,13 +19,13 @@ export function decodeAddr(addr: string): Buffer {
 
 // TODO: Find a better solution
 export const encodeMsg = (msg: any) => {
-    Object.keys(msg).forEach((k) => {
+    Object.keys(msg).forEach(k => {
         if (typeof msg[k] === 'string' && msg[k].startsWith(_PREFIX.PrefixAddress)) {
             msg[k] = decodeAddr(msg[k]).toJSON().data
         } else if (typeof msg[k] == 'object' && !(msg[k] instanceof Array)) {
             msg[k] = encodeMsg(msg[k])
         } else if (typeof msg[k] == 'object' && msg[k] instanceof Array) {
-            msg[k] = msg[k].map((m) => {
+            msg[k] = msg[k].map(m => {
                 return encodeMsg(m)
             })
         }
@@ -41,7 +41,7 @@ export function encodeSignMsg(
     accountNumber: number,
     maxFeeInCoin: number
 ): any {
-    stdMsg = stdMsg.map((msg) => JSON.parse(marshalJson(msg)))
+    stdMsg = stdMsg.map(msg => JSON.parse(marshalJson(msg)))
 
     const stdSignMsg = {
         account_number: String(accountNumber),
@@ -95,7 +95,7 @@ function sortObject(object) {
         keys = Object.keys(object)
 
     keys.sort(function (key1, key2) {
-        ;(key1 = key1.toLowerCase()), (key2 = key2.toLowerCase())
+        ; (key1 = key1.toLowerCase()), (key2 = key2.toLowerCase())
         if (key1 < key2) return -1
         if (key1 > key2) return 1
         return 0
@@ -109,7 +109,7 @@ function sortObject(object) {
         } else if (typeof object[key] == 'object' && object[key] instanceof Array) {
             sortedObj[key] = []
 
-            object[key].forEach((element) => {
+            object[key].forEach(element => {
                 sortedObj[key].push(sortObject(element))
             })
         } else {
@@ -136,7 +136,7 @@ function number2StringInObject(object): any {
         } else if (typeof object[key] == 'object' && object[key] instanceof Array) {
             resultObj[key] = []
 
-            object[key].forEach((element) => {
+            object[key].forEach(element => {
                 resultObj[key].push(number2StringInObject(element))
             })
         } else {

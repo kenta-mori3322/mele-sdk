@@ -1,4 +1,5 @@
 import Query from '../query'
+import { Signer } from '../signer'
 import { ITransport } from '../transport'
 import { ResultBroadcastTx } from '../transport/rpc'
 import { BroadCastErrorEnum, BroadcastError } from './errors'
@@ -11,16 +12,20 @@ import promiseRetry from 'promise-retry'
 interface Options {
     txConfirmInterval: number
     txConfirmTries: number
+    chainId: string
+    maxFeeInCoin: number
 }
 
 export default class Broadcast {
     private _transport: ITransport
     private _query: Query
     private _options: Options
+    private _signer: Signer
 
-    constructor(transport: ITransport, query: Query, opts: Options) {
+    constructor(transport: ITransport, query: Query, signer: Signer, opts: Options) {
         this._transport = transport
         this._query = query
+        this._signer = signer
 
         this._options = opts
     }
@@ -61,10 +66,10 @@ export default class Broadcast {
                             maxTimeout: this._options.txConfirmInterval,
                         }
                     ).then(
-                        (value) => {
+                        value => {
                             txEvents.emitConfirmation(value)
                         },
-                        (err) => {}
+                        err => {}
                     )
                 })
                 .catch((err: any): void => {
@@ -89,5 +94,17 @@ export default class Broadcast {
         })
 
         return txEvents
+    }
+
+    sendTransaction(msgs: any[]): TransactionEvents {
+        return this.safeBroadcast([this._signer.getAddress()], accSignInfos => {
+            return this._signer.signTransaction(
+                msgs,
+                this._options.chainId,
+                this._options.maxFeeInCoin,
+                accSignInfos[0].sequence,
+                accSignInfos[0].accountNumber
+            )
+        })
     }
 }

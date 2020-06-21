@@ -68,11 +68,11 @@ const codec = new Codec()
 codec.registerConcrete(new StdTx(), 'cosmos-sdk/StdTx', {})
 codec.registerConcrete(new PubKeySecp256k1(), 'tendermint/PubKeySecp256k1', {})
 
-export const marshalBinary = (tx) => {
+export const marshalBinary = tx => {
     return Buffer.from(codec.marshalBinary(tx)).toString('base64')
 }
 
-export const marshalJson = (tx) => {
+export const marshalJson = tx => {
     return codec.marshalJson(tx)
 }
 

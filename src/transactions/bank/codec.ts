@@ -18,4 +18,4 @@ export const Codec = {
     ]),
 }
 
-Object.keys(Codec).forEach((codec) => registerConcrete(codec, Codec[codec]))
+Object.keys(Codec).forEach(codec => registerConcrete(codec, Codec[codec]))
