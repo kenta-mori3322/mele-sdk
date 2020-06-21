@@ -1,4 +1,4 @@
-import { ResultBlock, ResultStatus, ResultTx, ResultBroadcastTx } from './rpc';
+import { ResultBlock, ResultBroadcastTx, ResultStatus, ResultTx } from './rpc';
 export interface ITransport {
     block(height: number): Promise<ResultBlock>;
     status(): Promise<ResultStatus>;

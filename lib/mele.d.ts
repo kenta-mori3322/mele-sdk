@@ -1,8 +1,8 @@
 import Query from './query';
 import { Signer } from './signer';
 import * as Types from './common';
-import { TransactionEvents } from './transactions/events';
 import { Transaction } from './transactions';
+import { TransactionEvents } from './transactions/events';
 export interface Options {
     nodeUrl: string;
     chainId?: string;
