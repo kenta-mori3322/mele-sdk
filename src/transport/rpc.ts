@@ -114,7 +114,7 @@ export class Rpc {
             method: 'POST',
             mode: 'cors',
         })
-            .then((response) => response.json())
+            .then(response => response.json())
             .then((data: JsonRpcResponse<ResultBlock>) => {
                 if (isJsonRpcSuccess(data)) {
                     return data.result as ResultBlock
@@ -135,7 +135,7 @@ export class Rpc {
             method: 'POST',
             mode: 'cors',
         })
-            .then((response) => response.json())
+            .then(response => response.json())
             .then((data: JsonRpcResponse<ResultStatus>) => {
                 if (isJsonRpcSuccess(data)) {
                     return data.result as ResultStatus
@@ -161,7 +161,7 @@ export class Rpc {
             method: 'POST',
             mode: 'cors',
         })
-            .then((response) => response.json())
+            .then(response => response.json())
             .then((data: JsonRpcResponse<ResultABCIQuery>) => {
                 if ('result' in data) {
                     return data.result as ResultABCIQuery
@@ -185,7 +185,7 @@ export class Rpc {
             method: 'POST',
             mode: 'cors',
         })
-            .then((response) => response.json())
+            .then(response => response.json())
             .then((data: JsonRpcResponse<ResultBroadcastTx>) => {
                 if (isJsonRpcSuccess(data)) {
                     return data.result as ResultBroadcastTx
@@ -209,7 +209,7 @@ export class Rpc {
             method: 'POST',
             mode: 'cors',
         })
-            .then((response) => response.json())
+            .then(response => response.json())
             .then((data: JsonRpcResponse<ResultTx>) => {
                 if (isJsonRpcSuccess(data)) {
                     let res: ResultTx = {

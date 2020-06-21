@@ -1,6 +1,7 @@
 import { TypeFactory, Types } from 'js-amino'
+import { registerConcrete } from '../../transport/codec'
 
-export const Msgs = {
+export const Codec = {
     'cosmos-sdk/MsgSend': TypeFactory.create('MsgSend', [
         {
             name: 'from_address',
@@ -16,3 +17,5 @@ export const Msgs = {
         },
     ]),
 }
+
+Object.keys(Codec).forEach((codec) => registerConcrete(codec, Codec[codec]))

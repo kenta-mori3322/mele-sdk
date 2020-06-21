@@ -8,74 +8,86 @@ import * as Types from '../common'
 
 import promiseRetry from 'promise-retry'
 
-export function safeBroadcast(
-    signers: string[],
-    query: Query,
-    transport: ITransport,
-    options: any,
-    makeTxFunc: Function
-): TransactionEvents {
-    const txEvents = new TransactionEvents()
+interface Options {
+    txConfirmInterval: number
+    txConfirmTries: number
+}
 
-    let accSignInfos: Promise<Types.AccSignInfo>[] = []
+export default class Broadcast {
+    private _transport: ITransport
+    private _query: Query
+    private _options: Options
 
-    for (let i = 0; i < signers.length; i++) {
-        let seq = query.getAccSignInfo(signers[i])
+    constructor(transport: ITransport, query: Query, opts: Options) {
+        this._transport = transport
+        this._query = query
 
-        accSignInfos.push(seq)
+        this._options = opts
     }
 
-    Promise.all(accSignInfos).then((signInfos: Types.AccSignInfo[]): void => {
-        let tx = makeTxFunc(signInfos)
+    safeBroadcast(signers: string[], makeTxFunc: Function): TransactionEvents {
+        const txEvents = new TransactionEvents()
 
-        transport
-            .broadcastRawMsgBytesSync(tx)
-            .then((result: ResultBroadcastTx): void => {
-                txEvents.emitHash(result.hash)
+        let accSignInfos: Promise<Types.AccSignInfo>[] = []
 
-                txEvents.emitReceipt(result)
+        for (let i = 0; i < signers.length; i++) {
+            let seq = this._query.getAccSignInfo(signers[i])
 
-                promiseRetry(
-                    (retry, num) => {
-                        if (num === 1) {
-                            return retry()
+            accSignInfos.push(seq)
+        }
+
+        Promise.all(accSignInfos).then((signInfos: Types.AccSignInfo[]): void => {
+            let tx = makeTxFunc(signInfos)
+
+            this._transport
+                .broadcastRawMsgBytesSync(tx)
+                .then((result: ResultBroadcastTx): void => {
+                    txEvents.emitHash(result.hash)
+
+                    txEvents.emitReceipt(result)
+
+                    promiseRetry(
+                        (retry, num) => {
+                            if (num === 1) {
+                                return retry()
+                            }
+
+                            return this._transport.tx(result.hash).catch(retry)
+                        },
+                        {
+                            retries: this._options.txConfirmTries,
+                            factor: 1,
+                            minTimeout: this._options.txConfirmInterval,
+                            maxTimeout: this._options.txConfirmInterval,
                         }
-
-                        return transport.tx(result.hash).catch(retry)
-                    },
-                    {
-                        retries: options.txConfirmTries || 6,
-                        factor: 1,
-                        minTimeout: options.txConfirmInterval || 6000,
-                        maxTimeout: options.txConfirmInterval || 6000,
-                    }
-                ).then(
-                    (value) => {
-                        txEvents.emitConfirmation(value)
-                    },
-                    (err) => {}
-                )
-            })
-            .catch((err: any): void => {
-                if (err.data && err.data.indexOf('Tx already exists in cache') >= 0) {
-                    txEvents.emitError(
-                        new BroadcastError(BroadCastErrorEnum.CheckTx, err.data, err.code || 0)
+                    ).then(
+                        (value) => {
+                            txEvents.emitConfirmation(value)
+                        },
+                        (err) => {}
                     )
-                } else if (err.code && err.message) {
-                    txEvents.emitError(
-                        new BroadcastError(BroadCastErrorEnum.CheckTx, err.message, err.code)
-                    )
-                } else {
-                    txEvents.emitError(
-                        new BroadcastError(
-                            BroadCastErrorEnum.CheckTx,
-                            'Unknown error ocurred while broadcasting transaction.',
-                            -1
+                })
+                .catch((err: any): void => {
+                    if (err.data && err.data.indexOf('Tx already exists in cache') >= 0) {
+                        txEvents.emitError(
+                            new BroadcastError(BroadCastErrorEnum.CheckTx, err.data, err.code || 0)
                         )
-                    )
-                }
-            })
-    })
+                    } else if (err.code && err.message) {
+                        txEvents.emitError(
+                            new BroadcastError(BroadCastErrorEnum.CheckTx, err.message, err.code)
+                        )
+                    } else {
+                        txEvents.emitError(
+                            new BroadcastError(
+                                BroadCastErrorEnum.CheckTx,
+                                'Unknown error ocurred while broadcasting transaction.',
+                                -1
+                            )
+                        )
+                    }
+                })
+        })
 
-    return txEvents
+        return txEvents
+    }
 }

@@ -1,7 +1,7 @@
 import bech32 from 'bech32'
 import shajs from 'sha.js'
 
-import { Coin, Fee, PubKeySecp256k1, Signature, StdTx, marshalBinary } from './codec'
+import { Coin, Fee, PubKeySecp256k1, Signature, StdTx, marshalBinary, marshalJson } from './codec'
 
 export function encodeAddr(addr: Buffer): string {
     return bech32.encode(_PREFIX.PrefixAddress, bech32.toWords(addr))
@@ -41,10 +41,12 @@ export function encodeSignMsg(
     accountNumber: number,
     maxFeeInCoin: number
 ): any {
+    stdMsg = stdMsg.map((msg) => JSON.parse(marshalJson(msg)))
+
     const stdSignMsg = {
         account_number: String(accountNumber),
         chain_id: chainId,
-        fee: getFee(maxFeeInCoin),
+        fee: getFee(maxFeeInCoin, stdMsg.length),
         memo: 'sdk',
         msgs: stdMsg,
         sequence: String(seq),
@@ -74,15 +76,15 @@ export function encodeTx(
         sigs.push(sig)
     }
 
-    const fee = getFee(maxFeeInCoin)
+    const fee = getFee(maxFeeInCoin, msgs.length)
 
     let stdTx = new StdTx(msgs, fee, sigs, 'sdk')
 
     return marshalBinary(stdTx)
 }
 
-export const getFee = (maxFeeInCoin: number) => {
-    return new Fee([new Coin('umele', String(maxFeeInCoin))], 200000)
+export const getFee = (maxFeeInCoin: number, msgCount: number) => {
+    return new Fee([new Coin('umele', String(maxFeeInCoin))], Math.ceil(msgCount / 10) * 200000)
 }
 
 function sortObject(object) {

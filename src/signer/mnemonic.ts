@@ -52,7 +52,7 @@ export class MnemonicSigner implements Signer {
         ).toString('hex')
 
         const tx = encodeTx(
-            msgs.map((msg) => encodeMsg(msg.value)),
+            msgs.map(msg => encodeMsg(msg)),
             new Array<string>(key.getPublic(true, 'hex')),
             new Array<string>(sigDERHex),
             fee
