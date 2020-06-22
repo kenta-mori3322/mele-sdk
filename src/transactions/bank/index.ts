@@ -20,7 +20,29 @@ export const Msgs = {
     },
 }
 
+/**
+ * Bank
+ * @namespace mele.bank
+ * @type {object}
+ * @memberof mele
+ */
+
 export default class Bank extends TransactionApi {
+	/**
+     * mele.bank.**transfer(<toAddress>, <amount>)**
+     *
+     * Transfer an arbitrary amount of tokens to the receiving account.
+     *
+     * @param {string} toAddress - Receiving account address
+     * @param {[SDKCoin]} amount - Amount of tokens to send
+     *
+     * @memberof mele.bank
+     * @inner
+     *
+     * @name Transfer
+     *
+     * @returns {Transaction} transaction - Transaction class instance.
+     */
     transfer(toAddress: string, amount: Types.SDKCoin[]): Transaction {
         const msgs = Msgs.makeTransferMsg(this.broadcast.signer.getAddress(), toAddress, amount)
 
