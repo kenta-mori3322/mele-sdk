@@ -1,4 +1,5 @@
 import { TransactionEvents } from './events'
+import Broadcast from './broadcast'
 
 export class Transaction {
     private _msgs: any[]
@@ -13,4 +14,16 @@ export class Transaction {
     sendTransaction(): TransactionEvents {
         return this._sendTransaction(this._msgs)
     }
+}
+
+export class TransactionApi {
+	private _broadcast: Broadcast
+
+	constructor(broadcast: Broadcast) {
+		this._broadcast = broadcast
+	}
+
+	get broadcast(): Broadcast {
+		return this._broadcast
+	}
 }

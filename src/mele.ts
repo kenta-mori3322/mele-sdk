@@ -12,6 +12,8 @@ import { ResultBroadcastTx } from './transport/rpc'
 import { Transaction } from './transactions'
 import { TransactionEvents } from './transactions/events'
 
+import Bank from './transactions/bank'
+
 export interface Options {
     nodeUrl: string
     chainId?: string
@@ -32,6 +34,8 @@ export class Mele {
     private _chainId: string
     private _maxFeeInCoin: number
 
+    private _bank: Bank
+
     constructor(opt: Options) {
         this._options = opt
 
@@ -51,6 +55,8 @@ export class Mele {
             chainId: this._chainId,
             maxFeeInCoin: this._maxFeeInCoin,
         })
+
+        this._bank = new Bank(this._broadcast)
     }
 
     get query(): Query {
@@ -61,9 +67,7 @@ export class Mele {
         return this._signer
     }
 
-    transfer(toAddress: string, amount: Types.SDKCoin[]): Transaction {
-        const msgs = Encoder.bank.makeTransferMsg(this._signer.getAddress(), toAddress, amount)
-
-        return new Transaction(msgs, msgs => this._broadcast.sendTransaction(msgs))
+    get bank(): Bank {
+        return this._bank
     }
 }

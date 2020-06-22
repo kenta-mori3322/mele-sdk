@@ -30,6 +30,10 @@ export default class Broadcast {
         this._options = opts
     }
 
+    get signer(): Signer {
+        return this._signer
+    }
+
     safeBroadcast(signers: string[], makeTxFunc: Function): TransactionEvents {
         const txEvents = new TransactionEvents()
 
