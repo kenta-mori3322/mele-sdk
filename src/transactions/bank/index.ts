@@ -1,6 +1,6 @@
 import { Coin } from '../../transport/codec'
+import { Transaction, TransactionApi } from '../index'
 import { Codec } from './codec'
-import { TransactionApi, Transaction } from '../index'
 
 import * as Types from '../../common'
 
@@ -17,7 +17,7 @@ export const Msgs = {
         )
 
         return [msg]
-    }
+    },
 }
 
 export default class Bank extends TransactionApi {
