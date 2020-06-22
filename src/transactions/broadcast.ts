@@ -34,6 +34,10 @@ export default class Broadcast {
         return this._signer
     }
 
+    get query(): Query {
+        return this._query
+    }
+
     safeBroadcast(signers: string[], makeTxFunc: Function): TransactionEvents {
         const txEvents = new TransactionEvents()
 

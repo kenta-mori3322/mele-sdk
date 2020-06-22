@@ -1,7 +1,6 @@
 import Query from './query'
 import { DefaultSigner, Signer } from './signer'
 import Broadcast from './transactions/broadcast'
-import { Encoder } from './transactions/encoder'
 
 import * as Types from './common'
 
