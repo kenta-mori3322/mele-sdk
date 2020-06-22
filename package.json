@@ -13,7 +13,8 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "tslint": "tslint -c tslint.json --project tsconfig.json --fix",
-    "test": "mocha"
+    "test": "mocha",
+    "api-docs": "npx typedoc --out docs src"
   },
   "repository": {
     "type": "git",
@@ -38,6 +39,7 @@
     "sha.js": "^2.4.11"
   },
   "devDependencies": {
+    "documentation": "^13.0.1",
     "mocha": "^8.0.1",
     "prettier": "^2.0.5",
     "rollup": "^0.59.1",
@@ -50,6 +52,7 @@
     "tslint": "^6.1.2",
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.3.0",
+    "typedoc": "^0.17.7",
     "typescript": "^2.9.1"
   }
 }
