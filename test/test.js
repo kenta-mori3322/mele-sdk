@@ -1,19 +1,24 @@
-const { Mele, Utils, KeyPairSigner, MnemonicSigner } = require('../lib/mele-sdk.cjs.js')
+const {
+    Mele,
+    Utils,
+    KeyPairSigner,
+    MnemonicSigner,
+} = require('../lib/mele-sdk.cjs.js')
 const assert = require('assert')
 const bip39 = require('bip39')
-
 
 const mele = new Mele({
     nodeUrl: 'http://localhost:26657/',
     chainId: 'test',
-    signer: new KeyPairSigner('7238378070a5168733402d838033d7c9faa576ad906fcfd6693ed365f0ae0d16')
+    signer: new KeyPairSigner(
+        '7238378070a5168733402d838033d7c9faa576ad906fcfd6693ed365f0ae0d16'
+    ),
 })
 
 describe('Mele Blockchain', function() {
     this.timeout(0)
 
     describe('Wallet', () => {
-
         it('New wallet can be generated', () => {
             const keyPair = Utils.generateKeyPair()
 
@@ -80,14 +85,11 @@ describe('Mele Blockchain', function() {
                 keyPairFromSeed.publicKey
             )
         })
-
     })
 
     describe('Utils', () => {
         it('Block data can be fetched for given height', async () => {
             const block = await mele.query.getBlock(2)
-
-            console.log(JSON.stringify(block, null, 4))
 
             assert.ok(block)
             assert.ok(block.block)
@@ -98,35 +100,40 @@ describe('Mele Blockchain', function() {
         it('Status can be fetched', async () => {
             const status = await mele.query.getStatus()
 
-            console.log(JSON.stringify(status, null, 4))
-
             assert.ok(status)
-            assert.ok(status.node_info)    
+            assert.ok(status.node_info)
         })
     })
 
     describe('Tests with an accounts', () => {
         let txHash
 
-        const accountB = new MnemonicSigner('toss sense candy point cost rookie jealous snow ankle electric sauce forward oblige tourist stairs horror grunt tenant afford master violin final genre reason')      
+        const accountB = new MnemonicSigner(
+            'toss sense candy point cost rookie jealous snow ankle electric sauce forward oblige tourist stairs horror grunt tenant afford master violin final genre reason'
+        )
 
         describe('Bank', () => {
             it('Users can transfer funds', async () => {
                 const amount = 100
 
-                const acc1 = await mele.query.getAccountInfo(mele.signer.getAddress())
-                const acc2 = await mele.query.getAccountInfo(accountB.getAddress())
+                const acc1 = await mele.query.getAccountInfo(
+                    mele.signer.getAddress()
+                )
+                const acc2 = await mele.query.getAccountInfo(
+                    accountB.getAddress()
+                )
 
                 assert.ok(acc1)
                 assert.ok(acc2)
 
-                console.log(JSON.stringify(acc1, null, 4))
-                console.log(JSON.stringify(acc2, null, 4))
-
                 assert.ok(acc1.value)
                 assert.ok(acc2.value)
 
-                const txEvents = mele.transfer(accountB.getAddress(), [{denom: 'umele', amount: String(amount)}]).sendTransaction()
+                const txEvents = mele
+                    .transfer(accountB.getAddress(), [
+                        { denom: 'umele', amount: String(amount) },
+                    ])
+                    .sendTransaction()
 
                 assert.ok(txEvents)
                 const txPromise = new Promise((resolve, reject) => {
@@ -138,7 +145,6 @@ describe('Mele Blockchain', function() {
                             assert.ok(receipt)
                         })
                         .on('confirmation', confirmation => {
-                            console.log(confirmation)
                             assert.ok(confirmation)
 
                             resolve(confirmation)
@@ -156,20 +162,27 @@ describe('Mele Blockchain', function() {
                 assert.ok(tx.tx_result.code === 0)
                 assert.ok(tx.height)
 
-                const newAcc1 = await mele.query.getAccountInfo(mele.signer.getAddress())
-                const newAcc2 = await mele.query.getAccountInfo(accountB.getAddress())   
+                const newAcc1 = await mele.query.getAccountInfo(
+                    mele.signer.getAddress()
+                )
+                const newAcc2 = await mele.query.getAccountInfo(
+                    accountB.getAddress()
+                )
 
                 assert.ok(newAcc1)
-                assert.ok(newAcc2)      
-
-                console.log(JSON.stringify(newAcc1, null, 4))
-                console.log(JSON.stringify(newAcc2, null, 4))
+                assert.ok(newAcc2)
 
                 assert.ok(newAcc1.value)
-                assert.ok(Number(newAcc1.value.coins[0].amount) === (Number(acc1.value.coins[0].amount) - amount))    
+                assert.ok(
+                    Number(newAcc1.value.coins[0].amount) ===
+                        Number(acc1.value.coins[0].amount) - amount
+                )
 
                 assert.ok(newAcc2.value)
-                assert.ok(Number(newAcc2.value.coins[0].amount) === (Number(acc2.value.coins[0].amount) + amount))
+                assert.ok(
+                    Number(newAcc2.value.coins[0].amount) ===
+                        Number(acc2.value.coins[0].amount) + amount
+                )
 
                 txHash = tx.hash
             })
@@ -177,9 +190,9 @@ describe('Mele Blockchain', function() {
 
         describe('Query', () => {
             it('Account info can be fetched', async () => {
-                const acc = await mele.query.getAccountInfo(mele.signer.getAddress())
-
-                console.log(acc)
+                const acc = await mele.query.getAccountInfo(
+                    mele.signer.getAddress()
+                )
 
                 assert.ok(acc)
             })
@@ -187,18 +200,8 @@ describe('Mele Blockchain', function() {
             it('Transaction info can be fetched', async () => {
                 const transaction = await mele.query.getTx(txHash)
 
-                console.log(JSON.stringify(transaction, null, 4))
-
                 assert.ok(transaction)
             })
         })
-
     })
-
 })
-
-const delay = (ms = 1000) => {
-    return new Promise((resolve, reject) => {
-        setTimeout(resolve, ms)
-    })
-}

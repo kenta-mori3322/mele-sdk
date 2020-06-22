@@ -1,4 +1,8 @@
-const { Utils } = require('../lib/mele-sdk.cjs.js')
+const {
+    Utils,
+    KeyPairSigner,
+    MnemonicSigner,
+} = require('../lib/mele-sdk.cjs.js')
 const chalk = require('chalk')
 
 /* Step 1
@@ -6,7 +10,7 @@ const chalk = require('chalk')
 */
 console.log(chalk.cyan('1. New wallet generation'))
 const keyPair = Utils.generateKeyPair()
-const address = Utils.getAddressFromPublicKey(keyPair.publicKey)
+const address = new KeyPairSigner(keyPair.privateKey).getAddress()
 
 console.log(chalk.green('Wallet 1:'))
 console.log(chalk.white(JSON.stringify({ keyPair, address }, null, 4)))
@@ -20,9 +24,12 @@ const mnemonic = Utils.generateMnemonic()
 
 console.log(chalk.green('Mnemonic:'), chalk.white(mnemonic))
 
-const masterKey = Utils.deriveMasterKey(mnemonic)
-const keyPair2 = Utils.deriveKeyPairFromAccountAndIndex(masterKey)
-const address2 = Utils.getAddressFromPublicKey(keyPair2.publicKey)
+const signer = new MnemonicSigner(mnemonic)
+const address2 = signer.getAddress()
+const keyPair2 = {
+    privateKey: signer.getPrivateKey(),
+    publicKey: signer.getPublicKey(),
+}
 
 console.log(chalk.green('Wallet 2:'))
 console.log(chalk.white(JSON.stringify({ keyPair2, address2 }, null, 4)))
