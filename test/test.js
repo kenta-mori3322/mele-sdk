@@ -129,7 +129,7 @@ describe('Mele Blockchain', function() {
                 assert.ok(acc1.value)
                 assert.ok(acc2.value)
 
-                const txEvents = mele
+                const txEvents = mele.bank
                     .transfer(accountB.getAddress(), [
                         { denom: 'umele', amount: String(amount) },
                     ])

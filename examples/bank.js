@@ -33,7 +33,7 @@ const recAddress = 'mele1c7nn5mt43m37t0zmqwh6rslrgcr3gd4pxqutpj'
        Transfer 100umele from account 1 to account 2
     */
     console.log(chalk.cyan('2. Transfer 100umele from account 1 to account 2'))
-    const txEvents = await mele
+    const txEvents = await mele.bank
         .transfer(recAddress, [{ denom: 'umele', amount: '100' }])
         .sendTransaction()
     console.log(
