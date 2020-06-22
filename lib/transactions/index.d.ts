@@ -1,5 +1,5 @@
-import { TransactionEvents } from './events';
 import Broadcast from './broadcast';
+import { TransactionEvents } from './events';
 export declare class Transaction {
     private _msgs;
     private _sendTransaction;

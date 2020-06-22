@@ -1,4 +1,4 @@
-import { TransactionApi, Transaction } from '../index';
+import { Transaction, TransactionApi } from '../index';
 import * as Types from '../../common';
 export declare const Msgs: {
     makeTransferMsg(fromAddress: string, toAddress: string, amount: Types.SDKCoin[]): any[];
