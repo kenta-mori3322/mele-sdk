@@ -1,7 +1,7 @@
 import Query from '../query';
+import { Signer } from '../signer';
 import { ITransport } from '../transport';
 import { TransactionEvents } from './events';
-import { Signer } from '../signer';
 interface Options {
     txConfirmInterval: number;
     txConfirmTries: number;
@@ -14,6 +14,7 @@ export default class Broadcast {
     private _options;
     private _signer;
     constructor(transport: ITransport, query: Query, signer: Signer, opts: Options);
+    readonly signer: Signer;
     safeBroadcast(signers: string[], makeTxFunc: Function): TransactionEvents;
     sendTransaction(msgs: any[]): TransactionEvents;
 }

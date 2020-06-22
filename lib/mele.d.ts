@@ -1,7 +1,6 @@
 import Query from './query';
 import { Signer } from './signer';
-import * as Types from './common';
-import { Transaction } from './transactions';
+import Bank from './transactions/bank';
 export interface Options {
     nodeUrl: string;
     chainId?: string;
@@ -20,8 +19,9 @@ export declare class Mele {
     private _signer;
     private _chainId;
     private _maxFeeInCoin;
+    private _bank;
     constructor(opt: Options);
     readonly query: Query;
     readonly signer: Signer;
-    transfer(toAddress: string, amount: Types.SDKCoin[]): Transaction;
+    readonly bank: Bank;
 }
