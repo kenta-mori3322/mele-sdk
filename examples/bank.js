@@ -1,4 +1,4 @@
-const { Mele, Utils, MnemonicSigner } = require('../lib/mele-sdk.cjs.js')
+const { Mele, MnemonicSigner } = require('../lib/mele-sdk.cjs.js')
 const chalk = require('chalk')
 
 const mnemonic =
@@ -44,6 +44,18 @@ const recAddress = 'mele1c7nn5mt43m37t0zmqwh6rslrgcr3gd4pxqutpj'
         return console.log(
             chalk.red('Error while relaying the transaction.', err)
         )
+    })
+
+    txEvents.on('hash', hash => {
+        console.log(
+            chalk.cyan('Received tx hash'),
+            chalk.green(hash)
+        )
+    })
+
+    txEvents.on('receipt', receipt => {
+        console.log(chalk.green('Receipt:'))
+        console.log(chalk.white(JSON.stringify(receipt, null, 4)))
     })
 
     txEvents.on('confirmation', async confirmation => {
