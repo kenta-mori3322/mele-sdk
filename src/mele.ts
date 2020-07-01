@@ -13,6 +13,8 @@ import { TransactionEvents } from './transactions/events'
 
 import Bank from './transactions/bank'
 
+import Indexer from './indexer'
+
 export interface Options {
     nodeUrl: string
     chainId?: string
@@ -22,6 +24,7 @@ export interface Options {
     txConfirmInterval?: number
     maxFeeInCoin?: number
     signer?: Signer
+    indexerEndpoint?: string
 }
 
 export class Mele {
@@ -32,6 +35,7 @@ export class Mele {
     private _signer: Signer
     private _chainId: string
     private _maxFeeInCoin: number
+    private _indexer: Indexer
 
     private _bank: Bank
 
@@ -56,6 +60,10 @@ export class Mele {
         })
 
         this._bank = new Bank(this._broadcast)
+
+        this._indexer = new Indexer({
+            endpoint: opt.indexerEndpoint || 'http://localhost:3100/api/v1',
+        })
     }
 
     get query(): Query {
@@ -68,5 +76,9 @@ export class Mele {
 
     get bank(): Bank {
         return this._bank
+    }
+
+    get indexer(): Indexer {
+        return this._indexer
     }
 }
