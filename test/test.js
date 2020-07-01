@@ -131,7 +131,7 @@ describe('Mele Blockchain', function() {
 
                 const txEvents = mele.bank
                     .transfer(accountB.getAddress(), [
-                        { denom: 'umele', amount: String(amount) },
+                        { denom: 'umlc', amount: String(amount) },
                     ])
                     .sendTransaction()
 
