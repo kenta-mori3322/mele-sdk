@@ -2,6 +2,8 @@ import * as Types from '../common'
 import { ITransport } from '../transport'
 import { ResultBlock, ResultStatus, ResultTx } from '../transport/rpc'
 
+import StakingQuery from './staking'
+
 namespace Keys {
     export const Query = {
         AuthModuleQueryPath: 'acc',
@@ -18,9 +20,16 @@ namespace Keys {
 
 export default class Query {
     private _transport: ITransport
+    private _staking: StakingQuery
 
     constructor(transport: ITransport) {
         this._transport = transport
+
+        this._staking = new StakingQuery(this._transport)
+    }
+
+    get staking(): StakingQuery {
+        return this._staking
     }
 
     /**

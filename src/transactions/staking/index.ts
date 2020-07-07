@@ -117,6 +117,25 @@ export const Msgs = {
  */
 
 export default class Staking extends TransactionApi {
+    /**
+     * mele.staking.**createValidator**
+     *
+     * Create a new validator.
+     *
+     * @param {Description} description - Validator description
+     * @param {Commission} commission - Validator commission information
+     * @param {string} minSelfDelegation - Minimum self delegation
+     * @param {string} validator - Validator address
+     * @param {string} pubkey - Validator public key
+     * @param {SDKCoin} value - Amount of tokens to delegate
+     *
+     * @memberof mele.staking
+     * @inner
+     *
+     * @name CreateValidator
+     *
+     * @returns {Transaction} transaction - Transaction class instance.
+     */
     createValidator(
         description: Types.Description,
         commission: Types.Commission,
@@ -130,7 +149,7 @@ export default class Staking extends TransactionApi {
             description,
             commission,
             minSelfDelegation,
-            delegator,
+            this.broadcast.signer.getAddress(),
             validator,
             pubkey,
             value
@@ -139,6 +158,23 @@ export default class Staking extends TransactionApi {
         return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
     }
 
+    /**
+     * mele.staking.**editValidator**
+     *
+     * Edit validator description, commission rate and minimum self delegation.
+     *
+     * @param {Description} description - Validator description
+     * @param {string} address - Validator address
+     * @param {string} commissionRate - New commission rate
+     * @param {string} minSelfDelegation - New minimum self delegation
+     *
+     * @memberof mele.staking
+     * @inner
+     *
+     * @name EditValidator
+     *
+     * @returns {Transaction} transaction - Transaction class instance.
+     */
     editValidator(
         description: Types.Description,
         address: string,
@@ -155,18 +191,64 @@ export default class Staking extends TransactionApi {
         return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
     }
 
+    /**
+     * mele.staking.**delegate**
+     *
+     * Delegate an arbitrary amount of tokens to the receiving validator.
+     *
+     * @param {string} validator - Receiving validator address
+     * @param {SDKCoin} amount - Amount of tokens to delegate
+     *
+     * @memberof mele.staking
+     * @inner
+     *
+     * @name Delegate
+     *
+     * @returns {Transaction} transaction - Transaction class instance.
+     */
     delegate(validator: string, amount: Types.SDKCoin): Transaction {
         const msgs = Msgs.makeDelegateMsg(this.broadcast.signer.getAddress(), validator, amount)
 
         return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
     }
 
+    /**
+     * mele.staking.**undelegate**
+     *
+     * Undelegate an arbitrary amount of tokens from the validator.
+     *
+     * @param {string} validator - Validator address
+     * @param {SDKCoin} amount - Amount of tokens to undelegate
+     *
+     * @memberof mele.staking
+     * @inner
+     *
+     * @name Undelegate
+     *
+     * @returns {Transaction} transaction - Transaction class instance.
+     */
     undelegate(validator: string, amount: Types.SDKCoin): Transaction {
         const msgs = Msgs.makeUndelegateMsg(this.broadcast.signer.getAddress(), validator, amount)
 
         return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
     }
 
+    /**
+     * mele.staking.**beginRedelegate**
+     *
+     * Redelegate an arbitrary amount of tokens to the one validator to another validator.
+     *
+     * @param {string} srcValidator - Source validator address
+     * @param {string} dstValidator - Destination validator address
+     * @param {SDKCoin} amount - Amount of tokens to redelegate
+     *
+     * @memberof mele.staking
+     * @inner
+     *
+     * @name BeginRedelegate
+     *
+     * @returns {Transaction} transaction - Transaction class instance.
+     */
     beginRedelegate(
         srcValidator: string,
         dstValidator: string,
