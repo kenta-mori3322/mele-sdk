@@ -26,3 +26,17 @@ export interface AccountDetail {
     account_number: number
     sequence: number
 }
+
+export interface Description {
+    moniker: string
+    identity: string
+    website: string
+    securityContact: string
+    details: string
+}
+
+export interface Commission {
+    rate: string
+    maxRate: string
+    maxChangeRate: string
+}
