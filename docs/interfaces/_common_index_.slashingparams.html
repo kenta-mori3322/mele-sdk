@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>AccSignInfo | mele-sdk</title>
+	<title>SlashingParams | mele-sdk</title>
 	<meta name="description" content="Documentation for mele-sdk">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -59,10 +59,10 @@
 					<a href="../modules/_common_index_.html">&quot;common/index&quot;</a>
 				</li>
 				<li>
-					<a href="_common_index_.accsigninfo.html">AccSignInfo</a>
+					<a href="_common_index_.slashingparams.html">SlashingParams</a>
 				</li>
 			</ul>
-			<h1>Interface AccSignInfo</h1>
+			<h1>Interface SlashingParams</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">AccSignInfo</span>
+						<span class="target">SlashingParams</span>
 					</li>
 				</ul>
 			</section>
@@ -84,9 +84,11 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_common_index_.accsigninfo.html#accountnumber" class="tsd-kind-icon">account<wbr>Number</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_common_index_.accsigninfo.html#address" class="tsd-kind-icon">address</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_common_index_.accsigninfo.html#sequence" class="tsd-kind-icon">sequence</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_common_index_.slashingparams.html#downtime_jail_duration" class="tsd-kind-icon">downtime_<wbr>jail_<wbr>duration</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_common_index_.slashingparams.html#min_signed_per_window" class="tsd-kind-icon">min_<wbr>signed_<wbr>per_<wbr>window</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_common_index_.slashingparams.html#signed_blocks_window" class="tsd-kind-icon">signed_<wbr>blocks_<wbr>window</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_common_index_.slashingparams.html#slash_fraction_double_sign" class="tsd-kind-icon">slash_<wbr>fraction_<wbr>double_<wbr>sign</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_common_index_.slashingparams.html#slash_fraction_downtime" class="tsd-kind-icon">slash_<wbr>fraction_<wbr>downtime</a></li>
 							</ul>
 						</section>
 					</div>
@@ -95,32 +97,52 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="accountnumber" class="tsd-anchor"></a>
-					<h3>account<wbr>Number</h3>
-					<div class="tsd-signature tsd-kind-icon">account<wbr>Number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="downtime_jail_duration" class="tsd-anchor"></a>
+					<h3>downtime_<wbr>jail_<wbr>duration</h3>
+					<div class="tsd-signature tsd-kind-icon">downtime_<wbr>jail_<wbr>duration<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melegold/mele-sdk/blob/495e928/src/common/index.ts#L13">mele/mele-sdk/src/common/index.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/melegold/mele-sdk/blob/495e928/src/common/index.ts#L150">mele/mele-sdk/src/common/index.ts:150</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="address" class="tsd-anchor"></a>
-					<h3>address</h3>
-					<div class="tsd-signature tsd-kind-icon">address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="min_signed_per_window" class="tsd-anchor"></a>
+					<h3>min_<wbr>signed_<wbr>per_<wbr>window</h3>
+					<div class="tsd-signature tsd-kind-icon">min_<wbr>signed_<wbr>per_<wbr>window<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melegold/mele-sdk/blob/495e928/src/common/index.ts#L12">mele/mele-sdk/src/common/index.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/melegold/mele-sdk/blob/495e928/src/common/index.ts#L149">mele/mele-sdk/src/common/index.ts:149</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="sequence" class="tsd-anchor"></a>
-					<h3>sequence</h3>
-					<div class="tsd-signature tsd-kind-icon">sequence<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="signed_blocks_window" class="tsd-anchor"></a>
+					<h3>signed_<wbr>blocks_<wbr>window</h3>
+					<div class="tsd-signature tsd-kind-icon">signed_<wbr>blocks_<wbr>window<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melegold/mele-sdk/blob/495e928/src/common/index.ts#L14">mele/mele-sdk/src/common/index.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/melegold/mele-sdk/blob/495e928/src/common/index.ts#L148">mele/mele-sdk/src/common/index.ts:148</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="slash_fraction_double_sign" class="tsd-anchor"></a>
+					<h3>slash_<wbr>fraction_<wbr>double_<wbr>sign</h3>
+					<div class="tsd-signature tsd-kind-icon">slash_<wbr>fraction_<wbr>double_<wbr>sign<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/melegold/mele-sdk/blob/495e928/src/common/index.ts#L151">mele/mele-sdk/src/common/index.ts:151</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="slash_fraction_downtime" class="tsd-anchor"></a>
+					<h3>slash_<wbr>fraction_<wbr>downtime</h3>
+					<div class="tsd-signature tsd-kind-icon">slash_<wbr>fraction_<wbr>downtime<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/melegold/mele-sdk/blob/495e928/src/common/index.ts#L152">mele/mele-sdk/src/common/index.ts:152</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -151,24 +173,9 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_common_index_.abciversion.html" class="tsd-kind-icon">ABCIVersion</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_common_index_.accsigninfo.html" class="tsd-kind-icon">Acc<wbr>Sign<wbr>Info</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_common_index_.accsigninfo.html#accountnumber" class="tsd-kind-icon">account<wbr>Number</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_common_index_.accsigninfo.html#address" class="tsd-kind-icon">address</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_common_index_.accsigninfo.html#sequence" class="tsd-kind-icon">sequence</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_common_index_.account.html" class="tsd-kind-icon">Account</a>
 					</li>
@@ -205,9 +212,30 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_common_index_.signinginfo.html" class="tsd-kind-icon">Signing<wbr>Info</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-module">
 						<a href="_common_index_.slashingparams.html" class="tsd-kind-icon">Slashing<wbr>Params</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_common_index_.slashingparams.html#downtime_jail_duration" class="tsd-kind-icon">downtime_<wbr>jail_<wbr>duration</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_common_index_.slashingparams.html#min_signed_per_window" class="tsd-kind-icon">min_<wbr>signed_<wbr>per_<wbr>window</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_common_index_.slashingparams.html#signed_blocks_window" class="tsd-kind-icon">signed_<wbr>blocks_<wbr>window</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_common_index_.slashingparams.html#slash_fraction_double_sign" class="tsd-kind-icon">slash_<wbr>fraction_<wbr>double_<wbr>sign</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_common_index_.slashingparams.html#slash_fraction_downtime" class="tsd-kind-icon">slash_<wbr>fraction_<wbr>downtime</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_common_index_.stakingparams.html" class="tsd-kind-icon">Staking<wbr>Params</a>
 					</li>

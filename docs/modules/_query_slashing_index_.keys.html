@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>KeyPair | mele-sdk</title>
+	<title>Keys | mele-sdk</title>
 	<meta name="description" content="Documentation for mele-sdk">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,62 +56,83 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_utils_index_.html">&quot;utils/index&quot;</a>
+					<a href="_query_slashing_index_.html">&quot;query/slashing/index&quot;</a>
 				</li>
 				<li>
-					<a href="_utils_index_.keypair.html">KeyPair</a>
+					<a href="_query_slashing_index_.keys.html">Keys</a>
 				</li>
 			</ul>
-			<h1>Interface KeyPair</h1>
+			<h1>Namespace Keys</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-hierarchy">
-				<h3>Hierarchy</h3>
-				<ul class="tsd-hierarchy">
-					<li>
-						<span class="target">KeyPair</span>
-					</li>
-				</ul>
-			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Properties</h3>
+							<h3>Object literals</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_utils_index_.keypair.html#privatekey" class="tsd-kind-icon">private<wbr>Key</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_utils_index_.keypair.html#publickey" class="tsd-kind-icon">public<wbr>Key</a></li>
+								<li class="tsd-kind-object-literal tsd-parent-kind-namespace"><a href="_query_slashing_index_.keys.html#query" class="tsd-kind-icon">Query</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="privatekey" class="tsd-anchor"></a>
-					<h3>private<wbr>Key</h3>
-					<div class="tsd-signature tsd-kind-icon">private<wbr>Key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+				<h2>Object literals</h2>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-namespace">
+					<a name="query" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> Query</h3>
+					<div class="tsd-signature tsd-kind-icon">Query<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melegold/mele-sdk/blob/495e928/src/utils/index.ts#L15">mele/mele-sdk/src/utils/index.ts:15</a></li>
+							<li>Defined in mele/mele-sdk/src/query/slashing/index.ts:5</li>
 						</ul>
 					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="publickey" class="tsd-anchor"></a>
-					<h3>public<wbr>Key</h3>
-					<div class="tsd-signature tsd-kind-icon">public<wbr>Key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/melegold/mele-sdk/blob/495e928/src/utils/index.ts#L16">mele/mele-sdk/src/utils/index.ts:16</a></li>
-						</ul>
-					</aside>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="query.parameterspath" class="tsd-anchor"></a>
+						<h3>Parameters<wbr>Path</h3>
+						<div class="tsd-signature tsd-kind-icon">Parameters<wbr>Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;parameters&quot;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in mele/mele-sdk/src/query/slashing/index.ts:8</li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="query.querypath" class="tsd-anchor"></a>
+						<h3>Query<wbr>Path</h3>
+						<div class="tsd-signature tsd-kind-icon">Query<wbr>Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;slashing&quot;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in mele/mele-sdk/src/query/slashing/index.ts:6</li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="query.signinginfopath" class="tsd-anchor"></a>
+						<h3>Signing<wbr>Info<wbr>Path</h3>
+						<div class="tsd-signature tsd-kind-icon">Signing<wbr>Info<wbr>Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;signingInfo&quot;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in mele/mele-sdk/src/query/slashing/index.ts:9</li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="query.signinginfospath" class="tsd-anchor"></a>
+						<h3>Signing<wbr>Infos<wbr>Path</h3>
+						<div class="tsd-signature tsd-kind-icon">Signing<wbr>Infos<wbr>Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;signingInfos&quot;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in mele/mele-sdk/src/query/slashing/index.ts:10</li>
+							</ul>
+						</aside>
+					</section>
 				</section>
 			</section>
 		</div>
@@ -122,56 +143,19 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="../modules/_utils_index_.html">&quot;utils/index&quot;</a>
+						<a href="_query_slashing_index_.html">&quot;query/slashing/index&quot;</a>
+						<ul>
+							<li class="current tsd-kind-namespace tsd-parent-kind-module tsd-is-not-exported">
+								<a href="_query_slashing_index_.keys.html">Keys</a>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="_utils_index_.keypair.html" class="tsd-kind-icon">Key<wbr>Pair</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_utils_index_.keypair.html#privatekey" class="tsd-kind-icon">private<wbr>Key</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_utils_index_.keypair.html#publickey" class="tsd-kind-icon">public<wbr>Key</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-				<ul class="after-current">
-					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../modules/_utils_index_.html#ec" class="tsd-kind-icon">ec</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="../modules/_utils_index_.html#derivekeypair" class="tsd-kind-icon">derive<wbr>Key<wbr>Pair</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="../modules/_utils_index_.html#derivekeypairfromaccountandindex" class="tsd-kind-icon">derive<wbr>Key<wbr>Pair<wbr>From<wbr>Account<wbr>And<wbr>Index</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="../modules/_utils_index_.html#derivemasterkey" class="tsd-kind-icon">derive<wbr>Master<wbr>Key</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="../modules/_utils_index_.html#derivemasterkeyfromseed" class="tsd-kind-icon">derive<wbr>Master<wbr>Key<wbr>From<wbr>Seed</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="../modules/_utils_index_.html#generatekeypair" class="tsd-kind-icon">generate<wbr>Key<wbr>Pair</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="../modules/_utils_index_.html#generatemnemonic" class="tsd-kind-icon">generate<wbr>Mnemonic</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="../modules/_utils_index_.html#getaddressfrompublickey" class="tsd-kind-icon">get<wbr>Address<wbr>From<wbr>Public<wbr>Key</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="../modules/_utils_index_.html#getpublickeyfromprivatekey" class="tsd-kind-icon">get<wbr>Public<wbr>Key<wbr>From<wbr>Private<wbr>Key</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="../modules/_utils_index_.html#validatepublickey" class="tsd-kind-icon">validate<wbr>Public<wbr>Key</a>
+					<li class=" tsd-kind-object-literal tsd-parent-kind-namespace">
+						<a href="_query_slashing_index_.keys.html#query" class="tsd-kind-icon">Query</a>
 					</li>
 				</ul>
 			</nav>
@@ -193,7 +177,6 @@
 			<ul class="tsd-legend">
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
 				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
