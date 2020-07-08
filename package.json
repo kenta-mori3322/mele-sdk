@@ -14,18 +14,18 @@
     "dev": "rollup -c -w",
     "tslint": "tslint -c tslint.json --project tsconfig.json --fix",
     "test": "mocha",
-    "api-docs": "npx typedoc --out docs src"
+    "api-docs": "typedoc --out docs src"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/melegold/mele-sdk.git"
+    "url": "git+https://github.com/melechain/mele-sdk.git"
   },
-  "author": "Vidor Gencel <vidorge@gmail.com>",
+  "author": "Vidor Gencel <vidorge@gmail.com>, Andrej Budincevic <andrew@hotmail.rs>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/melegold/mele-sdk/issues"
+    "url": "https://github.com/melechain/mele-sdk/issues"
   },
-  "homepage": "https://github.com/melegold/mele-sdk#readme",
+  "homepage": "https://github.com/melechain/mele-sdk#readme",
   "dependencies": {
     "bech32": "^1.1.4",
     "bip32": "^2.0.5",
@@ -54,6 +54,6 @@
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.3.0",
     "typedoc": "^0.17.7",
-    "typescript": "^2.9.1"
+    "typescript": "^2.9.2"
   }
 }
