@@ -33,7 +33,7 @@ export default class Query {
     }
 
     /**
-     * mele.query.**getBlock(<height>)**
+     * mele.query.**getBlock**
      *
      * Fetch block data at given height.
      *
@@ -51,7 +51,7 @@ export default class Query {
     }
 
     /**
-     * mele.query.**getStatus()**
+     * mele.query.**getStatus**
      *
      * Fetch current network status.
      *
@@ -67,7 +67,7 @@ export default class Query {
     }
 
     /**
-     * mele.query.**getTx(<hash>)**
+     * mele.query.**getTx**
      *
      * Fetch transaction by hash.
      *
@@ -85,7 +85,7 @@ export default class Query {
     }
 
     /**
-     * mele.query.**getAccountInfo(<address>)**
+     * mele.query.**getAccountInfo**
      *
      * Fetch account information by account address.
      *
@@ -111,7 +111,7 @@ export default class Query {
     }
 
     /**
-     * mele.query.**getAccSignInfo(<address>)**
+     * mele.query.**getAccSignInfo**
      *
      * Fetch account signing information by account address.
      *

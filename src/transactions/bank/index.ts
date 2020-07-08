@@ -29,7 +29,7 @@ export const Msgs = {
 
 export default class Bank extends TransactionApi {
     /**
-     * mele.bank.**transfer(<toAddress>, <amount>)**
+     * mele.bank.**transfer**
      *
      * Transfer an arbitrary amount of tokens to the receiving account.
      *

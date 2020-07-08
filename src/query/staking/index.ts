@@ -37,6 +37,18 @@ export default class StakingQuery {
         this._transport = transport
     }
 
+    /**
+     * mele.query.staking.**getValidators**
+     *
+     * Fetch all currently active validators.
+     *
+     * @memberof mele.query.staking
+     * @inner
+     *
+     * @name Validators
+     *
+     * @returns {[Validator]} validators - Validator array.
+     */
     getValidators(): Promise<Types.Validator[]> {
         const QueryPath = Keys.Query.QueryPath
         const ValidatorsPath = Keys.Query.ValidatorsPath
@@ -53,6 +65,20 @@ export default class StakingQuery {
         )
     }
 
+    /**
+     * mele.query.staking.**getValidator**
+     *
+     * Fetch a single validator.
+     *
+     * @param {string} address - Validator address
+     *
+     * @memberof mele.query.staking
+     * @inner
+     *
+     * @name Validator
+     *
+     * @returns {Validator} validator - Validator.
+     */
     getValidator(address: string): Promise<Types.Validator> {
         const QueryPath = Keys.Query.QueryPath
         const ValidatorPath = Keys.Query.ValidatorPath
@@ -65,6 +91,20 @@ export default class StakingQuery {
         )
     }
 
+    /**
+     * mele.query.staking.**getValidatorDelegations**
+     *
+     * Fetch all validator's delegations.
+     *
+     * @param {string} address - Validator address
+     *
+     * @memberof mele.query.staking
+     * @inner
+     *
+     * @name ValidatorDelegations
+     *
+     * @returns {[Delegation]} delegations - Delegations array.
+     */
     getValidatorDelegations(address: string): Promise<Types.Delegation[]> {
         const QueryPath = Keys.Query.QueryPath
         const ValidatorDelegationsPath = Keys.Query.ValidatorDelegationsPath
@@ -77,6 +117,20 @@ export default class StakingQuery {
         )
     }
 
+    /**
+     * mele.query.staking.**getValidatorUnbondingDelegations**
+     *
+     * Fetch all validator's unbonding delegations.
+     *
+     * @param {string} address - Validator address
+     *
+     * @memberof mele.query.staking
+     * @inner
+     *
+     * @name ValidatorUnbondingDelegations
+     *
+     * @returns {[Delegation]} delegations - Delegations array.
+     */
     getValidatorUnbondingDelegations(address: string): Promise<Types.Delegation[]> {
         const QueryPath = Keys.Query.QueryPath
         const ValidatorUnbondingDelegationsPath = Keys.Query.ValidatorUnbondingDelegationsPath
@@ -89,6 +143,21 @@ export default class StakingQuery {
         )
     }
 
+    /**
+     * mele.query.staking.**getDelegation**
+     *
+     * Fetch a single delegation.
+     *
+     * @param {string} delegatorAddress - Delegator address
+     * @param {string} validatorAddress - Validator address
+     *
+     * @memberof mele.query.staking
+     * @inner
+     *
+     * @name Delegation
+     *
+     * @returns {DelegationRes} delegation - Delegation.
+     */
     getDelegation(
         delegatorAddress: string,
         validatorAddress: string
@@ -104,6 +173,21 @@ export default class StakingQuery {
         )
     }
 
+    /**
+     * mele.query.staking.**getUnbondingDelegation**
+     *
+     * Fetch a single unbonding delegation.
+     *
+     * @param {string} delegatorAddress - Delegator address
+     * @param {string} validatorAddress - Validator address
+     *
+     * @memberof mele.query.staking
+     * @inner
+     *
+     * @name UnbondingDelegation
+     *
+     * @returns {UnbondingDelegation} unbondingDelegation - Unbonding delegation.
+     */
     getUnbondingDelegation(
         delegatorAddress: string,
         validatorAddress: string
@@ -119,6 +203,20 @@ export default class StakingQuery {
         )
     }
 
+    /**
+     * mele.query.staking.**getDelegatorDelegations**
+     *
+     * Fetch all delegator's delegations.
+     *
+     * @param {string} delegatorAddress - Delegator address
+     *
+     * @memberof mele.query.staking
+     * @inner
+     *
+     * @name DelegatorDelegations
+     *
+     * @returns {[Delegation]} delegations - Delegation array.
+     */
     getDelegatorDelegations(delegatorAddress: string): Promise<Types.Delegation[]> {
         const QueryPath = Keys.Query.QueryPath
         const DelegatorDelegationsPath = Keys.Query.DelegatorDelegationsPath
@@ -131,6 +229,20 @@ export default class StakingQuery {
         )
     }
 
+    /**
+     * mele.query.staking.**getDelegatorUnbondingDelegations**
+     *
+     * Fetch all delegator's unbonding delegations.
+     *
+     * @param {string} delegatorAddress - Delegator address
+     *
+     * @memberof mele.query.staking
+     * @inner
+     *
+     * @name DelegatorUnbondingDelegations
+     *
+     * @returns {[UnbondingDelegation]} unbondingDelegations - Unbonding delegations array.
+     */
     getDelegatorUnbondingDelegations(
         delegatorAddress: string
     ): Promise<Types.UnbondingDelegation[]> {
@@ -145,6 +257,22 @@ export default class StakingQuery {
         )
     }
 
+    /**
+     * mele.query.staking.**getRedelegations**
+     *
+     * Fetch all redelegations by the delegator from source validator to the destination validator.
+     *
+     * @param {string} delegatorAddress - Delegator address
+     * @param {string} srcValidatorAddress - Source validator address
+     * @param {string} dstValidatorAddress - Destination validator address
+     *
+     * @memberof mele.query.staking
+     * @inner
+     *
+     * @name Redelegations
+     *
+     * @returns {[Redelegation]} redelegations - Redelegations array.
+     */
     getRedelegations(
         delegatorAddress: string,
         srcValidatorAddress: string,
@@ -165,6 +293,20 @@ export default class StakingQuery {
         )
     }
 
+    /**
+     * mele.query.staking.**getDelegatorValidators**
+     *
+     * Fetch all validators that have delegations by the delegator.
+     *
+     * @param {string} delegatorAddress - Delegator address
+     *
+     * @memberof mele.query.staking
+     * @inner
+     *
+     * @name DelegatorValidators
+     *
+     * @returns {[Validator]} validators - Validators array.
+     */
     getDelegatorValidators(delegatorAddress: string): Promise<Types.Validator[]> {
         const QueryPath = Keys.Query.QueryPath
         const DelegatorValidatorsPath = Keys.Query.DelegatorValidatorsPath
@@ -177,6 +319,21 @@ export default class StakingQuery {
         )
     }
 
+    /**
+     * mele.query.staking.**getDelegatorValidator**
+     *
+     * Fetch a single validators that has delegations by the delegator.
+     *
+     * @param {string} delegatorAddress - Delegator address
+     * @param {string} validatorAddress - Validator address
+     *
+     * @memberof mele.query.staking
+     * @inner
+     *
+     * @name DelegatorValidator
+     *
+     * @returns {Validator} validator - Validator.
+     */
     getDelegatorValidator(
         delegatorAddress: string,
         validatorAddress: string
@@ -192,6 +349,20 @@ export default class StakingQuery {
         )
     }
 
+    /**
+     * mele.query.staking.**getHistoricalInfo**
+     *
+     * Fetch historical info at given height.
+     *
+     * @param {number} height - Block height
+     *
+     * @memberof mele.query.staking
+     * @inner
+     *
+     * @name HistoricalInfo
+     *
+     * @returns {HistoricalInfo} historicalInfo - Historical info.
+     */
     getHistoricalInfo(height: number): Promise<Types.HistoricalInfo> {
         const QueryPath = Keys.Query.QueryPath
         const HistoricalInfoPath = Keys.Query.HistoricalInfoPath
@@ -204,6 +375,18 @@ export default class StakingQuery {
         )
     }
 
+    /**
+     * mele.query.staking.**getParameters**
+     *
+     * Fetch staking module parameters.
+     *
+     * @memberof mele.query.staking
+     * @inner
+     *
+     * @name StakingParams
+     *
+     * @returns {StakingParams} stakingParams - Staking parameters.
+     */
     getParameters(): Promise<Types.StakingParams> {
         const QueryPath = Keys.Query.QueryPath
         const ParametersPath = Keys.Query.ParametersPath
@@ -211,6 +394,18 @@ export default class StakingQuery {
         return this._transport.query<Types.StakingParams>([], '', QueryPath, ParametersPath)
     }
 
+    /**
+     * mele.query.staking.**getPool**
+     *
+     * Fetch staking module pool.
+     *
+     * @memberof mele.query.staking
+     * @inner
+     *
+     * @name StakingPool
+     *
+     * @returns {StakingPool} stakingPool - Staking pool.
+     */
     getPool(): Promise<Types.StakingPool> {
         const QueryPath = Keys.Query.QueryPath
         const PoolPath = Keys.Query.PoolPath
