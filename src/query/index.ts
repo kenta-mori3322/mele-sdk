@@ -2,6 +2,7 @@ import * as Types from '../common'
 import { ITransport } from '../transport'
 import { ResultBlock, ResultStatus, ResultTx } from '../transport/rpc'
 
+import SlashingQuery from './slashing'
 import StakingQuery from './staking'
 
 namespace Keys {
@@ -21,15 +22,21 @@ namespace Keys {
 export default class Query {
     private _transport: ITransport
     private _staking: StakingQuery
+    private _slashing: SlashingQuery
 
     constructor(transport: ITransport) {
         this._transport = transport
 
         this._staking = new StakingQuery(this._transport)
+        this._slashing = new SlashingQuery(this._transport)
     }
 
     get staking(): StakingQuery {
         return this._staking
+    }
+
+    get slashing(): SlashingQuery {
+        return this._slashing
     }
 
     /**
