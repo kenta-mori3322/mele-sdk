@@ -2,6 +2,7 @@ import * as Types from '../common'
 import { ITransport } from '../transport'
 import { ResultBlock, ResultStatus, ResultTx } from '../transport/rpc'
 
+import DistributionQuery from './distribution'
 import SlashingQuery from './slashing'
 import StakingQuery from './staking'
 
@@ -23,12 +24,14 @@ export default class Query {
     private _transport: ITransport
     private _staking: StakingQuery
     private _slashing: SlashingQuery
+    private _distribution: DistributionQuery
 
     constructor(transport: ITransport) {
         this._transport = transport
 
         this._staking = new StakingQuery(this._transport)
         this._slashing = new SlashingQuery(this._transport)
+        this._distribution = new DistributionQuery(this._transport)
     }
 
     get staking(): StakingQuery {
@@ -37,6 +40,10 @@ export default class Query {
 
     get slashing(): SlashingQuery {
         return this._slashing
+    }
+
+    get distribution(): DistributionQuery {
+        return this._distribution
     }
 
     /**

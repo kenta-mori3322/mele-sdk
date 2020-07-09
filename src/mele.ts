@@ -12,6 +12,7 @@ import { Transaction } from './transactions'
 import { TransactionEvents } from './transactions/events'
 
 import Bank from './transactions/bank'
+import Distribution from './transactions/distribution'
 import Slashing from './transactions/slashing'
 import Staking from './transactions/staking'
 
@@ -42,6 +43,7 @@ export class Mele {
     private _bank: Bank
     private _staking: Staking
     private _slashing: Slashing
+    private _distribution: Distribution
 
     constructor(opt: Options) {
         this._options = opt
@@ -63,13 +65,14 @@ export class Mele {
             maxFeeInCoin: this._maxFeeInCoin,
         })
 
-        this._bank = new Bank(this._broadcast)
-        this._staking = new Staking(this._broadcast)
-        this._slashing = new Slashing(this._broadcast)
-
         this._indexer = new Indexer({
             endpoint: opt.indexerEndpoint || 'http://localhost:3100/api/v1',
         })
+
+        this._bank = new Bank(this._broadcast)
+        this._staking = new Staking(this._broadcast)
+        this._slashing = new Slashing(this._broadcast)
+        this._distribution = new Distribution(this._broadcast)
     }
 
     get query(): Query {
@@ -90,6 +93,10 @@ export class Mele {
 
     get slashing(): Slashing {
         return this._slashing
+    }
+
+    get distribution(): Distribution {
+        return this._distribution
     }
 
     get indexer(): Indexer {
