@@ -1,8 +1,9 @@
 import Query from './query';
 import { Signer } from './signer';
 import Bank from './transactions/bank';
-import Staking from './transactions/staking';
+import Distribution from './transactions/distribution';
 import Slashing from './transactions/slashing';
+import Staking from './transactions/staking';
 import Indexer from './indexer';
 export interface Options {
     nodeUrl: string;
@@ -27,11 +28,13 @@ export declare class Mele {
     private _bank;
     private _staking;
     private _slashing;
+    private _distribution;
     constructor(opt: Options);
     readonly query: Query;
     readonly signer: Signer;
     readonly bank: Bank;
     readonly staking: Staking;
     readonly slashing: Slashing;
+    readonly distribution: Distribution;
     readonly indexer: Indexer;
 }

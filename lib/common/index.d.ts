@@ -138,3 +138,21 @@ export interface SigningInfo {
     tombstoned: boolean;
     missed_blocks_counter: number;
 }
+export interface DistributionParams {
+    community_tax: string;
+    base_proposer_reward: string;
+    bonus_proposer_reward: string;
+    withdraw_addr_enabled: boolean;
+}
+export interface ValidatorSlashEvent {
+    validator_period: string;
+    fraction: string;
+}
+export interface DelegationDelegatorReward {
+    validator_address: string;
+    reward: SDKCoin[];
+}
+export interface DelegatorTotalRewardsRes {
+    rewards: DelegationDelegatorReward[];
+    total: SDKCoin[];
+}
