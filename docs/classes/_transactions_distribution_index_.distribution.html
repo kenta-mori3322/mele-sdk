@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Slashing | mele-sdk</title>
+	<title>Distribution | mele-sdk</title>
 	<meta name="description" content="Documentation for mele-sdk">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_transactions_slashing_index_.html">&quot;transactions/slashing/index&quot;</a>
+					<a href="../modules/_transactions_distribution_index_.html">&quot;transactions/distribution/index&quot;</a>
 				</li>
 				<li>
-					<a href="_transactions_slashing_index_.slashing.html">Slashing</a>
+					<a href="_transactions_distribution_index_.distribution.html">Distribution</a>
 				</li>
 			</ul>
-			<h1>Class Slashing</h1>
+			<h1>Class Distribution</h1>
 		</div>
 	</div>
 </header>
@@ -72,11 +72,11 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Slashing</p>
+						<p>Distribution</p>
 					</div>
 					<dl class="tsd-comment-tags">
 						<dt>namespace</dt>
-						<dd><p>mele.slashing</p>
+						<dd><p>mele.distribution</p>
 						</dd>
 						<dt>memberof</dt>
 						<dd><p>mele</p>
@@ -91,7 +91,7 @@
 						<a href="_transactions_index_.transactionapi.html" class="tsd-signature-type">TransactionApi</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">Slashing</span>
+								<span class="target">Distribution</span>
 							</li>
 						</ul>
 					</li>
@@ -104,19 +104,21 @@
 						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><a href="_transactions_slashing_index_.slashing.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><a href="_transactions_distribution_index_.distribution.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Accessors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited"><a href="_transactions_slashing_index_.slashing.html#broadcast" class="tsd-kind-icon">broadcast</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited"><a href="_transactions_distribution_index_.distribution.html#broadcast" class="tsd-kind-icon">broadcast</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_transactions_slashing_index_.slashing.html#unjail" class="tsd-kind-icon">unjail</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_transactions_distribution_index_.distribution.html#modifywithdrawaddress" class="tsd-kind-icon">modify<wbr>Withdraw<wbr>Address</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_transactions_distribution_index_.distribution.html#withdrawdelegationreward" class="tsd-kind-icon">withdraw<wbr>Delegation<wbr>Reward</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_transactions_distribution_index_.distribution.html#withdrawvalidatorcommission" class="tsd-kind-icon">withdraw<wbr>Validator<wbr>Commission</a></li>
 							</ul>
 						</section>
 					</div>
@@ -128,7 +130,7 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Slashing<span class="tsd-signature-symbol">(</span>broadcast<span class="tsd-signature-symbol">: </span><a href="_transactions_broadcast_.broadcast.html" class="tsd-signature-type">Broadcast</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_transactions_slashing_index_.slashing.html" class="tsd-signature-type">Slashing</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Distribution<span class="tsd-signature-symbol">(</span>broadcast<span class="tsd-signature-symbol">: </span><a href="_transactions_broadcast_.broadcast.html" class="tsd-signature-type">Broadcast</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_transactions_distribution_index_.distribution.html" class="tsd-signature-type">Distribution</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -144,7 +146,7 @@
 									<h5>broadcast: <a href="_transactions_broadcast_.broadcast.html" class="tsd-signature-type">Broadcast</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_transactions_slashing_index_.slashing.html" class="tsd-signature-type">Slashing</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_transactions_distribution_index_.distribution.html" class="tsd-signature-type">Distribution</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -173,38 +175,124 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="unjail" class="tsd-anchor"></a>
-					<h3>unjail</h3>
+					<a name="modifywithdrawaddress" class="tsd-anchor"></a>
+					<h3>modify<wbr>Withdraw<wbr>Address</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">unjail<span class="tsd-signature-symbol">(</span>address<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_transactions_index_.transaction.html" class="tsd-signature-type">Transaction</a></li>
+						<li class="tsd-signature tsd-kind-icon">modify<wbr>Withdraw<wbr>Address<span class="tsd-signature-symbol">(</span>withdrawAddress<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_transactions_index_.transaction.html" class="tsd-signature-type">Transaction</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melegold/mele-sdk/blob/3d48cd5/src/transactions/slashing/index.ts#L41">mele/mele-sdk/src/transactions/slashing/index.ts:41</a></li>
+									<li>Defined in mele/mele-sdk/src/transactions/distribution/index.ts:95</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>mele.slashing.<strong>unjail</strong></p>
+									<p>mele.distribution.<strong>modifyWithdrawAddress</strong></p>
 								</div>
-								<p>Unjail a jailed validator.</p>
+								<p>Modify delegator&#39;s withdraw address.</p>
 								<dl class="tsd-comment-tags">
 									<dt>memberof</dt>
-									<dd><p>mele.slashing</p>
+									<dd><p>mele.distribution</p>
 									</dd>
 									<dt>inner</dt>
 									<dd></dd>
 									<dt>name</dt>
-									<dd><p>Unjail</p>
+									<dd><p>ModifyWithdrawAddress</p>
 									</dd>
 								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>address: <span class="tsd-signature-type">string</span></h5>
+									<h5>withdrawAddress: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Withdraw address</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_transactions_index_.transaction.html" class="tsd-signature-type">Transaction</a></h4>
+							<p>transaction - Transaction class instance.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="withdrawdelegationreward" class="tsd-anchor"></a>
+					<h3>withdraw<wbr>Delegation<wbr>Reward</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">withdraw<wbr>Delegation<wbr>Reward<span class="tsd-signature-symbol">(</span>validator<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_transactions_index_.transaction.html" class="tsd-signature-type">Transaction</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in mele/mele-sdk/src/transactions/distribution/index.ts:52</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>mele.distribution.<strong>withdrawDelegationReward</strong></p>
+								</div>
+								<p>Withdraw delegator reward from given validator.</p>
+								<dl class="tsd-comment-tags">
+									<dt>memberof</dt>
+									<dd><p>mele.distribution</p>
+									</dd>
+									<dt>inner</dt>
+									<dd></dd>
+									<dt>name</dt>
+									<dd><p>WithdrawDelegationReward</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>validator: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Validator address</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_transactions_index_.transaction.html" class="tsd-signature-type">Transaction</a></h4>
+							<p>transaction - Transaction class instance.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="withdrawvalidatorcommission" class="tsd-anchor"></a>
+					<h3>withdraw<wbr>Validator<wbr>Commission</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">withdraw<wbr>Validator<wbr>Commission<span class="tsd-signature-symbol">(</span>validator<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_transactions_index_.transaction.html" class="tsd-signature-type">Transaction</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in mele/mele-sdk/src/transactions/distribution/index.ts:75</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>mele.distribution.<strong>withdrawValidatorCommission</strong></p>
+								</div>
+								<p>Withdraw validator commission.</p>
+								<dl class="tsd-comment-tags">
+									<dt>memberof</dt>
+									<dd><p>mele.distribution</p>
+									</dd>
+									<dt>inner</dt>
+									<dd></dd>
+									<dt>name</dt>
+									<dd><p>WithdrawValidatorCommission</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>validator: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Validator address</p>
 									</div>
@@ -224,7 +312,7 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="../modules/_transactions_slashing_index_.html">&quot;transactions/slashing/index&quot;</a>
+						<a href="../modules/_transactions_distribution_index_.html">&quot;transactions/distribution/index&quot;</a>
 					</li>
 				</ul>
 			</nav>
@@ -233,26 +321,32 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-module">
-						<a href="_transactions_slashing_index_.slashing.html" class="tsd-kind-icon">Slashing</a>
+						<a href="_transactions_distribution_index_.distribution.html" class="tsd-kind-icon">Distribution</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
-								<a href="_transactions_slashing_index_.slashing.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="_transactions_distribution_index_.distribution.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
-								<a href="_transactions_slashing_index_.slashing.html#broadcast" class="tsd-kind-icon">broadcast</a>
+								<a href="_transactions_distribution_index_.distribution.html#broadcast" class="tsd-kind-icon">broadcast</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_transactions_slashing_index_.slashing.html#unjail" class="tsd-kind-icon">unjail</a>
+								<a href="_transactions_distribution_index_.distribution.html#modifywithdrawaddress" class="tsd-kind-icon">modify<wbr>Withdraw<wbr>Address</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_transactions_distribution_index_.distribution.html#withdrawdelegationreward" class="tsd-kind-icon">withdraw<wbr>Delegation<wbr>Reward</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_transactions_distribution_index_.distribution.html#withdrawvalidatorcommission" class="tsd-kind-icon">withdraw<wbr>Validator<wbr>Commission</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-object-literal tsd-parent-kind-module">
-						<a href="../modules/_transactions_slashing_index_.html#msgs" class="tsd-kind-icon">Msgs</a>
+						<a href="../modules/_transactions_distribution_index_.html#msgs" class="tsd-kind-icon">Msgs</a>
 					</li>
 					<li class=" tsd-kind-object-literal tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../modules/_transactions_slashing_index_.html#_types" class="tsd-kind-icon">_types</a>
+						<a href="../modules/_transactions_distribution_index_.html#_types" class="tsd-kind-icon">_types</a>
 					</li>
 				</ul>
 			</nav>
