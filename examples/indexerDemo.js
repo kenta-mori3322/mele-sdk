@@ -97,10 +97,7 @@ const delayBetweenSteps = 2000
     /* Step 2
        Query transactions by action: transfer
     */
-    console.log(
-        '\n',
-        chalk.cyan('2. Query transactions by action: transfer')
-    )
+    console.log('\n', chalk.cyan('2. Query transactions by action: transfer'))
     formatTxs(
         await mele.indexer.transactions({
             action: 'transfer',

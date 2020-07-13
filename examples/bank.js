@@ -47,10 +47,7 @@ const recAddress = 'mele1c7nn5mt43m37t0zmqwh6rslrgcr3gd4pxqutpj'
     })
 
     txEvents.on('hash', hash => {
-        console.log(
-            chalk.cyan('Received tx hash'),
-            chalk.green(hash)
-        )
+        console.log(chalk.cyan('Received tx hash'), chalk.green(hash))
     })
 
     txEvents.on('receipt', receipt => {

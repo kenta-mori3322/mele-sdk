@@ -1,8 +1,8 @@
-const { Mele, MnemonicSigner } = require('../lib/mele-sdk.cjs.js')
+const { Mele, MnemonicSigner, Utils } = require('../lib/mele-sdk.cjs.js')
 const chalk = require('chalk')
 
 const mnemonic =
-    'betray theory cargo way left cricket doll room donkey wire reunion fall left surprise hamster corn village happy bulb token artist twelve whisper expire'
+    'around fire birth cradle assault equal risk dune goat recycle torch hole control pluck cry math noble crystal language uncover leave ski dust answer'
 
 const mele = new Mele({
     nodeUrl: 'http://localhost:26657/',
@@ -11,7 +11,135 @@ const mele = new Mele({
 })
 
 ;(async () => {
-    const validators = await mele.query.staking.getValidators()
+    let validator
 
-    console.log(validators)
+    const params = await mele.query.staking.getParameters()
+    console.log(chalk.green('Staking params'))
+    console.log(JSON.stringify(params, null, 4))
+
+    const pool = await mele.query.staking.getPool()
+    console.log(chalk.green('Staking pool'))
+    console.log(JSON.stringify(pool, null, 4))
+
+    let vals = await mele.query.staking.getValidators()
+    console.log(chalk.green('Validators'))
+    console.log(JSON.stringify(vals, null, 4))
+
+    validator = vals[0]
+
+    validator.delegator_address = Utils.encodeAddress(
+        Utils.decodeAddress(validator.operator_address, 'melevaloper'),
+        'mele'
+    )
+
+    const val = await mele.query.staking.getValidator(
+        validator.operator_address
+    )
+    console.log(
+        chalk.green('Validator'),
+        chalk.white(validator.operator_address)
+    )
+    console.log(JSON.stringify(val, null, 4))
+
+    const valDelegations = await mele.query.staking.getValidatorDelegations(
+        validator.operator_address
+    )
+    console.log(
+        chalk.green('Validator'),
+        chalk.white(validator.operator_address),
+        chalk.green('delegations')
+    )
+    console.log(JSON.stringify(valDelegations, null, 4))
+
+    const valUnbondingDelegations = await mele.query.staking.getValidatorUnbondingDelegations(
+        validator.operator_address
+    )
+    console.log(
+        chalk.green('Validator'),
+        chalk.white(validator.operator_address),
+        chalk.green('unbonding delegations')
+    )
+    console.log(JSON.stringify(valUnbondingDelegations, null, 4))
+
+    const delDelegations = await mele.query.staking.getDelegatorDelegations(
+        validator.delegator_address
+    )
+    console.log(
+        chalk.green('Delegator'),
+        chalk.white(validator.delegator_address),
+        chalk.green('delegations')
+    )
+    console.log(JSON.stringify(delDelegations, null, 4))
+
+    const delUnbondingDelegations = await mele.query.staking.getDelegatorUnbondingDelegations(
+        validator.delegator_address
+    )
+    console.log(
+        chalk.green('Delegator'),
+        chalk.white(validator.delegator_address),
+        chalk.green('unbonding delegations')
+    )
+    console.log(JSON.stringify(delUnbondingDelegations, null, 4))
+
+    console.log(chalk.green('Delegate transaction'))
+    let txEvents = mele.staking
+        .delegate(validator.operator_address, {
+            denom: 'umlg',
+            amount: String(100000),
+        })
+        .sendTransaction()
+
+    let txPromise = new Promise((resolve, reject) => {
+        txEvents
+            .on('hash', hash => {
+                console.log(chalk.cyan('Hash'))
+                console.log(hash)
+            })
+            .on('receipt', receipt => {
+                console.log(chalk.cyan('Receipt'))
+                console.log(JSON.stringify(receipt, null, 4))
+            })
+            .on('confirmation', confirmation => {
+                console.log(chalk.cyan('Confirmation'))
+                console.log(JSON.stringify(confirmation, null, 4))
+            })
+            .on('error', error => {
+                console.log(chalk.red('Error'))
+                console.log(JSON.stringify(error, null, 4))
+                reject(error)
+            })
+    })
+
+    await txPromise
+
+    console.log(chalk.green('Undelegate transaction'))
+    txEvents = mele.staking
+        .undelegate(validator.operator_address, {
+            denom: 'umlg',
+            amount: String(100000),
+        })
+        .sendTransaction()
+
+    txPromise = new Promise((resolve, reject) => {
+        txEvents
+            .on('hash', hash => {
+                console.log(chalk.cyan('Hash'))
+                console.log(hash)
+            })
+            .on('receipt', receipt => {
+                console.log(chalk.cyan('Receipt'))
+                console.log(JSON.stringify(receipt, null, 4))
+            })
+            .on('confirmation', confirmation => {
+                console.log(chalk.cyan('Confirmation'))
+                console.log(JSON.stringify(confirmation, null, 4))
+            })
+            .on('error', error => {
+                console.log(chalk.red('Error'))
+                console.log(JSON.stringify(error, null, 4))
+                reject(error)
+            })
+    })
+
+    await txPromise
 })()
