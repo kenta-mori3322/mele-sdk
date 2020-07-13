@@ -12,3 +12,5 @@ export declare function deriveKeyPairFromAccountAndIndex(masterKey: bip32.BIP32I
 export declare function getAddressFromPublicKey(pubKey: string): string;
 export declare function getPublicKeyFromPrivateKey(privKey: string): string;
 export declare function validatePublicKey(pubKey: string): boolean;
+export declare function encodeAddress(addr: Buffer, prefix: string): string;
+export declare function decodeAddress(addr: string, prefix: string): Buffer;
