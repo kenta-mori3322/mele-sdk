@@ -10,10 +10,6 @@ export function encodeAddr(addr: Buffer): string {
 export function decodeAddr(addr: string): Buffer {
     let decode = bech32.decode(addr)
 
-    if (decode.prefix !== _PREFIX.PrefixAddress) {
-        throw new Error(`invalid prefix: ${decode.prefix}\n`)
-    }
-
     return Buffer.from(bech32.fromWords(decode.words))
 }
 

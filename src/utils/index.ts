@@ -98,3 +98,17 @@ export function validatePublicKey(pubKey: string): boolean {
         return false
     }
 }
+
+export function encodeAddress(addr: Buffer, prefix: string): string {
+    return bech32.encode(prefix, bech32.toWords(addr))
+}
+
+export function decodeAddress(addr: string, prefix: string): Buffer {
+    let decode = bech32.decode(addr)
+
+    if (decode.prefix !== prefix) {
+        throw new Error(`invalid prefix: ${decode.prefix}\n`)
+    }
+
+    return Buffer.from(bech32.fromWords(decode.words))
+}
