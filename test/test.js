@@ -15,6 +15,14 @@ const mele = new Mele({
     ),
 })
 
+const meleDelegator = new Mele({
+    nodeUrl: 'http://localhost:26657/',
+    chainId: 'test',
+    signer: new MnemonicSigner(
+        'around fire birth cradle assault equal risk dune goat recycle torch hole control pluck cry math noble crystal language uncover leave ski dust answer'
+    ),
+})
+
 describe('Mele Blockchain', function() {
     this.timeout(0)
 
@@ -185,6 +193,272 @@ describe('Mele Blockchain', function() {
                 )
 
                 txHash = tx.hash
+            })
+        })
+
+        describe('Staking/Slashing/Distribution', () => {
+            let validator
+
+            it('Staking params can be fetched', async () => {
+                const params = await mele.query.staking.getParameters()
+
+                assert.ok(params)
+            })
+
+            it('Staking pool can be fetched', async () => {
+                const pool = await mele.query.staking.getPool()
+
+                assert.ok(pool)
+            })
+
+            it('Validators list can be fetched', async () => {
+                const vals = await mele.query.staking.getValidators()
+
+                assert.ok(vals)
+                assert.ok(vals.length > 0)
+
+                assert.ok(vals[0])
+
+                validator = vals[0]
+
+                validator.operator_address = Utils.encodeAddress(
+                    Utils.decodeAddress(
+                        validator.operator_address,
+                        'melevaloper'
+                    ),
+                    'mele'
+                )
+            })
+
+            it('Validators list for delegator can be fetched', async () => {
+                const vals = await mele.query.distribution.getDelegatorValidators(
+                    validator.operator_address
+                )
+
+                assert.ok(vals)
+                assert.ok(vals.length > 0)
+
+                assert.ok(vals[0])
+
+                validator.validator_address = vals[0]
+            })
+
+            it('Single validator can be fetched', async () => {
+                const val = await mele.query.staking.getValidator(
+                    validator.validator_address
+                )
+
+                assert.ok(val)
+            })
+
+            it('Validator delegations can be fetched', async () => {
+                const val = await mele.query.staking.getValidatorDelegations(
+                    validator.validator_address
+                )
+
+                assert.ok(val)
+            })
+
+            it('Validator unbonding delegations can be fetched', async () => {
+                const val = await mele.query.staking.getValidatorUnbondingDelegations(
+                    validator.validator_address
+                )
+
+                assert.ok(val)
+            })
+
+            it('Delegator delegations can be fetched', async () => {
+                const val = await mele.query.staking.getDelegatorDelegations(
+                    validator.operator_address
+                )
+
+                assert.ok(val)
+            })
+
+            it('Delegator unbonding delegations can be fetched', async () => {
+                const val = await mele.query.staking.getDelegatorUnbondingDelegations(
+                    validator.operator_address
+                )
+
+                assert.ok(val)
+            })
+
+            it('Delegation can be created', async () => {
+                const txEvents = meleDelegator.staking
+                    .delegate(validator.validator_address, {
+                        denom: 'umlg',
+                        amount: String(100000),
+                    })
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
+
+                assert.ok(tx.tx_result)
+                assert.ok(tx.tx_result.code === 0)
+                assert.ok(tx.height)
+            })
+
+            it('Undelegation can be created', async () => {
+                const txEvents = meleDelegator.staking
+                    .undelegate(validator.validator_address, {
+                        denom: 'umlg',
+                        amount: String(100000),
+                    })
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
+
+                assert.ok(tx.tx_result)
+                assert.ok(tx.tx_result.code === 0)
+                assert.ok(tx.height)
+            })
+
+            it('Slashing parameters can be fetched', async () => {
+                let res = await mele.query.slashing.getParameters()
+
+                assert.ok(res)
+            })
+
+            it('Signing infos can be fetched', async () => {
+                let res = await mele.query.slashing.getSigningInfos()
+
+                assert.ok(res)
+            })
+
+            it('Distribution parameters can be fetched', async () => {
+                let res = await mele.query.distribution.getParameters()
+
+                assert.ok(res)
+            })
+
+            it('Distribution community pool can be fetched', async () => {
+                let res = await mele.query.distribution.getCommunityPool()
+
+                assert.ok(res)
+            })
+
+            it('Validator rewards can be fetched', async () => {
+                let res = await mele.query.distribution.getValidatorOutstandingRewards(
+                    validator.validator_address
+                )
+
+                assert.ok(res)
+            })
+
+            it('Validator commission can be fetched', async () => {
+                let res = await mele.query.distribution.getValidatorCommission(
+                    validator.validator_address
+                )
+
+                assert.ok(res)
+            })
+
+            it('Validator slashes can be fetched', async () => {
+                let res = await mele.query.distribution.getValidatorSlashes(
+                    validator.validator_address,
+                    '0',
+                    '5'
+                )
+
+                assert.ok(res)
+            })
+
+            it('Delegator validator rewards can be fetched', async () => {
+                let res = await mele.query.distribution.getDelegationRewards(
+                    validator.operator_address,
+                    validator.validator_address
+                )
+
+                assert.ok(res)
+            })
+
+            it('Delegator rewards can be fetched', async () => {
+                let res = await mele.query.distribution.getDelegatorTotalRewards(
+                    validator.operator_address
+                )
+
+                assert.ok(res)
+            })
+
+            it('Delegator withdraw address can be fetched', async () => {
+                let res = await mele.query.distribution.getWithdrawAddress(
+                    validator.operator_address
+                )
+
+                assert.ok(res)
+            })
+
+            it('Delegation reward can be withdrawn', async () => {
+                const txEvents = meleDelegator.distribution
+                    .withdrawDelegationReward(validator.validator_address)
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
+
+                assert.ok(tx.tx_result)
             })
         })
 
