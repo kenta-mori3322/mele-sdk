@@ -54,6 +54,24 @@ export const Codec = {
             type: Types.String,
         },
     ]),
+    'cosmos-sdk/CommunityPoolSpendProposal': TypeFactory.create('CommunityPoolSpendProposal', [
+        {
+            name: 'title',
+            type: Types.String,
+        },
+        {
+            name: 'description',
+            type: Types.String,
+        },
+        {
+            name: 'recipient',
+            type: Types.String,
+        },
+        {
+            name: 'amount',
+            type: Types.ArrayStruct,
+        },
+    ]),
 }
 
 Object.keys(Codec).forEach(codec => registerConcrete(codec, Codec[codec]))

@@ -10,6 +10,7 @@ const _types = {
     VoteMsgType: 'cosmos-sdk/MsgVote',
 
     TextProposalMsgType: 'cosmos-sdk/TextProposal',
+    CommunityPoolSpendProposalMsgType: 'cosmos-sdk/CommunityPoolSpendProposal',
 }
 
 export const Msgs = {
@@ -67,6 +68,23 @@ export const Msgs = {
     ): any[] {
         const content = new Codec[_types.TextProposalMsgType](title, description)
 
+    makeCommunityPoolSpendProposal(
+        proposer: string,
+        initialDeposit: Types.SDKCoin[],
+        title: string,
+        description: string,
+        recipient: string,
+        amount: Types.SDKCoin[]
+    ): any[] {
+        const content = new Codec[_types.CommunityPoolSpendProposalMsgType](
+            title,
+            description,
+            recipient,
+            amount.map(am => new Coin(am.denom, am.amount))
+        )
+
+        return this.makeSubmitProposalMsg(proposer, initialDeposit, content)
+    },
         return this.makeSubmitProposalMsg(proposer, initialDeposit, content)
     },
 }
@@ -143,6 +161,42 @@ export default class Gov extends TransactionApi {
             initialDeposit,
             title,
             description
+        )
+
+        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
+    }
+    /**
+     * mele.gov.**submitCommunityPoolSpendProposal**
+     *
+     * Submit a community pool spend proposal.
+     *
+     * @param {[SDKCoin]} initialDeposit - Initial deposit
+     * @param {string} title - Text proposal title
+     * @param {string} description - Text proposal description
+     * @param {string} recipient - Recipient address
+     * @param {[SDKCoin]} amount - Amount of tokens to transfer.
+     *
+     * @memberof mele.gov
+     * @inner
+     *
+     * @name CommunityPoolSpendProposal
+     *
+     * @returns {Transaction} transaction - Transaction class instance.
+     */
+    submitCommunityPoolSpendProposal(
+        initialDeposit: Types.SDKCoin[],
+        title: string,
+        description: string,
+        recipient: string,
+        amount: Types.SDKCoin[]
+    ): Transaction {
+        const msgs = Msgs.makeCommunityPoolSpendProposal(
+            this.broadcast.signer.getAddress(),
+            initialDeposit,
+            title,
+            description,
+            recipient,
+            amount
         )
 
         return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
