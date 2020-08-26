@@ -9,6 +9,7 @@ const _types = {
     DepositMsgType: 'cosmos-sdk/MsgDeposit',
     VoteMsgType: 'cosmos-sdk/MsgVote',
 
+    TextProposalMsgType: 'cosmos-sdk/TextProposal',
 }
 
 export const Msgs = {
@@ -58,6 +59,16 @@ export const Msgs = {
 
         return [msg]
     },
+    makeTextProposal(
+        proposer: string,
+        initialDeposit: Types.SDKCoin[],
+        title: string,
+        description: string
+    ): any[] {
+        const content = new Codec[_types.TextProposalMsgType](title, description)
+
+        return this.makeSubmitProposalMsg(proposer, initialDeposit, content)
+    },
 }
 
 /**
@@ -106,6 +117,36 @@ export default class Gov extends TransactionApi {
     deposit(proposalId: number, amount: Types.SDKCoin[]): Transaction {
         const msgs = Msgs.makeDepositMsg(proposalId, this.broadcast.signer.getAddress(), amount)
 
+    /**
+     * mele.gov.**submitTextProposal**
+     *
+     * Submit a text proposal.
+     *
+     * @param {[SDKCoin]} initialDeposit - Initial deposit
+     * @param {string} title - Text proposal title
+     * @param {string} description - Text proposal description
+     *
+     * @memberof mele.gov
+     * @inner
+     *
+     * @name TextProposal
+     *
+     * @returns {Transaction} transaction - Transaction class instance.
+     */
+    submitTextProposal(
+        initialDeposit: Types.SDKCoin[],
+        title: string,
+        description: string
+    ): Transaction {
+        const msgs = Msgs.makeTextProposal(
+            this.broadcast.signer.getAddress(),
+            initialDeposit,
+            title,
+            description
+        )
+
+        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
+    }
         return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
     }
 }

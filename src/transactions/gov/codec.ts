@@ -44,6 +44,16 @@ export const Codec = {
             type: Types.Int32,
         },
     ]),
+    'cosmos-sdk/TextProposal': TypeFactory.create('TextProposal', [
+        {
+            name: 'title',
+            type: Types.String,
+        },
+        {
+            name: 'description',
+            type: Types.String,
+        },
+    ]),
 }
 
 Object.keys(Codec).forEach(codec => registerConcrete(codec, Codec[codec]))
