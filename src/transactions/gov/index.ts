@@ -11,6 +11,7 @@ const _types = {
 
     TextProposalMsgType: 'cosmos-sdk/TextProposal',
     CommunityPoolSpendProposalMsgType: 'cosmos-sdk/CommunityPoolSpendProposal',
+    BurnedPoolSpendProposalMsgType: 'cosmos-sdk/BurnedPoolSpendProposal',
 }
 
 export const Msgs = {
@@ -68,6 +69,8 @@ export const Msgs = {
     ): any[] {
         const content = new Codec[_types.TextProposalMsgType](title, description)
 
+        return this.makeSubmitProposalMsg(proposer, initialDeposit, content)
+    },
     makeCommunityPoolSpendProposal(
         proposer: string,
         initialDeposit: Types.SDKCoin[],
@@ -85,6 +88,21 @@ export const Msgs = {
 
         return this.makeSubmitProposalMsg(proposer, initialDeposit, content)
     },
+    makeBurnedPoolSpendProposal(
+        proposer: string,
+        initialDeposit: Types.SDKCoin[],
+        title: string,
+        description: string,
+        recipient: string,
+        amount: Types.SDKCoin[]
+    ): any[] {
+        const content = new Codec[_types.BurnedPoolSpendProposalMsgType](
+            title,
+            description,
+            recipient,
+            amount.map(am => new Coin(am.denom, am.amount))
+        )
+
         return this.makeSubmitProposalMsg(proposer, initialDeposit, content)
     },
 }
@@ -135,6 +153,8 @@ export default class Gov extends TransactionApi {
     deposit(proposalId: number, amount: Types.SDKCoin[]): Transaction {
         const msgs = Msgs.makeDepositMsg(proposalId, this.broadcast.signer.getAddress(), amount)
 
+        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
+    }
     /**
      * mele.gov.**submitTextProposal**
      *
@@ -201,6 +221,40 @@ export default class Gov extends TransactionApi {
 
         return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
     }
+    /**
+     * mele.gov.**submitBurnedPoolSpendProposal**
+     *
+     * Submit a burned pool spend proposal.
+     *
+     * @param {[SDKCoin]} initialDeposit - Initial deposit
+     * @param {string} title - Text proposal title
+     * @param {string} description - Text proposal description
+     * @param {string} recipient - Recipient address
+     * @param {[SDKCoin]} amount - Amount of tokens to transfer.
+     *
+     * @memberof mele.gov
+     * @inner
+     *
+     * @name BurnedPoolSpendProposal
+     *
+     * @returns {Transaction} transaction - Transaction class instance.
+     */
+    submitBurnedPoolSpendProposal(
+        initialDeposit: Types.SDKCoin[],
+        title: string,
+        description: string,
+        recipient: string,
+        amount: Types.SDKCoin[]
+    ): Transaction {
+        const msgs = Msgs.makeBurnedPoolSpendProposal(
+            this.broadcast.signer.getAddress(),
+            initialDeposit,
+            title,
+            description,
+            recipient,
+            amount
+        )
+
         return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
     }
 }
