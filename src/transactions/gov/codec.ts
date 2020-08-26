@@ -30,6 +30,20 @@ export const Codec = {
             type: Types.ArrayStruct,
         },
     ]),
+    'cosmos-sdk/MsgVote': TypeFactory.create('MsgVote', [
+        {
+            name: 'proposal_id',
+            type: Types.Int64,
+        },
+        {
+            name: 'voter',
+            type: Types.String,
+        },
+        {
+            name: 'option',
+            type: Types.Int32,
+        },
+    ]),
 }
 
 Object.keys(Codec).forEach(codec => registerConcrete(codec, Codec[codec]))

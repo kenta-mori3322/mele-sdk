@@ -7,6 +7,8 @@ import * as Types from '../../common'
 const _types = {
     SubmitProposalMsgType: 'cosmos-sdk/MsgSubmitProposal',
     DepositMsgType: 'cosmos-sdk/MsgDeposit',
+    VoteMsgType: 'cosmos-sdk/MsgVote',
+
 }
 
 export const Msgs = {
@@ -16,6 +18,34 @@ export const Msgs = {
             initialDeposit.map(am => new Coin(am.denom, am.amount)),
             proposer
         )
+
+        return [msg]
+    },
+    makeVoteMsg(proposalId: number, voter: string, option: string): any[] {
+        let voteOption = option.toLowerCase()
+        let numOption = 0
+
+        switch (voteOption) {
+            case 'yes':
+                numOption = 1
+
+                break
+            case 'abstain':
+                numOption = 2
+
+                break
+            case 'no':
+                numOption = 3
+
+                break
+            case 'no_with_veto':
+            case 'nowithveto':
+                numOption = 4
+
+                break
+        }
+
+        const msg = new Codec[_types.VoteMsgType](proposalId, voter, voteOption)
 
         return [msg]
     },
@@ -38,6 +68,26 @@ export const Msgs = {
  */
 
 export default class Gov extends TransactionApi {
+    /**
+     * mele.gov.**vote**
+     *
+     * Vote for a given proposal.
+     *
+     * @param {number} proposalId - Proposal ID
+     * @param {string} option - Vote option (yes | no | no_with_veto | abstain)
+     *
+     * @memberof mele.gov
+     * @inner
+     *
+     * @name Vote
+     *
+     * @returns {Transaction} transaction - Transaction class instance.
+     */
+    vote(proposalId: number, option: string): Transaction {
+        const msgs = Msgs.makeVoteMsg(proposalId, this.broadcast.signer.getAddress(), option)
+
+        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
+    }
     /**
      * mele.gov.**deposit**
      *
