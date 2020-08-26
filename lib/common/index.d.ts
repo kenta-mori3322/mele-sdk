@@ -156,3 +156,8 @@ export interface DelegatorTotalRewardsRes {
     rewards: DelegationDelegatorReward[];
     total: SDKCoin[];
 }
+export interface ParamChange {
+    subspace: string;
+    key: string;
+    value: string;
+}

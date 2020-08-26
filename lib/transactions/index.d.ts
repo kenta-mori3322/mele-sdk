@@ -9,5 +9,5 @@ export declare class Transaction {
 export declare class TransactionApi {
     private _broadcast;
     constructor(broadcast: Broadcast);
-    readonly broadcast: Broadcast;
+    get broadcast(): Broadcast;
 }

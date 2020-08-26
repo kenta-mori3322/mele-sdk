@@ -10,9 +10,9 @@ export default class Query {
     private _slashing;
     private _distribution;
     constructor(transport: ITransport);
-    readonly staking: StakingQuery;
-    readonly slashing: SlashingQuery;
-    readonly distribution: DistributionQuery;
+    get staking(): StakingQuery;
+    get slashing(): SlashingQuery;
+    get distribution(): DistributionQuery;
     getBlock(height: number): Promise<ResultBlock>;
     getStatus(): Promise<ResultStatus>;
     getTx(hash: string): Promise<ResultTx>;
