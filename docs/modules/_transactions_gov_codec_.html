@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;transactions/staking/codec&quot; | mele-sdk</title>
+	<title>&quot;transactions/gov/codec&quot; | mele-sdk</title>
 	<meta name="description" content="Documentation for mele-sdk">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_transactions_staking_codec_.html">&quot;transactions/staking/codec&quot;</a>
+					<a href="_transactions_gov_codec_.html">&quot;transactions/gov/codec&quot;</a>
 				</li>
 			</ul>
-			<h1>Module &quot;transactions/staking/codec&quot;</h1>
+			<h1>Module &quot;transactions/gov/codec&quot;</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,7 @@
 						<section class="tsd-index-section ">
 							<h3>Object literals</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-object-literal tsd-parent-kind-module"><a href="_transactions_staking_codec_.html#codec" class="tsd-kind-icon">Codec</a></li>
+								<li class="tsd-kind-object-literal tsd-parent-kind-module"><a href="_transactions_gov_codec_.html#codec" class="tsd-kind-icon">Codec</a></li>
 							</ul>
 						</section>
 					</div>
@@ -87,76 +87,86 @@
 					<div class="tsd-signature tsd-kind-icon">Codec<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/97a0d5d/src/transactions/staking/codec.ts#L4">src/transactions/staking/codec.ts:4</a></li>
+							<li>Defined in src/transactions/gov/codec.ts:4</li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-						<a name="codec.commission" class="tsd-anchor"></a>
-						<h3>Commission</h3>
-						<div class="tsd-signature tsd-kind-icon">Commission<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = TypeFactory.create(&#x27;Commission&#x27;, [{name: &#x27;rate&#x27;,type: Types.String,},{name: &#x27;max_rate&#x27;,type: Types.String,},{name: &#x27;max_change_rate&#x27;,type: Types.String,},])</span></div>
+						<a name="codec.paramchange" class="tsd-anchor"></a>
+						<h3>Param<wbr>Change</h3>
+						<div class="tsd-signature tsd-kind-icon">Param<wbr>Change<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = TypeFactory.create(&#x27;ParamChange&#x27;, [{name: &#x27;subspace&#x27;,type: Types.String,},{name: &#x27;key&#x27;,type: Types.String,},{name: &#x27;value&#x27;,type: Types.String,},])</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/97a0d5d/src/transactions/staking/codec.ts#L35">src/transactions/staking/codec.ts:35</a></li>
+								<li>Defined in src/transactions/gov/codec.ts:71</li>
 							</ul>
 						</aside>
 					</section>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-						<a name="codec.description" class="tsd-anchor"></a>
-						<h3>Description</h3>
-						<div class="tsd-signature tsd-kind-icon">Description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = TypeFactory.create(&#x27;Description&#x27;, [{name: &#x27;moniker&#x27;,type: Types.String,},{name: &#x27;identity&#x27;,type: Types.String,},{name: &#x27;website&#x27;,type: Types.String,},{name: &#x27;security_contact&#x27;,type: Types.String,},{name: &#x27;details&#x27;,type: Types.String,},])</span></div>
+						<a name="codec.cosmos_sdk_burnedpoolspendproposal" class="tsd-anchor"></a>
+						<h3>cosmos-<wbr>sdk/<wbr>Burned<wbr>Pool<wbr>Spend<wbr>Proposal</h3>
+						<div class="tsd-signature tsd-kind-icon">cosmos-<wbr>sdk/<wbr>Burned<wbr>Pool<wbr>Spend<wbr>Proposal<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = TypeFactory.create(&#x27;BurnedPoolSpendProposal&#x27;, [{name: &#x27;title&#x27;,type: Types.String,},{name: &#x27;description&#x27;,type: Types.String,},{name: &#x27;recipient&#x27;,type: Types.String,},{name: &#x27;amount&#x27;,type: Types.ArrayStruct,},])</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/97a0d5d/src/transactions/staking/codec.ts#L49">src/transactions/staking/codec.ts:49</a></li>
+								<li>Defined in src/transactions/gov/codec.ts:103</li>
 							</ul>
 						</aside>
 					</section>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-						<a name="codec.cosmos_sdk_msgbeginredelegate" class="tsd-anchor"></a>
-						<h3>cosmos-<wbr>sdk/<wbr>Msg<wbr>Begin<wbr>Redelegate</h3>
-						<div class="tsd-signature tsd-kind-icon">cosmos-<wbr>sdk/<wbr>Msg<wbr>Begin<wbr>Redelegate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = TypeFactory.create(&#x27;MsgBeginRedelegate&#x27;, [{name: &#x27;delegator_address&#x27;,type: Types.String,},{name: &#x27;validator_src_address&#x27;,type: Types.String,},{name: &#x27;validator_dst_address&#x27;,type: Types.String,},{name: &#x27;amount&#x27;,type: Types.Struct,},])</span></div>
+						<a name="codec.cosmos_sdk_communitypoolspendproposal" class="tsd-anchor"></a>
+						<h3>cosmos-<wbr>sdk/<wbr>Community<wbr>Pool<wbr>Spend<wbr>Proposal</h3>
+						<div class="tsd-signature tsd-kind-icon">cosmos-<wbr>sdk/<wbr>Community<wbr>Pool<wbr>Spend<wbr>Proposal<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = TypeFactory.create(&#x27;CommunityPoolSpendProposal&#x27;, [{name: &#x27;title&#x27;,type: Types.String,},{name: &#x27;description&#x27;,type: Types.String,},{name: &#x27;recipient&#x27;,type: Types.String,},{name: &#x27;amount&#x27;,type: Types.ArrayStruct,},])</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/97a0d5d/src/transactions/staking/codec.ts#L117">src/transactions/staking/codec.ts:117</a></li>
+								<li>Defined in src/transactions/gov/codec.ts:85</li>
 							</ul>
 						</aside>
 					</section>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-						<a name="codec.cosmos_sdk_msgcreatevalidator" class="tsd-anchor"></a>
-						<h3>cosmos-<wbr>sdk/<wbr>Msg<wbr>Create<wbr>Validator</h3>
-						<div class="tsd-signature tsd-kind-icon">cosmos-<wbr>sdk/<wbr>Msg<wbr>Create<wbr>Validator<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = TypeFactory.create(&#x27;MsgCreateValidator&#x27;, [{name: &#x27;description&#x27;,type: Types.Struct,},{name: &#x27;commission&#x27;,type: Types.Struct,},{name: &#x27;min_self_delegation&#x27;,type: Types.String,},{name: &#x27;delegator_address&#x27;,type: Types.String,},{name: &#x27;validator_address&#x27;,type: Types.String,},{name: &#x27;pubkey&#x27;,type: Types.String,},{name: &#x27;value&#x27;,type: Types.Struct,},])</span></div>
+						<a name="codec.cosmos_sdk_msgdeposit" class="tsd-anchor"></a>
+						<h3>cosmos-<wbr>sdk/<wbr>Msg<wbr>Deposit</h3>
+						<div class="tsd-signature tsd-kind-icon">cosmos-<wbr>sdk/<wbr>Msg<wbr>Deposit<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = TypeFactory.create(&#x27;MsgDeposit&#x27;, [{name: &#x27;proposal_id&#x27;,type: Types.Int64,},{name: &#x27;depositor&#x27;,type: Types.String,},{name: &#x27;amount&#x27;,type: Types.ArrayStruct,},])</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/97a0d5d/src/transactions/staking/codec.ts#L5">src/transactions/staking/codec.ts:5</a></li>
+								<li>Defined in src/transactions/gov/codec.ts:19</li>
 							</ul>
 						</aside>
 					</section>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-						<a name="codec.cosmos_sdk_msgdelegate" class="tsd-anchor"></a>
-						<h3>cosmos-<wbr>sdk/<wbr>Msg<wbr>Delegate</h3>
-						<div class="tsd-signature tsd-kind-icon">cosmos-<wbr>sdk/<wbr>Msg<wbr>Delegate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = TypeFactory.create(&#x27;MsgDelegate&#x27;, [{name: &#x27;delegator_address&#x27;,type: Types.String,},{name: &#x27;validator_address&#x27;,type: Types.String,},{name: &#x27;amount&#x27;,type: Types.Struct,},])</span></div>
+						<a name="codec.cosmos_sdk_msgsubmitproposal" class="tsd-anchor"></a>
+						<h3>cosmos-<wbr>sdk/<wbr>Msg<wbr>Submit<wbr>Proposal</h3>
+						<div class="tsd-signature tsd-kind-icon">cosmos-<wbr>sdk/<wbr>Msg<wbr>Submit<wbr>Proposal<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = TypeFactory.create(&#x27;MsgSubmitProposal&#x27;, [{name: &#x27;content&#x27;,type: Types.Interface,},{name: &#x27;initial_deposit&#x27;,type: Types.ArrayStruct,},{name: &#x27;proposer&#x27;,type: Types.String,},])</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/97a0d5d/src/transactions/staking/codec.ts#L89">src/transactions/staking/codec.ts:89</a></li>
+								<li>Defined in src/transactions/gov/codec.ts:5</li>
 							</ul>
 						</aside>
 					</section>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-						<a name="codec.cosmos_sdk_msgeditvalidator" class="tsd-anchor"></a>
-						<h3>cosmos-<wbr>sdk/<wbr>Msg<wbr>Edit<wbr>Validator</h3>
-						<div class="tsd-signature tsd-kind-icon">cosmos-<wbr>sdk/<wbr>Msg<wbr>Edit<wbr>Validator<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = TypeFactory.create(&#x27;MsgEditValidator&#x27;, [{name: &#x27;description&#x27;,type: Types.Struct,},{name: &#x27;address&#x27;,type: Types.String,},{name: &#x27;commission_rate&#x27;,type: Types.String,},{name: &#x27;min_self_delegation&#x27;,type: Types.String,},])</span></div>
+						<a name="codec.cosmos_sdk_msgvote" class="tsd-anchor"></a>
+						<h3>cosmos-<wbr>sdk/<wbr>Msg<wbr>Vote</h3>
+						<div class="tsd-signature tsd-kind-icon">cosmos-<wbr>sdk/<wbr>Msg<wbr>Vote<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = TypeFactory.create(&#x27;MsgVote&#x27;, [{name: &#x27;proposal_id&#x27;,type: Types.Int64,},{name: &#x27;voter&#x27;,type: Types.String,},{name: &#x27;option&#x27;,type: Types.Int32,},])</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/97a0d5d/src/transactions/staking/codec.ts#L71">src/transactions/staking/codec.ts:71</a></li>
+								<li>Defined in src/transactions/gov/codec.ts:33</li>
 							</ul>
 						</aside>
 					</section>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-						<a name="codec.cosmos_sdk_msgundelegate" class="tsd-anchor"></a>
-						<h3>cosmos-<wbr>sdk/<wbr>Msg<wbr>Undelegate</h3>
-						<div class="tsd-signature tsd-kind-icon">cosmos-<wbr>sdk/<wbr>Msg<wbr>Undelegate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = TypeFactory.create(&#x27;MsgUndelegate&#x27;, [{name: &#x27;delegator_address&#x27;,type: Types.String,},{name: &#x27;validator_address&#x27;,type: Types.String,},{name: &#x27;amount&#x27;,type: Types.Struct,},])</span></div>
+						<a name="codec.cosmos_sdk_parameterchangeproposal" class="tsd-anchor"></a>
+						<h3>cosmos-<wbr>sdk/<wbr>Parameter<wbr>Change<wbr>Proposal</h3>
+						<div class="tsd-signature tsd-kind-icon">cosmos-<wbr>sdk/<wbr>Parameter<wbr>Change<wbr>Proposal<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = TypeFactory.create(&#x27;ParameterChangeProposal&#x27;, [{name: &#x27;title&#x27;,type: Types.String,},{name: &#x27;description&#x27;,type: Types.String,},{name: &#x27;changes&#x27;,type: Types.ArrayStruct,},])</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/97a0d5d/src/transactions/staking/codec.ts#L103">src/transactions/staking/codec.ts:103</a></li>
+								<li>Defined in src/transactions/gov/codec.ts:57</li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="codec.cosmos_sdk_textproposal" class="tsd-anchor"></a>
+						<h3>cosmos-<wbr>sdk/<wbr>Text<wbr>Proposal</h3>
+						<div class="tsd-signature tsd-kind-icon">cosmos-<wbr>sdk/<wbr>Text<wbr>Proposal<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = TypeFactory.create(&#x27;TextProposal&#x27;, [{name: &#x27;title&#x27;,type: Types.String,},{name: &#x27;description&#x27;,type: Types.String,},])</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in src/transactions/gov/codec.ts:47</li>
 							</ul>
 						</aside>
 					</section>
@@ -170,14 +180,14 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="_transactions_staking_codec_.html">&quot;transactions/staking/codec&quot;</a>
+						<a href="_transactions_gov_codec_.html">&quot;transactions/gov/codec&quot;</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-object-literal tsd-parent-kind-module">
-						<a href="_transactions_staking_codec_.html#codec" class="tsd-kind-icon">Codec</a>
+						<a href="_transactions_gov_codec_.html#codec" class="tsd-kind-icon">Codec</a>
 					</li>
 				</ul>
 			</nav>

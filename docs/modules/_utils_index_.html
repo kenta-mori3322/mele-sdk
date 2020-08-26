@@ -85,10 +85,12 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_utils_index_.html#decodeaddress" class="tsd-kind-icon">decode<wbr>Address</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_utils_index_.html#derivekeypair" class="tsd-kind-icon">derive<wbr>Key<wbr>Pair</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_utils_index_.html#derivekeypairfromaccountandindex" class="tsd-kind-icon">derive<wbr>Key<wbr>Pair<wbr>From<wbr>Account<wbr>And<wbr>Index</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_utils_index_.html#derivemasterkey" class="tsd-kind-icon">derive<wbr>Master<wbr>Key</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_utils_index_.html#derivemasterkeyfromseed" class="tsd-kind-icon">derive<wbr>Master<wbr>Key<wbr>From<wbr>Seed</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_utils_index_.html#encodeaddress" class="tsd-kind-icon">encode<wbr>Address</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_utils_index_.html#generatekeypair" class="tsd-kind-icon">generate<wbr>Key<wbr>Pair</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_utils_index_.html#generatemnemonic" class="tsd-kind-icon">generate<wbr>Mnemonic</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_utils_index_.html#getaddressfrompublickey" class="tsd-kind-icon">get<wbr>Address<wbr>From<wbr>Public<wbr>Key</a></li>
@@ -107,13 +109,39 @@
 					<div class="tsd-signature tsd-kind-icon">ec<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = new EC(&#x27;secp256k1&#x27;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melegold/mele-sdk/blob/3d48cd5/src/utils/index.ts#L12">mele/mele-sdk/src/utils/index.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/97a0d5d/src/utils/index.ts#L12">src/utils/index.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="decodeaddress" class="tsd-anchor"></a>
+					<h3>decode<wbr>Address</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">decode<wbr>Address<span class="tsd-signature-symbol">(</span>addr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, prefix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Buffer</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/97a0d5d/src/utils/index.ts#L106">src/utils/index.ts:106</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>addr: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>prefix: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Buffer</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="derivekeypair" class="tsd-anchor"></a>
 					<h3>derive<wbr>Key<wbr>Pair</h3>
@@ -124,7 +152,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melegold/mele-sdk/blob/3d48cd5/src/utils/index.ts#L47">mele/mele-sdk/src/utils/index.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/97a0d5d/src/utils/index.ts#L47">src/utils/index.ts:47</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -150,7 +178,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melegold/mele-sdk/blob/3d48cd5/src/utils/index.ts#L64">mele/mele-sdk/src/utils/index.ts:64</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/97a0d5d/src/utils/index.ts#L64">src/utils/index.ts:64</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -179,7 +207,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melegold/mele-sdk/blob/3d48cd5/src/utils/index.ts#L35">mele/mele-sdk/src/utils/index.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/97a0d5d/src/utils/index.ts#L35">src/utils/index.ts:35</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -202,7 +230,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melegold/mele-sdk/blob/3d48cd5/src/utils/index.ts#L43">mele/mele-sdk/src/utils/index.ts:43</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/97a0d5d/src/utils/index.ts#L43">src/utils/index.ts:43</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -216,6 +244,32 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="encodeaddress" class="tsd-anchor"></a>
+					<h3>encode<wbr>Address</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">encode<wbr>Address<span class="tsd-signature-symbol">(</span>addr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Buffer</span>, prefix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/97a0d5d/src/utils/index.ts#L102">src/utils/index.ts:102</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>addr: <span class="tsd-signature-type">Buffer</span></h5>
+								</li>
+								<li>
+									<h5>prefix: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="generatekeypair" class="tsd-anchor"></a>
 					<h3>generate<wbr>Key<wbr>Pair</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
@@ -225,7 +279,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melegold/mele-sdk/blob/3d48cd5/src/utils/index.ts#L23">mele/mele-sdk/src/utils/index.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/97a0d5d/src/utils/index.ts#L23">src/utils/index.ts:23</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_utils_index_.keypair.html" class="tsd-signature-type">KeyPair</a></h4>
@@ -242,7 +296,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melegold/mele-sdk/blob/3d48cd5/src/utils/index.ts#L19">mele/mele-sdk/src/utils/index.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/97a0d5d/src/utils/index.ts#L19">src/utils/index.ts:19</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -259,7 +313,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melegold/mele-sdk/blob/3d48cd5/src/utils/index.ts#L74">mele/mele-sdk/src/utils/index.ts:74</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/97a0d5d/src/utils/index.ts#L74">src/utils/index.ts:74</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -282,7 +336,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melegold/mele-sdk/blob/3d48cd5/src/utils/index.ts#L86">mele/mele-sdk/src/utils/index.ts:86</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/97a0d5d/src/utils/index.ts#L86">src/utils/index.ts:86</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -305,7 +359,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melegold/mele-sdk/blob/3d48cd5/src/utils/index.ts#L92">mele/mele-sdk/src/utils/index.ts:92</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/97a0d5d/src/utils/index.ts#L92">src/utils/index.ts:92</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -340,6 +394,9 @@
 						<a href="_utils_index_.html#ec" class="tsd-kind-icon">ec</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="_utils_index_.html#decodeaddress" class="tsd-kind-icon">decode<wbr>Address</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="_utils_index_.html#derivekeypair" class="tsd-kind-icon">derive<wbr>Key<wbr>Pair</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
@@ -350,6 +407,9 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="_utils_index_.html#derivemasterkeyfromseed" class="tsd-kind-icon">derive<wbr>Master<wbr>Key<wbr>From<wbr>Seed</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="_utils_index_.html#encodeaddress" class="tsd-kind-icon">encode<wbr>Address</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="_utils_index_.html#generatekeypair" class="tsd-kind-icon">generate<wbr>Key<wbr>Pair</a>
