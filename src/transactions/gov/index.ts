@@ -10,6 +10,7 @@ const _types = {
     VoteMsgType: 'cosmos-sdk/MsgVote',
 
     TextProposalMsgType: 'cosmos-sdk/TextProposal',
+    ParameterChangeProposalMsgType: 'cosmos-sdk/ParameterChangeProposal',
     CommunityPoolSpendProposalMsgType: 'cosmos-sdk/CommunityPoolSpendProposal',
     BurnedPoolSpendProposalMsgType: 'cosmos-sdk/BurnedPoolSpendProposal',
 }
@@ -68,6 +69,25 @@ export const Msgs = {
         description: string
     ): any[] {
         const content = new Codec[_types.TextProposalMsgType](title, description)
+
+        return this.makeSubmitProposalMsg(proposer, initialDeposit, content)
+    },
+    makeParameterChangeProposal(
+        proposer: string,
+        initialDeposit: Types.SDKCoin[],
+        title: string,
+        description: string,
+        changes: Types.ParamChange[]
+    ): any[] {
+        const codecChanges = changes.map(
+            change => new Codec['ParamChange'](change.subspace, change.key, change.value)
+        )
+
+        const content = new Codec[_types.ParameterChangeProposalMsgType](
+            title,
+            description,
+            codecChanges
+        )
 
         return this.makeSubmitProposalMsg(proposer, initialDeposit, content)
     },
@@ -181,6 +201,39 @@ export default class Gov extends TransactionApi {
             initialDeposit,
             title,
             description
+        )
+
+        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
+    }
+    /**
+     * mele.gov.**submitParameterChangeProposal**
+     *
+     * Submit a parameter proposal.
+     *
+     * @param {[SDKCoin]} initialDeposit - Initial deposit
+     * @param {string} title - Text proposal title
+     * @param {string} description - Text proposal description
+     * @param {[ParamChange]} changes - Parameter changes
+     *
+     * @memberof mele.gov
+     * @inner
+     *
+     * @name ParameterChangeProposal
+     *
+     * @returns {Transaction} transaction - Transaction class instance.
+     */
+    submitParameterChangeProposal(
+        initialDeposit: Types.SDKCoin[],
+        title: string,
+        description: string,
+        changes: Types.ParamChange[]
+    ): Transaction {
+        const msgs = Msgs.makeParameterChangeProposal(
+            this.broadcast.signer.getAddress(),
+            initialDeposit,
+            title,
+            description,
+            changes
         )
 
         return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))

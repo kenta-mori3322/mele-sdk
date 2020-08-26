@@ -54,6 +54,34 @@ export const Codec = {
             type: Types.String,
         },
     ]),
+    'cosmos-sdk/ParameterChangeProposal': TypeFactory.create('ParameterChangeProposal', [
+        {
+            name: 'title',
+            type: Types.String,
+        },
+        {
+            name: 'description',
+            type: Types.String,
+        },
+        {
+            name: 'changes',
+            type: Types.ArrayStruct,
+        },
+    ]),
+    ParamChange: TypeFactory.create('ParamChange', [
+        {
+            name: 'subspace',
+            type: Types.String,
+        },
+        {
+            name: 'key',
+            type: Types.String,
+        },
+        {
+            name: 'value',
+            type: Types.String,
+        },
+    ]),
     'cosmos-sdk/CommunityPoolSpendProposal': TypeFactory.create('CommunityPoolSpendProposal', [
         {
             name: 'title',
