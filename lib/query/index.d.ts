@@ -2,9 +2,9 @@ import * as Types from '../common';
 import { ITransport } from '../transport';
 import { ResultBlock, ResultStatus, ResultTx } from '../transport/rpc';
 import DistributionQuery from './distribution';
+import GovQuery from './gov';
 import SlashingQuery from './slashing';
 import StakingQuery from './staking';
-import GovQuery from './gov';
 export default class Query {
     private _transport;
     private _staking;

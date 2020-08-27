@@ -203,5 +203,5 @@ export interface Deposit {
 export interface Vote {
     proposal_id: number;
     voter: string;
-    option: number;
+    option: string;
 }
