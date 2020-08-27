@@ -39,6 +39,28 @@ export function encodeSignMsg(
 ): any {
     stdMsg = stdMsg.map(msg => JSON.parse(marshalJson(msg)))
 
+    let msgVote = stdMsg.find(i => i.type === 'cosmos-sdk/MsgVote')
+    if (msgVote) {
+        let option = ''
+
+        switch (msgVote.value.option) {
+            case 1:
+                option = 'Yes'
+                break
+            case 2:
+                option = 'Abstain'
+                break
+            case 3:
+                option = 'No'
+                break
+            case 4:
+                option = 'NoWithVeto'
+                break
+        }
+
+        msgVote.value.option = option
+    }
+
     const stdSignMsg = {
         account_number: String(accountNumber),
         chain_id: chainId,

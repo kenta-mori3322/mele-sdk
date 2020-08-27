@@ -49,7 +49,7 @@ export const Msgs = {
                 break
         }
 
-        const msg = new Codec[_types.VoteMsgType](proposalId, voter, voteOption)
+        const msg = new Codec[_types.VoteMsgType](proposalId, voter, numOption)
 
         return [msg]
     },

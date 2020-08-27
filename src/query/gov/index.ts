@@ -101,27 +101,6 @@ export default class GovQuery {
         const QueryPath = Keys.Query.QueryPath
         const ProposalsPath = Keys.Query.ProposalsPath
 
-        let pStatus = 0
-        switch (status.toLowerCase()) {
-            case 'depositperiod':
-            case 'deposit_period':
-                pStatus = 1
-                break
-            case 'votingperiod':
-            case 'voting_period':
-                pStatus = 2
-                break
-            case 'passed':
-                pStatus = 3
-                break
-            case 'rejected':
-                pStatus = 4
-                break
-            case 'failed':
-                pStatus = 5
-                break
-        }
-
         return this._transport.query<Types.Proposal[]>(
             [],
             JSON.stringify({
@@ -129,7 +108,7 @@ export default class GovQuery {
                 Limit: String(limit),
                 Voter: voter,
                 Depositor: depositor,
-                ProposalStatus: pStatus,
+                ProposalStatus: status,
             }),
             QueryPath,
             ProposalsPath
