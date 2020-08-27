@@ -161,3 +161,47 @@ export interface ParamChange {
     key: string;
     value: string;
 }
+export interface DepositParams {
+    min_deposit: SDKCoin[];
+    max_deposit_period: string;
+}
+export interface TallyParams {
+    quorum: number;
+    threshold: number;
+    veto: number;
+}
+export interface VotingParams {
+    voting_period: string;
+}
+export interface GovParams {
+    deposit: DepositParams;
+    tally: TallyParams;
+    voting: VotingParams;
+}
+export interface TallyResult {
+    yes: number;
+    abstain: number;
+    no: number;
+    no_with_veto: number;
+}
+export interface Proposal {
+    content: any;
+    id: number;
+    proposal_status: number;
+    final_tally_result: TallyResult;
+    submit_time: string;
+    deposit_end_time: string;
+    total_deposit: SDKCoin[];
+    voting_start_time: string;
+    voting_end_time: string;
+}
+export interface Deposit {
+    proposal_id: number;
+    depositor: string;
+    amount: SDKCoin[];
+}
+export interface Vote {
+    proposal_id: number;
+    voter: string;
+    option: number;
+}
