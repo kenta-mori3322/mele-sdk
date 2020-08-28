@@ -30,17 +30,14 @@
     "bech32": "^1.1.4",
     "bip32": "^2.0.5",
     "bip39": "^3.0.2",
-    "chalk": "^4.1.0",
     "cross-fetch": "^3.0.5",
     "elliptic": "^6.5.3",
-    "js-amino": "^1.0.0",
+    "js-amino": "git+https://github.com/cybercongress/js-amino.git#de18f307bec1c1162d7975c6e146558f21183199",
     "promise-retry": "^2.0.1",
     "query-string": "^6.13.1",
-    "ripemd160": "^2.0.2",
     "sha.js": "^2.4.11"
   },
   "devDependencies": {
-    "documentation": "^13.0.2",
     "mocha": "^8.1.2",
     "prettier": "^2.1.1",
     "rollup": "^0.59.1",
@@ -54,6 +51,7 @@
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.3.0",
     "typedoc": "^0.17.8",
-    "typescript": "^4.0.2"
+    "typescript": "^4.0.2",
+    "chalk": "^4.1.0"
   }
 }
