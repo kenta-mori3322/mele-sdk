@@ -8,6 +8,7 @@ import ripemd160 from 'ripemd160'
 import shajs from 'sha.js'
 
 import { encodeAddr } from '../transport/encoder'
+import { TransactionEvents } from '../transactions/events'
 
 const ec = new EC('secp256k1')
 
@@ -111,4 +112,15 @@ export function decodeAddress(addr: string, prefix: string): Buffer {
     }
 
     return Buffer.from(bech32.fromWords(decode.words))
+}
+
+export function promisify(events: TransactionEvents, type: string = 'confirmation'): Promise<any> {
+    if (type === 'hash' || type === 'receipt' || type === 'confirmation') {
+        return new Promise<any>((resolve, reject) => {
+            events.on('error', error => reject(error))
+            events.on(type, data => resolve(data))
+        })
+    } else {
+        throw new Error('Invalid event type.')
+    }
 }
