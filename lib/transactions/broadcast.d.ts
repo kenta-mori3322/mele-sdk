@@ -14,8 +14,8 @@ export default class Broadcast {
     private _options;
     private _signer;
     constructor(transport: ITransport, query: Query, signer: Signer, opts: Options);
-    get signer(): Signer;
-    get query(): Query;
+    readonly signer: Signer;
+    readonly query: Query;
     safeBroadcast(signers: string[], makeTxFunc: Function): TransactionEvents;
     sendTransaction(msgs: any[]): TransactionEvents;
 }

@@ -32,12 +32,12 @@ export declare class Mele {
     private _distribution;
     private _gov;
     constructor(opt: Options);
-    get query(): Query;
-    get signer(): Signer;
-    get bank(): Bank;
-    get staking(): Staking;
-    get slashing(): Slashing;
-    get distribution(): Distribution;
-    get governance(): Gov;
-    get indexer(): Indexer;
+    readonly query: Query;
+    readonly signer: Signer;
+    readonly bank: Bank;
+    readonly staking: Staking;
+    readonly slashing: Slashing;
+    readonly distribution: Distribution;
+    readonly governance: Gov;
+    readonly indexer: Indexer;
 }

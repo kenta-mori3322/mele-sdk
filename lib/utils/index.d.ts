@@ -1,5 +1,5 @@
-/// <reference types="node" />
 import * as bip32 from 'bip32';
+import { TransactionEvents } from '../transactions/events';
 export interface KeyPair {
     privateKey: string;
     publicKey: string;
@@ -15,3 +15,4 @@ export declare function getPublicKeyFromPrivateKey(privKey: string): string;
 export declare function validatePublicKey(pubKey: string): boolean;
 export declare function encodeAddress(addr: Buffer, prefix: string): string;
 export declare function decodeAddress(addr: string, prefix: string): Buffer;
+export declare function promisify(events: TransactionEvents, type?: string): Promise<any>;

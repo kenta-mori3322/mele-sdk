@@ -1,4 +1,3 @@
-/// <reference types="node" />
 export declare function encodeAddr(addr: Buffer): string;
 export declare function decodeAddr(addr: string): Buffer;
 export declare const encodeMsg: (msg: any) => any;
