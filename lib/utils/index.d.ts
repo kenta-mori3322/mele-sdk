@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import * as bip32 from 'bip32';
 import { TransactionEvents } from '../transactions/events';
 export interface KeyPair {
