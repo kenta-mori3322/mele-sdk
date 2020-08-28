@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import { EventEmitter } from 'events';
 import { ResultBroadcastTx, ResultTx } from '../transport/rpc';
 import { BroadcastError } from './errors';

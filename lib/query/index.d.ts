@@ -12,10 +12,10 @@ export default class Query {
     private _distribution;
     private _gov;
     constructor(transport: ITransport);
-    get staking(): StakingQuery;
-    get slashing(): SlashingQuery;
-    get distribution(): DistributionQuery;
-    get governance(): GovQuery;
+    readonly staking: StakingQuery;
+    readonly slashing: SlashingQuery;
+    readonly distribution: DistributionQuery;
+    readonly governance: GovQuery;
     getBlock(height: number): Promise<ResultBlock>;
     getStatus(): Promise<ResultStatus>;
     getTx(hash: string): Promise<ResultTx>;
