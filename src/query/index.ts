@@ -3,6 +3,7 @@ import { ITransport } from '../transport'
 import { ResultBlock, ResultStatus, ResultTx } from '../transport/rpc'
 
 import DistributionQuery from './distribution'
+import GovQuery from './gov'
 import SlashingQuery from './slashing'
 import StakingQuery from './staking'
 
@@ -25,6 +26,7 @@ export default class Query {
     private _staking: StakingQuery
     private _slashing: SlashingQuery
     private _distribution: DistributionQuery
+    private _gov: GovQuery
 
     constructor(transport: ITransport) {
         this._transport = transport
@@ -32,6 +34,7 @@ export default class Query {
         this._staking = new StakingQuery(this._transport)
         this._slashing = new SlashingQuery(this._transport)
         this._distribution = new DistributionQuery(this._transport)
+        this._gov = new GovQuery(this._transport)
     }
 
     get staking(): StakingQuery {
@@ -44,6 +47,10 @@ export default class Query {
 
     get distribution(): DistributionQuery {
         return this._distribution
+    }
+
+    get governance(): GovQuery {
+        return this._gov
     }
 
     /**

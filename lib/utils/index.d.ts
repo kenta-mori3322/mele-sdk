@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import * as bip32 from 'bip32';
 export interface KeyPair {
     privateKey: string;
