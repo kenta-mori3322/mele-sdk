@@ -49,6 +49,12 @@ interface BlockData {
 interface TxCount {
     count: number;
 }
+interface ProposalVotes {
+    proposalId: string;
+    option: string;
+    timestamp: string;
+    voter: string;
+}
 export default class Indexer {
     private _opts;
     constructor(opts: IndexerOptions);
@@ -60,5 +66,6 @@ export default class Indexer {
     chain(): Promise<any>;
     blockEvents(query?: any): Promise<BlockEvent[]>;
     blocks(query?: any): Promise<Block[]>;
+    proposalVotes(id: string): Promise<ProposalVotes[]>;
 }
 export {};

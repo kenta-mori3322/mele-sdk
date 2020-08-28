@@ -58,6 +58,13 @@ interface TxCount {
     count: number
 }
 
+interface ProposalVotes {
+    proposalId: string
+    option: string
+    timestamp: string
+    voter: string
+}
+
 export default class Indexer {
     private _opts: IndexerOptions
 
@@ -95,5 +102,9 @@ export default class Indexer {
 
     async blocks(query: any = {}): Promise<Block[]> {
         return IndexerApi.get(this._opts.endpoint, 'blocks', query)
+    }
+
+    async proposalVotes(id: string): Promise<ProposalVotes[]> {
+        return IndexerApi.get(this._opts.endpoint, `proposal_votes/${id}`)
     }
 }
