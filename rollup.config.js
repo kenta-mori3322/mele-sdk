@@ -30,11 +30,13 @@ export default [
             format: 'umd',
             sourcemap: true,
             globals: {
+                'js-sha256': 'jsSha256',
                 bip32: 'bip32',
                 bip39: 'bip39',
+                stream: 'readable-stream',
             },
         },
-        external: ['bip32', 'bip39'],
+        external: ['bip32', 'bip39', 'js-sha256', 'readable-stream'],
         onwarn: onWarn,
         plugins: [
             builtins(),
