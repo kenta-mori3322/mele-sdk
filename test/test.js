@@ -390,6 +390,12 @@ describe('Mele Blockchain', function() {
                 assert.ok(res)
             })
 
+            it('Distribution burned pool can be fetched', async () => {
+                let res = await mele.query.distribution.getBurnedPool()
+
+                assert.ok(res)
+            })
+
             it('Validator rewards can be fetched', async () => {
                 let res = await mele.query.distribution.getValidatorOutstandingRewards(
                     validator.validator_address
@@ -444,6 +450,71 @@ describe('Mele Blockchain', function() {
             it('Delegation reward can be withdrawn', async () => {
                 const txEvents = meleDelegator.distribution
                     .withdrawDelegationReward(validator.validator_address)
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
+
+                assert.ok(tx.tx_result)
+            })
+
+            it('Community pool can be funded', async () => {
+                const txEvents = meleDelegator.distribution
+                    .fundCommunityPool([{
+                        amount: '100',
+                        denom: 'umlc',
+                    }])
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
+
+                assert.ok(tx.tx_result)
+            })
+
+            it('Validator commission can be withdrawn', async () => {
+                const txEvents = meleValidator.distribution
+                    .withdrawValidatorCommission(validator.validator_address)
                     .sendTransaction()
 
                 assert.ok(txEvents)
