@@ -7,25 +7,28 @@ const {
 const assert = require('assert')
 const bip39 = require('bip39')
 
+const NODE_URL = 'http://localhost:26657/'
+const CHAIN_ID = 'test'
+
 const mele = new Mele({
-    nodeUrl: 'http://localhost:26657/',
-    chainId: 'test',
+    nodeUrl: NODE_URL,
+    chainId: CHAIN_ID,
     signer: new KeyPairSigner(
         '7238378070a5168733402d838033d7c9faa576ad906fcfd6693ed365f0ae0d16'
     ),
 })
 
 const meleDelegator = new Mele({
-    nodeUrl: 'http://localhost:26657/',
-    chainId: 'test',
+    nodeUrl: NODE_URL,
+    chainId: CHAIN_ID,
     signer: new MnemonicSigner(
         'around fire birth cradle assault equal risk dune goat recycle torch hole control pluck cry math noble crystal language uncover leave ski dust answer'
     ),
 })
 
 const meleValidator = new Mele({
-    nodeUrl: 'http://localhost:26657/',
-    chainId: 'test',
+    nodeUrl: NODE_URL,
+    chainId: CHAIN_ID,
     signer: new MnemonicSigner(
         'pet apart myth reflect stuff force attract taste caught fit exact ice slide sheriff state since unusual gaze practice course mesh magnet ozone purchase'
     ),
