@@ -10,6 +10,9 @@ import shajs from 'sha.js'
 import { encodeAddr } from '../transport/encoder'
 import { TransactionEvents } from '../transactions/events'
 
+import { fromUmelg, fromUmelc, smallestDenom, smallestStableDenom, toUmelg, toUmelc } from './conversion'
+export { fromUmelg, fromUmelc, smallestDenom, smallestStableDenom, toUmelg, toUmelc }
+
 const ec = new EC('secp256k1')
 
 export interface KeyPair {
