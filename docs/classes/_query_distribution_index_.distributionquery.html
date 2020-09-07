@@ -111,6 +111,7 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_query_distribution_index_.distributionquery.html#getburnedpool" class="tsd-kind-icon">get<wbr>Burned<wbr>Pool</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_query_distribution_index_.distributionquery.html#getcommunitypool" class="tsd-kind-icon">get<wbr>Community<wbr>Pool</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_query_distribution_index_.distributionquery.html#getdelegationrewards" class="tsd-kind-icon">get<wbr>Delegation<wbr>Rewards</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_query_distribution_index_.distributionquery.html#getdelegatortotalrewards" class="tsd-kind-icon">get<wbr>Delegator<wbr>Total<wbr>Rewards</a></li>
@@ -137,7 +138,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/e8696b4/src/query/distribution/index.ts#L28">src/query/distribution/index.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/38a00ee/src/query/distribution/index.ts#L29">src/query/distribution/index.ts:29</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -159,13 +160,47 @@
 					<div class="tsd-signature tsd-kind-icon">_transport<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_transport_index_.itransport.html" class="tsd-signature-type">ITransport</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/e8696b4/src/query/distribution/index.ts#L28">src/query/distribution/index.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/38a00ee/src/query/distribution/index.ts#L29">src/query/distribution/index.ts:29</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getburnedpool" class="tsd-anchor"></a>
+					<h3>get<wbr>Burned<wbr>Pool</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Burned<wbr>Pool<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_common_index_.sdkcoin.html" class="tsd-signature-type">SDKCoin</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/38a00ee/src/query/distribution/index.ts#L278">src/query/distribution/index.ts:278</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>mele.query.distribution.<strong>getBurnedPool</strong></p>
+								</div>
+								<p>Fetch burned pool balance.</p>
+								<dl class="tsd-comment-tags">
+									<dt>memberof</dt>
+									<dd><p>mele.query.distribution</p>
+									</dd>
+									<dt>inner</dt>
+									<dd></dd>
+									<dt>name</dt>
+									<dd><p>BurnedPool</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_common_index_.sdkcoin.html" class="tsd-signature-type">SDKCoin</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>burnedPool - Burned pool.</p>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="getcommunitypool" class="tsd-anchor"></a>
 					<h3>get<wbr>Community<wbr>Pool</h3>
@@ -176,14 +211,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/e8696b4/src/query/distribution/index.ts#L258">src/query/distribution/index.ts:258</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/38a00ee/src/query/distribution/index.ts#L259">src/query/distribution/index.ts:259</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>mele.query.distribution.<strong>getCommunityPool</strong></p>
 								</div>
-								<p>Fetch delegator&#39;s withdraw address.</p>
+								<p>Fetch community pool balance.</p>
 								<dl class="tsd-comment-tags">
 									<dt>memberof</dt>
 									<dd><p>mele.query.distribution</p>
@@ -210,7 +245,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/e8696b4/src/query/distribution/index.ts#L156">src/query/distribution/index.ts:156</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/38a00ee/src/query/distribution/index.ts#L157">src/query/distribution/index.ts:157</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -259,7 +294,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/e8696b4/src/query/distribution/index.ts#L182">src/query/distribution/index.ts:182</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/38a00ee/src/query/distribution/index.ts#L183">src/query/distribution/index.ts:183</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -302,7 +337,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/e8696b4/src/query/distribution/index.ts#L208">src/query/distribution/index.ts:208</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/38a00ee/src/query/distribution/index.ts#L209">src/query/distribution/index.ts:209</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -345,7 +380,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/e8696b4/src/query/distribution/index.ts#L46">src/query/distribution/index.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/38a00ee/src/query/distribution/index.ts#L47">src/query/distribution/index.ts:47</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -379,7 +414,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/e8696b4/src/query/distribution/index.ts#L93">src/query/distribution/index.ts:93</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/38a00ee/src/query/distribution/index.ts#L94">src/query/distribution/index.ts:94</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -422,7 +457,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/e8696b4/src/query/distribution/index.ts#L67">src/query/distribution/index.ts:67</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/38a00ee/src/query/distribution/index.ts#L68">src/query/distribution/index.ts:68</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -465,7 +500,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/e8696b4/src/query/distribution/index.ts#L121">src/query/distribution/index.ts:121</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/38a00ee/src/query/distribution/index.ts#L122">src/query/distribution/index.ts:122</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -520,7 +555,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/e8696b4/src/query/distribution/index.ts#L234">src/query/distribution/index.ts:234</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/38a00ee/src/query/distribution/index.ts#L235">src/query/distribution/index.ts:235</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -583,6 +618,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="_query_distribution_index_.distributionquery.html#_transport" class="tsd-kind-icon">_transport</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_query_distribution_index_.distributionquery.html#getburnedpool" class="tsd-kind-icon">get<wbr>Burned<wbr>Pool</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_query_distribution_index_.distributionquery.html#getcommunitypool" class="tsd-kind-icon">get<wbr>Community<wbr>Pool</a>
