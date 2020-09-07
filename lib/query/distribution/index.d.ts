@@ -12,4 +12,5 @@ export default class DistributionQuery {
     getDelegatorValidators(delegator: string): Promise<string[]>;
     getWithdrawAddress(delegator: string): Promise<string>;
     getCommunityPool(): Promise<Types.SDKCoin[]>;
+    getBurnedPool(): Promise<Types.SDKCoin[]>;
 }
