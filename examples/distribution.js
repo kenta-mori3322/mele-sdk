@@ -10,6 +10,14 @@ const mele = new Mele({
     signer: new MnemonicSigner(mnemonic),
 })
 
+const meleValidator = new Mele({
+    nodeUrl: 'http://localhost:26657/',
+    chainId: 'test',
+    signer: new MnemonicSigner(
+        'pet apart myth reflect stuff force attract taste caught fit exact ice slide sheriff state since unusual gaze practice course mesh magnet ozone purchase'
+    ),
+})
+
 ;(async () => {
     let validator
 
@@ -17,8 +25,12 @@ const mele = new Mele({
     console.log(chalk.green('Distribution params'))
     console.log(JSON.stringify(params, null, 4))
 
-    const pool = await mele.query.distribution.getCommunityPool()
+    let pool = await mele.query.distribution.getCommunityPool()
     console.log(chalk.green('Community pool'))
+    console.log(JSON.stringify(pool, null, 4))
+
+    pool = await mele.query.distribution.getBurnedPool()
+    console.log(chalk.green('Burned pool'))
     console.log(JSON.stringify(pool, null, 4))
 
     let vals = await mele.query.staking.getValidators()
@@ -111,10 +123,78 @@ const mele = new Mele({
             .on('confirmation', confirmation => {
                 console.log(chalk.cyan('Confirmation'))
                 console.log(JSON.stringify(confirmation, null, 4))
+
+                resolve(confirmation)
             })
             .on('error', error => {
                 console.log(chalk.red('Error'))
                 console.log(JSON.stringify(error, null, 4))
+
+                reject(error)
+            })
+    })
+
+    await txPromise
+
+    console.log(chalk.green('Withdraw validator commission transaction'))
+    txEvents = meleValidator.distribution
+        .withdrawValidatorCommission(validator.operator_address)
+        .sendTransaction()
+
+    txPromise = new Promise((resolve, reject) => {
+        txEvents
+            .on('hash', hash => {
+                console.log(chalk.cyan('Hash'))
+                console.log(hash)
+            })
+            .on('receipt', receipt => {
+                console.log(chalk.cyan('Receipt'))
+                console.log(JSON.stringify(receipt, null, 4))
+            })
+            .on('confirmation', confirmation => {
+                console.log(chalk.cyan('Confirmation'))
+                console.log(JSON.stringify(confirmation, null, 4))
+
+                resolve(confirmation)
+            })
+            .on('error', error => {
+                console.log(chalk.red('Error'))
+                console.log(JSON.stringify(error, null, 4))
+
+                reject(error)
+            })
+    })
+
+    await txPromise
+
+    console.log(chalk.green('Fund community pool transaction'))
+    txEvents = mele.distribution
+        .fundCommunityPool([{
+            amount: '100',
+            denom: 'umlc',
+        }])
+        .sendTransaction()
+
+    txPromise = new Promise((resolve, reject) => {
+        txEvents
+            .on('hash', hash => {
+                console.log(chalk.cyan('Hash'))
+                console.log(hash)
+            })
+            .on('receipt', receipt => {
+                console.log(chalk.cyan('Receipt'))
+                console.log(JSON.stringify(receipt, null, 4))
+            })
+            .on('confirmation', confirmation => {
+                console.log(chalk.cyan('Confirmation'))
+                console.log(JSON.stringify(confirmation, null, 4))
+
+                resolve(confirmation)
+            })
+            .on('error', error => {
+                console.log(chalk.red('Error'))
+                console.log(JSON.stringify(error, null, 4))
+
                 reject(error)
             })
     })
