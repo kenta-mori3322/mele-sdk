@@ -14,6 +14,7 @@ namespace Keys {
         DelegatorValidatorsPath: 'delegator_validators',
         WithdrawAddrPath: 'withdraw_addr',
         CommunityPoolPath: 'community_pool',
+        BurnedPoolPath: 'burned_pool',
     }
 }
 
@@ -246,7 +247,7 @@ export default class DistributionQuery {
     /**
      * mele.query.distribution.**getCommunityPool**
      *
-     * Fetch delegator's withdraw address.
+     * Fetch community pool balance.
      *
      * @memberof mele.query.distribution
      * @inner
@@ -260,5 +261,24 @@ export default class DistributionQuery {
         const CommunityPoolPath = Keys.Query.CommunityPoolPath
 
         return this._transport.query<Types.SDKCoin[]>([], '', QueryPath, CommunityPoolPath)
+    }
+
+    /**
+     * mele.query.distribution.**getBurnedPool**
+     *
+     * Fetch burned pool balance.
+     *
+     * @memberof mele.query.distribution
+     * @inner
+     *
+     * @name BurnedPool
+     *
+     * @returns {[SDKCoin]} burnedPool - Burned pool.
+     */
+    getBurnedPool(): Promise<Types.SDKCoin[]> {
+        const QueryPath = Keys.Query.QueryPath
+        const BurnedPoolPath = Keys.Query.BurnedPoolPath
+
+        return this._transport.query<Types.SDKCoin[]>([], '', QueryPath, BurnedPoolPath)
     }
 }
