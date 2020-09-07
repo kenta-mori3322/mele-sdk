@@ -1,5 +1,6 @@
 import { Transaction, TransactionApi } from '../index'
 import { Codec } from './codec'
+import { Coin } from '../../transport/codec'
 
 import * as Types from '../../common'
 
@@ -7,6 +8,7 @@ const _types = {
     WithdrawDelegationRewardMsgType: 'cosmos-sdk/MsgWithdrawDelegationReward',
     WithdrawValidatorCommissionMsgType: 'cosmos-sdk/MsgWithdrawValidatorCommission',
     ModifyWithdrawAddressMsgType: 'cosmos-sdk/MsgModifyWithdrawAddress',
+    FundCommunityPoolMsgType: 'cosmos-sdk/MsgFundCommunityPool',
 }
 
 export const Msgs = {
@@ -22,6 +24,11 @@ export const Msgs = {
     },
     makeModifyWithdrawAddressMsg(delegator: string, withdrawAddress: string): any[] {
         const msg = new Codec[_types.ModifyWithdrawAddressMsgType](delegator, withdrawAddress)
+
+        return [msg]
+    },
+    makeFundCommunityPool(amount: Types.SDKCoin[], depositor: string): any[] {
+        const msg = new Codec[_types.FundCommunityPoolMsgType](amount.map(am => new Coin(am.denom, am.amount)), depositor)
 
         return [msg]
     },
@@ -96,6 +103,29 @@ export default class Distribution extends TransactionApi {
         const msgs = Msgs.makeModifyWithdrawAddressMsg(
             this.broadcast.signer.getAddress(),
             withdrawAddress
+        )
+
+        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
+    }
+
+    /**
+     * mele.distribution.**fundCommunityPool**
+     *
+     * Send tokens to the community pool.
+     *
+     * @param {string} amount - Amount to send
+     *
+     * @memberof mele.distribution
+     * @inner
+     *
+     * @name FundCommunityPool
+     *
+     * @returns {Transaction} transaction - Transaction class instance.
+     */
+    fundCommunityPool(amount: Types.SDKCoin[]): Transaction {
+        const msgs = Msgs.makeFundCommunityPool(
+            amount,
+            this.broadcast.signer.getAddress()
         )
 
         return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))

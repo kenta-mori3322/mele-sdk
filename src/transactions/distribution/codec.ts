@@ -31,6 +31,16 @@ export const Codec = {
             type: Types.String,
         },
     ]),
+    'cosmos-sdk/MsgFundCommunityPool': TypeFactory.create('MsgFundCommunityPool', [
+        {
+            name: 'amount',
+            type: Types.ArrayStruct,
+        },
+        {
+            name: 'depositor',
+            type: Types.String,
+        }
+    ])
 }
 
 Object.keys(Codec).forEach(codec => registerConcrete(codec, Codec[codec]))
