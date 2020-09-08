@@ -127,3 +127,16 @@ export function promisify(events: TransactionEvents, type: string = 'confirmatio
         throw new Error('Invalid event type.')
     }
 }
+
+export function convertValidatorPubKey(pubkey: string): string {
+    let pubkeyAminoPrefix = Buffer.from('1624DE6420', 'hex')
+    let buffer = Buffer.from(bech32.fromWords(bech32.decode(pubkey).words))
+
+    let key = buffer.slice(pubkeyAminoPrefix.length)
+
+    const hashResult = shajs('sha256')
+        .update(key)
+        .digest('hex') as string
+
+    return hashResult.slice(0, 40).toUpperCase()
+}

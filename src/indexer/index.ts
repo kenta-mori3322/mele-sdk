@@ -1,4 +1,5 @@
 import IndexerApi from './api'
+import { convertValidatorPubKey } from '../utils'
 
 interface IndexerOptions {
     endpoint: string
@@ -65,6 +66,13 @@ interface ProposalVotes {
     voter: string
 }
 
+interface ValidatorUptime {
+    uptime: number
+    address: string
+    total_blocks_count: number
+    missed_blocks_count: number
+}
+
 export default class Indexer {
     private _opts: IndexerOptions
 
@@ -106,5 +114,11 @@ export default class Indexer {
 
     async proposalVotes(id: string): Promise<ProposalVotes[]> {
         return IndexerApi.get(this._opts.endpoint, `proposal_votes/${id}`)
+    }
+
+    async validatorUptime(pubkey: string): Promise<ValidatorUptime> {
+        let valAddress = convertValidatorPubKey(pubkey)
+
+        return IndexerApi.get(this._opts.endpoint, `validator/${valAddress}`)
     }
 }
