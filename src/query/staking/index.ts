@@ -1,5 +1,6 @@
 import * as Types from '../../common'
 import { ITransport } from '../../transport'
+import MintQuery from '../mint'
 
 namespace Keys {
     export const Query = {
@@ -32,9 +33,11 @@ namespace Keys {
 
 export default class StakingQuery {
     private _transport: ITransport
+    private _mint: MintQuery
 
-    constructor(transport: ITransport) {
+    constructor(transport: ITransport, mint: MintQuery) {
         this._transport = transport
+        this._mint = mint
     }
 
     /**
@@ -411,5 +414,34 @@ export default class StakingQuery {
         const PoolPath = Keys.Query.PoolPath
 
         return this._transport.query<Types.StakingPool>([], '', QueryPath, PoolPath)
+    }
+
+    /**
+     * mele.query.staking.**getRewardRate**
+     *
+     * Fetch current reward rate.
+     *
+     * @memberof mele.query.staking
+     * @inner
+     *
+     * @name RewardRate
+     *
+     * @returns {number} rewardRate - Reward rate.
+     */
+    async getRewardRate(): Promise<number> {
+        let pool = await this.getPool()
+        
+        let inflation = await this._mint.getInflation()
+        let mintParams = await this._mint.getParameters()
+
+        inflation = Number(inflation) *
+                (1 + Number(mintParams.inflation_rate_change || 0))
+
+        let rRate = ((Number(pool.not_bonded_tokens) +
+            Number(pool.bonded_tokens)) *
+            Number(inflation)) /
+        Number(pool.bonded_tokens)
+
+        return rRate
     }
 }
