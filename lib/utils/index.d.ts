@@ -19,3 +19,4 @@ export declare function validatePublicKey(pubKey: string): boolean;
 export declare function encodeAddress(addr: Buffer, prefix: string): string;
 export declare function decodeAddress(addr: string, prefix: string): Buffer;
 export declare function promisify(events: TransactionEvents, type?: string): Promise<any>;
+export declare function convertValidatorPubKey(pubkey: string): string;

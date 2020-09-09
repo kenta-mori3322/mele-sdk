@@ -55,6 +55,12 @@ interface ProposalVotes {
     timestamp: string;
     voter: string;
 }
+interface ValidatorUptime {
+    uptime: number;
+    address: string;
+    total_blocks_count: number;
+    missed_blocks_count: number;
+}
 export default class Indexer {
     private _opts;
     constructor(opts: IndexerOptions);
@@ -67,5 +73,6 @@ export default class Indexer {
     blockEvents(query?: any): Promise<BlockEvent[]>;
     blocks(query?: any): Promise<Block[]>;
     proposalVotes(id: string): Promise<ProposalVotes[]>;
+    validatorUptime(pubkey: string): Promise<ValidatorUptime>;
 }
 export {};

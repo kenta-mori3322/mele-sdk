@@ -205,3 +205,11 @@ export interface Vote {
     voter: string;
     option: string;
 }
+export interface MintParams {
+    mint_denom: string;
+    inflation_rate_change: number;
+    inflation_max: number;
+    inflation_min: number;
+    goal_bonded: number;
+    blocks_per_year: number;
+}
