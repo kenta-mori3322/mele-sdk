@@ -51,7 +51,7 @@ describe('Mele Blockchain', function() {
             const mnemonic = Utils.generateMnemonic()
 
             assert.ok(mnemonic)
-            assert.ok(mnemonic.split(' ').length === 24)
+            assert.ok(mnemonic.split(' ').length === 12)
         })
 
         it('Private key can be derived by a mnemonic', () => {

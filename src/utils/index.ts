@@ -21,7 +21,7 @@ export interface KeyPair {
 }
 
 export function generateMnemonic(): string {
-    return bip39.generateMnemonic(256)
+    return bip39.generateMnemonic()
 }
 
 export function generateKeyPair(): KeyPair {
