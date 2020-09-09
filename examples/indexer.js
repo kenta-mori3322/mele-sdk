@@ -51,4 +51,18 @@ const mele = new Mele({
     })
 
     console.log(blocks)
+
+    const votes = await mele.indexer.proposalVotes(1)
+
+    console.log(votes)
+
+    const validatorUptime = await mele.indexer.validatorUptime('melevalconspub1zcjduepq455luw7suazfw2tam0memzs76gvzu5xgatmvjmmqcpyfx32wj6qs2l5tw7')
+
+    console.log(validatorUptime)
+
+    const history = await mele.indexer.history({
+        module: 'staking'
+    })
+
+    console.log(history)
 })()
