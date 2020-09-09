@@ -207,7 +207,7 @@ describe('Mele Blockchain', function() {
             })
         })
 
-        describe('Staking/Slashing/Distribution', () => {
+        describe('Staking/Slashing/Distribution/Mint', () => {
             let validator
 
             it('Staking params can be fetched', async () => {
@@ -541,6 +541,30 @@ describe('Mele Blockchain', function() {
                 assert.ok(tx.hash)
 
                 assert.ok(tx.tx_result)
+            })
+
+            it('Mint params can be fetched', async () => {
+                const pool = await mele.query.mint.getParameters()
+
+                assert.ok(pool)
+            })
+
+            it('Mint inflation can be fetched', async () => {
+                const inflation = await mele.query.mint.getInflation()
+
+                assert.ok(inflation)
+            })
+
+            it('Mint annual provisions can be fetched', async () => {
+                const annual = await mele.query.mint.getAnnualProvisions()
+
+                assert.ok(annual)
+            })
+
+            it('Staking reward rate can be fetched', async () => {
+                const rate = await mele.query.staking.getRewardRate()
+
+                assert.ok(rate)
             })
         })
 
