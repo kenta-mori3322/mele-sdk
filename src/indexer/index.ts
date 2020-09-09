@@ -73,6 +73,14 @@ interface ValidatorUptime {
     missed_blocks_count: number
 }
 
+interface History {
+    data: any
+    address: string
+    module: string
+    name: string
+    timestamp: Date
+}
+
 export default class Indexer {
     private _opts: IndexerOptions
 
@@ -120,5 +128,9 @@ export default class Indexer {
         let valAddress = convertValidatorPubKey(pubkey)
 
         return IndexerApi.get(this._opts.endpoint, `validator/${valAddress}`)
+    }
+
+    async history(query: any = {}): Promise<History[]> {
+        return IndexerApi.get(this._opts.endpoint, 'history', query)
     }
 }
