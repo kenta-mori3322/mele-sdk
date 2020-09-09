@@ -61,6 +61,13 @@ interface ValidatorUptime {
     total_blocks_count: number;
     missed_blocks_count: number;
 }
+interface History {
+    data: any;
+    address: string;
+    module: string;
+    name: string;
+    timestamp: Date;
+}
 export default class Indexer {
     private _opts;
     constructor(opts: IndexerOptions);
@@ -74,5 +81,6 @@ export default class Indexer {
     blocks(query?: any): Promise<Block[]>;
     proposalVotes(id: string): Promise<ProposalVotes[]>;
     validatorUptime(pubkey: string): Promise<ValidatorUptime>;
+    history(query?: any): Promise<History[]>;
 }
 export {};
