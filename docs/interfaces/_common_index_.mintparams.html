@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ABCIVersion | mele-sdk</title>
+	<title>MintParams | mele-sdk</title>
 	<meta name="description" content="Documentation for mele-sdk">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -59,10 +59,10 @@
 					<a href="../modules/_common_index_.html">&quot;common/index&quot;</a>
 				</li>
 				<li>
-					<a href="_common_index_.abciversion.html">ABCIVersion</a>
+					<a href="_common_index_.mintparams.html">MintParams</a>
 				</li>
 			</ul>
-			<h1>Interface ABCIVersion</h1>
+			<h1>Interface MintParams</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ABCIVersion</span>
+						<span class="target">MintParams</span>
 					</li>
 				</ul>
 			</section>
@@ -84,8 +84,12 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_common_index_.abciversion.html#app" class="tsd-kind-icon">App</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_common_index_.abciversion.html#block" class="tsd-kind-icon">Block</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_common_index_.mintparams.html#blocks_per_year" class="tsd-kind-icon">blocks_<wbr>per_<wbr>year</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_common_index_.mintparams.html#goal_bonded" class="tsd-kind-icon">goal_<wbr>bonded</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_common_index_.mintparams.html#inflation_max" class="tsd-kind-icon">inflation_<wbr>max</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_common_index_.mintparams.html#inflation_min" class="tsd-kind-icon">inflation_<wbr>min</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_common_index_.mintparams.html#inflation_rate_change" class="tsd-kind-icon">inflation_<wbr>rate_<wbr>change</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_common_index_.mintparams.html#mint_denom" class="tsd-kind-icon">mint_<wbr>denom</a></li>
 							</ul>
 						</section>
 					</div>
@@ -94,22 +98,62 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="app" class="tsd-anchor"></a>
-					<h3>App</h3>
-					<div class="tsd-signature tsd-kind-icon">App<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="blocks_per_year" class="tsd-anchor"></a>
+					<h3>blocks_<wbr>per_<wbr>year</h3>
+					<div class="tsd-signature tsd-kind-icon">blocks_<wbr>per_<wbr>year<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/common/index.ts#L112">src/common/index.ts:112</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/common/index.ts#L250">src/common/index.ts:250</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="block" class="tsd-anchor"></a>
-					<h3>Block</h3>
-					<div class="tsd-signature tsd-kind-icon">Block<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="goal_bonded" class="tsd-anchor"></a>
+					<h3>goal_<wbr>bonded</h3>
+					<div class="tsd-signature tsd-kind-icon">goal_<wbr>bonded<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/common/index.ts#L111">src/common/index.ts:111</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/common/index.ts#L249">src/common/index.ts:249</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="inflation_max" class="tsd-anchor"></a>
+					<h3>inflation_<wbr>max</h3>
+					<div class="tsd-signature tsd-kind-icon">inflation_<wbr>max<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/common/index.ts#L247">src/common/index.ts:247</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="inflation_min" class="tsd-anchor"></a>
+					<h3>inflation_<wbr>min</h3>
+					<div class="tsd-signature tsd-kind-icon">inflation_<wbr>min<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/common/index.ts#L248">src/common/index.ts:248</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="inflation_rate_change" class="tsd-anchor"></a>
+					<h3>inflation_<wbr>rate_<wbr>change</h3>
+					<div class="tsd-signature tsd-kind-icon">inflation_<wbr>rate_<wbr>change<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/common/index.ts#L246">src/common/index.ts:246</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="mint_denom" class="tsd-anchor"></a>
+					<h3>mint_<wbr>denom</h3>
+					<div class="tsd-signature tsd-kind-icon">mint_<wbr>denom<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/common/index.ts#L245">src/common/index.ts:245</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -137,21 +181,9 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_common_index_.abcipartsetheader.html" class="tsd-kind-icon">ABCIPart<wbr>Set<wbr>Header</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_common_index_.abciversion.html" class="tsd-kind-icon">ABCIVersion</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_common_index_.abciversion.html#app" class="tsd-kind-icon">App</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_common_index_.abciversion.html#block" class="tsd-kind-icon">Block</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_common_index_.accsigninfo.html" class="tsd-kind-icon">Acc<wbr>Sign<wbr>Info</a>
 					</li>
@@ -194,9 +226,33 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_common_index_.historicalinfo.html" class="tsd-kind-icon">Historical<wbr>Info</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-module">
 						<a href="_common_index_.mintparams.html" class="tsd-kind-icon">Mint<wbr>Params</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_common_index_.mintparams.html#blocks_per_year" class="tsd-kind-icon">blocks_<wbr>per_<wbr>year</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_common_index_.mintparams.html#goal_bonded" class="tsd-kind-icon">goal_<wbr>bonded</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_common_index_.mintparams.html#inflation_max" class="tsd-kind-icon">inflation_<wbr>max</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_common_index_.mintparams.html#inflation_min" class="tsd-kind-icon">inflation_<wbr>min</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_common_index_.mintparams.html#inflation_rate_change" class="tsd-kind-icon">inflation_<wbr>rate_<wbr>change</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_common_index_.mintparams.html#mint_denom" class="tsd-kind-icon">mint_<wbr>denom</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_common_index_.paramchange.html" class="tsd-kind-icon">Param<wbr>Change</a>
 					</li>

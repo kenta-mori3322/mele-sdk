@@ -105,6 +105,7 @@
 						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_query_staking_index_.stakingquery.html#_mint" class="tsd-kind-icon">_mint</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_query_staking_index_.stakingquery.html#_transport" class="tsd-kind-icon">_transport</a></li>
 							</ul>
 						</section>
@@ -120,6 +121,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_query_staking_index_.stakingquery.html#getparameters" class="tsd-kind-icon">get<wbr>Parameters</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_query_staking_index_.stakingquery.html#getpool" class="tsd-kind-icon">get<wbr>Pool</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_query_staking_index_.stakingquery.html#getredelegations" class="tsd-kind-icon">get<wbr>Redelegations</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_query_staking_index_.stakingquery.html#getrewardrate" class="tsd-kind-icon">get<wbr>Reward<wbr>Rate</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_query_staking_index_.stakingquery.html#getunbondingdelegation" class="tsd-kind-icon">get<wbr>Unbonding<wbr>Delegation</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_query_staking_index_.stakingquery.html#getvalidator" class="tsd-kind-icon">get<wbr>Validator</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_query_staking_index_.stakingquery.html#getvalidatordelegations" class="tsd-kind-icon">get<wbr>Validator<wbr>Delegations</a></li>
@@ -136,19 +138,22 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Staking<wbr>Query<span class="tsd-signature-symbol">(</span>transport<span class="tsd-signature-symbol">: </span><a href="../interfaces/_transport_index_.itransport.html" class="tsd-signature-type">ITransport</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_query_staking_index_.stakingquery.html" class="tsd-signature-type">StakingQuery</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Staking<wbr>Query<span class="tsd-signature-symbol">(</span>transport<span class="tsd-signature-symbol">: </span><a href="../interfaces/_transport_index_.itransport.html" class="tsd-signature-type">ITransport</a>, mint<span class="tsd-signature-symbol">: </span><a href="_query_mint_index_.mintquery.html" class="tsd-signature-type">MintQuery</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_query_staking_index_.stakingquery.html" class="tsd-signature-type">StakingQuery</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/1d4ffcd/src/query/staking/index.ts#L34">src/query/staking/index.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/query/staking/index.ts#L36">src/query/staking/index.ts:36</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>transport: <a href="../interfaces/_transport_index_.itransport.html" class="tsd-signature-type">ITransport</a></h5>
+								</li>
+								<li>
+									<h5>mint: <a href="_query_mint_index_.mintquery.html" class="tsd-signature-type">MintQuery</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_query_staking_index_.stakingquery.html" class="tsd-signature-type">StakingQuery</a></h4>
@@ -159,12 +164,22 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_mint" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _mint</h3>
+					<div class="tsd-signature tsd-kind-icon">_mint<span class="tsd-signature-symbol">:</span> <a href="_query_mint_index_.mintquery.html" class="tsd-signature-type">MintQuery</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/query/staking/index.ts#L36">src/query/staking/index.ts:36</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_transport" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _transport</h3>
 					<div class="tsd-signature tsd-kind-icon">_transport<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_transport_index_.itransport.html" class="tsd-signature-type">ITransport</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/1d4ffcd/src/query/staking/index.ts#L34">src/query/staking/index.ts:34</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/query/staking/index.ts#L35">src/query/staking/index.ts:35</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -181,7 +196,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/1d4ffcd/src/query/staking/index.ts#L161">src/query/staking/index.ts:161</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/query/staking/index.ts#L164">src/query/staking/index.ts:164</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -230,7 +245,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/1d4ffcd/src/query/staking/index.ts#L220">src/query/staking/index.ts:220</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/query/staking/index.ts#L223">src/query/staking/index.ts:223</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -273,7 +288,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/1d4ffcd/src/query/staking/index.ts#L246">src/query/staking/index.ts:246</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/query/staking/index.ts#L249">src/query/staking/index.ts:249</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -316,7 +331,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/1d4ffcd/src/query/staking/index.ts#L337">src/query/staking/index.ts:337</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/query/staking/index.ts#L340">src/query/staking/index.ts:340</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -365,7 +380,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/1d4ffcd/src/query/staking/index.ts#L310">src/query/staking/index.ts:310</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/query/staking/index.ts#L313">src/query/staking/index.ts:313</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -408,7 +423,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/1d4ffcd/src/query/staking/index.ts#L366">src/query/staking/index.ts:366</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/query/staking/index.ts#L369">src/query/staking/index.ts:369</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -451,7 +466,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/1d4ffcd/src/query/staking/index.ts#L390">src/query/staking/index.ts:390</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/query/staking/index.ts#L393">src/query/staking/index.ts:393</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -485,7 +500,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/1d4ffcd/src/query/staking/index.ts#L409">src/query/staking/index.ts:409</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/query/staking/index.ts#L412">src/query/staking/index.ts:412</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -519,7 +534,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/1d4ffcd/src/query/staking/index.ts#L276">src/query/staking/index.ts:276</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/query/staking/index.ts#L279">src/query/staking/index.ts:279</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -565,6 +580,40 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getrewardrate" class="tsd-anchor"></a>
+					<h3>get<wbr>Reward<wbr>Rate</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Reward<wbr>Rate<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/query/staking/index.ts#L431">src/query/staking/index.ts:431</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>mele.query.staking.<strong>getRewardRate</strong></p>
+								</div>
+								<p>Fetch current reward rate.</p>
+								<dl class="tsd-comment-tags">
+									<dt>memberof</dt>
+									<dd><p>mele.query.staking</p>
+									</dd>
+									<dt>inner</dt>
+									<dd></dd>
+									<dt>name</dt>
+									<dd><p>RewardRate</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>rewardRate - Reward rate.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="getunbondingdelegation" class="tsd-anchor"></a>
 					<h3>get<wbr>Unbonding<wbr>Delegation</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -574,7 +623,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/1d4ffcd/src/query/staking/index.ts#L191">src/query/staking/index.ts:191</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/query/staking/index.ts#L194">src/query/staking/index.ts:194</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -623,7 +672,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/1d4ffcd/src/query/staking/index.ts#L82">src/query/staking/index.ts:82</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/query/staking/index.ts#L85">src/query/staking/index.ts:85</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -666,7 +715,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/1d4ffcd/src/query/staking/index.ts#L108">src/query/staking/index.ts:108</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/query/staking/index.ts#L111">src/query/staking/index.ts:111</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -709,7 +758,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/1d4ffcd/src/query/staking/index.ts#L134">src/query/staking/index.ts:134</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/query/staking/index.ts#L137">src/query/staking/index.ts:137</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -752,7 +801,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/1d4ffcd/src/query/staking/index.ts#L52">src/query/staking/index.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/query/staking/index.ts#L55">src/query/staking/index.ts:55</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -805,6 +854,9 @@
 								<a href="_query_staking_index_.stakingquery.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_query_staking_index_.stakingquery.html#_mint" class="tsd-kind-icon">_mint</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="_query_staking_index_.stakingquery.html#_transport" class="tsd-kind-icon">_transport</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -833,6 +885,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_query_staking_index_.stakingquery.html#getredelegations" class="tsd-kind-icon">get<wbr>Redelegations</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_query_staking_index_.stakingquery.html#getrewardrate" class="tsd-kind-icon">get<wbr>Reward<wbr>Rate</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_query_staking_index_.stakingquery.html#getunbondingdelegation" class="tsd-kind-icon">get<wbr>Unbonding<wbr>Delegation</a>

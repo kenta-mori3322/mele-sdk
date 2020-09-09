@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Block | mele-sdk</title>
+	<title>ValidatorUptime | mele-sdk</title>
 	<meta name="description" content="Documentation for mele-sdk">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -59,10 +59,10 @@
 					<a href="../modules/_indexer_index_.html">&quot;indexer/index&quot;</a>
 				</li>
 				<li>
-					<a href="_indexer_index_.block.html">Block</a>
+					<a href="_indexer_index_.validatoruptime.html">ValidatorUptime</a>
 				</li>
 			</ul>
-			<h1>Interface Block</h1>
+			<h1>Interface ValidatorUptime</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Block</span>
+						<span class="target">ValidatorUptime</span>
 					</li>
 				</ul>
 			</section>
@@ -84,14 +84,10 @@
 						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_indexer_index_.block.html#hash" class="tsd-kind-icon">hash</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_indexer_index_.block.html#height" class="tsd-kind-icon">height</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_indexer_index_.block.html#lastblockhash" class="tsd-kind-icon">last<wbr>Block<wbr>Hash</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_indexer_index_.block.html#precommitscount" class="tsd-kind-icon">precommits<wbr>Count</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_indexer_index_.block.html#proposeraddress" class="tsd-kind-icon">proposer<wbr>Address</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_indexer_index_.block.html#time" class="tsd-kind-icon">time</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_indexer_index_.block.html#transnum" class="tsd-kind-icon">trans<wbr>Num</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_indexer_index_.block.html#validatorscount" class="tsd-kind-icon">validators<wbr>Count</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_indexer_index_.validatoruptime.html#address" class="tsd-kind-icon">address</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_indexer_index_.validatoruptime.html#missed_blocks_count" class="tsd-kind-icon">missed_<wbr>blocks_<wbr>count</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_indexer_index_.validatoruptime.html#total_blocks_count" class="tsd-kind-icon">total_<wbr>blocks_<wbr>count</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_indexer_index_.validatoruptime.html#uptime" class="tsd-kind-icon">uptime</a></li>
 							</ul>
 						</section>
 					</div>
@@ -100,82 +96,42 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="hash" class="tsd-anchor"></a>
-					<h3>hash</h3>
-					<div class="tsd-signature tsd-kind-icon">hash<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="address" class="tsd-anchor"></a>
+					<h3>address</h3>
+					<div class="tsd-signature tsd-kind-icon">address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/indexer/index.ts#L35">src/indexer/index.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/indexer/index.ts#L71">src/indexer/index.ts:71</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="height" class="tsd-anchor"></a>
-					<h3>height</h3>
-					<div class="tsd-signature tsd-kind-icon">height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="missed_blocks_count" class="tsd-anchor"></a>
+					<h3>missed_<wbr>blocks_<wbr>count</h3>
+					<div class="tsd-signature tsd-kind-icon">missed_<wbr>blocks_<wbr>count<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/indexer/index.ts#L34">src/indexer/index.ts:34</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/indexer/index.ts#L73">src/indexer/index.ts:73</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="lastblockhash" class="tsd-anchor"></a>
-					<h3>last<wbr>Block<wbr>Hash</h3>
-					<div class="tsd-signature tsd-kind-icon">last<wbr>Block<wbr>Hash<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="total_blocks_count" class="tsd-anchor"></a>
+					<h3>total_<wbr>blocks_<wbr>count</h3>
+					<div class="tsd-signature tsd-kind-icon">total_<wbr>blocks_<wbr>count<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/indexer/index.ts#L38">src/indexer/index.ts:38</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/indexer/index.ts#L72">src/indexer/index.ts:72</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="precommitscount" class="tsd-anchor"></a>
-					<h3>precommits<wbr>Count</h3>
-					<div class="tsd-signature tsd-kind-icon">precommits<wbr>Count<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="uptime" class="tsd-anchor"></a>
+					<h3>uptime</h3>
+					<div class="tsd-signature tsd-kind-icon">uptime<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/indexer/index.ts#L40">src/indexer/index.ts:40</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="proposeraddress" class="tsd-anchor"></a>
-					<h3>proposer<wbr>Address</h3>
-					<div class="tsd-signature tsd-kind-icon">proposer<wbr>Address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/indexer/index.ts#L39">src/indexer/index.ts:39</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="time" class="tsd-anchor"></a>
-					<h3>time</h3>
-					<div class="tsd-signature tsd-kind-icon">time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/indexer/index.ts#L37">src/indexer/index.ts:37</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="transnum" class="tsd-anchor"></a>
-					<h3>trans<wbr>Num</h3>
-					<div class="tsd-signature tsd-kind-icon">trans<wbr>Num<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/indexer/index.ts#L36">src/indexer/index.ts:36</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="validatorscount" class="tsd-anchor"></a>
-					<h3>validators<wbr>Count</h3>
-					<div class="tsd-signature tsd-kind-icon">validators<wbr>Count<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/indexer/index.ts#L41">src/indexer/index.ts:41</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/6038121/src/indexer/index.ts#L70">src/indexer/index.ts:70</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -197,39 +153,9 @@
 					<li class=" tsd-kind-class tsd-parent-kind-module">
 						<a href="../classes/_indexer_index_.indexer.html" class="tsd-kind-icon">Indexer</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
+					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
 						<a href="_indexer_index_.block.html" class="tsd-kind-icon">Block</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="_indexer_index_.block.html#hash" class="tsd-kind-icon">hash</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="_indexer_index_.block.html#height" class="tsd-kind-icon">height</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="_indexer_index_.block.html#lastblockhash" class="tsd-kind-icon">last<wbr>Block<wbr>Hash</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="_indexer_index_.block.html#precommitscount" class="tsd-kind-icon">precommits<wbr>Count</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="_indexer_index_.block.html#proposeraddress" class="tsd-kind-icon">proposer<wbr>Address</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="_indexer_index_.block.html#time" class="tsd-kind-icon">time</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="_indexer_index_.block.html#transnum" class="tsd-kind-icon">trans<wbr>Num</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="_indexer_index_.block.html#validatorscount" class="tsd-kind-icon">validators<wbr>Count</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
 						<a href="_indexer_index_.blockdata.html" class="tsd-kind-icon">Block<wbr>Data</a>
 					</li>
@@ -251,9 +177,27 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
 						<a href="_indexer_index_.txcount.html" class="tsd-kind-icon">Tx<wbr>Count</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
 						<a href="_indexer_index_.validatoruptime.html" class="tsd-kind-icon">Validator<wbr>Uptime</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="_indexer_index_.validatoruptime.html#address" class="tsd-kind-icon">address</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="_indexer_index_.validatoruptime.html#missed_blocks_count" class="tsd-kind-icon">missed_<wbr>blocks_<wbr>count</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="_indexer_index_.validatoruptime.html#total_blocks_count" class="tsd-kind-icon">total_<wbr>blocks_<wbr>count</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="_indexer_index_.validatoruptime.html#uptime" class="tsd-kind-icon">uptime</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 				</ul>
 			</nav>
 		</div>
