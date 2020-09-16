@@ -13,7 +13,7 @@ export interface AccSignInfo {
 }
 export interface Account {
     type: string;
-    value: AccountDetail;
+    value: AccountDetail | ContinuousVestingAccount | DelayedVestingAccount | PeriodicVestingAccount;
 }
 export interface AccountDetail {
     address: string;
@@ -21,6 +21,28 @@ export interface AccountDetail {
     public_key: PubKey;
     account_number: number;
     sequence: number;
+}
+export interface BaseVestingAccount {
+    BaseAccount: AccountDetail;
+    original_vesting: SDKCoin[];
+    delegated_free: SDKCoin[];
+    delegated_vesting: SDKCoin[];
+    end_time: string;
+}
+export interface ContinuousVestingAccount {
+    BaseVestingAccount: BaseVestingAccount;
+    start_time: string;
+}
+export interface DelayedVestingAccount {
+    BaseVestingAccount: BaseVestingAccount;
+}
+export interface Period {
+    length: number;
+    amount: SDKCoin[];
+}
+export interface PeriodicVestingAccount {
+    BaseVestingAccount: BaseVestingAccount;
+    vesting_periods: Period[];
 }
 export interface Description {
     moniker: string;
