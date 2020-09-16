@@ -154,11 +154,22 @@ export default class Query {
      */
     async getAccSignInfo(address: string): Promise<Types.AccSignInfo> {
         let accountInfo = await this.getAccountInfo(address)
+        let accSignInfo: Types.AccSignInfo
 
-        return <Types.AccSignInfo>{
-            address: accountInfo.value.address,
-            accountNumber: accountInfo.value.account_number,
-            sequence: accountInfo.value.sequence,
+        if ('address' in accountInfo.value) {
+            accSignInfo = {
+                address: accountInfo.value.address,
+                accountNumber: accountInfo.value.account_number,
+                sequence: accountInfo.value.sequence,
+            }
+        } else {
+            accSignInfo = {
+                address: accountInfo.value.BaseVestingAccount.BaseAccount.address,
+                accountNumber: accountInfo.value.BaseVestingAccount.BaseAccount.account_number,
+                sequence: accountInfo.value.BaseVestingAccount.BaseAccount.sequence,
+            }
         }
+
+        return accSignInfo
     }
 }
