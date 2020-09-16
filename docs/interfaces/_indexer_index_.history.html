@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>BlockData | mele-sdk</title>
+	<title>History | mele-sdk</title>
 	<meta name="description" content="Documentation for mele-sdk">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -59,10 +59,10 @@
 					<a href="../modules/_indexer_index_.html">&quot;indexer/index&quot;</a>
 				</li>
 				<li>
-					<a href="_indexer_index_.blockdata.html">BlockData</a>
+					<a href="_indexer_index_.history.html">History</a>
 				</li>
 			</ul>
-			<h1>Interface BlockData</h1>
+			<h1>Interface History</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">BlockData</span>
+						<span class="target">History</span>
 					</li>
 				</ul>
 			</section>
@@ -84,9 +84,11 @@
 						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_indexer_index_.blockdata.html#block" class="tsd-kind-icon">block</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_indexer_index_.blockdata.html#events" class="tsd-kind-icon">events</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_indexer_index_.blockdata.html#txs" class="tsd-kind-icon">txs</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_indexer_index_.history.html#address" class="tsd-kind-icon">address</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_indexer_index_.history.html#data" class="tsd-kind-icon">data</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_indexer_index_.history.html#module" class="tsd-kind-icon">module</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_indexer_index_.history.html#name" class="tsd-kind-icon">name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_indexer_index_.history.html#timestamp" class="tsd-kind-icon">timestamp</a></li>
 							</ul>
 						</section>
 					</div>
@@ -95,32 +97,52 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="block" class="tsd-anchor"></a>
-					<h3>block</h3>
-					<div class="tsd-signature tsd-kind-icon">block<span class="tsd-signature-symbol">:</span> <a href="_indexer_index_.block.html" class="tsd-signature-type">Block</a></div>
+					<a name="address" class="tsd-anchor"></a>
+					<h3>address</h3>
+					<div class="tsd-signature tsd-kind-icon">address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/9d2e9dc/src/indexer/index.ts#L53">src/indexer/index.ts:53</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/9d2e9dc/src/indexer/index.ts#L78">src/indexer/index.ts:78</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="events" class="tsd-anchor"></a>
-					<h3>events</h3>
-					<div class="tsd-signature tsd-kind-icon">events<span class="tsd-signature-symbol">:</span> <a href="_indexer_index_.blockevent.html" class="tsd-signature-type">BlockEvent</a><span class="tsd-signature-symbol">[]</span></div>
+					<a name="data" class="tsd-anchor"></a>
+					<h3>data</h3>
+					<div class="tsd-signature tsd-kind-icon">data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/9d2e9dc/src/indexer/index.ts#L55">src/indexer/index.ts:55</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/9d2e9dc/src/indexer/index.ts#L77">src/indexer/index.ts:77</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="txs" class="tsd-anchor"></a>
-					<h3>txs</h3>
-					<div class="tsd-signature tsd-kind-icon">txs<span class="tsd-signature-symbol">:</span> <a href="_indexer_index_.transaction.html" class="tsd-signature-type">Transaction</a><span class="tsd-signature-symbol">[]</span></div>
+					<a name="module" class="tsd-anchor"></a>
+					<h3>module</h3>
+					<div class="tsd-signature tsd-kind-icon">module<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/9d2e9dc/src/indexer/index.ts#L54">src/indexer/index.ts:54</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/9d2e9dc/src/indexer/index.ts#L79">src/indexer/index.ts:79</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="name" class="tsd-anchor"></a>
+					<h3>name</h3>
+					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/9d2e9dc/src/indexer/index.ts#L80">src/indexer/index.ts:80</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="timestamp" class="tsd-anchor"></a>
+					<h3>timestamp</h3>
+					<div class="tsd-signature tsd-kind-icon">timestamp<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/9d2e9dc/src/indexer/index.ts#L81">src/indexer/index.ts:81</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -145,30 +167,36 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
 						<a href="_indexer_index_.block.html" class="tsd-kind-icon">Block</a>
 					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
+						<a href="_indexer_index_.blockdata.html" class="tsd-kind-icon">Block<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
+						<a href="_indexer_index_.blockevent.html" class="tsd-kind-icon">Block<wbr>Event</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
-						<a href="_indexer_index_.blockdata.html" class="tsd-kind-icon">Block<wbr>Data</a>
+						<a href="_indexer_index_.history.html" class="tsd-kind-icon">History</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="_indexer_index_.blockdata.html#block" class="tsd-kind-icon">block</a>
+								<a href="_indexer_index_.history.html#address" class="tsd-kind-icon">address</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="_indexer_index_.blockdata.html#events" class="tsd-kind-icon">events</a>
+								<a href="_indexer_index_.history.html#data" class="tsd-kind-icon">data</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="_indexer_index_.blockdata.html#txs" class="tsd-kind-icon">txs</a>
+								<a href="_indexer_index_.history.html#module" class="tsd-kind-icon">module</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="_indexer_index_.history.html#name" class="tsd-kind-icon">name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="_indexer_index_.history.html#timestamp" class="tsd-kind-icon">timestamp</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
-						<a href="_indexer_index_.blockevent.html" class="tsd-kind-icon">Block<wbr>Event</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
-						<a href="_indexer_index_.history.html" class="tsd-kind-icon">History</a>
-					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
 						<a href="_indexer_index_.indexeroptions.html" class="tsd-kind-icon">Indexer<wbr>Options</a>
 					</li>
