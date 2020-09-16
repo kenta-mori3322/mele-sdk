@@ -1,7 +1,7 @@
 /// <reference types="node" />
 import * as bip32 from 'bip32';
 import { TransactionEvents } from '../transactions/events';
-import { fromUmelg, fromUmelc, smallestDenom, smallestStableDenom, toUmelg, toUmelc } from './conversion';
+import { fromUmelc, fromUmelg, smallestDenom, smallestStableDenom, toUmelc, toUmelg } from './conversion';
 export { fromUmelg, fromUmelc, smallestDenom, smallestStableDenom, toUmelg, toUmelc };
 export interface KeyPair {
     privateKey: string;
