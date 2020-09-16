@@ -1,5 +1,5 @@
-import IndexerApi from './api'
 import { convertValidatorPubKey } from '../utils'
+import IndexerApi from './api'
 
 interface IndexerOptions {
     endpoint: string

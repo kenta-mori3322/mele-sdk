@@ -7,10 +7,17 @@ import bech32 from 'bech32'
 import ripemd160 from 'ripemd160'
 import shajs from 'sha.js'
 
-import { encodeAddr } from '../transport/encoder'
 import { TransactionEvents } from '../transactions/events'
+import { encodeAddr } from '../transport/encoder'
 
-import { fromUmelg, fromUmelc, smallestDenom, smallestStableDenom, toUmelg, toUmelc } from './conversion'
+import {
+    fromUmelc,
+    fromUmelg,
+    smallestDenom,
+    smallestStableDenom,
+    toUmelc,
+    toUmelg,
+} from './conversion'
 export { fromUmelg, fromUmelc, smallestDenom, smallestStableDenom, toUmelg, toUmelc }
 
 const ec = new EC('secp256k1')
@@ -134,9 +141,7 @@ export function convertValidatorPubKey(pubkey: string): string {
 
     let key = buffer.slice(pubkeyAminoPrefix.length)
 
-    const hashResult = shajs('sha256')
-        .update(key)
-        .digest('hex') as string
+    const hashResult = shajs('sha256').update(key).digest('hex') as string
 
     return hashResult.slice(0, 40).toUpperCase()
 }

@@ -39,8 +39,8 @@ export const Codec = {
         {
             name: 'depositor',
             type: Types.String,
-        }
-    ])
+        },
+    ]),
 }
 
 Object.keys(Codec).forEach(codec => registerConcrete(codec, Codec[codec]))

@@ -1,6 +1,6 @@
+import { Coin } from '../../transport/codec'
 import { Transaction, TransactionApi } from '../index'
 import { Codec } from './codec'
-import { Coin } from '../../transport/codec'
 
 import * as Types from '../../common'
 
@@ -28,7 +28,10 @@ export const Msgs = {
         return [msg]
     },
     makeFundCommunityPool(amount: Types.SDKCoin[], depositor: string): any[] {
-        const msg = new Codec[_types.FundCommunityPoolMsgType](amount.map(am => new Coin(am.denom, am.amount)), depositor)
+        const msg = new Codec[_types.FundCommunityPoolMsgType](
+            amount.map(am => new Coin(am.denom, am.amount)),
+            depositor
+        )
 
         return [msg]
     },
@@ -123,10 +126,7 @@ export default class Distribution extends TransactionApi {
      * @returns {Transaction} transaction - Transaction class instance.
      */
     fundCommunityPool(amount: Types.SDKCoin[]): Transaction {
-        const msgs = Msgs.makeFundCommunityPool(
-            amount,
-            this.broadcast.signer.getAddress()
-        )
+        const msgs = Msgs.makeFundCommunityPool(amount, this.broadcast.signer.getAddress())
 
         return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
     }

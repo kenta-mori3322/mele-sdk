@@ -430,17 +430,15 @@ export default class StakingQuery {
      */
     async getRewardRate(): Promise<number> {
         let pool = await this.getPool()
-        
+
         let inflation = await this._mint.getInflation()
         let mintParams = await this._mint.getParameters()
 
-        inflation = Number(inflation) *
-                (1 + Number(mintParams.inflation_rate_change || 0))
+        inflation = Number(inflation) * (1 + Number(mintParams.inflation_rate_change || 0))
 
-        let rRate = ((Number(pool.not_bonded_tokens) +
-            Number(pool.bonded_tokens)) *
-            Number(inflation)) /
-        Number(pool.bonded_tokens)
+        let rRate =
+            ((Number(pool.not_bonded_tokens) + Number(pool.bonded_tokens)) * Number(inflation)) /
+            Number(pool.bonded_tokens)
 
         return rRate
     }
