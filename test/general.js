@@ -34,7 +34,7 @@ const meleValidator = new Mele({
     ),
 })
 
-describe('Mele Blockchain', function() {
+describe('Mele Blockchain', function () {
     this.timeout(0)
 
     describe('Wallet', () => {
@@ -480,10 +480,12 @@ describe('Mele Blockchain', function() {
 
             it('Community pool can be funded', async () => {
                 const txEvents = meleDelegator.distribution
-                    .fundCommunityPool([{
-                        amount: '100',
-                        denom: 'umlc',
-                    }])
+                    .fundCommunityPool([
+                        {
+                            amount: '100',
+                            denom: 'umlc',
+                        },
+                    ])
                     .sendTransaction()
 
                 assert.ok(txEvents)
@@ -590,10 +592,16 @@ describe('Mele Blockchain', function() {
 
             it('Text proposal can be created', async () => {
                 const txEvents = meleDelegator.governance
-                    .submitTextProposal([{
-                        denom: 'umlg',
-                        amount: '5000000',
-                    }], 'ProposalTestTitle', 'ProposalTestDescription')
+                    .submitTextProposal(
+                        [
+                            {
+                                denom: 'umlg',
+                                amount: '5000000',
+                            },
+                        ],
+                        'ProposalTestTitle',
+                        'ProposalTestDescription'
+                    )
                     .sendTransaction()
 
                 assert.ok(txEvents)
@@ -624,7 +632,7 @@ describe('Mele Blockchain', function() {
                 assert.ok(tx.height)
             })
 
-            let proposal 
+            let proposal
 
             it('Proposals can be fetched', async () => {
                 const proposals = await meleDelegator.query.governance.getProposals()
@@ -635,7 +643,9 @@ describe('Mele Blockchain', function() {
             })
 
             it('Single proposal can be fetched', async () => {
-                const aProposal = await meleDelegator.query.governance.getProposal(String(proposal.id))
+                const aProposal = await meleDelegator.query.governance.getProposal(
+                    String(proposal.id)
+                )
 
                 assert.ok(aProposal)
 
@@ -643,24 +653,33 @@ describe('Mele Blockchain', function() {
                 assert.ok(aProposal.content.type === 'cosmos-sdk/TextProposal')
                 assert.ok(aProposal.content.value)
                 assert.ok(aProposal.content.value.title === 'ProposalTestTitle')
-                assert.ok(aProposal.content.value.description === 'ProposalTestDescription')
+                assert.ok(
+                    aProposal.content.value.description ===
+                        'ProposalTestDescription'
+                )
             })
 
             it('Proposal deposits can be fetched', async () => {
-                const deposits = await meleDelegator.query.governance.getDeposits(String(proposal.id))
+                const deposits = await meleDelegator.query.governance.getDeposits(
+                    String(proposal.id)
+                )
 
                 assert.ok(deposits)
 
                 assert.ok(deposits.length > 0)
-                assert.ok(deposits[0].depositor === meleDelegator.signer.getAddress())
+                assert.ok(
+                    deposits[0].depositor === meleDelegator.signer.getAddress()
+                )
             })
 
             it('Deposit transaction can be invoked', async () => {
                 const txEvents = meleDelegator.governance
-                    .deposit(proposal.id, [{
-                        denom: 'umlg',
-                        amount: '5000000',
-                    }])
+                    .deposit(proposal.id, [
+                        {
+                            denom: 'umlg',
+                            amount: '5000000',
+                        },
+                    ])
                     .sendTransaction()
 
                 assert.ok(txEvents)
@@ -725,7 +744,9 @@ describe('Mele Blockchain', function() {
             })
 
             it('Proposal votes can be fetched', async () => {
-                const votes = await meleDelegator.query.governance.getVotes(String(proposal.id))
+                const votes = await meleDelegator.query.governance.getVotes(
+                    String(proposal.id)
+                )
 
                 assert.ok(votes)
 
@@ -736,13 +757,23 @@ describe('Mele Blockchain', function() {
 
             it('Community pool spend proposal can be created', async () => {
                 const txEvents = meleDelegator.governance
-                    .submitCommunityPoolSpendProposal([{
-                        denom: 'umlg',
-                        amount: '5000000',
-                    }], 'ProposalTestTitle', 'ProposalTestDescription', mele.signer.getAddress(), [{
-                        denom: 'umlc',
-                        amount: '100'
-                    }])
+                    .submitCommunityPoolSpendProposal(
+                        [
+                            {
+                                denom: 'umlg',
+                                amount: '5000000',
+                            },
+                        ],
+                        'ProposalTestTitle',
+                        'ProposalTestDescription',
+                        mele.signer.getAddress(),
+                        [
+                            {
+                                denom: 'umlc',
+                                amount: '100',
+                            },
+                        ]
+                    )
                     .sendTransaction()
 
                 assert.ok(txEvents)
@@ -775,14 +806,23 @@ describe('Mele Blockchain', function() {
 
             it('Parameter change proposal can be created', async () => {
                 const txEvents = meleDelegator.governance
-                    .submitParameterChangeProposal([{
-                        denom: 'umlg',
-                        amount: '5000000',
-                    }], 'ProposalTestTitle', 'ProposalTestDescription', [{
-                        subspace: 'mstaking',
-                        key: 'MaxValidators',
-                        value: '105',
-                    }])
+                    .submitParameterChangeProposal(
+                        [
+                            {
+                                denom: 'umlg',
+                                amount: '5000000',
+                            },
+                        ],
+                        'ProposalTestTitle',
+                        'ProposalTestDescription',
+                        [
+                            {
+                                subspace: 'mstaking',
+                                key: 'MaxValidators',
+                                value: '105',
+                            },
+                        ]
+                    )
                     .sendTransaction()
 
                 assert.ok(txEvents)
