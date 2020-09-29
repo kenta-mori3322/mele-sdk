@@ -7,6 +7,7 @@ import GovQuery from './gov';
 import MintQuery from './mint';
 import SlashingQuery from './slashing';
 import StakingQuery from './staking';
+import SupplyQuery from './supply';
 import TreasuryQuery from './treasury';
 export default class Query {
     private _transport;
@@ -17,6 +18,7 @@ export default class Query {
     private _mint;
     private _treasury;
     private _control;
+    private _supply;
     constructor(transport: ITransport);
     get staking(): StakingQuery;
     get slashing(): SlashingQuery;
@@ -25,6 +27,7 @@ export default class Query {
     get mint(): MintQuery;
     get treasury(): TreasuryQuery;
     get control(): ControlQuery;
+    get supply(): SupplyQuery;
     getBlock(height: number): Promise<ResultBlock>;
     getStatus(): Promise<ResultStatus>;
     getTx(hash: string): Promise<ResultTx>;

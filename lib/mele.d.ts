@@ -1,12 +1,12 @@
 import Query from './query';
 import { Signer } from './signer';
 import Bank from './transactions/bank';
+import Control from './transactions/control';
 import Distribution from './transactions/distribution';
 import Gov from './transactions/gov';
 import Slashing from './transactions/slashing';
 import Staking from './transactions/staking';
 import Treasury from './transactions/treasury';
-import Control from './transactions/control';
 import Indexer from './indexer';
 export interface Options {
     nodeUrl: string;
