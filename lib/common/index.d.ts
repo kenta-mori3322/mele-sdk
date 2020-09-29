@@ -258,3 +258,13 @@ export interface Burn {
     amount: SDKCoin[];
     scheduled_for: string;
 }
+export interface ControlParams {
+    enabled: boolean;
+    managers: string[];
+}
+export interface Execution {
+    content: any;
+    id: number;
+    submit_time: string;
+    executor: string;
+}

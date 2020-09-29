@@ -8,6 +8,8 @@ export declare const Msgs: {
     makeParameterChangeProposal(proposer: string, initialDeposit: Types.SDKCoin[], title: string, description: string, changes: Types.ParamChange[]): any[];
     makeCommunityPoolSpendProposal(proposer: string, initialDeposit: Types.SDKCoin[], title: string, description: string, recipient: string, amount: Types.SDKCoin[]): any[];
     makeBurnedPoolSpendProposal(proposer: string, initialDeposit: Types.SDKCoin[], title: string, description: string, recipient: string, amount: Types.SDKCoin[]): any[];
+    makeMintTreasurySupplyProposal(proposer: string, initialDeposit: Types.SDKCoin[], title: string, description: string, amount: Types.SDKCoin[]): any[];
+    makeBurnTreasurySupplyProposal(proposer: string, initialDeposit: Types.SDKCoin[], title: string, description: string, amount: Types.SDKCoin[]): any[];
 };
 export default class Gov extends TransactionApi {
     vote(proposalId: number, option: string): Transaction;
@@ -16,4 +18,6 @@ export default class Gov extends TransactionApi {
     submitParameterChangeProposal(initialDeposit: Types.SDKCoin[], title: string, description: string, changes: Types.ParamChange[]): Transaction;
     submitCommunityPoolSpendProposal(initialDeposit: Types.SDKCoin[], title: string, description: string, recipient: string, amount: Types.SDKCoin[]): Transaction;
     submitBurnedPoolSpendProposal(initialDeposit: Types.SDKCoin[], title: string, description: string, recipient: string, amount: Types.SDKCoin[]): Transaction;
+    submitMintTreasurySupplyProposal(initialDeposit: Types.SDKCoin[], title: string, description: string, amount: Types.SDKCoin[]): Transaction;
+    submitBurnTreasurySupplyProposal(initialDeposit: Types.SDKCoin[], title: string, description: string, amount: Types.SDKCoin[]): Transaction;
 }

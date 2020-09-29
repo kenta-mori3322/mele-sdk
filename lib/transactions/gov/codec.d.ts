@@ -7,4 +7,6 @@ export declare const Codec: {
     ParamChange: any;
     'cosmos-sdk/CommunityPoolSpendProposal': any;
     'cosmos-sdk/BurnedPoolSpendProposal': any;
+    'treasury/MintTreasurySupplyProposal': any;
+    'treasury/BurnTreasurySupplyProposal': any;
 };

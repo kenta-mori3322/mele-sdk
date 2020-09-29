@@ -6,6 +6,7 @@ import Gov from './transactions/gov';
 import Slashing from './transactions/slashing';
 import Staking from './transactions/staking';
 import Treasury from './transactions/treasury';
+import Control from './transactions/control';
 import Indexer from './indexer';
 export interface Options {
     nodeUrl: string;
@@ -33,6 +34,7 @@ export declare class Mele {
     private _distribution;
     private _gov;
     private _treasury;
+    private _control;
     constructor(opt: Options);
     get query(): Query;
     get signer(): Signer;
@@ -42,5 +44,6 @@ export declare class Mele {
     get distribution(): Distribution;
     get governance(): Gov;
     get treasury(): Treasury;
+    get control(): Control;
     get indexer(): Indexer;
 }
