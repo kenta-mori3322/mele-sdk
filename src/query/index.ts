@@ -8,6 +8,7 @@ import GovQuery from './gov'
 import MintQuery from './mint'
 import SlashingQuery from './slashing'
 import StakingQuery from './staking'
+import SupplyQuery from './supply'
 import TreasuryQuery from './treasury'
 
 namespace Keys {
@@ -33,6 +34,7 @@ export default class Query {
     private _mint: MintQuery
     private _treasury: TreasuryQuery
     private _control: ControlQuery
+    private _supply: SupplyQuery
 
     constructor(transport: ITransport) {
         this._transport = transport
@@ -44,6 +46,7 @@ export default class Query {
         this._gov = new GovQuery(this._transport)
         this._treasury = new TreasuryQuery(this._transport)
         this._control = new ControlQuery(this._transport)
+        this._supply = new SupplyQuery(this._transport)
     }
 
     get staking(): StakingQuery {
@@ -72,6 +75,10 @@ export default class Query {
 
     get control(): ControlQuery {
         return this._control
+    }
+
+    get supply(): SupplyQuery {
+        return this._supply
     }
 
     /**
