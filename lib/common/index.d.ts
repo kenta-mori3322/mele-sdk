@@ -235,3 +235,26 @@ export interface MintParams {
     goal_bonded: number;
     blocks_per_year: number;
 }
+export interface TreasuryParams {
+    managers: string[];
+    disbursement_delay_threshold_amount: SDKCoin[];
+    disbursement_delay_duration: string;
+}
+export interface Treasury {
+    mint_genesis_supply: boolean;
+    target_supply: SDKCoin[];
+    distributed: SDKCoin[];
+    burned: SDKCoin[];
+}
+export interface Disbursement {
+    operator: string;
+    recipient: string;
+    amount: SDKCoin[];
+    scheduled_for: string;
+    reference: string;
+}
+export interface Burn {
+    operator: string;
+    amount: SDKCoin[];
+    scheduled_for: string;
+}

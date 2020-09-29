@@ -6,6 +6,7 @@ import GovQuery from './gov';
 import MintQuery from './mint';
 import SlashingQuery from './slashing';
 import StakingQuery from './staking';
+import TreasuryQuery from './treasury';
 export default class Query {
     private _transport;
     private _staking;
@@ -13,12 +14,14 @@ export default class Query {
     private _distribution;
     private _gov;
     private _mint;
+    private _treasury;
     constructor(transport: ITransport);
     get staking(): StakingQuery;
     get slashing(): SlashingQuery;
     get distribution(): DistributionQuery;
     get governance(): GovQuery;
     get mint(): MintQuery;
+    get treasury(): TreasuryQuery;
     getBlock(height: number): Promise<ResultBlock>;
     getStatus(): Promise<ResultStatus>;
     getTx(hash: string): Promise<ResultTx>;
