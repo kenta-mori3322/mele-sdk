@@ -16,6 +16,7 @@ import Distribution from './transactions/distribution'
 import Gov from './transactions/gov'
 import Slashing from './transactions/slashing'
 import Staking from './transactions/staking'
+import Treasury from './transactions/treasury'
 
 import Indexer from './indexer'
 
@@ -46,6 +47,7 @@ export class Mele {
     private _slashing: Slashing
     private _distribution: Distribution
     private _gov: Gov
+    private _treasury: Treasury
 
     constructor(opt: Options) {
         this._options = opt
@@ -76,6 +78,7 @@ export class Mele {
         this._slashing = new Slashing(this._broadcast)
         this._distribution = new Distribution(this._broadcast)
         this._gov = new Gov(this._broadcast)
+        this._treasury = new Treasury(this._broadcast)
     }
 
     get query(): Query {
@@ -104,6 +107,10 @@ export class Mele {
 
     get governance(): Gov {
         return this._gov
+    }
+
+    get treasury(): Treasury {
+        return this._treasury
     }
 
     get indexer(): Indexer {
