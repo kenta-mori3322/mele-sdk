@@ -13,6 +13,8 @@ const _types = {
     ParameterChangeProposalMsgType: 'cosmos-sdk/ParameterChangeProposal',
     CommunityPoolSpendProposalMsgType: 'cosmos-sdk/CommunityPoolSpendProposal',
     BurnedPoolSpendProposalMsgType: 'cosmos-sdk/BurnedPoolSpendProposal',
+    MintTreasurySupplyProposalMsgType: 'treasury/MintTreasurySupplyProposal',
+    BurnTreasurySupplyProposalMsgType: 'treasury/BurnTreasurySupplyProposal',
 }
 
 export const Msgs = {
@@ -120,6 +122,36 @@ export const Msgs = {
             title,
             description,
             recipient,
+            amount.map(am => new Coin(am.denom, am.amount))
+        )
+
+        return this.makeSubmitProposalMsg(proposer, initialDeposit, content)
+    },
+    makeMintTreasurySupplyProposal(
+        proposer: string,
+        initialDeposit: Types.SDKCoin[],
+        title: string,
+        description: string,
+        amount: Types.SDKCoin[]
+    ): any[] {
+        const content = new Codec[_types.MintTreasurySupplyProposalMsgType](
+            title,
+            description,
+            amount.map(am => new Coin(am.denom, am.amount))
+        )
+
+        return this.makeSubmitProposalMsg(proposer, initialDeposit, content)
+    },
+    makeBurnTreasurySupplyProposal(
+        proposer: string,
+        initialDeposit: Types.SDKCoin[],
+        title: string,
+        description: string,
+        amount: Types.SDKCoin[]
+    ): any[] {
+        const content = new Codec[_types.BurnTreasurySupplyProposalMsgType](
+            title,
+            description,
             amount.map(am => new Coin(am.denom, am.amount))
         )
 
@@ -305,6 +337,72 @@ export default class Gov extends TransactionApi {
             title,
             description,
             recipient,
+            amount
+        )
+
+        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
+    }
+    /**
+     * mele.gov.**submitMintTreasurySupplyProposal**
+     *
+     * Submit a mint treasury supply proposal.
+     *
+     * @param {[SDKCoin]} initialDeposit - Initial deposit
+     * @param {string} title - Text proposal title
+     * @param {string} description - Text proposal description
+     * @param {[SDKCoin]} amount - Amount of tokens to transfer.
+     *
+     * @memberof mele.gov
+     * @inner
+     *
+     * @name MintTreasurySupplyProposal
+     *
+     * @returns {Transaction} transaction - Transaction class instance.
+     */
+    submitMintTreasurySupplyProposal(
+        initialDeposit: Types.SDKCoin[],
+        title: string,
+        description: string,
+        amount: Types.SDKCoin[]
+    ): Transaction {
+        const msgs = Msgs.makeMintTreasurySupplyProposal(
+            this.broadcast.signer.getAddress(),
+            initialDeposit,
+            title,
+            description,
+            amount
+        )
+
+        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
+    }
+    /**
+     * mele.gov.**submitBurnTreasurySupplyProposal**
+     *
+     * Submit a burn treasury supply proposal.
+     *
+     * @param {[SDKCoin]} initialDeposit - Initial deposit
+     * @param {string} title - Text proposal title
+     * @param {string} description - Text proposal description
+     * @param {[SDKCoin]} amount - Amount of tokens to transfer.
+     *
+     * @memberof mele.gov
+     * @inner
+     *
+     * @name BurnTreasurySupplyProposal
+     *
+     * @returns {Transaction} transaction - Transaction class instance.
+     */
+    submitBurnTreasurySupplyProposal(
+        initialDeposit: Types.SDKCoin[],
+        title: string,
+        description: string,
+        amount: Types.SDKCoin[]
+    ): Transaction {
+        const msgs = Msgs.makeBurnTreasurySupplyProposal(
+            this.broadcast.signer.getAddress(),
+            initialDeposit,
+            title,
+            description,
             amount
         )
 
