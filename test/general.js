@@ -1298,6 +1298,16 @@ describe('Mele Blockchain', function () {
             })
         })
 
+
+        describe('Supply', () => {
+            it('Total supply can be fetched', async () => {
+                const supply = await mele.query.supply.getTotalSupply()
+
+                assert.ok(supply)
+                assert.ok(supply.length)
+            })
+        })
+
         describe('Query', () => {
             it('Account info can be fetched', async () => {
                 const acc = await mele.query.getAccountInfo(
