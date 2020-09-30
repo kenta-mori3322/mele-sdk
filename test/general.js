@@ -34,6 +34,22 @@ const meleValidator = new Mele({
     ),
 })
 
+const meleManager = new Mele({
+    nodeUrl: NODE_URL,
+    chainId: CHAIN_ID,
+    signer: new MnemonicSigner(
+        'lawn cup spawn stay amazing stuff marble egg north measure survey until divorce ridge hat whip okay home solar brave soft nut kitchen lady'
+    ),
+})
+
+const meleOperator = new Mele({
+    nodeUrl: NODE_URL,
+    chainId: CHAIN_ID,
+    signer: new MnemonicSigner(
+        'find diamond example tooth need impact document total enrich hobby axis bicycle more oak junk because blade alley mesh electric evolve duty attack once'
+    ),
+})
+
 describe('Mele Blockchain', function () {
     this.timeout(0)
 
