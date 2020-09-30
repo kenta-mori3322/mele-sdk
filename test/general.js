@@ -1013,6 +1013,291 @@ describe('Mele Blockchain', function () {
             })
         })
 
+        describe('Control', () => {
+            it('Control module params can be queried', async () => {
+                let params = await mele.query.control.getParameters()
+
+                assert.ok(params)
+
+                assert.ok(params.managers)
+                assert.ok(params.managers.length)
+            })
+
+            it('Text proposal execution can be created', async () => {
+                const txEvents = meleManager.control
+                    .submitTextProposal(
+                        'ExecutionTestTitle',
+                        'ExecutionTestDescription'
+                    )
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
+
+                assert.ok(tx.tx_result)
+                assert.ok(tx.tx_result.code === 0)
+                assert.ok(tx.height)
+            })
+
+            let execution
+
+            it('Executions can be fetched', async () => {
+                const executions = await meleManager.query.control.getExecutions()
+
+                execution = executions.pop()
+
+                assert.ok(execution)
+            })
+
+            it('Single execution can be fetched', async () => {
+                const aExecution = await meleManager.query.control.getExecution(
+                    String(execution.id)
+                )
+
+                assert.ok(aExecution)
+
+                assert.ok(aExecution.content)
+                assert.ok(aExecution.content.type === 'cosmos-sdk/TextProposal')
+                assert.ok(aExecution.content.value)
+                assert.ok(aExecution.content.value.title === 'ExecutionTestTitle')
+                assert.ok(
+                    aExecution.content.value.description ===
+                        'ExecutionTestDescription'
+                )
+            })
+
+            it('Community pool spend proposal execution can be created', async () => {
+                const txEvents = meleManager.control
+                    .submitCommunityPoolSpendProposal(
+                        'ExecutionTestTitle',
+                        'ExecutionTestDescription',
+                        mele.signer.getAddress(),
+                        [
+                            {
+                                denom: 'umlc',
+                                amount: '100',
+                            },
+                        ]
+                    )
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
+
+                assert.ok(tx.tx_result)
+                assert.ok(tx.tx_result.code === 0)
+                assert.ok(tx.height)
+            })
+
+            it('Burned pool spend proposal execution can be created', async () => {
+                const txEvents = meleManager.control
+                    .submitBurnedPoolSpendProposal(
+                        'ExecutionTestTitle',
+                        'ExecutionTestDescription',
+                        mele.signer.getAddress(),
+                        [
+                            {
+                                denom: 'umlc',
+                                amount: '100',
+                            },
+                        ]
+                    )
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
+
+                assert.ok(tx.tx_result)
+            })
+
+            it('Mint treasury supply proposal execution can be created', async () => {
+                const txEvents = meleManager.control
+                    .submitMintTreasurySupplyProposal(
+                        'ExecutionTestTitle',
+                        'ExecutionTestDescription',
+                        [
+                            {
+                                denom: 'umlc',
+                                amount: '100',
+                            },
+                        ]
+                    )
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
+
+                assert.ok(tx.tx_result)
+                assert.ok(tx.tx_result.code === 0)
+                assert.ok(tx.height)
+            })
+
+            it('Burn treasury supply proposal execution can be created', async () => {
+                const txEvents = meleManager.control
+                    .submitBurnTreasurySupplyProposal(
+                        'ExecutionTestTitle',
+                        'ExecutionTestDescription',
+                        [
+                            {
+                                denom: 'umlc',
+                                amount: '100',
+                            },
+                        ]
+                    )
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
+
+                assert.ok(tx.tx_result)
+                assert.ok(tx.tx_result.code === 0)
+                assert.ok(tx.height)
+            })
+
+            it('Parameter change proposal execution can be created', async () => {
+                const txEvents = meleManager.control
+                    .submitParameterChangeProposal(
+                        'ExecutionTestTitle',
+                        'ExecutionTestDescription',
+                        [
+                            {
+                                subspace: 'mstaking',
+                                key: 'MaxValidators',
+                                value: '105',
+                            },
+                        ]
+                    )
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
+
+                assert.ok(tx.tx_result)
+                assert.ok(tx.tx_result.code === 0)
+                assert.ok(tx.height)
+            })
+        })
+
         describe('Query', () => {
             it('Account info can be fetched', async () => {
                 const acc = await mele.query.getAccountInfo(
