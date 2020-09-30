@@ -820,6 +820,149 @@ describe('Mele Blockchain', function () {
                 assert.ok(tx.height)
             })
 
+            it('Burned pool spend proposal can be created', async () => {
+                const txEvents = meleDelegator.governance
+                    .submitBurnedPoolSpendProposal(
+                        [
+                            {
+                                denom: 'umlg',
+                                amount: '5000000',
+                            },
+                        ],
+                        'ProposalTestTitle',
+                        'ProposalTestDescription',
+                        mele.signer.getAddress(),
+                        [
+                            {
+                                denom: 'umlc',
+                                amount: '100',
+                            },
+                        ]
+                    )
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
+
+                assert.ok(tx.tx_result)
+            })
+
+            it('Mint treasury supply proposal can be created', async () => {
+                const txEvents = meleDelegator.governance
+                    .submitMintTreasurySupplyProposal(
+                        [
+                            {
+                                denom: 'umlg',
+                                amount: '5000000',
+                            },
+                        ],
+                        'ProposalTestTitle',
+                        'ProposalTestDescription',
+                        [
+                            {
+                                denom: 'umlc',
+                                amount: '100',
+                            },
+                        ]
+                    )
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
+
+                assert.ok(tx.tx_result)
+                assert.ok(tx.tx_result.code === 0)
+                assert.ok(tx.height)
+            })
+
+            it('Burn treasury supply proposal can be created', async () => {
+                const txEvents = meleDelegator.governance
+                    .submitBurnTreasurySupplyProposal(
+                        [
+                            {
+                                denom: 'umlg',
+                                amount: '5000000',
+                            },
+                        ],
+                        'ProposalTestTitle',
+                        'ProposalTestDescription',
+                        [
+                            {
+                                denom: 'umlc',
+                                amount: '100',
+                            },
+                        ]
+                    )
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
+
+                assert.ok(tx.tx_result)
+                assert.ok(tx.tx_result.code === 0)
+                assert.ok(tx.height)
+            })
+
             it('Parameter change proposal can be created', async () => {
                 const txEvents = meleDelegator.governance
                     .submitParameterChangeProposal(
