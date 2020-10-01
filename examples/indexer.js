@@ -56,7 +56,7 @@ const mele = new Mele({
 
     console.log(votes)
 
-    const validatorUptime = await mele.indexer.validatorUptime('melevalconspub1zcjduepq455luw7suazfw2tam0memzs76gvzu5xgatmvjmmqcpyfx32wj6qs2l5tw7')
+    const validatorUptime = await mele.indexer.validatorUptime('melevalconspub1zcjduepqnej3ee97cje5v83c894wgx2mz8qcs00kxda9jyujar0vpnp5keks9esuhn')
 
     console.log(validatorUptime)
 
