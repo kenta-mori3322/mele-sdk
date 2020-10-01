@@ -1,12 +1,15 @@
 import * as Types from '../common'
 import { ITransport } from '../transport'
 import { ResultBlock, ResultStatus, ResultTx } from '../transport/rpc'
+import ControlQuery from './control'
 
 import DistributionQuery from './distribution'
 import GovQuery from './gov'
 import MintQuery from './mint'
 import SlashingQuery from './slashing'
 import StakingQuery from './staking'
+import SupplyQuery from './supply'
+import TreasuryQuery from './treasury'
 
 namespace Keys {
     export const Query = {
@@ -29,6 +32,9 @@ export default class Query {
     private _distribution: DistributionQuery
     private _gov: GovQuery
     private _mint: MintQuery
+    private _treasury: TreasuryQuery
+    private _control: ControlQuery
+    private _supply: SupplyQuery
 
     constructor(transport: ITransport) {
         this._transport = transport
@@ -38,6 +44,9 @@ export default class Query {
         this._slashing = new SlashingQuery(this._transport)
         this._distribution = new DistributionQuery(this._transport)
         this._gov = new GovQuery(this._transport)
+        this._treasury = new TreasuryQuery(this._transport)
+        this._control = new ControlQuery(this._transport)
+        this._supply = new SupplyQuery(this._transport)
     }
 
     get staking(): StakingQuery {
@@ -58,6 +67,18 @@ export default class Query {
 
     get mint(): MintQuery {
         return this._mint
+    }
+
+    get treasury(): TreasuryQuery {
+        return this._treasury
+    }
+
+    get control(): ControlQuery {
+        return this._control
+    }
+
+    get supply(): SupplyQuery {
+        return this._supply
     }
 
     /**

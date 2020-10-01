@@ -1,11 +1,14 @@
 import * as Types from '../common';
 import { ITransport } from '../transport';
 import { ResultBlock, ResultStatus, ResultTx } from '../transport/rpc';
+import ControlQuery from './control';
 import DistributionQuery from './distribution';
 import GovQuery from './gov';
 import MintQuery from './mint';
 import SlashingQuery from './slashing';
 import StakingQuery from './staking';
+import SupplyQuery from './supply';
+import TreasuryQuery from './treasury';
 export default class Query {
     private _transport;
     private _staking;
@@ -13,12 +16,18 @@ export default class Query {
     private _distribution;
     private _gov;
     private _mint;
+    private _treasury;
+    private _control;
+    private _supply;
     constructor(transport: ITransport);
     get staking(): StakingQuery;
     get slashing(): SlashingQuery;
     get distribution(): DistributionQuery;
     get governance(): GovQuery;
     get mint(): MintQuery;
+    get treasury(): TreasuryQuery;
+    get control(): ControlQuery;
+    get supply(): SupplyQuery;
     getBlock(height: number): Promise<ResultBlock>;
     getStatus(): Promise<ResultStatus>;
     getTx(hash: string): Promise<ResultTx>;

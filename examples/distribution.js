@@ -169,10 +169,12 @@ const meleValidator = new Mele({
 
     console.log(chalk.green('Fund community pool transaction'))
     txEvents = mele.distribution
-        .fundCommunityPool([{
-            amount: '100',
-            denom: 'umlc',
-        }])
+        .fundCommunityPool([
+            {
+                amount: '100',
+                denom: 'umlc',
+            },
+        ])
         .sendTransaction()
 
     txPromise = new Promise((resolve, reject) => {

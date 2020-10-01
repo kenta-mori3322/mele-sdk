@@ -118,6 +118,34 @@ export const Codec = {
             type: Types.ArrayStruct,
         },
     ]),
+    'treasury/MintTreasurySupplyProposal': TypeFactory.create('MintTreasurySupplyProposal', [
+        {
+            name: 'title',
+            type: Types.String,
+        },
+        {
+            name: 'description',
+            type: Types.String,
+        },
+        {
+            name: 'amount',
+            type: Types.ArrayStruct,
+        },
+    ]),
+    'treasury/BurnTreasurySupplyProposal': TypeFactory.create('BurnTreasurySupplyProposal', [
+        {
+            name: 'title',
+            type: Types.String,
+        },
+        {
+            name: 'description',
+            type: Types.String,
+        },
+        {
+            name: 'amount',
+            type: Types.ArrayStruct,
+        },
+    ]),
 }
 
 Object.keys(Codec).forEach(codec => registerConcrete(codec, Codec[codec]))
