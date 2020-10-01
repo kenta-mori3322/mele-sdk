@@ -40,7 +40,7 @@ const delay = (ms = 1000) => {
     }
 
     /* Step 2
-       Disburse 10 USD to the recipient account
+       Disburse 1500 MELC to the recipient account
     */
     console.log(
         '\n',

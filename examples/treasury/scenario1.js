@@ -34,7 +34,7 @@ const recAddress = 'mele1c7nn5mt43m37t0zmqwh6rslrgcr3gd4pxqutpj' // test 2
     }
 
     /* Step 2
-       Disburse 10 USD to the recipient account
+       Disburse 500 MELC to the recipient account
     */
     console.log(
         '\n',
