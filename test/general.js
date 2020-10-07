@@ -166,7 +166,7 @@ describe('Mele Blockchain', function () {
 
                 const txEvents = mele.bank
                     .transfer(accountB.getAddress(), [
-                        { denom: 'umlc', amount: String(amount) },
+                        { denom: 'umelc', amount: String(amount) },
                     ])
                     .sendTransaction()
 
@@ -313,7 +313,7 @@ describe('Mele Blockchain', function () {
             it('Delegation can be created', async () => {
                 const txEvents = meleDelegator.staking
                     .delegate(validator.validator_address, {
-                        denom: 'umlg',
+                        denom: 'umelg',
                         amount: String(100000),
                     })
                     .sendTransaction()
@@ -349,7 +349,7 @@ describe('Mele Blockchain', function () {
             it('Undelegation can be created', async () => {
                 const txEvents = meleDelegator.staking
                     .undelegate(validator.validator_address, {
-                        denom: 'umlg',
+                        denom: 'umelg',
                         amount: String(100000),
                     })
                     .sendTransaction()
@@ -499,7 +499,7 @@ describe('Mele Blockchain', function () {
                     .fundCommunityPool([
                         {
                             amount: '100',
-                            denom: 'umlc',
+                            denom: 'umelc',
                         },
                     ])
                     .sendTransaction()
@@ -611,7 +611,7 @@ describe('Mele Blockchain', function () {
                     .submitTextProposal(
                         [
                             {
-                                denom: 'umlg',
+                                denom: 'umelg',
                                 amount: '5000000',
                             },
                         ],
@@ -692,7 +692,7 @@ describe('Mele Blockchain', function () {
                 const txEvents = meleDelegator.governance
                     .deposit(proposal.id, [
                         {
-                            denom: 'umlg',
+                            denom: 'umelg',
                             amount: '5000000',
                         },
                     ])
@@ -776,7 +776,7 @@ describe('Mele Blockchain', function () {
                     .submitCommunityPoolSpendProposal(
                         [
                             {
-                                denom: 'umlg',
+                                denom: 'umelg',
                                 amount: '5000000',
                             },
                         ],
@@ -785,7 +785,7 @@ describe('Mele Blockchain', function () {
                         mele.signer.getAddress(),
                         [
                             {
-                                denom: 'umlc',
+                                denom: 'umelc',
                                 amount: '100',
                             },
                         ]
@@ -825,7 +825,7 @@ describe('Mele Blockchain', function () {
                     .submitBurnedPoolSpendProposal(
                         [
                             {
-                                denom: 'umlg',
+                                denom: 'umelg',
                                 amount: '5000000',
                             },
                         ],
@@ -834,7 +834,7 @@ describe('Mele Blockchain', function () {
                         mele.signer.getAddress(),
                         [
                             {
-                                denom: 'umlc',
+                                denom: 'umelc',
                                 amount: '100',
                             },
                         ]
@@ -872,7 +872,7 @@ describe('Mele Blockchain', function () {
                     .submitMintTreasurySupplyProposal(
                         [
                             {
-                                denom: 'umlg',
+                                denom: 'umelg',
                                 amount: '5000000',
                             },
                         ],
@@ -880,7 +880,7 @@ describe('Mele Blockchain', function () {
                         'ProposalTestDescription',
                         [
                             {
-                                denom: 'umlc',
+                                denom: 'umelc',
                                 amount: '100',
                             },
                         ]
@@ -920,7 +920,7 @@ describe('Mele Blockchain', function () {
                     .submitBurnTreasurySupplyProposal(
                         [
                             {
-                                denom: 'umlg',
+                                denom: 'umelg',
                                 amount: '5000000',
                             },
                         ],
@@ -928,7 +928,7 @@ describe('Mele Blockchain', function () {
                         'ProposalTestDescription',
                         [
                             {
-                                denom: 'umlc',
+                                denom: 'umelc',
                                 amount: '100',
                             },
                         ]
@@ -968,7 +968,7 @@ describe('Mele Blockchain', function () {
                     .submitParameterChangeProposal(
                         [
                             {
-                                denom: 'umlg',
+                                denom: 'umelg',
                                 amount: '5000000',
                             },
                         ],
@@ -1094,7 +1094,7 @@ describe('Mele Blockchain', function () {
                         mele.signer.getAddress(),
                         [
                             {
-                                denom: 'umlc',
+                                denom: 'umelc',
                                 amount: '100',
                             },
                         ]
@@ -1137,7 +1137,7 @@ describe('Mele Blockchain', function () {
                         mele.signer.getAddress(),
                         [
                             {
-                                denom: 'umlc',
+                                denom: 'umelc',
                                 amount: '100',
                             },
                         ]
@@ -1177,7 +1177,7 @@ describe('Mele Blockchain', function () {
                         'ExecutionTestDescription',
                         [
                             {
-                                denom: 'umlc',
+                                denom: 'umelc',
                                 amount: '100',
                             },
                         ]
@@ -1219,7 +1219,7 @@ describe('Mele Blockchain', function () {
                         'ExecutionTestDescription',
                         [
                             {
-                                denom: 'umlc',
+                                denom: 'umelc',
                                 amount: '100',
                             },
                         ]
@@ -1332,7 +1332,7 @@ describe('Mele Blockchain', function () {
             it('Operator can disburse funds', async () => {
                 const txEvents = meleOperator.treasury
                     .disburse(mele.signer.getAddress(), [{
-                        denom: 'umlc',
+                        denom: 'umelc',
                         amount: '5000000000000',
                     }],
                     'example-reference' + Math.random().toString(36).substring(7))
@@ -1377,7 +1377,7 @@ describe('Mele Blockchain', function () {
             it('Operator can burn funds', async () => {
                 const txEvents = meleOperator.treasury
                     .burn([{
-                        denom: 'umlc',
+                        denom: 'umelc',
                         amount: '500',
                     }])
                     .sendTransaction()
