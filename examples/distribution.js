@@ -172,7 +172,7 @@ const meleValidator = new Mele({
         .fundCommunityPool([
             {
                 amount: '100',
-                denom: 'umlc',
+                denom: 'umelc',
             },
         ])
         .sendTransaction()

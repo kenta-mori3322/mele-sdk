@@ -84,7 +84,7 @@ const mele = new Mele({
     console.log(chalk.green('Delegate transaction'))
     let txEvents = mele.staking
         .delegate(validator.operator_address, {
-            denom: 'umlg',
+            denom: 'umelg',
             amount: String(100000),
         })
         .sendTransaction()
@@ -115,7 +115,7 @@ const mele = new Mele({
     console.log(chalk.green('Undelegate transaction'))
     txEvents = mele.staking
         .undelegate(validator.operator_address, {
-            denom: 'umlg',
+            denom: 'umelg',
             amount: String(100000),
         })
         .sendTransaction()

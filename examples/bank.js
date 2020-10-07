@@ -30,11 +30,11 @@ const recAddress = 'mele1c7nn5mt43m37t0zmqwh6rslrgcr3gd4pxqutpj'
     }
 
     /* Step 2
-       Transfer 100umlc from account 1 to account 2
+       Transfer 100umelc from account 1 to account 2
     */
-    console.log(chalk.cyan('2. Transfer 100umlc from account 1 to account 2'))
+    console.log(chalk.cyan('2. Transfer 100umelc from account 1 to account 2'))
     const txEvents = await mele.bank
-        .transfer(recAddress, [{ denom: 'umlc', amount: '100' }])
+        .transfer(recAddress, [{ denom: 'umelc', amount: '100' }])
         .sendTransaction()
     console.log(
         chalk.yellow('Relaying the transaction and waiting for commit...')

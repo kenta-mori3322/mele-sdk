@@ -18,7 +18,7 @@ const mele = new Mele({
     console.log('\n', chalk.cyan('1. Query total supply'))
     try {
         const supply = await mele.query.supply.getTotalSupply()
-        let melc = supply.find(i => i.denom === 'umlc')
+        let melc = supply.find(i => i.denom === 'umelc')
 
         console.log(
             chalk.yellow('Balance: '),
@@ -46,7 +46,7 @@ const mele = new Mele({
     const tx = mele.control.submitMintTreasurySupplyProposal(
         'Mint treasury supply',
         'Mint treasury supply proposal',
-        [{ denom: 'umlc', amount: Utils.toUmelc('10000000', 'melc') }]
+        [{ denom: 'umelc', amount: Utils.toUmelc('10000000', 'melc') }]
     )
 
     console.log(
@@ -65,7 +65,7 @@ const mele = new Mele({
 
         try {
             const newSupply = await mele.query.supply.getTotalSupply()
-            melc = newSupply.find(i => i.denom === 'umlc')
+            melc = newSupply.find(i => i.denom === 'umelc')
 
             console.log(
                 chalk.yellow('Balance: '),

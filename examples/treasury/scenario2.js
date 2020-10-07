@@ -53,7 +53,7 @@ const delay = (ms = 1000) => {
     )
     const tx = mele.treasury.disburse(
         recAddress,
-        [{ denom: 'umlc', amount: Utils.toUmelc('1500', 'melc') }],
+        [{ denom: 'umelc', amount: Utils.toUmelc('1500', 'melc') }],
         'example-reference-2'
     )
 

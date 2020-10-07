@@ -26,11 +26,11 @@ const recAddress = 'mele1e2k26e6yz3kwysp896mwpf5u5r0nh8zx0yvtsz'
 ;(async () => {
     while (true) {
         const txEvents1 = await mele1.bank
-            .transfer(recAddress, [{ denom: 'umlc', amount: '100' }])
+            .transfer(recAddress, [{ denom: 'umelc', amount: '100' }])
             .sendTransaction()
 
         const txEvents2 = await mele2.bank
-            .transfer(recAddress, [{ denom: 'umlc', amount: '100' }])
+            .transfer(recAddress, [{ denom: 'umelc', amount: '100' }])
             .sendTransaction()
 
         try {

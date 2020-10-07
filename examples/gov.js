@@ -39,7 +39,7 @@ const meleValidator2 = new Mele({
         .submitTextProposal(
             [
                 {
-                    denom: 'umlg',
+                    denom: 'umelg',
                     amount: '5000000',
                 },
             ],
@@ -73,7 +73,7 @@ const meleValidator2 = new Mele({
     txEvents = mele.governance
         .deposit(proposalId, [
             {
-                denom: 'umlg',
+                denom: 'umelg',
                 amount: '5000000',
             },
         ])

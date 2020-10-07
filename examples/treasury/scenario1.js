@@ -47,7 +47,7 @@ const recAddress = 'mele1c7nn5mt43m37t0zmqwh6rslrgcr3gd4pxqutpj' // test 2
     )
     const tx = mele.treasury.disburse(
         recAddress,
-        [{ denom: 'umlc', amount: Utils.toUmelc('500', 'melc') }],
+        [{ denom: 'umelc', amount: Utils.toUmelc('500', 'melc') }],
         'example-reference'
     )
 
