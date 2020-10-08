@@ -315,3 +315,9 @@ export interface Execution {
     submit_time: string
     executor: string
 }
+
+export interface UpgradePlan {
+    name: string
+    height: number
+    info: string
+}
