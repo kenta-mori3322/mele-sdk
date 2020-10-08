@@ -118,9 +118,11 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_transactions_control_index_.control.html#submitburntreasurysupplyproposal" class="tsd-kind-icon">submit<wbr>Burn<wbr>Treasury<wbr>Supply<wbr>Proposal</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_transactions_control_index_.control.html#submitburnedpoolspendproposal" class="tsd-kind-icon">submit<wbr>Burned<wbr>Pool<wbr>Spend<wbr>Proposal</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_transactions_control_index_.control.html#submitcancelsoftwareupgradeproposal" class="tsd-kind-icon">submit<wbr>Cancel<wbr>Software<wbr>Upgrade<wbr>Proposal</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_transactions_control_index_.control.html#submitcommunitypoolspendproposal" class="tsd-kind-icon">submit<wbr>Community<wbr>Pool<wbr>Spend<wbr>Proposal</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_transactions_control_index_.control.html#submitminttreasurysupplyproposal" class="tsd-kind-icon">submit<wbr>Mint<wbr>Treasury<wbr>Supply<wbr>Proposal</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_transactions_control_index_.control.html#submitparameterchangeproposal" class="tsd-kind-icon">submit<wbr>Parameter<wbr>Change<wbr>Proposal</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_transactions_control_index_.control.html#submitsoftwareupgradeproposal" class="tsd-kind-icon">submit<wbr>Software<wbr>Upgrade<wbr>Proposal</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_transactions_control_index_.control.html#submittextproposal" class="tsd-kind-icon">submit<wbr>Text<wbr>Proposal</a></li>
 							</ul>
 						</section>
@@ -140,7 +142,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_transactions_index_.transactionapi.html">TransactionApi</a>.<a href="_transactions_index_.transactionapi.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/b42f199/src/transactions/index.ts#L20">src/transactions/index.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/771862f/src/transactions/index.ts#L20">src/transactions/index.ts:20</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -167,7 +169,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_transactions_index_.transactionapi.html">TransactionApi</a>.<a href="_transactions_index_.transactionapi.html#broadcast">broadcast</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/b42f199/src/transactions/index.ts#L26">src/transactions/index.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/771862f/src/transactions/index.ts#L26">src/transactions/index.ts:26</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_transactions_broadcast_.broadcast.html" class="tsd-signature-type">Broadcast</a></h4>
@@ -187,7 +189,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/transactions/control/index.ts:280</li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/771862f/src/transactions/control/index.ts#L310">src/transactions/control/index.ts:310</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -242,7 +244,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/transactions/control/index.ts:218</li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/771862f/src/transactions/control/index.ts#L248">src/transactions/control/index.ts:248</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -294,6 +296,55 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="submitcancelsoftwareupgradeproposal" class="tsd-anchor"></a>
+					<h3>submit<wbr>Cancel<wbr>Software<wbr>Upgrade<wbr>Proposal</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">submit<wbr>Cancel<wbr>Software<wbr>Upgrade<wbr>Proposal<span class="tsd-signature-symbol">(</span>title<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, description<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_transactions_index_.transaction.html" class="tsd-signature-type">Transaction</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/771862f/src/transactions/control/index.ts#L369">src/transactions/control/index.ts:369</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>mele.control.<strong>submitCancelSoftwareUpgradeProposal</strong></p>
+								</div>
+								<p>Submit a cancel software upgrade proposal.</p>
+								<dl class="tsd-comment-tags">
+									<dt>memberof</dt>
+									<dd><p>mele.control</p>
+									</dd>
+									<dt>inner</dt>
+									<dd></dd>
+									<dt>name</dt>
+									<dd><p>CancelSoftwareUpgradeProposal</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>title: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Text proposal title</p>
+									</div>
+								</li>
+								<li>
+									<h5>description: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Text proposal description</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_transactions_index_.transaction.html" class="tsd-signature-type">Transaction</a></h4>
+							<p>transaction - Transaction class instance.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="submitcommunitypoolspendproposal" class="tsd-anchor"></a>
 					<h3>submit<wbr>Community<wbr>Pool<wbr>Spend<wbr>Proposal</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -303,7 +354,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/transactions/control/index.ts:185</li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/771862f/src/transactions/control/index.ts#L215">src/transactions/control/index.ts:215</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -364,7 +415,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/transactions/control/index.ts:250</li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/771862f/src/transactions/control/index.ts#L280">src/transactions/control/index.ts:280</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -419,7 +470,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/transactions/control/index.ts:154</li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/771862f/src/transactions/control/index.ts#L184">src/transactions/control/index.ts:184</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -465,6 +516,61 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="submitsoftwareupgradeproposal" class="tsd-anchor"></a>
+					<h3>submit<wbr>Software<wbr>Upgrade<wbr>Proposal</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">submit<wbr>Software<wbr>Upgrade<wbr>Proposal<span class="tsd-signature-symbol">(</span>title<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, description<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, plan<span class="tsd-signature-symbol">: </span><a href="../interfaces/_common_index_.upgradeplan.html" class="tsd-signature-type">UpgradePlan</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_transactions_index_.transaction.html" class="tsd-signature-type">Transaction</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/771862f/src/transactions/control/index.ts#L340">src/transactions/control/index.ts:340</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>mele.control.<strong>submitSoftwareUpgradeProposal</strong></p>
+								</div>
+								<p>Submit a software upgrade proposal.</p>
+								<dl class="tsd-comment-tags">
+									<dt>memberof</dt>
+									<dd><p>mele.control</p>
+									</dd>
+									<dt>inner</dt>
+									<dd></dd>
+									<dt>name</dt>
+									<dd><p>SoftwareUpgradeProposal</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>title: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Text proposal title</p>
+									</div>
+								</li>
+								<li>
+									<h5>description: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Text proposal description</p>
+									</div>
+								</li>
+								<li>
+									<h5>plan: <a href="../interfaces/_common_index_.upgradeplan.html" class="tsd-signature-type">UpgradePlan</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Upgrade plan.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_transactions_index_.transaction.html" class="tsd-signature-type">Transaction</a></h4>
+							<p>transaction - Transaction class instance.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="submittextproposal" class="tsd-anchor"></a>
 					<h3>submit<wbr>Text<wbr>Proposal</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -474,7 +580,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/transactions/control/index.ts:133</li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/771862f/src/transactions/control/index.ts#L163">src/transactions/control/index.ts:163</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -546,6 +652,9 @@
 								<a href="_transactions_control_index_.control.html#submitburnedpoolspendproposal" class="tsd-kind-icon">submit<wbr>Burned<wbr>Pool<wbr>Spend<wbr>Proposal</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_transactions_control_index_.control.html#submitcancelsoftwareupgradeproposal" class="tsd-kind-icon">submit<wbr>Cancel<wbr>Software<wbr>Upgrade<wbr>Proposal</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_transactions_control_index_.control.html#submitcommunitypoolspendproposal" class="tsd-kind-icon">submit<wbr>Community<wbr>Pool<wbr>Spend<wbr>Proposal</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -553,6 +662,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_transactions_control_index_.control.html#submitparameterchangeproposal" class="tsd-kind-icon">submit<wbr>Parameter<wbr>Change<wbr>Proposal</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_transactions_control_index_.control.html#submitsoftwareupgradeproposal" class="tsd-kind-icon">submit<wbr>Software<wbr>Upgrade<wbr>Proposal</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_transactions_control_index_.control.html#submittextproposal" class="tsd-kind-icon">submit<wbr>Text<wbr>Proposal</a>
