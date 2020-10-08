@@ -10,6 +10,7 @@ import SlashingQuery from './slashing'
 import StakingQuery from './staking'
 import SupplyQuery from './supply'
 import TreasuryQuery from './treasury'
+import UpgradeQuery from './upgrade'
 
 namespace Keys {
     export const Query = {
@@ -35,6 +36,7 @@ export default class Query {
     private _treasury: TreasuryQuery
     private _control: ControlQuery
     private _supply: SupplyQuery
+    private _upgrade: UpgradeQuery
 
     constructor(transport: ITransport) {
         this._transport = transport
@@ -47,6 +49,7 @@ export default class Query {
         this._treasury = new TreasuryQuery(this._transport)
         this._control = new ControlQuery(this._transport)
         this._supply = new SupplyQuery(this._transport)
+        this._upgrade = new UpgradeQuery(this._transport)
     }
 
     get staking(): StakingQuery {
@@ -79,6 +82,10 @@ export default class Query {
 
     get supply(): SupplyQuery {
         return this._supply
+    }
+
+    get upgrade(): UpgradeQuery {
+        return this._upgrade
     }
 
     /**
