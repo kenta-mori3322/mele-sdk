@@ -10,6 +10,8 @@ export declare const Msgs: {
     makeBurnedPoolSpendProposal(proposer: string, initialDeposit: Types.SDKCoin[], title: string, description: string, recipient: string, amount: Types.SDKCoin[]): any[];
     makeMintTreasurySupplyProposal(proposer: string, initialDeposit: Types.SDKCoin[], title: string, description: string, amount: Types.SDKCoin[]): any[];
     makeBurnTreasurySupplyProposal(proposer: string, initialDeposit: Types.SDKCoin[], title: string, description: string, amount: Types.SDKCoin[]): any[];
+    makeSoftwareUpgradeProposal(proposer: string, initialDeposit: Types.SDKCoin[], title: string, description: string, plan: Types.UpgradePlan): any[];
+    makeCancelSoftwareUpgradeProposal(proposer: string, initialDeposit: Types.SDKCoin[], title: string, description: string): any[];
 };
 export default class Gov extends TransactionApi {
     vote(proposalId: number, option: string): Transaction;
@@ -20,4 +22,6 @@ export default class Gov extends TransactionApi {
     submitBurnedPoolSpendProposal(initialDeposit: Types.SDKCoin[], title: string, description: string, recipient: string, amount: Types.SDKCoin[]): Transaction;
     submitMintTreasurySupplyProposal(initialDeposit: Types.SDKCoin[], title: string, description: string, amount: Types.SDKCoin[]): Transaction;
     submitBurnTreasurySupplyProposal(initialDeposit: Types.SDKCoin[], title: string, description: string, amount: Types.SDKCoin[]): Transaction;
+    submitSoftwareUpgradeProposal(initialDeposit: Types.SDKCoin[], title: string, description: string, plan: Types.UpgradePlan): Transaction;
+    submitCancelSoftwareUpgradeProposal(initialDeposit: Types.SDKCoin[], title: string, description: string): Transaction;
 }

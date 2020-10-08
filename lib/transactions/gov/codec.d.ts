@@ -9,4 +9,7 @@ export declare const Codec: {
     'cosmos-sdk/BurnedPoolSpendProposal': any;
     'treasury/MintTreasurySupplyProposal': any;
     'treasury/BurnTreasurySupplyProposal': any;
+    'cosmos-sdk/SoftwareUpgradeProposal': any;
+    UpgradePlan: any;
+    'cosmos-sdk/CancelSoftwareUpgradeProposal': any;
 };

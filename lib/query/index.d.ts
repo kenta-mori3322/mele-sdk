@@ -9,6 +9,7 @@ import SlashingQuery from './slashing';
 import StakingQuery from './staking';
 import SupplyQuery from './supply';
 import TreasuryQuery from './treasury';
+import UpgradeQuery from './upgrade';
 export default class Query {
     private _transport;
     private _staking;
@@ -19,6 +20,7 @@ export default class Query {
     private _treasury;
     private _control;
     private _supply;
+    private _upgrade;
     constructor(transport: ITransport);
     get staking(): StakingQuery;
     get slashing(): SlashingQuery;
@@ -28,6 +30,7 @@ export default class Query {
     get treasury(): TreasuryQuery;
     get control(): ControlQuery;
     get supply(): SupplyQuery;
+    get upgrade(): UpgradeQuery;
     getBlock(height: number): Promise<ResultBlock>;
     getStatus(): Promise<ResultStatus>;
     getTx(hash: string): Promise<ResultTx>;
