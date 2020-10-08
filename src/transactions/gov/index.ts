@@ -15,6 +15,8 @@ const _types = {
     BurnedPoolSpendProposalMsgType: 'cosmos-sdk/BurnedPoolSpendProposal',
     MintTreasurySupplyProposalMsgType: 'treasury/MintTreasurySupplyProposal',
     BurnTreasurySupplyProposalMsgType: 'treasury/BurnTreasurySupplyProposal',
+    SoftwareUpgradeProposalMsgType: 'cosmos-sdk/SoftwareUpgradeProposal',
+    CancelSoftwareUpgradeProposalMsgType: 'cosmos-sdk/CancelSoftwareUpgradeProposal',
 }
 
 export const Msgs = {
@@ -153,6 +155,36 @@ export const Msgs = {
             title,
             description,
             amount.map(am => new Coin(am.denom, am.amount))
+        )
+
+        return this.makeSubmitProposalMsg(proposer, initialDeposit, content)
+    },
+    makeSoftwareUpgradeProposal(
+        proposer: string,
+        initialDeposit: Types.SDKCoin[],
+        title: string,
+        description: string,
+        plan: Types.UpgradePlan
+    ): any[] {
+        const cPlan = new Codec['UpgradePlan'](plan.name, plan.height, plan.info)
+
+        const content = new Codec[_types.SoftwareUpgradeProposalMsgType](
+            title,
+            description,
+            cPlan
+        )
+
+        return this.makeSubmitProposalMsg(proposer, initialDeposit, content)
+    },
+    makeCancelSoftwareUpgradeProposal(
+        proposer: string,
+        initialDeposit: Types.SDKCoin[],
+        title: string,
+        description: string,
+    ): any[] {
+        const content = new Codec[_types.CancelSoftwareUpgradeProposalMsgType](
+            title,
+            description
         )
 
         return this.makeSubmitProposalMsg(proposer, initialDeposit, content)
@@ -404,6 +436,69 @@ export default class Gov extends TransactionApi {
             title,
             description,
             amount
+        )
+
+        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
+    }
+    /**
+     * mele.gov.**submitSoftwareUpgradeProposal**
+     *
+     * Submit a software upgrade proposal.
+     *
+     * @param {[SDKCoin]} initialDeposit - Initial deposit
+     * @param {string} title - Text proposal title
+     * @param {string} description - Text proposal description
+     * @param {UpgradePlan} plan - Upgrade plan.
+     *
+     * @memberof mele.gov
+     * @inner
+     *
+     * @name SoftwareUpgradeProposal
+     *
+     * @returns {Transaction} transaction - Transaction class instance.
+     */
+    submitSoftwareUpgradeProposal(
+        initialDeposit: Types.SDKCoin[],
+        title: string,
+        description: string,
+        plan: Types.UpgradePlan
+    ): Transaction {
+        const msgs = Msgs.makeSoftwareUpgradeProposal(
+            this.broadcast.signer.getAddress(),
+            initialDeposit,
+            title,
+            description,
+            plan
+        )
+
+        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
+    }
+    /**
+     * mele.gov.**submitCancelSoftwareUpgradeProposal**
+     *
+     * Submit a cancel software upgrade proposal.
+     *
+     * @param {[SDKCoin]} initialDeposit - Initial deposit
+     * @param {string} title - Text proposal title
+     * @param {string} description - Text proposal description
+     *
+     * @memberof mele.gov
+     * @inner
+     *
+     * @name CancelSoftwareUpgradeProposal
+     *
+     * @returns {Transaction} transaction - Transaction class instance.
+     */
+    submitCancelSoftwareUpgradeProposal(
+        initialDeposit: Types.SDKCoin[],
+        title: string,
+        description: string
+    ): Transaction {
+        const msgs = Msgs.makeCancelSoftwareUpgradeProposal(
+            this.broadcast.signer.getAddress(),
+            initialDeposit,
+            title,
+            description
         )
 
         return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
