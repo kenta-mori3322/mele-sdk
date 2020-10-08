@@ -146,6 +146,44 @@ export const Codec = {
             type: Types.ArrayStruct,
         },
     ]),
+    'cosmos-sdk/SoftwareUpgradeProposal': TypeFactory.create('SoftwareUpgradeProposal', [
+        {
+            name: 'title',
+            type: Types.String,
+        },
+        {
+            name: 'description',
+            type: Types.String,
+        },
+        {
+            name: 'plan',
+            type: Types.Struct,
+        },
+    ]),
+    UpgradePlan: TypeFactory.create('UpgradePlan', [
+        {
+            name: 'name',
+            type: Types.String,
+        },
+        {
+            name: 'height',
+            type: Types.Int64,
+        },
+        {
+            name: 'info',
+            type: Types.String,
+        },
+    ]),
+    'cosmos-sdk/CancelSoftwareUpgradeProposal': TypeFactory.create('CancelSoftwareUpgradeProposal', [
+        {
+            name: 'title',
+            type: Types.String,
+        },
+        {
+            name: 'description',
+            type: Types.String,
+        },
+    ]),
 }
 
 Object.keys(Codec).forEach(codec => registerConcrete(codec, Codec[codec]))
