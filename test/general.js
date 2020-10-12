@@ -1507,11 +1507,17 @@ describe('Mele Blockchain', function () {
 
             it('Operator can disburse funds', async () => {
                 const txEvents = meleOperator.treasury
-                    .disburse(mele.signer.getAddress(), [{
-                        denom: 'umelc',
-                        amount: '5000000000000',
-                    }],
-                    'example-reference' + Math.random().toString(36).substring(7))
+                    .disburse(
+                        mele.signer.getAddress(),
+                        [
+                            {
+                                denom: 'umelc',
+                                amount: '5000000000000',
+                            },
+                        ],
+                        'example-reference' +
+                            Math.random().toString(36).substring(7)
+                    )
                     .sendTransaction()
 
                 assert.ok(txEvents)
@@ -1552,10 +1558,12 @@ describe('Mele Blockchain', function () {
 
             it('Operator can burn funds', async () => {
                 const txEvents = meleOperator.treasury
-                    .burn([{
-                        denom: 'umelc',
-                        amount: '500',
-                    }])
+                    .burn([
+                        {
+                            denom: 'umelc',
+                            amount: '5000000000000',
+                        },
+                    ])
                     .sendTransaction()
 
                 assert.ok(txEvents)
