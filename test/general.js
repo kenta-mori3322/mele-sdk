@@ -1385,6 +1385,93 @@ describe('Mele Blockchain', function () {
                 assert.ok(tx.tx_result.code === 0)
                 assert.ok(tx.height)
             })
+
+            it('Software upgrade execution can be created', async () => {
+                const txEvents = meleManager.control
+                    .submitSoftwareUpgradeProposal(
+                        'ProposalTestTitle',
+                        'ProposalTestDescription',
+                        {
+                            name: 'TestUpgrade',
+                            height: 10000,
+                            info: 'Software upgrade test',
+                        }
+                    )
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
+
+                assert.ok(tx.tx_result)
+                assert.ok(tx.tx_result.code === 0)
+                assert.ok(tx.height)
+            })
+
+            it('Software upgrade plan can be queried', async () => {
+                const plan = await mele.query.upgrade.getCurrent()
+
+                assert.ok(plan)
+
+                assert.ok(plan.value.name === 'TestUpgrade')
+                assert.ok(plan.value.height === '10000')
+                assert.ok(plan.value.planInfo === 'Software upgrade test')
+            })
+
+            it('Cancel software upgrade execution can be created', async () => {
+                const txEvents = meleManager.control
+                    .submitCancelSoftwareUpgradeProposal(
+                        'ProposalTestTitle',
+                        'ProposalTestDescription'
+                    )
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
+
+                assert.ok(tx.tx_result)
+                assert.ok(tx.tx_result.code === 0)
+                assert.ok(tx.height)
+            })
         })
 
         describe('Treasury', () => {
