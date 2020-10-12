@@ -170,7 +170,7 @@ export const Codec = {
             type: Types.Int64,
         },
         {
-            name: 'info',
+            name: 'planInfo',
             type: Types.String,
         },
     ]),
