@@ -1168,7 +1168,9 @@ describe('Mele Blockchain', function () {
                 assert.ok(aExecution.content)
                 assert.ok(aExecution.content.type === 'cosmos-sdk/TextProposal')
                 assert.ok(aExecution.content.value)
-                assert.ok(aExecution.content.value.title === 'ExecutionTestTitle')
+                assert.ok(
+                    aExecution.content.value.title === 'ExecutionTestTitle'
+                )
                 assert.ok(
                     aExecution.content.value.description ===
                         'ExecutionTestDescription'
