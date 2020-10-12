@@ -1011,6 +1011,95 @@ describe('Mele Blockchain', function () {
                 assert.ok(tx.tx_result.code === 0)
                 assert.ok(tx.height)
             })
+
+            it('Software upgrade proposal can be created', async () => {
+                const txEvents = meleDelegator.governance
+                    .submitSoftwareUpgradeProposal(
+                        [
+                            {
+                                denom: 'umelg',
+                                amount: '5000000',
+                            },
+                        ],
+                        'ProposalTestTitle',
+                        'ProposalTestDescription',
+                        {
+                            name: 'TestUpgrade',
+                            height: 10000,
+                            info: 'Software upgrade test',
+                        }
+                    )
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
+
+                assert.ok(tx.tx_result)
+                assert.ok(tx.tx_result.code === 0)
+                assert.ok(tx.height)
+            })
+
+            it('Cancel software upgrade proposal can be created', async () => {
+                const txEvents = meleDelegator.governance
+                    .submitCancelSoftwareUpgradeProposal(
+                        [
+                            {
+                                denom: 'umelg',
+                                amount: '5000000',
+                            },
+                        ],
+                        'ProposalTestTitle',
+                        'ProposalTestDescription'
+                    )
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
+
+                assert.ok(tx.tx_result)
+                assert.ok(tx.tx_result.code === 0)
+                assert.ok(tx.height)
+            })
         })
 
         describe('Control', () => {
