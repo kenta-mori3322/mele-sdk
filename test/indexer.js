@@ -133,5 +133,17 @@ describe('Mele Indexer', function () {
             assert.ok(history)
             assert.ok(history.length > 0)
         })
+
+        it('Disbursements can be fetched', async () => {
+            const data = await mele.indexer.disbursements()
+
+            assert.ok(data)
+        })
+
+        it('Burns can be fetched', async () => {
+            const data = await mele.indexer.burns()
+
+            assert.ok(data)
+        })
     })
 })

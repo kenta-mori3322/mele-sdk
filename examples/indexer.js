@@ -67,4 +67,12 @@ const mele = new Mele({
     })
 
     console.log(history)
+
+    const disbursements = await mele.indexer.disbursements()
+
+    console.log(disbursements)
+
+    const burns = await mele.indexer.burns()
+
+    console.log(burns)
 })()
