@@ -68,6 +68,18 @@ interface History {
     name: string;
     timestamp: Date;
 }
+interface Burn {
+    invoker: string;
+    amount: string;
+    timestamp: string;
+}
+interface Disbursement {
+    invoker: string;
+    recipient: string;
+    amount: string;
+    reference: string;
+    timestamp: string;
+}
 export default class Indexer {
     private _opts;
     constructor(opts: IndexerOptions);
@@ -82,5 +94,7 @@ export default class Indexer {
     proposalVotes(id: string): Promise<ProposalVotes[]>;
     validatorUptime(pubkey: string): Promise<ValidatorUptime>;
     history(query?: any): Promise<History[]>;
+    disbursements(query?: any): Promise<Disbursement[]>;
+    burns(query?: any): Promise<Burn[]>;
 }
 export {};
