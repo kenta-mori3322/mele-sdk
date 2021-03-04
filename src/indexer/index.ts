@@ -81,6 +81,20 @@ interface History {
     timestamp: Date
 }
 
+interface Burn {
+    invoker: string
+    amount: string
+    timestamp: string
+}
+
+interface Disbursement {
+    invoker: string
+    recipient: string
+    amount: string
+    reference: string
+    timestamp: string
+}
+
 export default class Indexer {
     private _opts: IndexerOptions
 
@@ -132,5 +146,13 @@ export default class Indexer {
 
     async history(query: any = {}): Promise<History[]> {
         return IndexerApi.get(this._opts.endpoint, 'history', query)
+    }
+
+    async disbursements(query: any = {}): Promise<Disbursement[]> {
+        return IndexerApi.get(this._opts.endpoint, 'disbursements', query)
+    }
+
+    async burns(query: any = {}): Promise<Burn[]> {
+        return IndexerApi.get(this._opts.endpoint, 'burns', query)
     }
 }
