@@ -34,9 +34,10 @@ export default [
                 bip32: 'bip32',
                 bip39: 'bip39',
                 stream: 'readable-stream',
+                readableStream: 'readable-stream',
             },
         },
-        external: ['bip32', 'bip39', 'js-sha256', 'readable-stream'],
+        external: ['bip32', 'bip39', 'js-sha256', 'readable-stream', 'protobufjs'],
         onwarn: onWarn,
         plugins: [
             builtins(),
@@ -72,7 +73,9 @@ export default [
         ],
         onwarn: onWarn,
         plugins: [
-            resolve(),
+            resolve({
+                jsnext: true
+            }),
             commonjs(),
             typescript({
                 tsconfig: 'tsconfig.json',
