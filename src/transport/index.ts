@@ -1,7 +1,4 @@
-import { ec as EC } from 'elliptic'
-import { Signer } from '../signer'
-import { encodeMsg, encodeSignMsg, encodeTx } from './encoder'
-
+import fetch from 'cross-fetch'
 import { ResultBlock, ResultBroadcastTx, ResultStatus, ResultTx, Rpc } from './rpc'
 
 import { BroadCastErrorEnum, BroadcastError } from '../transactions/errors'
@@ -11,6 +8,7 @@ export interface ITransport {
     status(): Promise<ResultStatus>
     tx(hash: string): Promise<ResultTx>
     query<T = any>(key: string[], data: string, storeName: string, subStoreName: string): Promise<T>
+    lcdQuery<T = any>(path: string): Promise<T>
     broadcastRawMsgBytesSync(tx: string): Promise<ResultBroadcastTx>
 }
 
@@ -20,9 +18,14 @@ export interface ITransportOptions {
 
 export class Transport implements ITransport {
     private _rpc: Rpc
+    private _nodeUrl: string
+    private _lcdUrl: string
 
     constructor(opt: ITransportOptions) {
         this._rpc = new Rpc(opt.nodeUrl)
+        this._nodeUrl = opt.nodeUrl
+
+        this._lcdUrl = this._nodeUrl.replace('26657', '1317')
     }
 
     block(height: number): Promise<ResultBlock> {
@@ -60,6 +63,14 @@ export class Transport implements ITransport {
                 const jsonStr = Buffer.from(result.response.value, 'base64').toString('utf-8')
 
                 return JSON.parse(jsonStr) as T
+            })
+    }
+
+    lcdQuery<T>(path: string): Promise<T> {
+        return fetch(this._lcdUrl + path)
+            .then(response => response.json())
+            .then(result => {
+                return result as T
             })
     }
 
