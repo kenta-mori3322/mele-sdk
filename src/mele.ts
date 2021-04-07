@@ -2,22 +2,9 @@ import Query from './query'
 import { DefaultSigner, Signer } from './signer'
 import Broadcast from './transactions/broadcast'
 
-import * as Types from './common'
-
 import { ITransport, Transport } from './transport'
 
-import { ResultBroadcastTx } from './transport/rpc'
-
-import { Transaction } from './transactions'
-import { TransactionEvents } from './transactions/events'
-
 import Bank from './transactions/bank'
-import Control from './transactions/control'
-import Distribution from './transactions/distribution'
-import Gov from './transactions/gov'
-import Slashing from './transactions/slashing'
-import Staking from './transactions/staking'
-import Treasury from './transactions/treasury'
 
 import Indexer from './indexer'
 
@@ -44,12 +31,6 @@ export class Mele {
     private _indexer: Indexer
 
     private _bank: Bank
-    private _staking: Staking
-    private _slashing: Slashing
-    private _distribution: Distribution
-    private _gov: Gov
-    private _treasury: Treasury
-    private _control: Control
 
     constructor(opt: Options) {
         this._options = opt
@@ -76,12 +57,6 @@ export class Mele {
         })
 
         this._bank = new Bank(this._broadcast)
-        this._staking = new Staking(this._broadcast)
-        this._slashing = new Slashing(this._broadcast)
-        this._distribution = new Distribution(this._broadcast)
-        this._gov = new Gov(this._broadcast)
-        this._treasury = new Treasury(this._broadcast)
-        this._control = new Control(this._broadcast)
     }
 
     get query(): Query {
@@ -94,30 +69,6 @@ export class Mele {
 
     get bank(): Bank {
         return this._bank
-    }
-
-    get staking(): Staking {
-        return this._staking
-    }
-
-    get slashing(): Slashing {
-        return this._slashing
-    }
-
-    get distribution(): Distribution {
-        return this._distribution
-    }
-
-    get governance(): Gov {
-        return this._gov
-    }
-
-    get treasury(): Treasury {
-        return this._treasury
-    }
-
-    get control(): Control {
-        return this._control
     }
 
     get indexer(): Indexer {

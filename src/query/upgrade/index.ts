@@ -47,7 +47,7 @@ export default class UpgradeQuery {
      * mele.query.upgrade.**getApplied**
      *
      * Fetch applied upgrade height.
-     * 
+     *
      * @param {string} name - Upgrade name
      *
      * @memberof mele.query.upgrade
@@ -61,8 +61,13 @@ export default class UpgradeQuery {
         const QueryPath = Keys.Query.QueryPath
         const AppliedPath = Keys.Query.AppliedPath
 
-        return this._transport.query<number>([], JSON.stringify({
-            Name: name
-        }), QueryPath, AppliedPath)
+        return this._transport.query<number>(
+            [],
+            JSON.stringify({
+                Name: name,
+            }),
+            QueryPath,
+            AppliedPath
+        )
     }
 }
