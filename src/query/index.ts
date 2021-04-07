@@ -14,7 +14,7 @@ import UpgradeQuery from './upgrade'
 
 namespace Keys {
     export const Query = {
-        AuthModuleQueryPath: 'acc',
+        AuthModuleQueryPath: 'auth',
         AccountPath: 'account',
     }
 }
@@ -154,16 +154,25 @@ export default class Query {
      *
      * @returns {Promise<Account>} account - Account data.
      */
-    getAccountInfo(address: string): Promise<Types.Account> {
-        const AuthModuleQueryPath = Keys.Query.AuthModuleQueryPath
-        const AccountPath = Keys.Query.AccountPath
-
-        return this._transport.query<Types.Account>(
-            [],
-            JSON.stringify({ Address: address }),
-            AuthModuleQueryPath,
-            AccountPath
+    async getAccountInfo(address: string): Promise<Types.Account> {
+        let account = await this._transport.lcdQuery<any>(
+            `/cosmos/auth/v1beta1/accounts/${address}`
         )
+
+        let balance = await this._transport.lcdQuery<any>(
+            `/cosmos/bank/v1beta1/balances/${address}`
+        )
+
+        return {
+            type: 'account',
+            value: {
+                address,
+                coins: balance.balances,
+                public_key: account.account.pub_key,
+                account_number: account.account.account_number,
+                sequence: account.account.sequence,
+            },
+        }
     }
 
     /**
