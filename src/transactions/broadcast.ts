@@ -5,7 +5,13 @@ import { ResultBroadcastTx } from '../transport/rpc'
 import { BroadCastErrorEnum, BroadcastError } from './errors'
 import { TransactionEvents } from './events'
 
-import * as Types from '../common'
+import { StdFee, encodeSecp256k1Pubkey } from '@cosmjs/amino'
+import { fromBase64 } from '@cosmjs/encoding'
+import { Int53 } from '@cosmjs/math'
+import { EncodeObject, encodePubkey, makeAuthInfoBytes, makeSignDoc } from '@cosmjs/proto-signing'
+import { TxRaw } from '../transport/codec/cosmos/tx/v1beta1/tx'
+
+import { getRegistry } from '../transport/registry'
 
 import promiseRetry from 'promise-retry'
 
@@ -14,6 +20,12 @@ interface Options {
     txConfirmTries: number
     chainId: string
     maxFeeInCoin: number
+}
+
+export interface SignerData {
+    readonly accountNumber: number
+    readonly sequence: number
+    readonly chainId: string
 }
 
 export default class Broadcast {
@@ -38,81 +50,111 @@ export default class Broadcast {
         return this._query
     }
 
-    safeBroadcast(signers: string[], makeTxFunc: Function): TransactionEvents {
+    safeBroadcast(tx): TransactionEvents {
         const txEvents = new TransactionEvents()
 
-        let accSignInfos: Promise<Types.AccSignInfo>[] = []
+        this._transport
+            .broadcastRawMsgBytesSync(tx)
+            .then((result: ResultBroadcastTx): void => {
+                txEvents.emitHash(result.hash)
 
-        for (let i = 0; i < signers.length; i++) {
-            let seq = this._query.getAccSignInfo(signers[i])
+                txEvents.emitReceipt(result)
 
-            accSignInfos.push(seq)
-        }
-
-        Promise.all(accSignInfos).then((signInfos: Types.AccSignInfo[]): void => {
-            let tx = makeTxFunc(signInfos)
-
-            this._transport
-                .broadcastRawMsgBytesSync(tx)
-                .then((result: ResultBroadcastTx): void => {
-                    txEvents.emitHash(result.hash)
-
-                    txEvents.emitReceipt(result)
-
-                    promiseRetry(
-                        (retry, num) => {
-                            if (num === 1) {
-                                return retry()
-                            }
-
-                            return this._transport.tx(result.hash).catch(retry)
-                        },
-                        {
-                            retries: this._options.txConfirmTries,
-                            factor: 1,
-                            minTimeout: this._options.txConfirmInterval,
-                            maxTimeout: this._options.txConfirmInterval,
+                promiseRetry(
+                    (retry, num) => {
+                        if (num === 1) {
+                            return retry()
                         }
-                    ).then(
-                        value => {
-                            txEvents.emitConfirmation(value)
-                        },
-                        err => {}
-                    )
-                })
-                .catch((err: any): void => {
-                    if (err.data && err.data.indexOf('Tx already exists in cache') >= 0) {
-                        txEvents.emitError(
-                            new BroadcastError(BroadCastErrorEnum.CheckTx, err.data, err.code || 0)
-                        )
-                    } else if (err.code && err.message) {
-                        txEvents.emitError(
-                            new BroadcastError(BroadCastErrorEnum.CheckTx, err.message, err.code)
-                        )
-                    } else {
-                        txEvents.emitError(
-                            new BroadcastError(
-                                BroadCastErrorEnum.CheckTx,
-                                'Unknown error ocurred while broadcasting transaction.',
-                                -1
-                            )
-                        )
+
+                        return this._transport.tx(result.hash).catch(retry)
+                    },
+                    {
+                        retries: this._options.txConfirmTries,
+                        factor: 1,
+                        minTimeout: this._options.txConfirmInterval,
+                        maxTimeout: this._options.txConfirmInterval,
                     }
-                })
-        })
+                ).then(
+                    value => {
+                        txEvents.emitConfirmation(value)
+                    },
+                    err => {}
+                )
+            })
+            .catch((err: any): void => {
+                if (err.data && err.data.indexOf('Tx already exists in cache') >= 0) {
+                    txEvents.emitError(
+                        new BroadcastError(BroadCastErrorEnum.CheckTx, err.data, err.code || 0)
+                    )
+                } else if (err.code && err.message) {
+                    txEvents.emitError(
+                        new BroadcastError(BroadCastErrorEnum.CheckTx, err.message, err.code)
+                    )
+                } else {
+                    txEvents.emitError(
+                        new BroadcastError(
+                            BroadCastErrorEnum.CheckTx,
+                            'Unknown error ocurred while broadcasting transaction.',
+                            -1
+                        )
+                    )
+                }
+            })
 
         return txEvents
     }
 
-    sendTransaction(msgs: any[]): TransactionEvents {
-        return this.safeBroadcast([this._signer.getAddress()], accSignInfos => {
-            return this._signer.signTransaction(
-                msgs,
-                this._options.chainId,
-                this._options.maxFeeInCoin,
-                accSignInfos[0].sequence,
-                accSignInfos[0].accountNumber
-            )
+    async sign(messages: readonly EncodeObject[], fee: StdFee, memo: string): Promise<TxRaw> {
+        let signerAddress = this._signer.getAddress()
+
+        const { accountNumber, sequence } = await this._query.getAccSignInfo(signerAddress)
+        const chainId = this._options.chainId
+
+        const accountFromSigner = this.signer
+            .getAccounts()
+            .find(account => account.address === signerAddress)
+
+        if (!accountFromSigner) {
+            throw new Error('Failed to retrieve account from signer')
+        }
+
+        const pubkey = encodePubkey(encodeSecp256k1Pubkey(accountFromSigner.pubkey))
+
+        const txBody = {
+            messages: messages,
+            memo: memo,
+        }
+
+        const txBodyBytes = getRegistry().encode({
+            typeUrl: '/cosmos.tx.v1beta1.TxBody',
+            value: txBody,
         })
+
+        const gasLimit = Int53.fromString(fee.gas).toNumber()
+        const authInfoBytes = makeAuthInfoBytes([pubkey], fee.amount, gasLimit, sequence)
+        const signDoc = makeSignDoc(txBodyBytes, authInfoBytes, chainId, accountNumber)
+        const { signature, signed } = await this.signer.signDirect(signerAddress, signDoc)
+
+        return TxRaw.fromPartial({
+            bodyBytes: signed.bodyBytes,
+            authInfoBytes: signed.authInfoBytes,
+            signatures: [fromBase64(signature.signature)],
+        })
+    }
+
+    async sendTransaction(messages: readonly EncodeObject[]): Promise<TransactionEvents> {
+        let fee: StdFee = {
+            amount: [
+                {
+                    denom: 'umelc',
+                    amount: '0',
+                },
+            ],
+            gas: String(Math.ceil(messages.length / 10) * 200000),
+        }
+        const txRaw = await this.sign(messages, fee, 'sdk')
+        const signedTx = Uint8Array.from(TxRaw.encode(txRaw).finish())
+
+        return this.safeBroadcast(Buffer.from(signedTx).toString('base64'))
     }
 }
