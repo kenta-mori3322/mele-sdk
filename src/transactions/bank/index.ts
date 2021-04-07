@@ -1,24 +1,5 @@
-import { Coin } from '../../transport/codec'
+import { Coin } from '../../transport/codec/cosmos/base/v1beta1/coin'
 import { Transaction, TransactionApi } from '../index'
-import { Codec } from './codec'
-
-import * as Types from '../../common'
-
-const _types = {
-    TransferMsgType: 'cosmos-sdk/MsgSend',
-}
-
-export const Msgs = {
-    makeTransferMsg(fromAddress: string, toAddress: string, amount: Types.SDKCoin[]): any[] {
-        const msg = new Codec[_types.TransferMsgType](
-            fromAddress,
-            toAddress,
-            amount.map(am => new Coin(am.denom, am.amount))
-        )
-
-        return [msg]
-    },
-}
 
 /**
  * Bank
@@ -43,8 +24,19 @@ export default class Bank extends TransactionApi {
      *
      * @returns {Transaction} transaction - Transaction class instance.
      */
-    transfer(toAddress: string, amount: Types.SDKCoin[]): Transaction {
-        const msgs = Msgs.makeTransferMsg(this.broadcast.signer.getAddress(), toAddress, amount)
+    transfer(toAddress: string, amount: readonly Coin[]): Transaction {
+        let senderAddress = this.broadcast.signer.getAddress()
+
+        const msgs = [
+            {
+                typeUrl: '/cosmos.bank.v1beta1.MsgSend',
+                value: {
+                    fromAddress: senderAddress,
+                    toAddress: toAddress,
+                    amount: amount,
+                },
+            },
+        ]
 
         return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
     }
