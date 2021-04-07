@@ -1,65 +1,84 @@
 import { ec as EC } from 'elliptic'
 import shajs from 'sha.js'
 
-import { encodeMsg, encodeSignMsg, encodeTx } from '../transport/encoder'
-import * as Utils from '../utils'
+import { encodeSecp256k1Signature, rawSecp256k1PubkeyToRawAddress } from '@cosmjs/amino'
+import { Secp256k1, sha256 } from '@cosmjs/crypto'
+import { Bech32 } from '@cosmjs/encoding'
+import { AccountData, DirectSignResponse, makeSignBytes } from '@cosmjs/proto-signing'
+import { SignDoc } from '../transport/codec/cosmos/tx/v1beta1/tx'
+
 import { Signer } from './index'
 
-const ec = new EC('secp256k1')
+const secp256k1 = new EC('secp256k1')
 
 export class KeyPairSigner implements Signer {
-    private _privateKey: string
-    private _publicKey: string
-    private _address: string
+    private readonly pubkey: string
+    private readonly privkey: string
+    private readonly prefix: string
 
-    constructor(privateKey: string) {
-        this._privateKey = privateKey
+    constructor(privKey: string) {
+        let key = secp256k1.keyFromPrivate(privKey, 'hex')
+        let pubkey = key.getPublic(true, 'hex')
 
-        this._publicKey = Utils.getPublicKeyFromPrivateKey(privateKey)
-        this._address = Utils.getAddressFromPublicKey(this._publicKey)
+        this.privkey = privKey
+        this.pubkey = pubkey
+        this.prefix = 'mele'
     }
 
     getAddress(): string {
-        return this._address
+        return Bech32.encode(
+            this.prefix,
+            rawSecp256k1PubkeyToRawAddress(Buffer.from(this.pubkey, 'hex'))
+        )
     }
 
     getPrivateKey(): string {
-        return this._privateKey
+        return this.privkey
     }
 
     getPublicKey(): string {
-        return this._publicKey
+        return this.pubkey
     }
 
-    signTransaction(
-        msgs: any[],
-        chainId: string,
-        fee: number,
-        sequence: number,
-        accountNumber: number
-    ): string {
-        let key = ec.keyFromPrivate(this._privateKey, 'hex')
+    getAccounts(): AccountData[] {
+        return [
+            {
+                algo: 'secp256k1',
+                address: this.getAddress(),
+                pubkey: Buffer.from(this.pubkey, 'hex'),
+            },
+        ]
+    }
 
-        const signMsgHash = encodeSignMsg(msgs, chainId, sequence, accountNumber, fee)
+    async signDirect(address: string, signDoc: SignDoc): Promise<DirectSignResponse> {
+        const signBytes = makeSignBytes(signDoc)
 
-        const sig = key.sign(signMsgHash, { canonical: true })
+        if (address !== this.getAddress()) {
+            throw new Error(`Address ${address} not found in wallet`)
+        }
 
-        const sigDERHex = Buffer.from(
-            sig.r.toArray('be', 32).concat(sig.s.toArray('be', 32))
-        ).toString('hex')
+        const hashedMessage = sha256(signBytes)
 
-        const tx = encodeTx(
-            msgs.map(msg => encodeMsg(msg)),
-            new Array<string>(key.getPublic(true, 'hex')),
-            new Array<string>(sigDERHex),
-            fee
+        const signature = await Secp256k1.createSignature(
+            hashedMessage,
+            Buffer.from(this.privkey, 'hex')
         )
 
-        return tx
+        const signatureBytes = new Uint8Array([...signature.r(32), ...signature.s(32)])
+
+        const stdSignature = encodeSecp256k1Signature(
+            Buffer.from(this.pubkey, 'hex'),
+            signatureBytes
+        )
+
+        return {
+            signed: signDoc,
+            signature: stdSignature,
+        }
     }
 
     signMessage(msg: string): string {
-        const key = ec.keyFromPrivate(this._privateKey, 'hex')
+        const key = EC.keyFromPrivate(this.privkey, 'hex')
 
         const signByte = shajs('sha256').update(msg).digest()
 
