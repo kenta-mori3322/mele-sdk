@@ -8,7 +8,6 @@ import ripemd160 from 'ripemd160'
 import shajs from 'sha.js'
 
 import { TransactionEvents } from '../transactions/events'
-import { encodeAddr } from '../transport/encoder'
 
 import {
     fromUmelc,
@@ -91,7 +90,7 @@ export function getAddressFromPublicKey(pubKey: string): string {
 
     const addr = new ripemd160().update(hashResult).digest()
 
-    return encodeAddr(addr)
+    return addr
 }
 
 export function getPublicKeyFromPrivateKey(privKey: string): string {
