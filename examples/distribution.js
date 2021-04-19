@@ -106,7 +106,7 @@ const meleValidator = new Mele({
     console.log(JSON.stringify(withdrawAddr, null, 4))
 
     console.log(chalk.green('Withdraw rewards transaction'))
-    let txEvents = mele.distribution
+    let txEvents = await mele.distribution
         .withdrawDelegationReward(validator.operator_address)
         .sendTransaction()
 
@@ -137,7 +137,7 @@ const meleValidator = new Mele({
     await txPromise
 
     console.log(chalk.green('Withdraw validator commission transaction'))
-    txEvents = meleValidator.distribution
+    txEvents = await meleValidator.distribution
         .withdrawValidatorCommission(validator.operator_address)
         .sendTransaction()
 
@@ -168,7 +168,7 @@ const meleValidator = new Mele({
     await txPromise
 
     console.log(chalk.green('Fund community pool transaction'))
-    txEvents = mele.distribution
+    txEvents = await mele.distribution
         .fundCommunityPool([
             {
                 amount: '100',
