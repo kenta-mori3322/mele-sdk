@@ -59,7 +59,7 @@ export default class StakingQuery {
         return this._transport.query<Types.Validator[]>(
             [],
             JSON.stringify({
-                Status: 'Bonded',
+                Status: 'BOND_STATUS_BONDED',
                 Page: '1',
                 Limit: '1000',
             }),
