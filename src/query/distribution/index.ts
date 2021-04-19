@@ -3,7 +3,7 @@ import { ITransport } from '../../transport'
 
 namespace Keys {
     export const Query = {
-        QueryPath: 'distribution',
+        QueryPath: 'mdistribution',
 
         ParametersPath: 'params',
         ValidatorOutstandingRewardsPath: 'validator_outstanding_rewards',
