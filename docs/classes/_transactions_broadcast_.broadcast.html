@@ -108,6 +108,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_transactions_broadcast_.broadcast.html#safebroadcast" class="tsd-kind-icon">safe<wbr>Broadcast</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_transactions_broadcast_.broadcast.html#sendtransaction" class="tsd-kind-icon">send<wbr>Transaction</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_transactions_broadcast_.broadcast.html#sign" class="tsd-kind-icon">sign</a></li>
 							</ul>
 						</section>
 					</div>
@@ -125,7 +126,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/transactions/broadcast.ts#L23">src/transactions/broadcast.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transactions/broadcast.ts#L35">src/transactions/broadcast.ts:35</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -156,7 +157,7 @@
 					<div class="tsd-signature tsd-kind-icon">_options<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_transactions_broadcast_.options.html" class="tsd-signature-type">Options</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/transactions/broadcast.ts#L22">src/transactions/broadcast.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transactions/broadcast.ts#L34">src/transactions/broadcast.ts:34</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -166,7 +167,7 @@
 					<div class="tsd-signature tsd-kind-icon">_query<span class="tsd-signature-symbol">:</span> <a href="_query_index_.query.html" class="tsd-signature-type">Query</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/transactions/broadcast.ts#L21">src/transactions/broadcast.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transactions/broadcast.ts#L33">src/transactions/broadcast.ts:33</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -176,7 +177,7 @@
 					<div class="tsd-signature tsd-kind-icon">_signer<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_signer_signer_.signer.html" class="tsd-signature-type">Signer</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/transactions/broadcast.ts#L23">src/transactions/broadcast.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transactions/broadcast.ts#L35">src/transactions/broadcast.ts:35</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -186,7 +187,7 @@
 					<div class="tsd-signature tsd-kind-icon">_transport<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_transport_index_.itransport.html" class="tsd-signature-type">ITransport</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/transactions/broadcast.ts#L20">src/transactions/broadcast.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transactions/broadcast.ts#L32">src/transactions/broadcast.ts:32</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -203,7 +204,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/transactions/broadcast.ts#L37">src/transactions/broadcast.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transactions/broadcast.ts#L49">src/transactions/broadcast.ts:49</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_query_index_.query.html" class="tsd-signature-type">Query</a></h4>
@@ -220,7 +221,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/transactions/broadcast.ts#L33">src/transactions/broadcast.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transactions/broadcast.ts#L45">src/transactions/broadcast.ts:45</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_signer_signer_.signer.html" class="tsd-signature-type">Signer</a></h4>
@@ -234,22 +235,19 @@
 					<a name="safebroadcast" class="tsd-anchor"></a>
 					<h3>safe<wbr>Broadcast</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">safe<wbr>Broadcast<span class="tsd-signature-symbol">(</span>signers<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span>, makeTxFunc<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_transactions_events_.transactionevents.html" class="tsd-signature-type">TransactionEvents</a></li>
+						<li class="tsd-signature tsd-kind-icon">safe<wbr>Broadcast<span class="tsd-signature-symbol">(</span>tx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_transactions_events_.transactionevents.html" class="tsd-signature-type">TransactionEvents</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/transactions/broadcast.ts#L41">src/transactions/broadcast.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transactions/broadcast.ts#L53">src/transactions/broadcast.ts:53</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>signers: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-								<li>
-									<h5>makeTxFunc: <span class="tsd-signature-type">Function</span></h5>
+									<h5>tx: <span class="tsd-signature-type">any</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_transactions_events_.transactionevents.html" class="tsd-signature-type">TransactionEvents</a></h4>
@@ -260,22 +258,51 @@
 					<a name="sendtransaction" class="tsd-anchor"></a>
 					<h3>send<wbr>Transaction</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">send<wbr>Transaction<span class="tsd-signature-symbol">(</span>msgs<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_transactions_events_.transactionevents.html" class="tsd-signature-type">TransactionEvents</a></li>
+						<li class="tsd-signature tsd-kind-icon">send<wbr>Transaction<span class="tsd-signature-symbol">(</span>messages<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><span class="tsd-signature-type">EncodeObject</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="_transactions_events_.transactionevents.html" class="tsd-signature-type">TransactionEvents</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/transactions/broadcast.ts#L107">src/transactions/broadcast.ts:107</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transactions/broadcast.ts#L145">src/transactions/broadcast.ts:145</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>msgs: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>messages: <span class="tsd-signature-symbol">keyof </span><span class="tsd-signature-type">EncodeObject</span><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_transactions_events_.transactionevents.html" class="tsd-signature-type">TransactionEvents</a></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="_transactions_events_.transactionevents.html" class="tsd-signature-type">TransactionEvents</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="sign" class="tsd-anchor"></a>
+					<h3>sign</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">sign<span class="tsd-signature-symbol">(</span>messages<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><span class="tsd-signature-type">EncodeObject</span><span class="tsd-signature-symbol">[]</span>, fee<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">StdFee</span>, memo<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_transport_codec_cosmos_tx_v1beta1_tx_.txraw.html" class="tsd-signature-type">TxRaw</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transactions/broadcast.ts#L107">src/transactions/broadcast.ts:107</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>messages: <span class="tsd-signature-symbol">keyof </span><span class="tsd-signature-type">EncodeObject</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+								<li>
+									<h5>fee: <span class="tsd-signature-type">StdFee</span></h5>
+								</li>
+								<li>
+									<h5>memo: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_transport_codec_cosmos_tx_v1beta1_tx_.txraw.html" class="tsd-signature-type">TxRaw</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -326,12 +353,18 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_transactions_broadcast_.broadcast.html#sendtransaction" class="tsd-kind-icon">send<wbr>Transaction</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_transactions_broadcast_.broadcast.html#sign" class="tsd-kind-icon">sign</a>
+							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
 						<a href="../interfaces/_transactions_broadcast_.options.html" class="tsd-kind-icon">Options</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/_transactions_broadcast_.signerdata.html" class="tsd-kind-icon">Signer<wbr>Data</a>
 					</li>
 				</ul>
 			</nav>

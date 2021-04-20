@@ -96,19 +96,20 @@
 						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_signer_mnemonic_.mnemonicsigner.html#_address" class="tsd-kind-icon">_address</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_signer_mnemonic_.mnemonicsigner.html#_privatekey" class="tsd-kind-icon">_private<wbr>Key</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_signer_mnemonic_.mnemonicsigner.html#_publickey" class="tsd-kind-icon">_public<wbr>Key</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_signer_mnemonic_.mnemonicsigner.html#prefix" class="tsd-kind-icon">prefix</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_signer_mnemonic_.mnemonicsigner.html#privkey" class="tsd-kind-icon">privkey</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_signer_mnemonic_.mnemonicsigner.html#pubkey" class="tsd-kind-icon">pubkey</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_signer_mnemonic_.mnemonicsigner.html#getaccounts" class="tsd-kind-icon">get<wbr>Accounts</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_signer_mnemonic_.mnemonicsigner.html#getaddress" class="tsd-kind-icon">get<wbr>Address</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_signer_mnemonic_.mnemonicsigner.html#getprivatekey" class="tsd-kind-icon">get<wbr>Private<wbr>Key</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_signer_mnemonic_.mnemonicsigner.html#getpublickey" class="tsd-kind-icon">get<wbr>Public<wbr>Key</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_signer_mnemonic_.mnemonicsigner.html#signdirect" class="tsd-kind-icon">sign<wbr>Direct</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_signer_mnemonic_.mnemonicsigner.html#signmessage" class="tsd-kind-icon">sign<wbr>Message</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_signer_mnemonic_.mnemonicsigner.html#signtransaction" class="tsd-kind-icon">sign<wbr>Transaction</a></li>
 							</ul>
 						</section>
 					</div>
@@ -126,7 +127,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/signer/mnemonic.ts#L13">src/signer/mnemonic.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/signer/mnemonic.ts#L19">src/signer/mnemonic.ts:19</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -146,38 +147,56 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_address" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _address</h3>
-					<div class="tsd-signature tsd-kind-icon">_address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="prefix" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> prefix</h3>
+					<div class="tsd-signature tsd-kind-icon">prefix<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/signer/mnemonic.ts#L13">src/signer/mnemonic.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/signer/mnemonic.ts#L19">src/signer/mnemonic.ts:19</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_privatekey" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _private<wbr>Key</h3>
-					<div class="tsd-signature tsd-kind-icon">_private<wbr>Key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="privkey" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> privkey</h3>
+					<div class="tsd-signature tsd-kind-icon">privkey<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/signer/mnemonic.ts#L11">src/signer/mnemonic.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/signer/mnemonic.ts#L18">src/signer/mnemonic.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_publickey" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _public<wbr>Key</h3>
-					<div class="tsd-signature tsd-kind-icon">_public<wbr>Key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="pubkey" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> pubkey</h3>
+					<div class="tsd-signature tsd-kind-icon">pubkey<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/signer/mnemonic.ts#L12">src/signer/mnemonic.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/signer/mnemonic.ts#L17">src/signer/mnemonic.ts:17</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getaccounts" class="tsd-anchor"></a>
+					<h3>get<wbr>Accounts</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Accounts<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">AccountData</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/_signer_signer_.signer.html">Signer</a>.<a href="../interfaces/_signer_signer_.signer.html#getaccounts">getAccounts</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/signer/mnemonic.ts#L45">src/signer/mnemonic.ts:45</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">AccountData</span><span class="tsd-signature-symbol">[]</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="getaddress" class="tsd-anchor"></a>
 					<h3>get<wbr>Address</h3>
@@ -189,7 +208,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_signer_signer_.signer.html">Signer</a>.<a href="../interfaces/_signer_signer_.signer.html#getaddress">getAddress</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/signer/mnemonic.ts#L25">src/signer/mnemonic.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/signer/mnemonic.ts#L30">src/signer/mnemonic.ts:30</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -207,7 +226,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_signer_signer_.signer.html">Signer</a>.<a href="../interfaces/_signer_signer_.signer.html#getprivatekey">getPrivateKey</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/signer/mnemonic.ts#L29">src/signer/mnemonic.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/signer/mnemonic.ts#L37">src/signer/mnemonic.ts:37</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -225,10 +244,37 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_signer_signer_.signer.html">Signer</a>.<a href="../interfaces/_signer_signer_.signer.html#getpublickey">getPublicKey</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/signer/mnemonic.ts#L33">src/signer/mnemonic.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/signer/mnemonic.ts#L41">src/signer/mnemonic.ts:41</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="signdirect" class="tsd-anchor"></a>
+					<h3>sign<wbr>Direct</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">sign<wbr>Direct<span class="tsd-signature-symbol">(</span>address<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, signDoc<span class="tsd-signature-symbol">: </span><a href="../interfaces/_transport_codec_cosmos_tx_v1beta1_tx_.signdoc.html" class="tsd-signature-type">SignDoc</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">DirectSignResponse</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/_signer_signer_.signer.html">Signer</a>.<a href="../interfaces/_signer_signer_.signer.html#signdirect">signDirect</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/signer/mnemonic.ts#L55">src/signer/mnemonic.ts:55</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>address: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>signDoc: <a href="../interfaces/_transport_codec_cosmos_tx_v1beta1_tx_.signdoc.html" class="tsd-signature-type">SignDoc</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">DirectSignResponse</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -243,49 +289,13 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_signer_signer_.signer.html">Signer</a>.<a href="../interfaces/_signer_signer_.signer.html#signmessage">signMessage</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/signer/mnemonic.ts#L64">src/signer/mnemonic.ts:64</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/signer/mnemonic.ts#L82">src/signer/mnemonic.ts:82</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>msg: <span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="signtransaction" class="tsd-anchor"></a>
-					<h3>sign<wbr>Transaction</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">sign<wbr>Transaction<span class="tsd-signature-symbol">(</span>msgs<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span>, chainId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, fee<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, sequence<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, accountNumber<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/_signer_signer_.signer.html">Signer</a>.<a href="../interfaces/_signer_signer_.signer.html#signtransaction">signTransaction</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/signer/mnemonic.ts#L37">src/signer/mnemonic.ts:37</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>msgs: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-								<li>
-									<h5>chainId: <span class="tsd-signature-type">string</span></h5>
-								</li>
-								<li>
-									<h5>fee: <span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li>
-									<h5>sequence: <span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li>
-									<h5>accountNumber: <span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -316,13 +326,16 @@
 								<a href="_signer_mnemonic_.mnemonicsigner.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_signer_mnemonic_.mnemonicsigner.html#_address" class="tsd-kind-icon">_address</a>
+								<a href="_signer_mnemonic_.mnemonicsigner.html#prefix" class="tsd-kind-icon">prefix</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_signer_mnemonic_.mnemonicsigner.html#_privatekey" class="tsd-kind-icon">_private<wbr>Key</a>
+								<a href="_signer_mnemonic_.mnemonicsigner.html#privkey" class="tsd-kind-icon">privkey</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_signer_mnemonic_.mnemonicsigner.html#_publickey" class="tsd-kind-icon">_public<wbr>Key</a>
+								<a href="_signer_mnemonic_.mnemonicsigner.html#pubkey" class="tsd-kind-icon">pubkey</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_signer_mnemonic_.mnemonicsigner.html#getaccounts" class="tsd-kind-icon">get<wbr>Accounts</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_signer_mnemonic_.mnemonicsigner.html#getaddress" class="tsd-kind-icon">get<wbr>Address</a>
@@ -334,17 +347,17 @@
 								<a href="_signer_mnemonic_.mnemonicsigner.html#getpublickey" class="tsd-kind-icon">get<wbr>Public<wbr>Key</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_signer_mnemonic_.mnemonicsigner.html#signmessage" class="tsd-kind-icon">sign<wbr>Message</a>
+								<a href="_signer_mnemonic_.mnemonicsigner.html#signdirect" class="tsd-kind-icon">sign<wbr>Direct</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_signer_mnemonic_.mnemonicsigner.html#signtransaction" class="tsd-kind-icon">sign<wbr>Transaction</a>
+								<a href="_signer_mnemonic_.mnemonicsigner.html#signmessage" class="tsd-kind-icon">sign<wbr>Message</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../modules/_signer_mnemonic_.html#ec" class="tsd-kind-icon">ec</a>
+						<a href="../modules/_signer_mnemonic_.html#secp256k1" class="tsd-kind-icon">secp256k1</a>
 					</li>
 				</ul>
 			</nav>

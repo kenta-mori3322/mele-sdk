@@ -139,7 +139,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_transactions_index_.transactionapi.html">TransactionApi</a>.<a href="_transactions_index_.transactionapi.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/transactions/index.ts#L20">src/transactions/index.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transactions/index.ts#L20">src/transactions/index.ts:20</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -166,7 +166,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_transactions_index_.transactionapi.html">TransactionApi</a>.<a href="_transactions_index_.transactionapi.html#broadcast">broadcast</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/transactions/index.ts#L26">src/transactions/index.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transactions/index.ts#L26">src/transactions/index.ts:26</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_transactions_broadcast_.broadcast.html" class="tsd-signature-type">Broadcast</a></h4>
@@ -180,13 +180,13 @@
 					<a name="beginredelegate" class="tsd-anchor"></a>
 					<h3>begin<wbr>Redelegate</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">begin<wbr>Redelegate<span class="tsd-signature-symbol">(</span>srcValidator<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, dstValidator<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, amount<span class="tsd-signature-symbol">: </span><a href="../interfaces/_common_index_.sdkcoin.html" class="tsd-signature-type">SDKCoin</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_transactions_index_.transaction.html" class="tsd-signature-type">Transaction</a></li>
+						<li class="tsd-signature tsd-kind-icon">begin<wbr>Redelegate<span class="tsd-signature-symbol">(</span>srcValidator<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, dstValidator<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, amount<span class="tsd-signature-symbol">: </span><a href="../interfaces/_transport_codec_cosmos_base_v1beta1_coin_.coin.html" class="tsd-signature-type">Coin</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_transactions_index_.transaction.html" class="tsd-signature-type">Transaction</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/transactions/staking/index.ts#L252">src/transactions/staking/index.ts:252</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transactions/staking/index.ts#L178">src/transactions/staking/index.ts:178</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -220,7 +220,7 @@
 									</div>
 								</li>
 								<li>
-									<h5>amount: <a href="../interfaces/_common_index_.sdkcoin.html" class="tsd-signature-type">SDKCoin</a></h5>
+									<h5>amount: <a href="../interfaces/_transport_codec_cosmos_base_v1beta1_coin_.coin.html" class="tsd-signature-type">Coin</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Amount of tokens to redelegate</p>
 									</div>
@@ -235,13 +235,13 @@
 					<a name="createvalidator" class="tsd-anchor"></a>
 					<h3>create<wbr>Validator</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Validator<span class="tsd-signature-symbol">(</span>description<span class="tsd-signature-symbol">: </span><a href="../interfaces/_common_index_.description.html" class="tsd-signature-type">Description</a>, commission<span class="tsd-signature-symbol">: </span><a href="../interfaces/_common_index_.commission.html" class="tsd-signature-type">Commission</a>, minSelfDelegation<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, delegator<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, validator<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, pubkey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><a href="../interfaces/_common_index_.sdkcoin.html" class="tsd-signature-type">SDKCoin</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_transactions_index_.transaction.html" class="tsd-signature-type">Transaction</a></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Validator<span class="tsd-signature-symbol">(</span>description<span class="tsd-signature-symbol">: </span><a href="../interfaces/_transport_codec_cosmos_staking_v1beta1_staking_.description.html" class="tsd-signature-type">Description</a>, commission<span class="tsd-signature-symbol">: </span><a href="../interfaces/_transport_codec_cosmos_staking_v1beta1_staking_.commissionrates.html" class="tsd-signature-type">CommissionRates</a>, minSelfDelegation<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, validator<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, pubkey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><a href="../interfaces/_transport_codec_cosmos_base_v1beta1_coin_.coin.html" class="tsd-signature-type">Coin</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_transactions_index_.transaction.html" class="tsd-signature-type">Transaction</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/transactions/staking/index.ts#L139">src/transactions/staking/index.ts:139</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transactions/staking/index.ts#L32">src/transactions/staking/index.ts:32</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -263,13 +263,13 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>description: <a href="../interfaces/_common_index_.description.html" class="tsd-signature-type">Description</a></h5>
+									<h5>description: <a href="../interfaces/_transport_codec_cosmos_staking_v1beta1_staking_.description.html" class="tsd-signature-type">Description</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Validator description</p>
 									</div>
 								</li>
 								<li>
-									<h5>commission: <a href="../interfaces/_common_index_.commission.html" class="tsd-signature-type">Commission</a></h5>
+									<h5>commission: <a href="../interfaces/_transport_codec_cosmos_staking_v1beta1_staking_.commissionrates.html" class="tsd-signature-type">CommissionRates</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Validator commission information</p>
 									</div>
@@ -279,9 +279,6 @@
 									<div class="tsd-comment tsd-typography">
 										<p>Minimum self delegation</p>
 									</div>
-								</li>
-								<li>
-									<h5>delegator: <span class="tsd-signature-type">string</span></h5>
 								</li>
 								<li>
 									<h5>validator: <span class="tsd-signature-type">string</span></h5>
@@ -296,7 +293,7 @@
 									</div>
 								</li>
 								<li>
-									<h5>value: <a href="../interfaces/_common_index_.sdkcoin.html" class="tsd-signature-type">SDKCoin</a></h5>
+									<h5>value: <a href="../interfaces/_transport_codec_cosmos_base_v1beta1_coin_.coin.html" class="tsd-signature-type">Coin</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Amount of tokens to delegate</p>
 									</div>
@@ -311,13 +308,13 @@
 					<a name="delegate" class="tsd-anchor"></a>
 					<h3>delegate</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">delegate<span class="tsd-signature-symbol">(</span>validator<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, amount<span class="tsd-signature-symbol">: </span><a href="../interfaces/_common_index_.sdkcoin.html" class="tsd-signature-type">SDKCoin</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_transactions_index_.transaction.html" class="tsd-signature-type">Transaction</a></li>
+						<li class="tsd-signature tsd-kind-icon">delegate<span class="tsd-signature-symbol">(</span>validator<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, amount<span class="tsd-signature-symbol">: </span><a href="../interfaces/_transport_codec_cosmos_base_v1beta1_coin_.coin.html" class="tsd-signature-type">Coin</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_transactions_index_.transaction.html" class="tsd-signature-type">Transaction</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/transactions/staking/index.ts#L209">src/transactions/staking/index.ts:209</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transactions/staking/index.ts#L113">src/transactions/staking/index.ts:113</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -345,7 +342,7 @@
 									</div>
 								</li>
 								<li>
-									<h5>amount: <a href="../interfaces/_common_index_.sdkcoin.html" class="tsd-signature-type">SDKCoin</a></h5>
+									<h5>amount: <a href="../interfaces/_transport_codec_cosmos_base_v1beta1_coin_.coin.html" class="tsd-signature-type">Coin</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Amount of tokens to delegate</p>
 									</div>
@@ -360,13 +357,13 @@
 					<a name="editvalidator" class="tsd-anchor"></a>
 					<h3>edit<wbr>Validator</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">edit<wbr>Validator<span class="tsd-signature-symbol">(</span>description<span class="tsd-signature-symbol">: </span><a href="../interfaces/_common_index_.description.html" class="tsd-signature-type">Description</a>, address<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, commissionRate<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, minSelfDelegation<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_transactions_index_.transaction.html" class="tsd-signature-type">Transaction</a></li>
+						<li class="tsd-signature tsd-kind-icon">edit<wbr>Validator<span class="tsd-signature-symbol">(</span>description<span class="tsd-signature-symbol">: </span><a href="../interfaces/_transport_codec_cosmos_staking_v1beta1_staking_.description.html" class="tsd-signature-type">Description</a>, address<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, commissionRate<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, minSelfDelegation<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_transactions_index_.transaction.html" class="tsd-signature-type">Transaction</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/transactions/staking/index.ts#L178">src/transactions/staking/index.ts:178</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transactions/staking/index.ts#L77">src/transactions/staking/index.ts:77</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -388,7 +385,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>description: <a href="../interfaces/_common_index_.description.html" class="tsd-signature-type">Description</a></h5>
+									<h5>description: <a href="../interfaces/_transport_codec_cosmos_staking_v1beta1_staking_.description.html" class="tsd-signature-type">Description</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Validator description</p>
 									</div>
@@ -421,13 +418,13 @@
 					<a name="undelegate" class="tsd-anchor"></a>
 					<h3>undelegate</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">undelegate<span class="tsd-signature-symbol">(</span>validator<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, amount<span class="tsd-signature-symbol">: </span><a href="../interfaces/_common_index_.sdkcoin.html" class="tsd-signature-type">SDKCoin</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_transactions_index_.transaction.html" class="tsd-signature-type">Transaction</a></li>
+						<li class="tsd-signature tsd-kind-icon">undelegate<span class="tsd-signature-symbol">(</span>validator<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, amount<span class="tsd-signature-symbol">: </span><a href="../interfaces/_transport_codec_cosmos_base_v1beta1_coin_.coin.html" class="tsd-signature-type">Coin</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_transactions_index_.transaction.html" class="tsd-signature-type">Transaction</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/transactions/staking/index.ts#L230">src/transactions/staking/index.ts:230</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transactions/staking/index.ts#L145">src/transactions/staking/index.ts:145</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -455,7 +452,7 @@
 									</div>
 								</li>
 								<li>
-									<h5>amount: <a href="../interfaces/_common_index_.sdkcoin.html" class="tsd-signature-type">SDKCoin</a></h5>
+									<h5>amount: <a href="../interfaces/_transport_codec_cosmos_base_v1beta1_coin_.coin.html" class="tsd-signature-type">Coin</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Amount of tokens to undelegate</p>
 									</div>
@@ -511,12 +508,6 @@
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-object-literal tsd-parent-kind-module">
-						<a href="../modules/_transactions_staking_index_.html#msgs" class="tsd-kind-icon">Msgs</a>
-					</li>
-					<li class=" tsd-kind-object-literal tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../modules/_transactions_staking_index_.html#_types" class="tsd-kind-icon">_types</a>
-					</li>
 				</ul>
 			</nav>
 		</div>

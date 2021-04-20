@@ -92,11 +92,12 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_signer_signer_.signer.html#getaccounts" class="tsd-kind-icon">get<wbr>Accounts</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_signer_signer_.signer.html#getaddress" class="tsd-kind-icon">get<wbr>Address</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_signer_signer_.signer.html#getprivatekey" class="tsd-kind-icon">get<wbr>Private<wbr>Key</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_signer_signer_.signer.html#getpublickey" class="tsd-kind-icon">get<wbr>Public<wbr>Key</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_signer_signer_.signer.html#signdirect" class="tsd-kind-icon">sign<wbr>Direct</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_signer_signer_.signer.html#signmessage" class="tsd-kind-icon">sign<wbr>Message</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_signer_signer_.signer.html#signtransaction" class="tsd-kind-icon">sign<wbr>Transaction</a></li>
 							</ul>
 						</section>
 					</div>
@@ -104,6 +105,23 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="getaccounts" class="tsd-anchor"></a>
+					<h3>get<wbr>Accounts</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Accounts<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">AccountData</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/signer/signer.ts#L10">src/signer/signer.ts:10</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">AccountData</span><span class="tsd-signature-symbol">[]</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
 					<a name="getaddress" class="tsd-anchor"></a>
 					<h3>get<wbr>Address</h3>
@@ -114,7 +132,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/signer/signer.ts#L2">src/signer/signer.ts:2</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/signer/signer.ts#L5">src/signer/signer.ts:5</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -131,7 +149,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/signer/signer.ts#L3">src/signer/signer.ts:3</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/signer/signer.ts#L6">src/signer/signer.ts:6</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -148,10 +166,36 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/signer/signer.ts#L4">src/signer/signer.ts:4</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/signer/signer.ts#L7">src/signer/signer.ts:7</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="signdirect" class="tsd-anchor"></a>
+					<h3>sign<wbr>Direct</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">sign<wbr>Direct<span class="tsd-signature-symbol">(</span>address<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, signDoc<span class="tsd-signature-symbol">: </span><a href="_transport_codec_cosmos_tx_v1beta1_tx_.signdoc.html" class="tsd-signature-type">SignDoc</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">DirectSignResponse</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/signer/signer.ts#L8">src/signer/signer.ts:8</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>address: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>signDoc: <a href="_transport_codec_cosmos_tx_v1beta1_tx_.signdoc.html" class="tsd-signature-type">SignDoc</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">DirectSignResponse</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -165,48 +209,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/signer/signer.ts#L12">src/signer/signer.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/signer/signer.ts#L9">src/signer/signer.ts:9</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>msg: <span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="signtransaction" class="tsd-anchor"></a>
-					<h3>sign<wbr>Transaction</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">sign<wbr>Transaction<span class="tsd-signature-symbol">(</span>msgs<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span>, chainId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, fee<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, sequence<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, accountNumber<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/signer/signer.ts#L5">src/signer/signer.ts:5</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>msgs: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-								<li>
-									<h5>chainId: <span class="tsd-signature-type">string</span></h5>
-								</li>
-								<li>
-									<h5>fee: <span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li>
-									<h5>sequence: <span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li>
-									<h5>accountNumber: <span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -234,6 +243,9 @@
 						<a href="_signer_signer_.signer.html" class="tsd-kind-icon">Signer</a>
 						<ul>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="_signer_signer_.signer.html#getaccounts" class="tsd-kind-icon">get<wbr>Accounts</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="_signer_signer_.signer.html#getaddress" class="tsd-kind-icon">get<wbr>Address</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
@@ -243,10 +255,10 @@
 								<a href="_signer_signer_.signer.html#getpublickey" class="tsd-kind-icon">get<wbr>Public<wbr>Key</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="_signer_signer_.signer.html#signmessage" class="tsd-kind-icon">sign<wbr>Message</a>
+								<a href="_signer_signer_.signer.html#signdirect" class="tsd-kind-icon">sign<wbr>Direct</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="_signer_signer_.signer.html#signtransaction" class="tsd-kind-icon">sign<wbr>Transaction</a>
+								<a href="_signer_signer_.signer.html#signmessage" class="tsd-kind-icon">sign<wbr>Message</a>
 							</li>
 						</ul>
 					</li>

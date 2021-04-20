@@ -96,19 +96,20 @@
 						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_signer_keypair_.keypairsigner.html#_address" class="tsd-kind-icon">_address</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_signer_keypair_.keypairsigner.html#_privatekey" class="tsd-kind-icon">_private<wbr>Key</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_signer_keypair_.keypairsigner.html#_publickey" class="tsd-kind-icon">_public<wbr>Key</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_signer_keypair_.keypairsigner.html#prefix" class="tsd-kind-icon">prefix</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_signer_keypair_.keypairsigner.html#privkey" class="tsd-kind-icon">privkey</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_signer_keypair_.keypairsigner.html#pubkey" class="tsd-kind-icon">pubkey</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_signer_keypair_.keypairsigner.html#getaccounts" class="tsd-kind-icon">get<wbr>Accounts</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_signer_keypair_.keypairsigner.html#getaddress" class="tsd-kind-icon">get<wbr>Address</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_signer_keypair_.keypairsigner.html#getprivatekey" class="tsd-kind-icon">get<wbr>Private<wbr>Key</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_signer_keypair_.keypairsigner.html#getpublickey" class="tsd-kind-icon">get<wbr>Public<wbr>Key</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_signer_keypair_.keypairsigner.html#signdirect" class="tsd-kind-icon">sign<wbr>Direct</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_signer_keypair_.keypairsigner.html#signmessage" class="tsd-kind-icon">sign<wbr>Message</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_signer_keypair_.keypairsigner.html#signtransaction" class="tsd-kind-icon">sign<wbr>Transaction</a></li>
 							</ul>
 						</section>
 					</div>
@@ -120,19 +121,19 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Key<wbr>Pair<wbr>Signer<span class="tsd-signature-symbol">(</span>privateKey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signer_keypair_.keypairsigner.html" class="tsd-signature-type">KeyPairSigner</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Key<wbr>Pair<wbr>Signer<span class="tsd-signature-symbol">(</span>privKey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signer_keypair_.keypairsigner.html" class="tsd-signature-type">KeyPairSigner</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/signer/keyPair.ts#L13">src/signer/keyPair.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/signer/keyPair.ts#L17">src/signer/keyPair.ts:17</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>privateKey: <span class="tsd-signature-type">string</span></h5>
+									<h5>privKey: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_signer_keypair_.keypairsigner.html" class="tsd-signature-type">KeyPairSigner</a></h4>
@@ -143,38 +144,56 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_address" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _address</h3>
-					<div class="tsd-signature tsd-kind-icon">_address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="prefix" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> prefix</h3>
+					<div class="tsd-signature tsd-kind-icon">prefix<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/signer/keyPair.ts#L13">src/signer/keyPair.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/signer/keyPair.ts#L17">src/signer/keyPair.ts:17</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_privatekey" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _private<wbr>Key</h3>
-					<div class="tsd-signature tsd-kind-icon">_private<wbr>Key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="privkey" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> privkey</h3>
+					<div class="tsd-signature tsd-kind-icon">privkey<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/signer/keyPair.ts#L11">src/signer/keyPair.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/signer/keyPair.ts#L16">src/signer/keyPair.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_publickey" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _public<wbr>Key</h3>
-					<div class="tsd-signature tsd-kind-icon">_public<wbr>Key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="pubkey" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> pubkey</h3>
+					<div class="tsd-signature tsd-kind-icon">pubkey<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/signer/keyPair.ts#L12">src/signer/keyPair.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/signer/keyPair.ts#L15">src/signer/keyPair.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getaccounts" class="tsd-anchor"></a>
+					<h3>get<wbr>Accounts</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Accounts<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">AccountData</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/_signer_signer_.signer.html">Signer</a>.<a href="../interfaces/_signer_signer_.signer.html#getaccounts">getAccounts</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/signer/keyPair.ts#L43">src/signer/keyPair.ts:43</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">AccountData</span><span class="tsd-signature-symbol">[]</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="getaddress" class="tsd-anchor"></a>
 					<h3>get<wbr>Address</h3>
@@ -186,7 +205,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_signer_signer_.signer.html">Signer</a>.<a href="../interfaces/_signer_signer_.signer.html#getaddress">getAddress</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/signer/keyPair.ts#L22">src/signer/keyPair.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/signer/keyPair.ts#L28">src/signer/keyPair.ts:28</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -204,7 +223,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_signer_signer_.signer.html">Signer</a>.<a href="../interfaces/_signer_signer_.signer.html#getprivatekey">getPrivateKey</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/signer/keyPair.ts#L26">src/signer/keyPair.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/signer/keyPair.ts#L35">src/signer/keyPair.ts:35</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -222,10 +241,37 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_signer_signer_.signer.html">Signer</a>.<a href="../interfaces/_signer_signer_.signer.html#getpublickey">getPublicKey</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/signer/keyPair.ts#L30">src/signer/keyPair.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/signer/keyPair.ts#L39">src/signer/keyPair.ts:39</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="signdirect" class="tsd-anchor"></a>
+					<h3>sign<wbr>Direct</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">sign<wbr>Direct<span class="tsd-signature-symbol">(</span>address<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, signDoc<span class="tsd-signature-symbol">: </span><a href="../interfaces/_transport_codec_cosmos_tx_v1beta1_tx_.signdoc.html" class="tsd-signature-type">SignDoc</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">DirectSignResponse</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/_signer_signer_.signer.html">Signer</a>.<a href="../interfaces/_signer_signer_.signer.html#signdirect">signDirect</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/signer/keyPair.ts#L53">src/signer/keyPair.ts:53</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>address: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>signDoc: <a href="../interfaces/_transport_codec_cosmos_tx_v1beta1_tx_.signdoc.html" class="tsd-signature-type">SignDoc</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">DirectSignResponse</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -240,49 +286,13 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_signer_signer_.signer.html">Signer</a>.<a href="../interfaces/_signer_signer_.signer.html#signmessage">signMessage</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/signer/keyPair.ts#L61">src/signer/keyPair.ts:61</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/signer/keyPair.ts#L80">src/signer/keyPair.ts:80</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>msg: <span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="signtransaction" class="tsd-anchor"></a>
-					<h3>sign<wbr>Transaction</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">sign<wbr>Transaction<span class="tsd-signature-symbol">(</span>msgs<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span>, chainId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, fee<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, sequence<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, accountNumber<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/_signer_signer_.signer.html">Signer</a>.<a href="../interfaces/_signer_signer_.signer.html#signtransaction">signTransaction</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/868d10b/src/signer/keyPair.ts#L34">src/signer/keyPair.ts:34</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>msgs: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-								<li>
-									<h5>chainId: <span class="tsd-signature-type">string</span></h5>
-								</li>
-								<li>
-									<h5>fee: <span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li>
-									<h5>sequence: <span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li>
-									<h5>accountNumber: <span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -313,13 +323,16 @@
 								<a href="_signer_keypair_.keypairsigner.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_signer_keypair_.keypairsigner.html#_address" class="tsd-kind-icon">_address</a>
+								<a href="_signer_keypair_.keypairsigner.html#prefix" class="tsd-kind-icon">prefix</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_signer_keypair_.keypairsigner.html#_privatekey" class="tsd-kind-icon">_private<wbr>Key</a>
+								<a href="_signer_keypair_.keypairsigner.html#privkey" class="tsd-kind-icon">privkey</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_signer_keypair_.keypairsigner.html#_publickey" class="tsd-kind-icon">_public<wbr>Key</a>
+								<a href="_signer_keypair_.keypairsigner.html#pubkey" class="tsd-kind-icon">pubkey</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_signer_keypair_.keypairsigner.html#getaccounts" class="tsd-kind-icon">get<wbr>Accounts</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_signer_keypair_.keypairsigner.html#getaddress" class="tsd-kind-icon">get<wbr>Address</a>
@@ -331,17 +344,17 @@
 								<a href="_signer_keypair_.keypairsigner.html#getpublickey" class="tsd-kind-icon">get<wbr>Public<wbr>Key</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_signer_keypair_.keypairsigner.html#signmessage" class="tsd-kind-icon">sign<wbr>Message</a>
+								<a href="_signer_keypair_.keypairsigner.html#signdirect" class="tsd-kind-icon">sign<wbr>Direct</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_signer_keypair_.keypairsigner.html#signtransaction" class="tsd-kind-icon">sign<wbr>Transaction</a>
+								<a href="_signer_keypair_.keypairsigner.html#signmessage" class="tsd-kind-icon">sign<wbr>Message</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../modules/_signer_keypair_.html#ec" class="tsd-kind-icon">ec</a>
+						<a href="../modules/_signer_keypair_.html#secp256k1" class="tsd-kind-icon">secp256k1</a>
 					</li>
 				</ul>
 			</nav>
