@@ -106,7 +106,7 @@ const meleValidator = new Mele({
     console.log(JSON.stringify(withdrawAddr, null, 4))
 
     console.log(chalk.green('Withdraw rewards transaction'))
-    let txEvents = await mele.distribution
+    let txEvents = await meleValidator.distribution
         .withdrawDelegationReward(validator.operator_address)
         .sendTransaction()
 
