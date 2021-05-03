@@ -1476,134 +1476,132 @@ describe('Mele Blockchain', function () {
         //     })
         // })
 
-        // describe('Treasury', () => {
-        //     it('Treasury params can be fetched', async () => {
-        //         const params = await meleOperator.query.treasury.getParameters()
+        describe('Treasury', () => {
+            it('Treasury params can be fetched', async () => {
+                const params = await meleOperator.query.treasury.getParameters()
 
-        //         assert.ok(params)
+                assert.ok(params)
 
-        //         assert.ok(params.managers)
-        //         assert.ok(params.managers.length)
+                assert.ok(params.managers)
+                assert.ok(params.managers.length)
 
-        //         assert.ok(params.disbursement_delay_threshold_amount)
-        //         assert.ok(params.disbursement_delay_duration)
-        //     })
+                assert.ok(params.disbursement_delay_threshold_amount)
+                assert.ok(params.disbursement_delay_duration)
+            })
 
-        //     it('Treasury object can be fetched', async () => {
-        //         const treasury = await meleOperator.query.treasury.getTreasury()
+            it('Treasury object can be fetched', async () => {
+                const treasury = await meleOperator.query.treasury.getTreasury()
 
-        //         assert.ok(treasury)
+                assert.ok(treasury)
 
-        //         assert.ok(treasury.target_supply)
-        //         assert.ok(treasury.distributed)
-        //         assert.ok(treasury.burned)
-        //     })
+                assert.ok(treasury.target_supply)
+                assert.ok(treasury.distributed)
+                assert.ok(treasury.burned)
+            })
 
-        //     it('Treasury operators can be fetched', async () => {
-        //         const operators = await meleOperator.query.treasury.getOperators()
+            it('Treasury operators can be fetched', async () => {
+                const operators = await meleOperator.query.treasury.getOperators()
 
-        //         assert.ok(operators)
+                assert.ok(operators)
 
-        //         assert.ok(operators.length)
-        //     })
+                assert.ok(operators.length)
+            })
 
-        //     it('Operator can disburse funds', async () => {
-        //         const txEvents = meleOperator.treasury
-        //             .disburse(
-        //                 mele.signer.getAddress(),
-        //                 [
-        //                     {
-        //                         denom: 'umelc',
-        //                         amount: '5000000000000',
-        //                     },
-        //                 ],
-        //                 'example-reference' +
-        //                     Math.random().toString(36).substring(7)
-        //             )
-        //             .sendTransaction()
+            it('Operator can disburse funds', async () => {
+                const txEvents = await meleOperator.treasury
+                    .disburse(
+                        mele.signer.getAddress(),
+                        [
+                            {
+                                denom: 'umelc',
+                                amount: '5000000000000',
+                            },
+                        ],
+                        'example-reference' +
+                            Math.random().toString(36).substring(7)
+                    )
+                    .sendTransaction()
 
-        //         assert.ok(txEvents)
-        //         const txPromise = new Promise((resolve, reject) => {
-        //             txEvents
-        //                 .on('hash', hash => {
-        //                     assert.ok(hash)
-        //                 })
-        //                 .on('receipt', receipt => {
-        //                     assert.ok(receipt)
-        //                 })
-        //                 .on('confirmation', confirmation => {
-        //                     assert.ok(confirmation)
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
 
-        //                     resolve(confirmation)
-        //                 })
-        //                 .on('error', error => {
-        //                     reject(error)
-        //                 })
-        //         })
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
 
-        //         let tx = await txPromise
-        //         assert.ok(tx)
-        //         assert.ok(tx.hash)
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
 
-        //         assert.ok(tx.tx_result)
-        //         assert.ok(tx.tx_result.code === 0)
-        //         assert.ok(tx.height)
-        //     })
+                assert.ok(tx.tx_result)
+                assert.ok(tx.tx_result.code === 0)
+                assert.ok(tx.height)
+            })
 
-        //     it('Treasury disbursements can be fetched', async () => {
-        //         const disbursements = await meleOperator.query.treasury.getDisbursements()
+            it('Treasury disbursements can be fetched', async () => {
+                const disbursements = await meleOperator.query.treasury.getAllDisbursements()
 
-        //         assert.ok(disbursements)
+                assert.ok(disbursements)
 
-        //         assert.ok(disbursements.length)
-        //     })
+                assert.ok(disbursements.length)
+            })
 
-        //     it('Operator can burn funds', async () => {
-        //         const txEvents = meleOperator.treasury
-        //             .burn([
-        //                 {
-        //                     denom: 'umelc',
-        //                     amount: '5000000000000',
-        //                 },
-        //             ])
-        //             .sendTransaction()
+            it('Operator can burn funds', async () => {
+                const txEvents = await meleOperator.treasury
+                    .burn([
+                        {
+                            denom: 'umelc',
+                            amount: '5000000000000',
+                        },
+                    ])
+                    .sendTransaction()
 
-        //         assert.ok(txEvents)
-        //         const txPromise = new Promise((resolve, reject) => {
-        //             txEvents
-        //                 .on('hash', hash => {
-        //                     assert.ok(hash)
-        //                 })
-        //                 .on('receipt', receipt => {
-        //                     assert.ok(receipt)
-        //                 })
-        //                 .on('confirmation', confirmation => {
-        //                     assert.ok(confirmation)
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
 
-        //                     resolve(confirmation)
-        //                 })
-        //                 .on('error', error => {
-        //                     reject(error)
-        //                 })
-        //         })
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
 
-        //         let tx = await txPromise
-        //         assert.ok(tx)
-        //         assert.ok(tx.hash)
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
 
-        //         assert.ok(tx.tx_result)
-        //         assert.ok(tx.tx_result.code === 0)
-        //         assert.ok(tx.height)
-        //     })
+                assert.ok(tx.tx_result)
+                assert.ok(tx.tx_result.code === 0)
+                assert.ok(tx.height)
+            })
 
-        //     it('Treasury burns can be fetched', async () => {
-        //         const burns = await meleOperator.query.treasury.getBurns()
+            it('Treasury burns can be fetched', async () => {
+                const burns = await meleOperator.query.treasury.getBurns()
 
-        //         assert.ok(burns)
-
-        //         assert.ok(burns.length)
-        //     })
-        // })
+                assert.ok(burns || [])
+            })
+        })
 
         describe('Query', () => {
             it('Account info can be fetched', async () => {
