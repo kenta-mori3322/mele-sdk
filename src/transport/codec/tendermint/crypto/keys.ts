@@ -13,7 +13,10 @@ export interface PublicKey {
 const basePublicKey: object = {}
 
 export const PublicKey = {
-    encode(message: PublicKey, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    encode(
+        message: PublicKey,
+        writer: _m0.Writer = _m0.Writer.create()
+    ): _m0.Writer {
         if (message.ed25519 !== undefined) {
             writer.uint32(10).bytes(message.ed25519)
         }
@@ -24,7 +27,8 @@ export const PublicKey = {
     },
 
     decode(input: _m0.Reader | Uint8Array, length?: number): PublicKey {
-        const reader = input instanceof Uint8Array ? new _m0.Reader(input) : input
+        const reader =
+            input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = { ...basePublicKey } as PublicKey
         while (reader.pos < end) {
@@ -59,10 +63,14 @@ export const PublicKey = {
         const obj: any = {}
         message.ed25519 !== undefined &&
             (obj.ed25519 =
-                message.ed25519 !== undefined ? base64FromBytes(message.ed25519) : undefined)
+                message.ed25519 !== undefined
+                    ? base64FromBytes(message.ed25519)
+                    : undefined)
         message.secp256k1 !== undefined &&
             (obj.secp256k1 =
-                message.secp256k1 !== undefined ? base64FromBytes(message.secp256k1) : undefined)
+                message.secp256k1 !== undefined
+                    ? base64FromBytes(message.secp256k1)
+                    : undefined)
         return obj
     },
 
@@ -93,7 +101,8 @@ var globalThis: any = (() => {
 })()
 
 const atob: (b64: string) => string =
-    globalThis.atob || (b64 => globalThis.Buffer.from(b64, 'base64').toString('binary'))
+    globalThis.atob ||
+    (b64 => globalThis.Buffer.from(b64, 'base64').toString('binary'))
 function bytesFromBase64(b64: string): Uint8Array {
     const bin = atob(b64)
     const arr = new Uint8Array(bin.length)
@@ -104,7 +113,8 @@ function bytesFromBase64(b64: string): Uint8Array {
 }
 
 const btoa: (bin: string) => string =
-    globalThis.btoa || (bin => globalThis.Buffer.from(bin, 'binary').toString('base64'))
+    globalThis.btoa ||
+    (bin => globalThis.Buffer.from(bin, 'binary').toString('base64'))
 function base64FromBytes(arr: Uint8Array): string {
     const bin: string[] = []
     for (let i = 0; i < arr.byteLength; ++i) {
@@ -113,7 +123,15 @@ function base64FromBytes(arr: Uint8Array): string {
     return btoa(bin.join(''))
 }
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined | Long
+type Builtin =
+    | Date
+    | Function
+    | Uint8Array
+    | string
+    | number
+    | boolean
+    | undefined
+    | Long
 export type DeepPartial<T> = T extends Builtin
     ? T
     : T extends Array<infer U>
@@ -123,3 +141,8 @@ export type DeepPartial<T> = T extends Builtin
     : T extends {}
     ? { [K in keyof T]?: DeepPartial<T[K]> }
     : Partial<T>
+
+if (_m0.util.Long !== Long) {
+    _m0.util.Long = Long as any
+    _m0.configure()
+}

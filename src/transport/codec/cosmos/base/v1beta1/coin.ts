@@ -39,7 +39,10 @@ export interface DecProto {
 const baseCoin: object = { denom: '', amount: '' }
 
 export const Coin = {
-    encode(message: Coin, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    encode(
+        message: Coin,
+        writer: _m0.Writer = _m0.Writer.create()
+    ): _m0.Writer {
         if (message.denom !== '') {
             writer.uint32(10).string(message.denom)
         }
@@ -50,7 +53,8 @@ export const Coin = {
     },
 
     decode(input: _m0.Reader | Uint8Array, length?: number): Coin {
-        const reader = input instanceof Uint8Array ? new _m0.Reader(input) : input
+        const reader =
+            input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = { ...baseCoin } as Coin
         while (reader.pos < end) {
@@ -111,7 +115,10 @@ export const Coin = {
 const baseDecCoin: object = { denom: '', amount: '' }
 
 export const DecCoin = {
-    encode(message: DecCoin, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    encode(
+        message: DecCoin,
+        writer: _m0.Writer = _m0.Writer.create()
+    ): _m0.Writer {
         if (message.denom !== '') {
             writer.uint32(10).string(message.denom)
         }
@@ -122,7 +129,8 @@ export const DecCoin = {
     },
 
     decode(input: _m0.Reader | Uint8Array, length?: number): DecCoin {
-        const reader = input instanceof Uint8Array ? new _m0.Reader(input) : input
+        const reader =
+            input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = { ...baseDecCoin } as DecCoin
         while (reader.pos < end) {
@@ -183,7 +191,10 @@ export const DecCoin = {
 const baseIntProto: object = { int: '' }
 
 export const IntProto = {
-    encode(message: IntProto, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    encode(
+        message: IntProto,
+        writer: _m0.Writer = _m0.Writer.create()
+    ): _m0.Writer {
         if (message.int !== '') {
             writer.uint32(10).string(message.int)
         }
@@ -191,7 +202,8 @@ export const IntProto = {
     },
 
     decode(input: _m0.Reader | Uint8Array, length?: number): IntProto {
-        const reader = input instanceof Uint8Array ? new _m0.Reader(input) : input
+        const reader =
+            input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = { ...baseIntProto } as IntProto
         while (reader.pos < end) {
@@ -238,7 +250,10 @@ export const IntProto = {
 const baseDecProto: object = { dec: '' }
 
 export const DecProto = {
-    encode(message: DecProto, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    encode(
+        message: DecProto,
+        writer: _m0.Writer = _m0.Writer.create()
+    ): _m0.Writer {
         if (message.dec !== '') {
             writer.uint32(10).string(message.dec)
         }
@@ -246,7 +261,8 @@ export const DecProto = {
     },
 
     decode(input: _m0.Reader | Uint8Array, length?: number): DecProto {
-        const reader = input instanceof Uint8Array ? new _m0.Reader(input) : input
+        const reader =
+            input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = { ...baseDecProto } as DecProto
         while (reader.pos < end) {
@@ -290,7 +306,15 @@ export const DecProto = {
     },
 }
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined | Long
+type Builtin =
+    | Date
+    | Function
+    | Uint8Array
+    | string
+    | number
+    | boolean
+    | undefined
+    | Long
 export type DeepPartial<T> = T extends Builtin
     ? T
     : T extends Array<infer U>
@@ -300,3 +324,8 @@ export type DeepPartial<T> = T extends Builtin
     : T extends {}
     ? { [K in keyof T]?: DeepPartial<T[K]> }
     : Partial<T>
+
+if (_m0.util.Long !== Long) {
+    _m0.util.Long = Long as any
+    _m0.configure()
+}

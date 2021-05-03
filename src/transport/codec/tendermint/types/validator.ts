@@ -26,12 +26,18 @@ export interface SimpleValidator {
 const baseValidatorSet: object = { totalVotingPower: Long.ZERO }
 
 export const ValidatorSet = {
-    encode(message: ValidatorSet, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    encode(
+        message: ValidatorSet,
+        writer: _m0.Writer = _m0.Writer.create()
+    ): _m0.Writer {
         for (const v of message.validators) {
             Validator.encode(v!, writer.uint32(10).fork()).ldelim()
         }
         if (message.proposer !== undefined) {
-            Validator.encode(message.proposer, writer.uint32(18).fork()).ldelim()
+            Validator.encode(
+                message.proposer,
+                writer.uint32(18).fork()
+            ).ldelim()
         }
         if (!message.totalVotingPower.isZero()) {
             writer.uint32(24).int64(message.totalVotingPower)
@@ -40,7 +46,8 @@ export const ValidatorSet = {
     },
 
     decode(input: _m0.Reader | Uint8Array, length?: number): ValidatorSet {
-        const reader = input instanceof Uint8Array ? new _m0.Reader(input) : input
+        const reader =
+            input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = { ...baseValidatorSet } as ValidatorSet
         message.validators = []
@@ -48,7 +55,9 @@ export const ValidatorSet = {
             const tag = reader.uint32()
             switch (tag >>> 3) {
                 case 1:
-                    message.validators.push(Validator.decode(reader, reader.uint32()))
+                    message.validators.push(
+                        Validator.decode(reader, reader.uint32())
+                    )
                     break
                 case 2:
                     message.proposer = Validator.decode(reader, reader.uint32())
@@ -77,7 +86,10 @@ export const ValidatorSet = {
         } else {
             message.proposer = undefined
         }
-        if (object.totalVotingPower !== undefined && object.totalVotingPower !== null) {
+        if (
+            object.totalVotingPower !== undefined &&
+            object.totalVotingPower !== null
+        ) {
             message.totalVotingPower = Long.fromString(object.totalVotingPower)
         } else {
             message.totalVotingPower = Long.ZERO
@@ -88,14 +100,20 @@ export const ValidatorSet = {
     toJSON(message: ValidatorSet): unknown {
         const obj: any = {}
         if (message.validators) {
-            obj.validators = message.validators.map(e => (e ? Validator.toJSON(e) : undefined))
+            obj.validators = message.validators.map(e =>
+                e ? Validator.toJSON(e) : undefined
+            )
         } else {
             obj.validators = []
         }
         message.proposer !== undefined &&
-            (obj.proposer = message.proposer ? Validator.toJSON(message.proposer) : undefined)
+            (obj.proposer = message.proposer
+                ? Validator.toJSON(message.proposer)
+                : undefined)
         message.totalVotingPower !== undefined &&
-            (obj.totalVotingPower = (message.totalVotingPower || Long.ZERO).toString())
+            (obj.totalVotingPower = (
+                message.totalVotingPower || Long.ZERO
+            ).toString())
         return obj
     },
 
@@ -112,7 +130,10 @@ export const ValidatorSet = {
         } else {
             message.proposer = undefined
         }
-        if (object.totalVotingPower !== undefined && object.totalVotingPower !== null) {
+        if (
+            object.totalVotingPower !== undefined &&
+            object.totalVotingPower !== null
+        ) {
             message.totalVotingPower = object.totalVotingPower as Long
         } else {
             message.totalVotingPower = Long.ZERO
@@ -121,10 +142,16 @@ export const ValidatorSet = {
     },
 }
 
-const baseValidator: object = { votingPower: Long.ZERO, proposerPriority: Long.ZERO }
+const baseValidator: object = {
+    votingPower: Long.ZERO,
+    proposerPriority: Long.ZERO,
+}
 
 export const Validator = {
-    encode(message: Validator, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    encode(
+        message: Validator,
+        writer: _m0.Writer = _m0.Writer.create()
+    ): _m0.Writer {
         if (message.address.length !== 0) {
             writer.uint32(10).bytes(message.address)
         }
@@ -141,9 +168,11 @@ export const Validator = {
     },
 
     decode(input: _m0.Reader | Uint8Array, length?: number): Validator {
-        const reader = input instanceof Uint8Array ? new _m0.Reader(input) : input
+        const reader =
+            input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = { ...baseValidator } as Validator
+        message.address = new Uint8Array()
         while (reader.pos < end) {
             const tag = reader.uint32()
             switch (tag >>> 3) {
@@ -169,6 +198,7 @@ export const Validator = {
 
     fromJSON(object: any): Validator {
         const message = { ...baseValidator } as Validator
+        message.address = new Uint8Array()
         if (object.address !== undefined && object.address !== null) {
             message.address = bytesFromBase64(object.address)
         }
@@ -182,7 +212,10 @@ export const Validator = {
         } else {
             message.votingPower = Long.ZERO
         }
-        if (object.proposerPriority !== undefined && object.proposerPriority !== null) {
+        if (
+            object.proposerPriority !== undefined &&
+            object.proposerPriority !== null
+        ) {
             message.proposerPriority = Long.fromString(object.proposerPriority)
         } else {
             message.proposerPriority = Long.ZERO
@@ -194,14 +227,20 @@ export const Validator = {
         const obj: any = {}
         message.address !== undefined &&
             (obj.address = base64FromBytes(
-                message.address !== undefined ? message.address : new Uint8Array()
+                message.address !== undefined
+                    ? message.address
+                    : new Uint8Array()
             ))
         message.pubKey !== undefined &&
-            (obj.pubKey = message.pubKey ? PublicKey.toJSON(message.pubKey) : undefined)
+            (obj.pubKey = message.pubKey
+                ? PublicKey.toJSON(message.pubKey)
+                : undefined)
         message.votingPower !== undefined &&
             (obj.votingPower = (message.votingPower || Long.ZERO).toString())
         message.proposerPriority !== undefined &&
-            (obj.proposerPriority = (message.proposerPriority || Long.ZERO).toString())
+            (obj.proposerPriority = (
+                message.proposerPriority || Long.ZERO
+            ).toString())
         return obj
     },
 
@@ -222,7 +261,10 @@ export const Validator = {
         } else {
             message.votingPower = Long.ZERO
         }
-        if (object.proposerPriority !== undefined && object.proposerPriority !== null) {
+        if (
+            object.proposerPriority !== undefined &&
+            object.proposerPriority !== null
+        ) {
             message.proposerPriority = object.proposerPriority as Long
         } else {
             message.proposerPriority = Long.ZERO
@@ -234,7 +276,10 @@ export const Validator = {
 const baseSimpleValidator: object = { votingPower: Long.ZERO }
 
 export const SimpleValidator = {
-    encode(message: SimpleValidator, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    encode(
+        message: SimpleValidator,
+        writer: _m0.Writer = _m0.Writer.create()
+    ): _m0.Writer {
         if (message.pubKey !== undefined) {
             PublicKey.encode(message.pubKey, writer.uint32(10).fork()).ldelim()
         }
@@ -245,7 +290,8 @@ export const SimpleValidator = {
     },
 
     decode(input: _m0.Reader | Uint8Array, length?: number): SimpleValidator {
-        const reader = input instanceof Uint8Array ? new _m0.Reader(input) : input
+        const reader =
+            input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = { ...baseSimpleValidator } as SimpleValidator
         while (reader.pos < end) {
@@ -283,7 +329,9 @@ export const SimpleValidator = {
     toJSON(message: SimpleValidator): unknown {
         const obj: any = {}
         message.pubKey !== undefined &&
-            (obj.pubKey = message.pubKey ? PublicKey.toJSON(message.pubKey) : undefined)
+            (obj.pubKey = message.pubKey
+                ? PublicKey.toJSON(message.pubKey)
+                : undefined)
         message.votingPower !== undefined &&
             (obj.votingPower = (message.votingPower || Long.ZERO).toString())
         return obj
@@ -316,7 +364,8 @@ var globalThis: any = (() => {
 })()
 
 const atob: (b64: string) => string =
-    globalThis.atob || (b64 => globalThis.Buffer.from(b64, 'base64').toString('binary'))
+    globalThis.atob ||
+    (b64 => globalThis.Buffer.from(b64, 'base64').toString('binary'))
 function bytesFromBase64(b64: string): Uint8Array {
     const bin = atob(b64)
     const arr = new Uint8Array(bin.length)
@@ -327,7 +376,8 @@ function bytesFromBase64(b64: string): Uint8Array {
 }
 
 const btoa: (bin: string) => string =
-    globalThis.btoa || (bin => globalThis.Buffer.from(bin, 'binary').toString('base64'))
+    globalThis.btoa ||
+    (bin => globalThis.Buffer.from(bin, 'binary').toString('base64'))
 function base64FromBytes(arr: Uint8Array): string {
     const bin: string[] = []
     for (let i = 0; i < arr.byteLength; ++i) {
@@ -336,7 +386,15 @@ function base64FromBytes(arr: Uint8Array): string {
     return btoa(bin.join(''))
 }
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined | Long
+type Builtin =
+    | Date
+    | Function
+    | Uint8Array
+    | string
+    | number
+    | boolean
+    | undefined
+    | Long
 export type DeepPartial<T> = T extends Builtin
     ? T
     : T extends Array<infer U>
@@ -346,3 +404,8 @@ export type DeepPartial<T> = T extends Builtin
     : T extends {}
     ? { [K in keyof T]?: DeepPartial<T[K]> }
     : Partial<T>
+
+if (_m0.util.Long !== Long) {
+    _m0.util.Long = Long as any
+    _m0.configure()
+}
