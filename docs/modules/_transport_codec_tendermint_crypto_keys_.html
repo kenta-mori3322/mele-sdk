@@ -116,10 +116,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported">
 					<a name="builtin" class="tsd-anchor"></a>
 					<h3>Builtin</h3>
-					<div class="tsd-signature tsd-kind-icon">Builtin<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Uint8Array</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Long</span></div>
+					<div class="tsd-signature tsd-kind-icon">Builtin<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Uint8Array</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Long</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/crypto/keys.ts#L116">src/transport/codec/tendermint/crypto/keys.ts:116</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/crypto/keys.ts#L126">src/transport/codec/tendermint/crypto/keys.ts:126</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -129,7 +129,7 @@
 					<div class="tsd-signature tsd-kind-icon">Deep<wbr>Partial&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-type">Builtin</span><span class="tsd-signature-symbol"> ? </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> : </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">infer </span> U<span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> ? </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">DeepPartial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> : </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">infer </span> U<span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> ? </span><span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">DeepPartial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> : </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol"> ? </span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol"> : </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/crypto/keys.ts#L117">src/transport/codec/tendermint/crypto/keys.ts:117</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/crypto/keys.ts#L135">src/transport/codec/tendermint/crypto/keys.ts:135</a></li>
 						</ul>
 					</aside>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -145,10 +145,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
 					<a name="atob" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> atob</h3>
-					<div class="tsd-signature tsd-kind-icon">atob<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>b64<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = globalThis.atob || (b64 &#x3D;&gt; globalThis.Buffer.from(b64, &#x27;base64&#x27;).toString(&#x27;binary&#x27;))</span></div>
+					<div class="tsd-signature tsd-kind-icon">atob<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>b64<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = globalThis.atob ||(b64 &#x3D;&gt; globalThis.Buffer.from(b64, &#x27;base64&#x27;).toString(&#x27;binary&#x27;))</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/crypto/keys.ts#L95">src/transport/codec/tendermint/crypto/keys.ts:95</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/crypto/keys.ts#L103">src/transport/codec/tendermint/crypto/keys.ts:103</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -179,17 +179,17 @@
 					<div class="tsd-signature tsd-kind-icon">base<wbr>Public<wbr>Key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/crypto/keys.ts#L13">src/transport/codec/tendermint/crypto/keys.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/crypto/keys.ts#L13">src/transport/codec/tendermint/crypto/keys.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
 					<a name="btoa" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> btoa</h3>
-					<div class="tsd-signature tsd-kind-icon">btoa<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>bin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = globalThis.btoa || (bin &#x3D;&gt; globalThis.Buffer.from(bin, &#x27;binary&#x27;).toString(&#x27;base64&#x27;))</span></div>
+					<div class="tsd-signature tsd-kind-icon">btoa<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>bin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = globalThis.btoa ||(bin &#x3D;&gt; globalThis.Buffer.from(bin, &#x27;binary&#x27;).toString(&#x27;base64&#x27;))</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/crypto/keys.ts#L106">src/transport/codec/tendermint/crypto/keys.ts:106</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/crypto/keys.ts#L115">src/transport/codec/tendermint/crypto/keys.ts:115</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -220,7 +220,7 @@
 					<div class="tsd-signature tsd-kind-icon">global<wbr>This<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = (() &#x3D;&gt; {if (typeof globalThis !&#x3D;&#x3D; &#x27;undefined&#x27;) return globalThisif (typeof self !&#x3D;&#x3D; &#x27;undefined&#x27;) return selfif (typeof window !&#x3D;&#x3D; &#x27;undefined&#x27;) return windowif (typeof global !&#x3D;&#x3D; &#x27;undefined&#x27;) return globalthrow &#x27;Unable to locate global object&#x27;})()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/crypto/keys.ts#L87">src/transport/codec/tendermint/crypto/keys.ts:87</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/crypto/keys.ts#L95">src/transport/codec/tendermint/crypto/keys.ts:95</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -230,7 +230,7 @@
 					<div class="tsd-signature tsd-kind-icon">protobuf<wbr>Package<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"tendermint.crypto"</span><span class="tsd-signature-symbol"> = &quot;tendermint.crypto&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/crypto/keys.ts#L5">src/transport/codec/tendermint/crypto/keys.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/crypto/keys.ts#L5">src/transport/codec/tendermint/crypto/keys.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -240,7 +240,7 @@
 					<div class="tsd-signature tsd-kind-icon">self<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/crypto/keys.ts#L85">src/transport/codec/tendermint/crypto/keys.ts:85</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/crypto/keys.ts#L93">src/transport/codec/tendermint/crypto/keys.ts:93</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -250,7 +250,7 @@
 					<div class="tsd-signature tsd-kind-icon">window<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/crypto/keys.ts#L86">src/transport/codec/tendermint/crypto/keys.ts:86</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/crypto/keys.ts#L94">src/transport/codec/tendermint/crypto/keys.ts:94</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -267,7 +267,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/crypto/keys.ts#L108">src/transport/codec/tendermint/crypto/keys.ts:108</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/crypto/keys.ts#L118">src/transport/codec/tendermint/crypto/keys.ts:118</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -290,7 +290,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/crypto/keys.ts#L97">src/transport/codec/tendermint/crypto/keys.ts:97</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/crypto/keys.ts#L106">src/transport/codec/tendermint/crypto/keys.ts:106</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -312,7 +312,7 @@
 					<div class="tsd-signature tsd-kind-icon">Public<wbr>Key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/crypto/keys.ts#L15">src/transport/codec/tendermint/crypto/keys.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/crypto/keys.ts#L15">src/transport/codec/tendermint/crypto/keys.ts:15</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
@@ -325,7 +325,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/crypto/keys.ts#L26">src/transport/codec/tendermint/crypto/keys.ts:26</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/crypto/keys.ts#L29">src/transport/codec/tendermint/crypto/keys.ts:29</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -351,7 +351,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/crypto/keys.ts#L16">src/transport/codec/tendermint/crypto/keys.ts:16</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/crypto/keys.ts#L16">src/transport/codec/tendermint/crypto/keys.ts:16</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -377,7 +377,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/crypto/keys.ts#L47">src/transport/codec/tendermint/crypto/keys.ts:47</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/crypto/keys.ts#L51">src/transport/codec/tendermint/crypto/keys.ts:51</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -400,7 +400,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/crypto/keys.ts#L69">src/transport/codec/tendermint/crypto/keys.ts:69</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/crypto/keys.ts#L77">src/transport/codec/tendermint/crypto/keys.ts:77</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -423,7 +423,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/crypto/keys.ts#L58">src/transport/codec/tendermint/crypto/keys.ts:58</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/crypto/keys.ts#L62">src/transport/codec/tendermint/crypto/keys.ts:62</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>

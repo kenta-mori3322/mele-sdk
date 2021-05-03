@@ -116,10 +116,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported">
 					<a name="builtin" class="tsd-anchor"></a>
 					<h3>Builtin</h3>
-					<div class="tsd-signature tsd-kind-icon">Builtin<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Uint8Array</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Long</span></div>
+					<div class="tsd-signature tsd-kind-icon">Builtin<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Uint8Array</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Long</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/google/protobuf/any.ts#L227">src/transport/codec/google/protobuf/any.ts:227</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/google/protobuf/any.ts#L232">src/transport/codec/google/protobuf/any.ts:232</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -129,7 +129,7 @@
 					<div class="tsd-signature tsd-kind-icon">Deep<wbr>Partial&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-type">Builtin</span><span class="tsd-signature-symbol"> ? </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> : </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">infer </span> U<span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> ? </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">DeepPartial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> : </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">infer </span> U<span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> ? </span><span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">DeepPartial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> : </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol"> ? </span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol"> : </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/google/protobuf/any.ts#L228">src/transport/codec/google/protobuf/any.ts:228</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/google/protobuf/any.ts#L241">src/transport/codec/google/protobuf/any.ts:241</a></li>
 						</ul>
 					</aside>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -145,10 +145,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
 					<a name="atob" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> atob</h3>
-					<div class="tsd-signature tsd-kind-icon">atob<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>b64<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = globalThis.atob || (b64 &#x3D;&gt; globalThis.Buffer.from(b64, &#x27;base64&#x27;).toString(&#x27;binary&#x27;))</span></div>
+					<div class="tsd-signature tsd-kind-icon">atob<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>b64<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = globalThis.atob ||(b64 &#x3D;&gt; globalThis.Buffer.from(b64, &#x27;base64&#x27;).toString(&#x27;binary&#x27;))</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/google/protobuf/any.ts#L206">src/transport/codec/google/protobuf/any.ts:206</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/google/protobuf/any.ts#L209">src/transport/codec/google/protobuf/any.ts:209</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -176,10 +176,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
 					<a name="btoa" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> btoa</h3>
-					<div class="tsd-signature tsd-kind-icon">btoa<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>bin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = globalThis.btoa || (bin &#x3D;&gt; globalThis.Buffer.from(bin, &#x27;binary&#x27;).toString(&#x27;base64&#x27;))</span></div>
+					<div class="tsd-signature tsd-kind-icon">btoa<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>bin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = globalThis.btoa ||(bin &#x3D;&gt; globalThis.Buffer.from(bin, &#x27;binary&#x27;).toString(&#x27;base64&#x27;))</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/google/protobuf/any.ts#L217">src/transport/codec/google/protobuf/any.ts:217</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/google/protobuf/any.ts#L221">src/transport/codec/google/protobuf/any.ts:221</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -210,7 +210,7 @@
 					<div class="tsd-signature tsd-kind-icon">global<wbr>This<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = (() &#x3D;&gt; {if (typeof globalThis !&#x3D;&#x3D; &#x27;undefined&#x27;) return globalThisif (typeof self !&#x3D;&#x3D; &#x27;undefined&#x27;) return selfif (typeof window !&#x3D;&#x3D; &#x27;undefined&#x27;) return windowif (typeof global !&#x3D;&#x3D; &#x27;undefined&#x27;) return globalthrow &#x27;Unable to locate global object&#x27;})()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/google/protobuf/any.ts#L198">src/transport/codec/google/protobuf/any.ts:198</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/google/protobuf/any.ts#L201">src/transport/codec/google/protobuf/any.ts:201</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -220,7 +220,7 @@
 					<div class="tsd-signature tsd-kind-icon">protobuf<wbr>Package<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"google.protobuf"</span><span class="tsd-signature-symbol"> = &quot;google.protobuf&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/google/protobuf/any.ts#L5">src/transport/codec/google/protobuf/any.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/google/protobuf/any.ts#L5">src/transport/codec/google/protobuf/any.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -230,7 +230,7 @@
 					<div class="tsd-signature tsd-kind-icon">self<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/google/protobuf/any.ts#L196">src/transport/codec/google/protobuf/any.ts:196</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/google/protobuf/any.ts#L199">src/transport/codec/google/protobuf/any.ts:199</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -240,7 +240,7 @@
 					<div class="tsd-signature tsd-kind-icon">window<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/google/protobuf/any.ts#L197">src/transport/codec/google/protobuf/any.ts:197</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/google/protobuf/any.ts#L200">src/transport/codec/google/protobuf/any.ts:200</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -257,7 +257,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/google/protobuf/any.ts#L219">src/transport/codec/google/protobuf/any.ts:219</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/google/protobuf/any.ts#L224">src/transport/codec/google/protobuf/any.ts:224</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -280,7 +280,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/google/protobuf/any.ts#L208">src/transport/codec/google/protobuf/any.ts:208</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/google/protobuf/any.ts#L212">src/transport/codec/google/protobuf/any.ts:212</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -302,7 +302,7 @@
 					<div class="tsd-signature tsd-kind-icon">Any<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/google/protobuf/any.ts#L125">src/transport/codec/google/protobuf/any.ts:125</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/google/protobuf/any.ts#L125">src/transport/codec/google/protobuf/any.ts:125</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
@@ -315,7 +315,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/google/protobuf/any.ts#L136">src/transport/codec/google/protobuf/any.ts:136</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/google/protobuf/any.ts#L136">src/transport/codec/google/protobuf/any.ts:136</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -341,7 +341,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/google/protobuf/any.ts#L126">src/transport/codec/google/protobuf/any.ts:126</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/google/protobuf/any.ts#L126">src/transport/codec/google/protobuf/any.ts:126</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -367,7 +367,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/google/protobuf/any.ts#L157">src/transport/codec/google/protobuf/any.ts:157</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/google/protobuf/any.ts#L159">src/transport/codec/google/protobuf/any.ts:159</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -390,7 +390,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/google/protobuf/any.ts#L180">src/transport/codec/google/protobuf/any.ts:180</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/google/protobuf/any.ts#L183">src/transport/codec/google/protobuf/any.ts:183</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -413,7 +413,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/google/protobuf/any.ts#L170">src/transport/codec/google/protobuf/any.ts:170</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/google/protobuf/any.ts#L173">src/transport/codec/google/protobuf/any.ts:173</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -433,7 +433,7 @@
 					<div class="tsd-signature tsd-kind-icon">base<wbr>Any<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/google/protobuf/any.ts#L123">src/transport/codec/google/protobuf/any.ts:123</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/google/protobuf/any.ts#L123">src/transport/codec/google/protobuf/any.ts:123</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
@@ -442,7 +442,7 @@
 						<div class="tsd-signature tsd-kind-icon">type<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/google/protobuf/any.ts#L123">src/transport/codec/google/protobuf/any.ts:123</a></li>
+								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/google/protobuf/any.ts#L123">src/transport/codec/google/protobuf/any.ts:123</a></li>
 							</ul>
 						</aside>
 					</section>

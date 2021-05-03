@@ -163,10 +163,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported">
 					<a name="builtin" class="tsd-anchor"></a>
 					<h3>Builtin</h3>
-					<div class="tsd-signature tsd-kind-icon">Builtin<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Uint8Array</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Long</span></div>
+					<div class="tsd-signature tsd-kind-icon">Builtin<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Uint8Array</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Long</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1696">src/transport/codec/confio/proofs.ts:1696</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1941">src/transport/codec/confio/proofs.ts:1941</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -176,7 +176,7 @@
 					<div class="tsd-signature tsd-kind-icon">Deep<wbr>Partial&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-type">Builtin</span><span class="tsd-signature-symbol"> ? </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> : </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">infer </span> U<span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> ? </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">DeepPartial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> : </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">infer </span> U<span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> ? </span><span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">DeepPartial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> : </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol"> ? </span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol"> : </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1697">src/transport/codec/confio/proofs.ts:1697</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1950">src/transport/codec/confio/proofs.ts:1950</a></li>
 						</ul>
 					</aside>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -192,10 +192,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
 					<a name="atob" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> atob</h3>
-					<div class="tsd-signature tsd-kind-icon">atob<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>b64<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = globalThis.atob || (b64 &#x3D;&gt; globalThis.Buffer.from(b64, &#x27;base64&#x27;).toString(&#x27;binary&#x27;))</span></div>
+					<div class="tsd-signature tsd-kind-icon">atob<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>b64<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = globalThis.atob ||(b64 &#x3D;&gt; globalThis.Buffer.from(b64, &#x27;base64&#x27;).toString(&#x27;binary&#x27;))</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1675">src/transport/codec/confio/proofs.ts:1675</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1918">src/transport/codec/confio/proofs.ts:1918</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -226,7 +226,7 @@
 					<div class="tsd-signature tsd-kind-icon">base<wbr>Batch<wbr>Entry<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1208">src/transport/codec/confio/proofs.ts:1208</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1339">src/transport/codec/confio/proofs.ts:1339</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -236,7 +236,7 @@
 					<div class="tsd-signature tsd-kind-icon">base<wbr>Batch<wbr>Proof<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1146">src/transport/codec/confio/proofs.ts:1146</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1269">src/transport/codec/confio/proofs.ts:1269</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -246,7 +246,7 @@
 					<div class="tsd-signature tsd-kind-icon">base<wbr>Commitment<wbr>Proof<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L545">src/transport/codec/confio/proofs.ts:545</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L581">src/transport/codec/confio/proofs.ts:581</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -256,7 +256,7 @@
 					<div class="tsd-signature tsd-kind-icon">base<wbr>Compressed<wbr>Batch<wbr>Entry<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1370">src/transport/codec/confio/proofs.ts:1370</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1536">src/transport/codec/confio/proofs.ts:1536</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -266,7 +266,7 @@
 					<div class="tsd-signature tsd-kind-icon">base<wbr>Compressed<wbr>Batch<wbr>Proof<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1284">src/transport/codec/confio/proofs.ts:1284</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1433">src/transport/codec/confio/proofs.ts:1433</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -276,7 +276,7 @@
 					<div class="tsd-signature tsd-kind-icon">base<wbr>Compressed<wbr>Non<wbr>Existence<wbr>Proof<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1572">src/transport/codec/confio/proofs.ts:1572</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1783">src/transport/codec/confio/proofs.ts:1783</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -286,7 +286,7 @@
 					<div class="tsd-signature tsd-kind-icon">base<wbr>Existence<wbr>Proof<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L341">src/transport/codec/confio/proofs.ts:341</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L341">src/transport/codec/confio/proofs.ts:341</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -296,17 +296,17 @@
 					<div class="tsd-signature tsd-kind-icon">base<wbr>Non<wbr>Existence<wbr>Proof<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L455">src/transport/codec/confio/proofs.ts:455</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L467">src/transport/codec/confio/proofs.ts:467</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
 					<a name="btoa" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> btoa</h3>
-					<div class="tsd-signature tsd-kind-icon">btoa<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>bin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = globalThis.btoa || (bin &#x3D;&gt; globalThis.Buffer.from(bin, &#x27;binary&#x27;).toString(&#x27;base64&#x27;))</span></div>
+					<div class="tsd-signature tsd-kind-icon">btoa<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>bin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = globalThis.btoa ||(bin &#x3D;&gt; globalThis.Buffer.from(bin, &#x27;binary&#x27;).toString(&#x27;base64&#x27;))</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1686">src/transport/codec/confio/proofs.ts:1686</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1930">src/transport/codec/confio/proofs.ts:1930</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -337,7 +337,7 @@
 					<div class="tsd-signature tsd-kind-icon">global<wbr>This<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = (() &#x3D;&gt; {if (typeof globalThis !&#x3D;&#x3D; &#x27;undefined&#x27;) return globalThisif (typeof self !&#x3D;&#x3D; &#x27;undefined&#x27;) return selfif (typeof window !&#x3D;&#x3D; &#x27;undefined&#x27;) return windowif (typeof global !&#x3D;&#x3D; &#x27;undefined&#x27;) return globalthrow &#x27;Unable to locate global object&#x27;})()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1667">src/transport/codec/confio/proofs.ts:1667</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1910">src/transport/codec/confio/proofs.ts:1910</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -347,7 +347,7 @@
 					<div class="tsd-signature tsd-kind-icon">protobuf<wbr>Package<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"ics23"</span><span class="tsd-signature-symbol"> = &quot;ics23&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L5">src/transport/codec/confio/proofs.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L5">src/transport/codec/confio/proofs.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -357,7 +357,7 @@
 					<div class="tsd-signature tsd-kind-icon">self<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1665">src/transport/codec/confio/proofs.ts:1665</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1908">src/transport/codec/confio/proofs.ts:1908</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -367,7 +367,7 @@
 					<div class="tsd-signature tsd-kind-icon">window<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1666">src/transport/codec/confio/proofs.ts:1666</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1909">src/transport/codec/confio/proofs.ts:1909</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -384,7 +384,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1688">src/transport/codec/confio/proofs.ts:1688</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1933">src/transport/codec/confio/proofs.ts:1933</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -407,7 +407,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1677">src/transport/codec/confio/proofs.ts:1677</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1921">src/transport/codec/confio/proofs.ts:1921</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -430,7 +430,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L19">src/transport/codec/confio/proofs.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L19">src/transport/codec/confio/proofs.ts:19</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -453,7 +453,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L46">src/transport/codec/confio/proofs.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L46">src/transport/codec/confio/proofs.ts:46</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -476,7 +476,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L93">src/transport/codec/confio/proofs.ts:93</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L93">src/transport/codec/confio/proofs.ts:93</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -499,7 +499,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L129">src/transport/codec/confio/proofs.ts:129</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L129">src/transport/codec/confio/proofs.ts:129</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -521,7 +521,7 @@
 					<div class="tsd-signature tsd-kind-icon">Batch<wbr>Entry<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1210">src/transport/codec/confio/proofs.ts:1210</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1341">src/transport/codec/confio/proofs.ts:1341</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
@@ -534,7 +534,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1221">src/transport/codec/confio/proofs.ts:1221</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1361">src/transport/codec/confio/proofs.ts:1361</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -560,7 +560,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1211">src/transport/codec/confio/proofs.ts:1211</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1342">src/transport/codec/confio/proofs.ts:1342</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -586,7 +586,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1242">src/transport/codec/confio/proofs.ts:1242</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1389">src/transport/codec/confio/proofs.ts:1389</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -609,7 +609,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1268">src/transport/codec/confio/proofs.ts:1268</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1417">src/transport/codec/confio/proofs.ts:1417</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -632,7 +632,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1257">src/transport/codec/confio/proofs.ts:1257</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1404">src/transport/codec/confio/proofs.ts:1404</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -652,7 +652,7 @@
 					<div class="tsd-signature tsd-kind-icon">Batch<wbr>Proof<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1148">src/transport/codec/confio/proofs.ts:1148</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1271">src/transport/codec/confio/proofs.ts:1271</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
@@ -665,7 +665,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1156">src/transport/codec/confio/proofs.ts:1156</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1282">src/transport/codec/confio/proofs.ts:1282</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -691,7 +691,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1149">src/transport/codec/confio/proofs.ts:1149</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1272">src/transport/codec/confio/proofs.ts:1272</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -717,7 +717,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1175">src/transport/codec/confio/proofs.ts:1175</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1304">src/transport/codec/confio/proofs.ts:1304</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -740,7 +740,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1196">src/transport/codec/confio/proofs.ts:1196</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1327">src/transport/codec/confio/proofs.ts:1327</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -763,7 +763,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1186">src/transport/codec/confio/proofs.ts:1186</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1315">src/transport/codec/confio/proofs.ts:1315</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -783,7 +783,7 @@
 					<div class="tsd-signature tsd-kind-icon">Commitment<wbr>Proof<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L547">src/transport/codec/confio/proofs.ts:547</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L583">src/transport/codec/confio/proofs.ts:583</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
@@ -796,7 +796,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L564">src/transport/codec/confio/proofs.ts:564</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L612">src/transport/codec/confio/proofs.ts:612</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -822,7 +822,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L548">src/transport/codec/confio/proofs.ts:548</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L584">src/transport/codec/confio/proofs.ts:584</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -848,7 +848,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L591">src/transport/codec/confio/proofs.ts:591</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L649">src/transport/codec/confio/proofs.ts:649</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -871,7 +871,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L633">src/transport/codec/confio/proofs.ts:633</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L697">src/transport/codec/confio/proofs.ts:697</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -894,7 +894,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L616">src/transport/codec/confio/proofs.ts:616</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L676">src/transport/codec/confio/proofs.ts:676</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -914,7 +914,7 @@
 					<div class="tsd-signature tsd-kind-icon">Compressed<wbr>Batch<wbr>Entry<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1372">src/transport/codec/confio/proofs.ts:1372</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1538">src/transport/codec/confio/proofs.ts:1538</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
@@ -927,7 +927,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1383">src/transport/codec/confio/proofs.ts:1383</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1558">src/transport/codec/confio/proofs.ts:1558</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -953,7 +953,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1373">src/transport/codec/confio/proofs.ts:1373</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1539">src/transport/codec/confio/proofs.ts:1539</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -979,7 +979,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1404">src/transport/codec/confio/proofs.ts:1404</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1589">src/transport/codec/confio/proofs.ts:1589</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1002,7 +1002,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1430">src/transport/codec/confio/proofs.ts:1430</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1619">src/transport/codec/confio/proofs.ts:1619</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1025,7 +1025,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1419">src/transport/codec/confio/proofs.ts:1419</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1606">src/transport/codec/confio/proofs.ts:1606</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1045,7 +1045,7 @@
 					<div class="tsd-signature tsd-kind-icon">Compressed<wbr>Batch<wbr>Proof<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1286">src/transport/codec/confio/proofs.ts:1286</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1435">src/transport/codec/confio/proofs.ts:1435</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
@@ -1058,7 +1058,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1297">src/transport/codec/confio/proofs.ts:1297</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1449">src/transport/codec/confio/proofs.ts:1449</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1084,7 +1084,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1287">src/transport/codec/confio/proofs.ts:1287</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1436">src/transport/codec/confio/proofs.ts:1436</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1110,7 +1110,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1320">src/transport/codec/confio/proofs.ts:1320</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1480">src/transport/codec/confio/proofs.ts:1480</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1133,7 +1133,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1352">src/transport/codec/confio/proofs.ts:1352</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1516">src/transport/codec/confio/proofs.ts:1516</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1156,7 +1156,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1337">src/transport/codec/confio/proofs.ts:1337</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1497">src/transport/codec/confio/proofs.ts:1497</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1176,7 +1176,7 @@
 					<div class="tsd-signature tsd-kind-icon">Compressed<wbr>Existence<wbr>Proof<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1448">src/transport/codec/confio/proofs.ts:1448</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1641">src/transport/codec/confio/proofs.ts:1641</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
@@ -1189,7 +1189,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1470">src/transport/codec/confio/proofs.ts:1470</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1663">src/transport/codec/confio/proofs.ts:1663</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1215,7 +1215,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1449">src/transport/codec/confio/proofs.ts:1449</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1642">src/transport/codec/confio/proofs.ts:1642</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1241,7 +1241,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1505">src/transport/codec/confio/proofs.ts:1505</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1706">src/transport/codec/confio/proofs.ts:1706</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1264,7 +1264,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1545">src/transport/codec/confio/proofs.ts:1545</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1752">src/transport/codec/confio/proofs.ts:1752</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1287,7 +1287,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1527">src/transport/codec/confio/proofs.ts:1527</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1732">src/transport/codec/confio/proofs.ts:1732</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1307,7 +1307,7 @@
 					<div class="tsd-signature tsd-kind-icon">Compressed<wbr>Non<wbr>Existence<wbr>Proof<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1574">src/transport/codec/confio/proofs.ts:1574</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1785">src/transport/codec/confio/proofs.ts:1785</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
@@ -1320,7 +1320,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1591">src/transport/codec/confio/proofs.ts:1591</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1808">src/transport/codec/confio/proofs.ts:1808</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1346,7 +1346,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1575">src/transport/codec/confio/proofs.ts:1575</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1786">src/transport/codec/confio/proofs.ts:1786</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1372,7 +1372,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1615">src/transport/codec/confio/proofs.ts:1615</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1845">src/transport/codec/confio/proofs.ts:1845</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1395,7 +1395,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1644">src/transport/codec/confio/proofs.ts:1644</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1883">src/transport/codec/confio/proofs.ts:1883</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1418,7 +1418,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1633">src/transport/codec/confio/proofs.ts:1633</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1866">src/transport/codec/confio/proofs.ts:1866</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1438,7 +1438,7 @@
 					<div class="tsd-signature tsd-kind-icon">Existence<wbr>Proof<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L343">src/transport/codec/confio/proofs.ts:343</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L343">src/transport/codec/confio/proofs.ts:343</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
@@ -1451,7 +1451,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L360">src/transport/codec/confio/proofs.ts:360</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L363">src/transport/codec/confio/proofs.ts:363</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1477,7 +1477,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L344">src/transport/codec/confio/proofs.ts:344</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L344">src/transport/codec/confio/proofs.ts:344</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1503,7 +1503,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L388">src/transport/codec/confio/proofs.ts:388</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L394">src/transport/codec/confio/proofs.ts:394</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1526,7 +1526,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L428">src/transport/codec/confio/proofs.ts:428</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L440">src/transport/codec/confio/proofs.ts:440</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1549,7 +1549,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L410">src/transport/codec/confio/proofs.ts:410</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L418">src/transport/codec/confio/proofs.ts:418</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1569,7 +1569,7 @@
 					<div class="tsd-signature tsd-kind-icon">Inner<wbr>Op<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L786">src/transport/codec/confio/proofs.ts:786</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L865">src/transport/codec/confio/proofs.ts:865</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
@@ -1582,7 +1582,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L800">src/transport/codec/confio/proofs.ts:800</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L882">src/transport/codec/confio/proofs.ts:882</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1608,7 +1608,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L787">src/transport/codec/confio/proofs.ts:787</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L866">src/transport/codec/confio/proofs.ts:866</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1634,7 +1634,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L824">src/transport/codec/confio/proofs.ts:824</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L909">src/transport/codec/confio/proofs.ts:909</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1657,7 +1657,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L854">src/transport/codec/confio/proofs.ts:854</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L941">src/transport/codec/confio/proofs.ts:941</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1680,7 +1680,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L840">src/transport/codec/confio/proofs.ts:840</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L927">src/transport/codec/confio/proofs.ts:927</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1700,7 +1700,7 @@
 					<div class="tsd-signature tsd-kind-icon">Inner<wbr>Spec<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L991">src/transport/codec/confio/proofs.ts:991</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1092">src/transport/codec/confio/proofs.ts:1092</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
@@ -1713,7 +1713,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1016">src/transport/codec/confio/proofs.ts:1016</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1120">src/transport/codec/confio/proofs.ts:1120</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1739,7 +1739,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L992">src/transport/codec/confio/proofs.ts:992</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1093">src/transport/codec/confio/proofs.ts:1093</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1765,7 +1765,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1057">src/transport/codec/confio/proofs.ts:1057</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1163">src/transport/codec/confio/proofs.ts:1163</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1788,7 +1788,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1109">src/transport/codec/confio/proofs.ts:1109</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1226">src/transport/codec/confio/proofs.ts:1226</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1811,7 +1811,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1091">src/transport/codec/confio/proofs.ts:1091</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1204">src/transport/codec/confio/proofs.ts:1204</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1831,7 +1831,7 @@
 					<div class="tsd-signature tsd-kind-icon">Leaf<wbr>Op<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L661">src/transport/codec/confio/proofs.ts:661</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L732">src/transport/codec/confio/proofs.ts:732</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
@@ -1844,7 +1844,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L681">src/transport/codec/confio/proofs.ts:681</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L755">src/transport/codec/confio/proofs.ts:755</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1870,7 +1870,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L662">src/transport/codec/confio/proofs.ts:662</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L733">src/transport/codec/confio/proofs.ts:733</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1896,7 +1896,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L711">src/transport/codec/confio/proofs.ts:711</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L787">src/transport/codec/confio/proofs.ts:787</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1919,7 +1919,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L753">src/transport/codec/confio/proofs.ts:753</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L832">src/transport/codec/confio/proofs.ts:832</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1942,7 +1942,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L739">src/transport/codec/confio/proofs.ts:739</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L816">src/transport/codec/confio/proofs.ts:816</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1962,7 +1962,7 @@
 					<div class="tsd-signature tsd-kind-icon">Non<wbr>Existence<wbr>Proof<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L457">src/transport/codec/confio/proofs.ts:457</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L469">src/transport/codec/confio/proofs.ts:469</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
@@ -1975,7 +1975,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L471">src/transport/codec/confio/proofs.ts:471</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L492">src/transport/codec/confio/proofs.ts:492</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2001,7 +2001,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L458">src/transport/codec/confio/proofs.ts:458</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L470">src/transport/codec/confio/proofs.ts:470</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2027,7 +2027,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L495">src/transport/codec/confio/proofs.ts:495</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L524">src/transport/codec/confio/proofs.ts:524</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2050,7 +2050,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L524">src/transport/codec/confio/proofs.ts:524</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L560">src/transport/codec/confio/proofs.ts:560</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2073,7 +2073,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L513">src/transport/codec/confio/proofs.ts:513</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L543">src/transport/codec/confio/proofs.ts:543</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2093,7 +2093,7 @@
 					<div class="tsd-signature tsd-kind-icon">Proof<wbr>Spec<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L877">src/transport/codec/confio/proofs.ts:877</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L964">src/transport/codec/confio/proofs.ts:964</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
@@ -2106,7 +2106,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L894">src/transport/codec/confio/proofs.ts:894</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L987">src/transport/codec/confio/proofs.ts:987</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2132,7 +2132,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L878">src/transport/codec/confio/proofs.ts:878</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L965">src/transport/codec/confio/proofs.ts:965</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2158,7 +2158,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L921">src/transport/codec/confio/proofs.ts:921</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1018">src/transport/codec/confio/proofs.ts:1018</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2181,7 +2181,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L957">src/transport/codec/confio/proofs.ts:957</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1058">src/transport/codec/confio/proofs.ts:1058</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2204,7 +2204,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L946">src/transport/codec/confio/proofs.ts:946</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1043">src/transport/codec/confio/proofs.ts:1043</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2224,7 +2224,7 @@
 					<div class="tsd-signature tsd-kind-icon">base<wbr>Compressed<wbr>Existence<wbr>Proof<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1446">src/transport/codec/confio/proofs.ts:1446</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1639">src/transport/codec/confio/proofs.ts:1639</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
@@ -2233,7 +2233,7 @@
 						<div class="tsd-signature tsd-kind-icon">path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L1446">src/transport/codec/confio/proofs.ts:1446</a></li>
+								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1639">src/transport/codec/confio/proofs.ts:1639</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -2244,7 +2244,7 @@
 					<div class="tsd-signature tsd-kind-icon">base<wbr>Inner<wbr>Op<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L784">src/transport/codec/confio/proofs.ts:784</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L863">src/transport/codec/confio/proofs.ts:863</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
@@ -2253,7 +2253,7 @@
 						<div class="tsd-signature tsd-kind-icon">hash<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L784">src/transport/codec/confio/proofs.ts:784</a></li>
+								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L863">src/transport/codec/confio/proofs.ts:863</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -2264,7 +2264,7 @@
 					<div class="tsd-signature tsd-kind-icon">base<wbr>Inner<wbr>Spec<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L983">src/transport/codec/confio/proofs.ts:983</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1084">src/transport/codec/confio/proofs.ts:1084</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
@@ -2273,7 +2273,7 @@
 						<div class="tsd-signature tsd-kind-icon">child<wbr>Order<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L984">src/transport/codec/confio/proofs.ts:984</a></li>
+								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1085">src/transport/codec/confio/proofs.ts:1085</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -2283,7 +2283,7 @@
 						<div class="tsd-signature tsd-kind-icon">child<wbr>Size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L985">src/transport/codec/confio/proofs.ts:985</a></li>
+								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1086">src/transport/codec/confio/proofs.ts:1086</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -2293,7 +2293,7 @@
 						<div class="tsd-signature tsd-kind-icon">hash<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L988">src/transport/codec/confio/proofs.ts:988</a></li>
+								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1089">src/transport/codec/confio/proofs.ts:1089</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -2303,7 +2303,7 @@
 						<div class="tsd-signature tsd-kind-icon">max<wbr>Prefix<wbr>Length<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L987">src/transport/codec/confio/proofs.ts:987</a></li>
+								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1088">src/transport/codec/confio/proofs.ts:1088</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -2313,7 +2313,7 @@
 						<div class="tsd-signature tsd-kind-icon">min<wbr>Prefix<wbr>Length<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L986">src/transport/codec/confio/proofs.ts:986</a></li>
+								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L1087">src/transport/codec/confio/proofs.ts:1087</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -2324,7 +2324,7 @@
 					<div class="tsd-signature tsd-kind-icon">base<wbr>Leaf<wbr>Op<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L659">src/transport/codec/confio/proofs.ts:659</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L725">src/transport/codec/confio/proofs.ts:725</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
@@ -2333,7 +2333,7 @@
 						<div class="tsd-signature tsd-kind-icon">hash<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L659">src/transport/codec/confio/proofs.ts:659</a></li>
+								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L726">src/transport/codec/confio/proofs.ts:726</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -2343,7 +2343,7 @@
 						<div class="tsd-signature tsd-kind-icon">length<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L659">src/transport/codec/confio/proofs.ts:659</a></li>
+								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L729">src/transport/codec/confio/proofs.ts:729</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -2353,7 +2353,7 @@
 						<div class="tsd-signature tsd-kind-icon">prehash<wbr>Key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L659">src/transport/codec/confio/proofs.ts:659</a></li>
+								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L727">src/transport/codec/confio/proofs.ts:727</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -2363,7 +2363,7 @@
 						<div class="tsd-signature tsd-kind-icon">prehash<wbr>Value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L659">src/transport/codec/confio/proofs.ts:659</a></li>
+								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L728">src/transport/codec/confio/proofs.ts:728</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -2374,7 +2374,7 @@
 					<div class="tsd-signature tsd-kind-icon">base<wbr>Proof<wbr>Spec<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L875">src/transport/codec/confio/proofs.ts:875</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L962">src/transport/codec/confio/proofs.ts:962</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
@@ -2383,7 +2383,7 @@
 						<div class="tsd-signature tsd-kind-icon">max<wbr>Depth<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L875">src/transport/codec/confio/proofs.ts:875</a></li>
+								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L962">src/transport/codec/confio/proofs.ts:962</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -2393,7 +2393,7 @@
 						<div class="tsd-signature tsd-kind-icon">min<wbr>Depth<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/confio/proofs.ts#L875">src/transport/codec/confio/proofs.ts:875</a></li>
+								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/confio/proofs.ts#L962">src/transport/codec/confio/proofs.ts:962</a></li>
 							</ul>
 						</aside>
 					</section>

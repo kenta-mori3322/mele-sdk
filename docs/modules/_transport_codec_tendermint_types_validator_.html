@@ -122,10 +122,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported">
 					<a name="builtin" class="tsd-anchor"></a>
 					<h3>Builtin</h3>
-					<div class="tsd-signature tsd-kind-icon">Builtin<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Uint8Array</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Long</span></div>
+					<div class="tsd-signature tsd-kind-icon">Builtin<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Uint8Array</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Long</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/types/validator.ts#L339">src/transport/codec/tendermint/types/validator.ts:339</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/types/validator.ts#L389">src/transport/codec/tendermint/types/validator.ts:389</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -135,7 +135,7 @@
 					<div class="tsd-signature tsd-kind-icon">Deep<wbr>Partial&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-type">Builtin</span><span class="tsd-signature-symbol"> ? </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> : </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">infer </span> U<span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> ? </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">DeepPartial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> : </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">infer </span> U<span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> ? </span><span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">DeepPartial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> : </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol"> ? </span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol"> : </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/types/validator.ts#L340">src/transport/codec/tendermint/types/validator.ts:340</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/types/validator.ts#L398">src/transport/codec/tendermint/types/validator.ts:398</a></li>
 						</ul>
 					</aside>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -151,10 +151,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
 					<a name="atob" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> atob</h3>
-					<div class="tsd-signature tsd-kind-icon">atob<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>b64<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = globalThis.atob || (b64 &#x3D;&gt; globalThis.Buffer.from(b64, &#x27;base64&#x27;).toString(&#x27;binary&#x27;))</span></div>
+					<div class="tsd-signature tsd-kind-icon">atob<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>b64<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = globalThis.atob ||(b64 &#x3D;&gt; globalThis.Buffer.from(b64, &#x27;base64&#x27;).toString(&#x27;binary&#x27;))</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/types/validator.ts#L318">src/transport/codec/tendermint/types/validator.ts:318</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/types/validator.ts#L366">src/transport/codec/tendermint/types/validator.ts:366</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -182,10 +182,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
 					<a name="btoa" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> btoa</h3>
-					<div class="tsd-signature tsd-kind-icon">btoa<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>bin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = globalThis.btoa || (bin &#x3D;&gt; globalThis.Buffer.from(bin, &#x27;binary&#x27;).toString(&#x27;base64&#x27;))</span></div>
+					<div class="tsd-signature tsd-kind-icon">btoa<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>bin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = globalThis.btoa ||(bin &#x3D;&gt; globalThis.Buffer.from(bin, &#x27;binary&#x27;).toString(&#x27;base64&#x27;))</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/types/validator.ts#L329">src/transport/codec/tendermint/types/validator.ts:329</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/types/validator.ts#L378">src/transport/codec/tendermint/types/validator.ts:378</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -216,7 +216,7 @@
 					<div class="tsd-signature tsd-kind-icon">global<wbr>This<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = (() &#x3D;&gt; {if (typeof globalThis !&#x3D;&#x3D; &#x27;undefined&#x27;) return globalThisif (typeof self !&#x3D;&#x3D; &#x27;undefined&#x27;) return selfif (typeof window !&#x3D;&#x3D; &#x27;undefined&#x27;) return windowif (typeof global !&#x3D;&#x3D; &#x27;undefined&#x27;) return globalthrow &#x27;Unable to locate global object&#x27;})()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/types/validator.ts#L310">src/transport/codec/tendermint/types/validator.ts:310</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/types/validator.ts#L358">src/transport/codec/tendermint/types/validator.ts:358</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -226,7 +226,7 @@
 					<div class="tsd-signature tsd-kind-icon">protobuf<wbr>Package<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"tendermint.types"</span><span class="tsd-signature-symbol"> = &quot;tendermint.types&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/types/validator.ts#L6">src/transport/codec/tendermint/types/validator.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/types/validator.ts#L6">src/transport/codec/tendermint/types/validator.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -236,7 +236,7 @@
 					<div class="tsd-signature tsd-kind-icon">self<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/types/validator.ts#L308">src/transport/codec/tendermint/types/validator.ts:308</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/types/validator.ts#L356">src/transport/codec/tendermint/types/validator.ts:356</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -246,7 +246,7 @@
 					<div class="tsd-signature tsd-kind-icon">window<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/types/validator.ts#L309">src/transport/codec/tendermint/types/validator.ts:309</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/types/validator.ts#L357">src/transport/codec/tendermint/types/validator.ts:357</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -263,7 +263,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/types/validator.ts#L331">src/transport/codec/tendermint/types/validator.ts:331</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/types/validator.ts#L381">src/transport/codec/tendermint/types/validator.ts:381</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -286,7 +286,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/types/validator.ts#L320">src/transport/codec/tendermint/types/validator.ts:320</a></li>
+									<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/types/validator.ts#L369">src/transport/codec/tendermint/types/validator.ts:369</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -308,7 +308,7 @@
 					<div class="tsd-signature tsd-kind-icon">Simple<wbr>Validator<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/types/validator.ts#L236">src/transport/codec/tendermint/types/validator.ts:236</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/types/validator.ts#L278">src/transport/codec/tendermint/types/validator.ts:278</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
@@ -321,7 +321,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/types/validator.ts#L247">src/transport/codec/tendermint/types/validator.ts:247</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/types/validator.ts#L292">src/transport/codec/tendermint/types/validator.ts:292</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -347,7 +347,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/types/validator.ts#L237">src/transport/codec/tendermint/types/validator.ts:237</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/types/validator.ts#L279">src/transport/codec/tendermint/types/validator.ts:279</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -373,7 +373,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/types/validator.ts#L268">src/transport/codec/tendermint/types/validator.ts:268</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/types/validator.ts#L314">src/transport/codec/tendermint/types/validator.ts:314</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -396,7 +396,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/types/validator.ts#L292">src/transport/codec/tendermint/types/validator.ts:292</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/types/validator.ts#L340">src/transport/codec/tendermint/types/validator.ts:340</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -419,7 +419,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/types/validator.ts#L283">src/transport/codec/tendermint/types/validator.ts:283</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/types/validator.ts#L329">src/transport/codec/tendermint/types/validator.ts:329</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -439,7 +439,7 @@
 					<div class="tsd-signature tsd-kind-icon">Validator<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/types/validator.ts#L126">src/transport/codec/tendermint/types/validator.ts:126</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/types/validator.ts#L150">src/transport/codec/tendermint/types/validator.ts:150</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
@@ -452,7 +452,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/types/validator.ts#L143">src/transport/codec/tendermint/types/validator.ts:143</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/types/validator.ts#L170">src/transport/codec/tendermint/types/validator.ts:170</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -478,7 +478,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/types/validator.ts#L127">src/transport/codec/tendermint/types/validator.ts:127</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/types/validator.ts#L151">src/transport/codec/tendermint/types/validator.ts:151</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -504,7 +504,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/types/validator.ts#L170">src/transport/codec/tendermint/types/validator.ts:170</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/types/validator.ts#L199">src/transport/codec/tendermint/types/validator.ts:199</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -527,7 +527,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/types/validator.ts#L208">src/transport/codec/tendermint/types/validator.ts:208</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/types/validator.ts#L247">src/transport/codec/tendermint/types/validator.ts:247</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -550,7 +550,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/types/validator.ts#L193">src/transport/codec/tendermint/types/validator.ts:193</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/types/validator.ts#L226">src/transport/codec/tendermint/types/validator.ts:226</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -570,7 +570,7 @@
 					<div class="tsd-signature tsd-kind-icon">Validator<wbr>Set<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/types/validator.ts#L28">src/transport/codec/tendermint/types/validator.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/types/validator.ts#L28">src/transport/codec/tendermint/types/validator.ts:28</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
@@ -583,7 +583,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/types/validator.ts#L42">src/transport/codec/tendermint/types/validator.ts:42</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/types/validator.ts#L48">src/transport/codec/tendermint/types/validator.ts:48</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -609,7 +609,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/types/validator.ts#L29">src/transport/codec/tendermint/types/validator.ts:29</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/types/validator.ts#L29">src/transport/codec/tendermint/types/validator.ts:29</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -635,7 +635,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/types/validator.ts#L67">src/transport/codec/tendermint/types/validator.ts:67</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/types/validator.ts#L76">src/transport/codec/tendermint/types/validator.ts:76</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -658,7 +658,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/types/validator.ts#L102">src/transport/codec/tendermint/types/validator.ts:102</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/types/validator.ts#L120">src/transport/codec/tendermint/types/validator.ts:120</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -681,7 +681,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/types/validator.ts#L88">src/transport/codec/tendermint/types/validator.ts:88</a></li>
+										<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/types/validator.ts#L100">src/transport/codec/tendermint/types/validator.ts:100</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -701,7 +701,7 @@
 					<div class="tsd-signature tsd-kind-icon">base<wbr>Simple<wbr>Validator<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/types/validator.ts#L234">src/transport/codec/tendermint/types/validator.ts:234</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/types/validator.ts#L276">src/transport/codec/tendermint/types/validator.ts:276</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
@@ -710,7 +710,7 @@
 						<div class="tsd-signature tsd-kind-icon">voting<wbr>Power<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Long</span><span class="tsd-signature-symbol"> = Long.ZERO</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/types/validator.ts#L234">src/transport/codec/tendermint/types/validator.ts:234</a></li>
+								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/types/validator.ts#L276">src/transport/codec/tendermint/types/validator.ts:276</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -721,7 +721,7 @@
 					<div class="tsd-signature tsd-kind-icon">base<wbr>Validator<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/types/validator.ts#L124">src/transport/codec/tendermint/types/validator.ts:124</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/types/validator.ts#L145">src/transport/codec/tendermint/types/validator.ts:145</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
@@ -730,7 +730,7 @@
 						<div class="tsd-signature tsd-kind-icon">proposer<wbr>Priority<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Long</span><span class="tsd-signature-symbol"> = Long.ZERO</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/types/validator.ts#L124">src/transport/codec/tendermint/types/validator.ts:124</a></li>
+								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/types/validator.ts#L147">src/transport/codec/tendermint/types/validator.ts:147</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -740,7 +740,7 @@
 						<div class="tsd-signature tsd-kind-icon">voting<wbr>Power<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Long</span><span class="tsd-signature-symbol"> = Long.ZERO</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/types/validator.ts#L124">src/transport/codec/tendermint/types/validator.ts:124</a></li>
+								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/types/validator.ts#L146">src/transport/codec/tendermint/types/validator.ts:146</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -751,7 +751,7 @@
 					<div class="tsd-signature tsd-kind-icon">base<wbr>Validator<wbr>Set<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/types/validator.ts#L26">src/transport/codec/tendermint/types/validator.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/types/validator.ts#L26">src/transport/codec/tendermint/types/validator.ts:26</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
@@ -760,7 +760,7 @@
 						<div class="tsd-signature tsd-kind-icon">total<wbr>Voting<wbr>Power<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Long</span><span class="tsd-signature-symbol"> = Long.ZERO</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/298e292/src/transport/codec/tendermint/types/validator.ts#L26">src/transport/codec/tendermint/types/validator.ts:26</a></li>
+								<li>Defined in <a href="https://github.com/melechain/mele-sdk/blob/309aeae/src/transport/codec/tendermint/types/validator.ts#L26">src/transport/codec/tendermint/types/validator.ts:26</a></li>
 							</ul>
 						</aside>
 					</section>
