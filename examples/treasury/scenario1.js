@@ -48,14 +48,14 @@ const recAddress = 'mele1c7nn5mt43m37t0zmqwh6rslrgcr3gd4pxqutpj' // test 2
     const tx = mele.treasury.disburse(
         recAddress,
         [{ denom: 'umelc', amount: Utils.toUmelc('500', 'melc') }],
-        'example-reference'
+        'example-reference-2'
     )
 
     console.log(
         chalk.yellow('Relaying the transaction and waiting for commit...')
     )
 
-    const txEvents = tx.sendTransaction()
+    const txEvents = await tx.sendTransaction()
 
     try {
         await Utils.promisify(txEvents)
