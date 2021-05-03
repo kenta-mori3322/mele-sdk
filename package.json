@@ -1,6 +1,6 @@
 {
   "name": "mele-sdk",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "description": "JavaScript SDK wrapper for Mele Blockchain",
   "typings": "lib/index.d.ts",
   "main": "lib/mele-sdk.cjs.js",
@@ -54,6 +54,7 @@
     "rollup-plugin-node-globals": "^1.2.1",
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-typescript2": "^0.14.0",
+    "ts-proto": "^1.79.7",
     "tslint": "^6.1.3",
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.3.0",
