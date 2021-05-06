@@ -48,7 +48,7 @@ const recAddress = 'mele1c7nn5mt43m37t0zmqwh6rslrgcr3gd4pxqutpj' // test 2
     const tx = mele.treasury.disburse(
         recAddress,
         [{ denom: 'umelc', amount: Utils.toUmelc('500', 'melc') }],
-        'example-reference-2'
+        'example-reference-3'
     )
 
     console.log(
@@ -79,6 +79,6 @@ const recAddress = 'mele1c7nn5mt43m37t0zmqwh6rslrgcr3gd4pxqutpj' // test 2
             return console.log(chalk.red('Error while fetching account.', e))
         }
     } catch (e) {
-        console.log(chalk.red('Error while relaying the transaction.', error))
+        console.log(chalk.red('Error while relaying the transaction.', e))
     }
 })()
