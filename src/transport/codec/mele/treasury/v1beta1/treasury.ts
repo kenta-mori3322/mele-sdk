@@ -10,6 +10,7 @@ export interface Params {
     managers: string[]
     disbursementDelayThresholdAmount: Coin[]
     disbursementDelayDuration: string
+    mintEnabled: boolean
 }
 
 export interface Treasury {
@@ -67,7 +68,11 @@ export interface BurnTreasurySupplyProposalWithDeposit {
     deposit: string
 }
 
-const baseParams: object = { managers: '', disbursementDelayDuration: '' }
+const baseParams: object = {
+    managers: '',
+    disbursementDelayDuration: '',
+    mintEnabled: false,
+}
 
 export const Params = {
     encode(
@@ -82,6 +87,9 @@ export const Params = {
         }
         if (message.disbursementDelayDuration !== '') {
             writer.uint32(26).string(message.disbursementDelayDuration)
+        }
+        if (message.mintEnabled === true) {
+            writer.uint32(32).bool(message.mintEnabled)
         }
         return writer
     },
@@ -106,6 +114,9 @@ export const Params = {
                     break
                 case 3:
                     message.disbursementDelayDuration = reader.string()
+                    break
+                case 4:
+                    message.mintEnabled = reader.bool()
                     break
                 default:
                     reader.skipType(tag & 7)
@@ -142,6 +153,11 @@ export const Params = {
         } else {
             message.disbursementDelayDuration = ''
         }
+        if (object.mintEnabled !== undefined && object.mintEnabled !== null) {
+            message.mintEnabled = Boolean(object.mintEnabled)
+        } else {
+            message.mintEnabled = false
+        }
         return message
     },
 
@@ -161,6 +177,8 @@ export const Params = {
         }
         message.disbursementDelayDuration !== undefined &&
             (obj.disbursementDelayDuration = message.disbursementDelayDuration)
+        message.mintEnabled !== undefined &&
+            (obj.mintEnabled = message.mintEnabled)
         return obj
     },
 
@@ -190,6 +208,11 @@ export const Params = {
             message.disbursementDelayDuration = object.disbursementDelayDuration
         } else {
             message.disbursementDelayDuration = ''
+        }
+        if (object.mintEnabled !== undefined && object.mintEnabled !== null) {
+            message.mintEnabled = object.mintEnabled
+        } else {
+            message.mintEnabled = false
         }
         return message
     },
