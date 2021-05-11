@@ -9,8 +9,8 @@ import SlashingQuery from './slashing'
 import StakingQuery from './staking'
 import TreasuryQuery from './treasury'
 
-namespace Keys {
-    export const Query = {
+const Keys = {
+    Query: {
         AuthModuleQueryPath: 'auth',
         AccountPath: 'account',
     }

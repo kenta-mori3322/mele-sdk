@@ -2,8 +2,8 @@ import * as Types from '../../common'
 import { ITransport } from '../../transport'
 import MintQuery from '../mint'
 
-namespace Keys {
-    export const Query = {
+const Keys = {
+    Query: {
         QueryPath: 'mstaking',
 
         ValidatorsPath: 'validators',

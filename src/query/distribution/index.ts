@@ -1,8 +1,8 @@
 import * as Types from '../../common'
 import { ITransport } from '../../transport'
 
-namespace Keys {
-    export const Query = {
+const Keys = {
+    Query: {
         QueryPath: 'mdistribution',
 
         ParametersPath: 'params',
