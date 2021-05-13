@@ -1,4 +1,4 @@
-import { convertValidatorPubKey } from '../utils'
+import { convertValidatorPubKeyRaw } from '../utils'
 import IndexerApi from './api'
 
 interface IndexerOptions {
@@ -95,6 +95,11 @@ interface Disbursement {
     timestamp: string
 }
 
+interface Key {
+    type: string
+    value: string
+}
+
 export default class Indexer {
     private _opts: IndexerOptions
 
@@ -138,8 +143,8 @@ export default class Indexer {
         return IndexerApi.get(this._opts.endpoint, `proposal_votes/${id}`)
     }
 
-    async validatorUptime(pubkey: string): Promise<ValidatorUptime> {
-        let valAddress = convertValidatorPubKey(pubkey)
+    async validatorUptime(pubkey: Key): Promise<ValidatorUptime> {
+        let valAddress = convertValidatorPubKeyRaw(pubkey.value)
 
         return IndexerApi.get(this._opts.endpoint, `validator/${valAddress}`)
     }

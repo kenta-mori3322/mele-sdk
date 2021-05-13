@@ -144,3 +144,11 @@ export function convertValidatorPubKey(pubkey: string): string {
 
     return hashResult.slice(0, 40).toUpperCase()
 }
+
+export function convertValidatorPubKeyRaw(pubkey: string): string {
+    let key = Buffer.from(pubkey, 'base64')
+
+    const hashResult = shajs('sha256').update(key).digest('hex') as string
+
+    return hashResult.slice(0, 40).toUpperCase()
+}
