@@ -1,9 +1,9 @@
 const { Mele } = require('../lib/mele-sdk.cjs.js')
 
 const mele = new Mele({
-    nodeUrl: 'http://localhost:26657/',
+    nodeUrl: 'http://3.126.68.149:26657',
     chainId: 'test',
-    indexerEndpoint: 'http://localhost:3100/api/v1',
+    indexerEndpoint: 'http://18.192.179.29:3100/api/v1',
 })
 
 ;(async () => {
@@ -56,9 +56,10 @@ const mele = new Mele({
 
     console.log(votes)
 
-    const validatorUptime = await mele.indexer.validatorUptime(
-        'melevalconspub1zcjduepq455luw7suazfw2tam0memzs76gvzu5xgatmvjmmqcpyfx32wj6qs2l5tw7'
-    )
+    const validatorUptime = await mele.indexer.validatorUptime({
+        type: 'tendermint/PubKeyEd25519',
+        value: '9TY5z/XIH2Pu9srpJJiQByT2W3xmiPqc4hbiLhu0wCM='
+    })
 
     console.log(validatorUptime)
 
