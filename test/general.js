@@ -6,6 +6,7 @@ const {
 } = require('../lib/mele-sdk.cjs.js')
 const assert = require('assert')
 const bip39 = require('bip39')
+const Long = require('long')
 
 const NODE_URL = 'http://localhost:26657/'
 const CHAIN_ID = 'test'
@@ -483,15 +484,12 @@ describe('Mele Blockchain', function () {
                             resolve(confirmation)
                         })
                         .on('error', error => {
-                            reject(error)
+                            resolve(error)
                         })
                 })
 
                 let tx = await txPromise
                 assert.ok(tx)
-                assert.ok(tx.hash)
-
-                assert.ok(tx.tx_result)
             })
 
             it('Community pool can be funded', async () => {
@@ -586,895 +584,886 @@ describe('Mele Blockchain', function () {
             })
         })
 
-        // describe('Governance', () => {
-        //     it('Governance params can be queried', async () => {
-        //         let params = await mele.query.governance.getParameters()
-
-        //         assert.ok(params)
-
-        //         assert.ok(params.deposit)
-        //         assert.ok(params.tally)
-        //         assert.ok(params.voting)
-
-        //         assert.ok(params.voting.voting_period)
-
-        //         assert.ok(params.deposit.max_deposit_period)
-        //         assert.ok(params.deposit.min_deposit)
-
-        //         assert.ok(params.tally.quorum)
-        //         assert.ok(params.tally.threshold)
-        //         assert.ok(params.tally.veto)
-        //     })
-
-        //     it('Text proposal can be created', async () => {
-        //         const txEvents = await meleDelegator.governance
-        //             .submitTextProposal(
-        //                 [
-        //                     {
-        //                         denom: 'umelg',
-        //                         amount: '5000000',
-        //                     },
-        //                 ],
-        //                 'ProposalTestTitle',
-        //                 'ProposalTestDescription'
-        //             )
-        //             .sendTransaction()
-
-        //         assert.ok(txEvents)
-        //         const txPromise = new Promise((resolve, reject) => {
-        //             txEvents
-        //                 .on('hash', hash => {
-        //                     assert.ok(hash)
-        //                 })
-        //                 .on('receipt', receipt => {
-        //                     assert.ok(receipt)
-        //                 })
-        //                 .on('confirmation', confirmation => {
-        //                     assert.ok(confirmation)
-
-        //                     resolve(confirmation)
-        //                 })
-        //                 .on('error', error => {
-        //                     reject(error)
-        //                 })
-        //         })
-
-        //         let tx = await txPromise
-        //         assert.ok(tx)
-        //         assert.ok(tx.hash)
-
-        //         assert.ok(tx.tx_result)
-        //         assert.ok(tx.tx_result.code === 0)
-        //         assert.ok(tx.height)
-        //     })
-
-        //     let proposal
-
-        //     it('Proposals can be fetched', async () => {
-        //         const proposals = await meleDelegator.query.governance.getProposals()
-
-        //         proposal = proposals.pop()
-
-        //         assert.ok(proposal)
-        //     })
-
-        //     it('Single proposal can be fetched', async () => {
-        //         const aProposal = await meleDelegator.query.governance.getProposal(
-        //             String(proposal.id)
-        //         )
-
-        //         assert.ok(aProposal)
-
-        //         assert.ok(aProposal.content)
-        //         assert.ok(aProposal.content.type === 'cosmos-sdk/TextProposal')
-        //         assert.ok(aProposal.content.value)
-        //         assert.ok(aProposal.content.value.title === 'ProposalTestTitle')
-        //         assert.ok(
-        //             aProposal.content.value.description ===
-        //                 'ProposalTestDescription'
-        //         )
-        //     })
-
-        //     it('Proposal deposits can be fetched', async () => {
-        //         const deposits = await meleDelegator.query.governance.getDeposits(
-        //             String(proposal.id)
-        //         )
-
-        //         assert.ok(deposits)
-
-        //         assert.ok(deposits.length > 0)
-        //         assert.ok(
-        //             deposits[0].depositor === meleDelegator.signer.getAddress()
-        //         )
-        //     })
-
-        //     it('Deposit transaction can be invoked', async () => {
-        //         const txEvents = meleDelegator.governance
-        //             .deposit(proposal.id, [
-        //                 {
-        //                     denom: 'umelg',
-        //                     amount: '5000000',
-        //                 },
-        //             ])
-        //             .sendTransaction()
-
-        //         assert.ok(txEvents)
-        //         const txPromise = new Promise((resolve, reject) => {
-        //             txEvents
-        //                 .on('hash', hash => {
-        //                     assert.ok(hash)
-        //                 })
-        //                 .on('receipt', receipt => {
-        //                     assert.ok(receipt)
-        //                 })
-        //                 .on('confirmation', confirmation => {
-        //                     assert.ok(confirmation)
-
-        //                     resolve(confirmation)
-        //                 })
-        //                 .on('error', error => {
-        //                     reject(error)
-        //                 })
-        //         })
-
-        //         let tx = await txPromise
-        //         assert.ok(tx)
-        //         assert.ok(tx.hash)
-
-        //         assert.ok(tx.tx_result)
-        //         assert.ok(tx.tx_result.code === 0)
-        //         assert.ok(tx.height)
-        //     })
-
-        //     it('Validator can vote on a proposal', async () => {
-        //         const txEvents = meleValidator.governance
-        //             .vote(proposal.id, 'yes')
-        //             .sendTransaction()
-
-        //         assert.ok(txEvents)
-        //         const txPromise = new Promise((resolve, reject) => {
-        //             txEvents
-        //                 .on('hash', hash => {
-        //                     assert.ok(hash)
-        //                 })
-        //                 .on('receipt', receipt => {
-        //                     assert.ok(receipt)
-        //                 })
-        //                 .on('confirmation', confirmation => {
-        //                     assert.ok(confirmation)
-
-        //                     resolve(confirmation)
-        //                 })
-        //                 .on('error', error => {
-        //                     reject(error)
-        //                 })
-        //         })
-
-        //         let tx = await txPromise
-        //         assert.ok(tx)
-        //         assert.ok(tx.hash)
-
-        //         assert.ok(tx.tx_result)
-        //         assert.ok(tx.tx_result.code === 0)
-        //         assert.ok(tx.height)
-        //     })
-
-        //     it('Proposal votes can be fetched', async () => {
-        //         const votes = await meleDelegator.query.governance.getVotes(
-        //             String(proposal.id)
-        //         )
-
-        //         assert.ok(votes)
-
-        //         assert.ok(votes.length > 0)
-        //         assert.ok(votes[0].voter === meleValidator.signer.getAddress())
-        //         assert.ok(votes[0].option === 'Yes')
-        //     })
-
-        //     it('Community pool spend proposal can be created', async () => {
-        //         const txEvents = meleDelegator.governance
-        //             .submitCommunityPoolSpendProposal(
-        //                 [
-        //                     {
-        //                         denom: 'umelg',
-        //                         amount: '5000000',
-        //                     },
-        //                 ],
-        //                 'ProposalTestTitle',
-        //                 'ProposalTestDescription',
-        //                 mele.signer.getAddress(),
-        //                 [
-        //                     {
-        //                         denom: 'umelc',
-        //                         amount: '100',
-        //                     },
-        //                 ]
-        //             )
-        //             .sendTransaction()
-
-        //         assert.ok(txEvents)
-        //         const txPromise = new Promise((resolve, reject) => {
-        //             txEvents
-        //                 .on('hash', hash => {
-        //                     assert.ok(hash)
-        //                 })
-        //                 .on('receipt', receipt => {
-        //                     assert.ok(receipt)
-        //                 })
-        //                 .on('confirmation', confirmation => {
-        //                     assert.ok(confirmation)
-
-        //                     resolve(confirmation)
-        //                 })
-        //                 .on('error', error => {
-        //                     reject(error)
-        //                 })
-        //         })
-
-        //         let tx = await txPromise
-        //         assert.ok(tx)
-        //         assert.ok(tx.hash)
-
-        //         assert.ok(tx.tx_result)
-        //         assert.ok(tx.tx_result.code === 0)
-        //         assert.ok(tx.height)
-        //     })
-
-        //     it('Burned pool spend proposal can be created', async () => {
-        //         const txEvents = meleDelegator.governance
-        //             .submitBurnedPoolSpendProposal(
-        //                 [
-        //                     {
-        //                         denom: 'umelg',
-        //                         amount: '5000000',
-        //                     },
-        //                 ],
-        //                 'ProposalTestTitle',
-        //                 'ProposalTestDescription',
-        //                 mele.signer.getAddress(),
-        //                 [
-        //                     {
-        //                         denom: 'umelc',
-        //                         amount: '100',
-        //                     },
-        //                 ]
-        //             )
-        //             .sendTransaction()
-
-        //         assert.ok(txEvents)
-        //         const txPromise = new Promise((resolve, reject) => {
-        //             txEvents
-        //                 .on('hash', hash => {
-        //                     assert.ok(hash)
-        //                 })
-        //                 .on('receipt', receipt => {
-        //                     assert.ok(receipt)
-        //                 })
-        //                 .on('confirmation', confirmation => {
-        //                     assert.ok(confirmation)
-
-        //                     resolve(confirmation)
-        //                 })
-        //                 .on('error', error => {
-        //                     reject(error)
-        //                 })
-        //         })
-
-        //         let tx = await txPromise
-        //         assert.ok(tx)
-        //         assert.ok(tx.hash)
-
-        //         assert.ok(tx.tx_result)
-        //     })
-
-        //     it('Mint treasury supply proposal can be created', async () => {
-        //         const txEvents = meleDelegator.governance
-        //             .submitMintTreasurySupplyProposal(
-        //                 [
-        //                     {
-        //                         denom: 'umelg',
-        //                         amount: '5000000',
-        //                     },
-        //                 ],
-        //                 'ProposalTestTitle',
-        //                 'ProposalTestDescription',
-        //                 [
-        //                     {
-        //                         denom: 'umelc',
-        //                         amount: '100',
-        //                     },
-        //                 ]
-        //             )
-        //             .sendTransaction()
-
-        //         assert.ok(txEvents)
-        //         const txPromise = new Promise((resolve, reject) => {
-        //             txEvents
-        //                 .on('hash', hash => {
-        //                     assert.ok(hash)
-        //                 })
-        //                 .on('receipt', receipt => {
-        //                     assert.ok(receipt)
-        //                 })
-        //                 .on('confirmation', confirmation => {
-        //                     assert.ok(confirmation)
-
-        //                     resolve(confirmation)
-        //                 })
-        //                 .on('error', error => {
-        //                     reject(error)
-        //                 })
-        //         })
-
-        //         let tx = await txPromise
-        //         assert.ok(tx)
-        //         assert.ok(tx.hash)
-
-        //         assert.ok(tx.tx_result)
-        //         assert.ok(tx.tx_result.code === 0)
-        //         assert.ok(tx.height)
-        //     })
-
-        //     it('Burn treasury supply proposal can be created', async () => {
-        //         const txEvents = meleDelegator.governance
-        //             .submitBurnTreasurySupplyProposal(
-        //                 [
-        //                     {
-        //                         denom: 'umelg',
-        //                         amount: '5000000',
-        //                     },
-        //                 ],
-        //                 'ProposalTestTitle',
-        //                 'ProposalTestDescription',
-        //                 [
-        //                     {
-        //                         denom: 'umelc',
-        //                         amount: '100',
-        //                     },
-        //                 ]
-        //             )
-        //             .sendTransaction()
-
-        //         assert.ok(txEvents)
-        //         const txPromise = new Promise((resolve, reject) => {
-        //             txEvents
-        //                 .on('hash', hash => {
-        //                     assert.ok(hash)
-        //                 })
-        //                 .on('receipt', receipt => {
-        //                     assert.ok(receipt)
-        //                 })
-        //                 .on('confirmation', confirmation => {
-        //                     assert.ok(confirmation)
-
-        //                     resolve(confirmation)
-        //                 })
-        //                 .on('error', error => {
-        //                     reject(error)
-        //                 })
-        //         })
-
-        //         let tx = await txPromise
-        //         assert.ok(tx)
-        //         assert.ok(tx.hash)
-
-        //         assert.ok(tx.tx_result)
-        //         assert.ok(tx.tx_result.code === 0)
-        //         assert.ok(tx.height)
-        //     })
-
-        //     it('Parameter change proposal can be created', async () => {
-        //         const txEvents = meleDelegator.governance
-        //             .submitParameterChangeProposal(
-        //                 [
-        //                     {
-        //                         denom: 'umelg',
-        //                         amount: '5000000',
-        //                     },
-        //                 ],
-        //                 'ProposalTestTitle',
-        //                 'ProposalTestDescription',
-        //                 [
-        //                     {
-        //                         subspace: 'mstaking',
-        //                         key: 'MaxValidators',
-        //                         value: '105',
-        //                     },
-        //                 ]
-        //             )
-        //             .sendTransaction()
-
-        //         assert.ok(txEvents)
-        //         const txPromise = new Promise((resolve, reject) => {
-        //             txEvents
-        //                 .on('hash', hash => {
-        //                     assert.ok(hash)
-        //                 })
-        //                 .on('receipt', receipt => {
-        //                     assert.ok(receipt)
-        //                 })
-        //                 .on('confirmation', confirmation => {
-        //                     assert.ok(confirmation)
-
-        //                     resolve(confirmation)
-        //                 })
-        //                 .on('error', error => {
-        //                     reject(error)
-        //                 })
-        //         })
-
-        //         let tx = await txPromise
-        //         assert.ok(tx)
-        //         assert.ok(tx.hash)
-
-        //         assert.ok(tx.tx_result)
-        //         assert.ok(tx.tx_result.code === 0)
-        //         assert.ok(tx.height)
-        //     })
-
-        //     it('Software upgrade proposal can be created', async () => {
-        //         const txEvents = meleDelegator.governance
-        //             .submitSoftwareUpgradeProposal(
-        //                 [
-        //                     {
-        //                         denom: 'umelg',
-        //                         amount: '5000000',
-        //                     },
-        //                 ],
-        //                 'ProposalTestTitle',
-        //                 'ProposalTestDescription',
-        //                 {
-        //                     name: 'TestUpgrade',
-        //                     height: 10000,
-        //                     info: 'Software upgrade test',
-        //                 }
-        //             )
-        //             .sendTransaction()
-
-        //         assert.ok(txEvents)
-        //         const txPromise = new Promise((resolve, reject) => {
-        //             txEvents
-        //                 .on('hash', hash => {
-        //                     assert.ok(hash)
-        //                 })
-        //                 .on('receipt', receipt => {
-        //                     assert.ok(receipt)
-        //                 })
-        //                 .on('confirmation', confirmation => {
-        //                     assert.ok(confirmation)
-
-        //                     resolve(confirmation)
-        //                 })
-        //                 .on('error', error => {
-        //                     reject(error)
-        //                 })
-        //         })
-
-        //         let tx = await txPromise
-        //         assert.ok(tx)
-        //         assert.ok(tx.hash)
-
-        //         assert.ok(tx.tx_result)
-        //         assert.ok(tx.tx_result.code === 0)
-        //         assert.ok(tx.height)
-        //     })
-
-        //     it('Cancel software upgrade proposal can be created', async () => {
-        //         const txEvents = meleDelegator.governance
-        //             .submitCancelSoftwareUpgradeProposal(
-        //                 [
-        //                     {
-        //                         denom: 'umelg',
-        //                         amount: '5000000',
-        //                     },
-        //                 ],
-        //                 'ProposalTestTitle',
-        //                 'ProposalTestDescription'
-        //             )
-        //             .sendTransaction()
-
-        //         assert.ok(txEvents)
-        //         const txPromise = new Promise((resolve, reject) => {
-        //             txEvents
-        //                 .on('hash', hash => {
-        //                     assert.ok(hash)
-        //                 })
-        //                 .on('receipt', receipt => {
-        //                     assert.ok(receipt)
-        //                 })
-        //                 .on('confirmation', confirmation => {
-        //                     assert.ok(confirmation)
-
-        //                     resolve(confirmation)
-        //                 })
-        //                 .on('error', error => {
-        //                     reject(error)
-        //                 })
-        //         })
-
-        //         let tx = await txPromise
-        //         assert.ok(tx)
-        //         assert.ok(tx.hash)
-
-        //         assert.ok(tx.tx_result)
-        //         assert.ok(tx.tx_result.code === 0)
-        //         assert.ok(tx.height)
-        //     })
-        // })
-
-        // describe('Control', () => {
-        //     it('Control module params can be queried', async () => {
-        //         let params = await mele.query.control.getParameters()
-
-        //         assert.ok(params)
-
-        //         assert.ok(params.managers)
-        //         assert.ok(params.managers.length)
-        //     })
-
-        //     it('Text proposal execution can be created', async () => {
-        //         const txEvents = meleManager.control
-        //             .submitTextProposal(
-        //                 'ExecutionTestTitle',
-        //                 'ExecutionTestDescription'
-        //             )
-        //             .sendTransaction()
-
-        //         assert.ok(txEvents)
-        //         const txPromise = new Promise((resolve, reject) => {
-        //             txEvents
-        //                 .on('hash', hash => {
-        //                     assert.ok(hash)
-        //                 })
-        //                 .on('receipt', receipt => {
-        //                     assert.ok(receipt)
-        //                 })
-        //                 .on('confirmation', confirmation => {
-        //                     assert.ok(confirmation)
-
-        //                     resolve(confirmation)
-        //                 })
-        //                 .on('error', error => {
-        //                     reject(error)
-        //                 })
-        //         })
-
-        //         let tx = await txPromise
-        //         assert.ok(tx)
-        //         assert.ok(tx.hash)
-
-        //         assert.ok(tx.tx_result)
-        //         assert.ok(tx.tx_result.code === 0)
-        //         assert.ok(tx.height)
-        //     })
-
-        //     let execution
-
-        //     it('Executions can be fetched', async () => {
-        //         const executions = await meleManager.query.control.getExecutions()
-
-        //         execution = executions.pop()
-
-        //         assert.ok(execution)
-        //     })
-
-        //     it('Single execution can be fetched', async () => {
-        //         const aExecution = await meleManager.query.control.getExecution(
-        //             String(execution.id)
-        //         )
-
-        //         assert.ok(aExecution)
-
-        //         assert.ok(aExecution.content)
-        //         assert.ok(aExecution.content.type === 'cosmos-sdk/TextProposal')
-        //         assert.ok(aExecution.content.value)
-        //         assert.ok(
-        //             aExecution.content.value.title === 'ExecutionTestTitle'
-        //         )
-        //         assert.ok(
-        //             aExecution.content.value.description ===
-        //                 'ExecutionTestDescription'
-        //         )
-        //     })
-
-        //     it('Community pool spend proposal execution can be created', async () => {
-        //         const txEvents = meleManager.control
-        //             .submitCommunityPoolSpendProposal(
-        //                 'ExecutionTestTitle',
-        //                 'ExecutionTestDescription',
-        //                 mele.signer.getAddress(),
-        //                 [
-        //                     {
-        //                         denom: 'umelc',
-        //                         amount: '100',
-        //                     },
-        //                 ]
-        //             )
-        //             .sendTransaction()
-
-        //         assert.ok(txEvents)
-        //         const txPromise = new Promise((resolve, reject) => {
-        //             txEvents
-        //                 .on('hash', hash => {
-        //                     assert.ok(hash)
-        //                 })
-        //                 .on('receipt', receipt => {
-        //                     assert.ok(receipt)
-        //                 })
-        //                 .on('confirmation', confirmation => {
-        //                     assert.ok(confirmation)
-
-        //                     resolve(confirmation)
-        //                 })
-        //                 .on('error', error => {
-        //                     reject(error)
-        //                 })
-        //         })
-
-        //         let tx = await txPromise
-        //         assert.ok(tx)
-        //         assert.ok(tx.hash)
-
-        //         assert.ok(tx.tx_result)
-        //         assert.ok(tx.tx_result.code === 0)
-        //         assert.ok(tx.height)
-        //     })
-
-        //     it('Burned pool spend proposal execution can be created', async () => {
-        //         const txEvents = meleManager.control
-        //             .submitBurnedPoolSpendProposal(
-        //                 'ExecutionTestTitle',
-        //                 'ExecutionTestDescription',
-        //                 mele.signer.getAddress(),
-        //                 [
-        //                     {
-        //                         denom: 'umelc',
-        //                         amount: '100',
-        //                     },
-        //                 ]
-        //             )
-        //             .sendTransaction()
-
-        //         assert.ok(txEvents)
-        //         const txPromise = new Promise((resolve, reject) => {
-        //             txEvents
-        //                 .on('hash', hash => {
-        //                     assert.ok(hash)
-        //                 })
-        //                 .on('receipt', receipt => {
-        //                     assert.ok(receipt)
-        //                 })
-        //                 .on('confirmation', confirmation => {
-        //                     assert.ok(confirmation)
-
-        //                     resolve(confirmation)
-        //                 })
-        //                 .on('error', error => {
-        //                     reject(error)
-        //                 })
-        //         })
-
-        //         let tx = await txPromise
-        //         assert.ok(tx)
-        //         assert.ok(tx.hash)
-
-        //         assert.ok(tx.tx_result)
-        //     })
-
-        //     it('Mint treasury supply proposal execution can be created', async () => {
-        //         const txEvents = meleManager.control
-        //             .submitMintTreasurySupplyProposal(
-        //                 'ExecutionTestTitle',
-        //                 'ExecutionTestDescription',
-        //                 [
-        //                     {
-        //                         denom: 'umelc',
-        //                         amount: '100',
-        //                     },
-        //                 ]
-        //             )
-        //             .sendTransaction()
-
-        //         assert.ok(txEvents)
-        //         const txPromise = new Promise((resolve, reject) => {
-        //             txEvents
-        //                 .on('hash', hash => {
-        //                     assert.ok(hash)
-        //                 })
-        //                 .on('receipt', receipt => {
-        //                     assert.ok(receipt)
-        //                 })
-        //                 .on('confirmation', confirmation => {
-        //                     assert.ok(confirmation)
-
-        //                     resolve(confirmation)
-        //                 })
-        //                 .on('error', error => {
-        //                     reject(error)
-        //                 })
-        //         })
-
-        //         let tx = await txPromise
-        //         assert.ok(tx)
-        //         assert.ok(tx.hash)
-
-        //         assert.ok(tx.tx_result)
-        //         assert.ok(tx.tx_result.code === 0)
-        //         assert.ok(tx.height)
-        //     })
-
-        //     it('Burn treasury supply proposal execution can be created', async () => {
-        //         const txEvents = meleManager.control
-        //             .submitBurnTreasurySupplyProposal(
-        //                 'ExecutionTestTitle',
-        //                 'ExecutionTestDescription',
-        //                 [
-        //                     {
-        //                         denom: 'umelc',
-        //                         amount: '100',
-        //                     },
-        //                 ]
-        //             )
-        //             .sendTransaction()
-
-        //         assert.ok(txEvents)
-        //         const txPromise = new Promise((resolve, reject) => {
-        //             txEvents
-        //                 .on('hash', hash => {
-        //                     assert.ok(hash)
-        //                 })
-        //                 .on('receipt', receipt => {
-        //                     assert.ok(receipt)
-        //                 })
-        //                 .on('confirmation', confirmation => {
-        //                     assert.ok(confirmation)
-
-        //                     resolve(confirmation)
-        //                 })
-        //                 .on('error', error => {
-        //                     reject(error)
-        //                 })
-        //         })
-
-        //         let tx = await txPromise
-        //         assert.ok(tx)
-        //         assert.ok(tx.hash)
-
-        //         assert.ok(tx.tx_result)
-        //         assert.ok(tx.tx_result.code === 0)
-        //         assert.ok(tx.height)
-        //     })
-
-        //     it('Parameter change proposal execution can be created', async () => {
-        //         const txEvents = meleManager.control
-        //             .submitParameterChangeProposal(
-        //                 'ExecutionTestTitle',
-        //                 'ExecutionTestDescription',
-        //                 [
-        //                     {
-        //                         subspace: 'mstaking',
-        //                         key: 'MaxValidators',
-        //                         value: '105',
-        //                     },
-        //                 ]
-        //             )
-        //             .sendTransaction()
-
-        //         assert.ok(txEvents)
-        //         const txPromise = new Promise((resolve, reject) => {
-        //             txEvents
-        //                 .on('hash', hash => {
-        //                     assert.ok(hash)
-        //                 })
-        //                 .on('receipt', receipt => {
-        //                     assert.ok(receipt)
-        //                 })
-        //                 .on('confirmation', confirmation => {
-        //                     assert.ok(confirmation)
-
-        //                     resolve(confirmation)
-        //                 })
-        //                 .on('error', error => {
-        //                     reject(error)
-        //                 })
-        //         })
-
-        //         let tx = await txPromise
-        //         assert.ok(tx)
-        //         assert.ok(tx.hash)
-
-        //         assert.ok(tx.tx_result)
-        //         assert.ok(tx.tx_result.code === 0)
-        //         assert.ok(tx.height)
-        //     })
-
-        //     it('Software upgrade execution can be created', async () => {
-        //         const txEvents = meleManager.control
-        //             .submitSoftwareUpgradeProposal(
-        //                 'ProposalTestTitle',
-        //                 'ProposalTestDescription',
-        //                 {
-        //                     name: 'TestUpgrade',
-        //                     height: 10000,
-        //                     info: 'Software upgrade test',
-        //                 }
-        //             )
-        //             .sendTransaction()
-
-        //         assert.ok(txEvents)
-        //         const txPromise = new Promise((resolve, reject) => {
-        //             txEvents
-        //                 .on('hash', hash => {
-        //                     assert.ok(hash)
-        //                 })
-        //                 .on('receipt', receipt => {
-        //                     assert.ok(receipt)
-        //                 })
-        //                 .on('confirmation', confirmation => {
-        //                     assert.ok(confirmation)
-
-        //                     resolve(confirmation)
-        //                 })
-        //                 .on('error', error => {
-        //                     reject(error)
-        //                 })
-        //         })
-
-        //         let tx = await txPromise
-        //         assert.ok(tx)
-        //         assert.ok(tx.hash)
-
-        //         assert.ok(tx.tx_result)
-        //         assert.ok(tx.tx_result.code === 0)
-        //         assert.ok(tx.height)
-        //     })
-
-        //     it('Software upgrade plan can be queried', async () => {
-        //         const plan = await mele.query.upgrade.getCurrent()
-
-        //         assert.ok(plan)
-
-        //         assert.ok(plan.value.name === 'TestUpgrade')
-        //         assert.ok(plan.value.height === '10000')
-        //         assert.ok(plan.value.planInfo === 'Software upgrade test')
-        //     })
-
-        //     it('Cancel software upgrade execution can be created', async () => {
-        //         const txEvents = meleManager.control
-        //             .submitCancelSoftwareUpgradeProposal(
-        //                 'ProposalTestTitle',
-        //                 'ProposalTestDescription'
-        //             )
-        //             .sendTransaction()
-
-        //         assert.ok(txEvents)
-        //         const txPromise = new Promise((resolve, reject) => {
-        //             txEvents
-        //                 .on('hash', hash => {
-        //                     assert.ok(hash)
-        //                 })
-        //                 .on('receipt', receipt => {
-        //                     assert.ok(receipt)
-        //                 })
-        //                 .on('confirmation', confirmation => {
-        //                     assert.ok(confirmation)
-
-        //                     resolve(confirmation)
-        //                 })
-        //                 .on('error', error => {
-        //                     reject(error)
-        //                 })
-        //         })
-
-        //         let tx = await txPromise
-        //         assert.ok(tx)
-        //         assert.ok(tx.hash)
-
-        //         assert.ok(tx.tx_result)
-        //         assert.ok(tx.tx_result.code === 0)
-        //         assert.ok(tx.height)
-        //     })
-        // })
+        describe('Governance', () => {
+            it('Governance params can be queried', async () => {
+                let params = await mele.query.governance.getParameters()
+
+                assert.ok(params)
+
+                assert.ok(params.deposit)
+                assert.ok(params.tally)
+                assert.ok(params.voting)
+
+                assert.ok(params.voting.voting_period)
+
+                assert.ok(params.deposit.max_deposit_period)
+                assert.ok(params.deposit.min_deposit)
+
+                assert.ok(params.tally.quorum)
+                assert.ok(params.tally.threshold)
+            })
+
+            it('Text proposal can be created', async () => {
+                const txEvents = await meleDelegator.governance
+                    .submitTextProposal(
+                        [
+                            {
+                                denom: 'umelg',
+                                amount: '5000000',
+                            },
+                        ],
+                        'ProposalTestTitle',
+                        'ProposalTestDescription'
+                    )
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
+
+                assert.ok(tx.tx_result)
+                assert.ok(tx.tx_result.code === 0)
+                assert.ok(tx.height)
+            })
+
+            let proposal
+
+            it('Proposals can be fetched', async () => {
+                const proposals = await meleDelegator.query.governance.getProposals()
+
+                proposal = proposals.pop()
+
+                assert.ok(proposal)
+            })
+
+            it('Single proposal can be fetched', async () => {
+                const aProposal = await meleDelegator.query.governance.getProposal(
+                    String(proposal.id)
+                )
+
+                assert.ok(aProposal)
+
+                assert.ok(aProposal.content)
+                assert.ok(aProposal.content.type === 'cosmos-sdk/TextProposal')
+                assert.ok(aProposal.content.value)
+                assert.ok(aProposal.content.value.title === 'ProposalTestTitle')
+                assert.ok(
+                    aProposal.content.value.description ===
+                        'ProposalTestDescription'
+                )
+            })
+
+            it('Proposal deposits can be fetched', async () => {
+                const deposits = await meleDelegator.query.governance.getDeposits(
+                    String(proposal.id)
+                )
+
+                assert.ok(deposits)
+
+                assert.ok(deposits.length > 0)
+                assert.ok(
+                    deposits[0].depositor === meleDelegator.signer.getAddress()
+                )
+            })
+
+            it('Deposit transaction can be invoked', async () => {
+                const txEvents = await meleDelegator.governance
+                    .deposit(proposal.id, [
+                        {
+                            denom: 'umelg',
+                            amount: '5000000',
+                        },
+                    ])
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
+
+                assert.ok(tx.tx_result)
+                assert.ok(tx.tx_result.code === 0)
+                assert.ok(tx.height)
+            })
+
+            it('Validator can vote on a proposal', async () => {
+                const txEvents = await meleValidator.governance
+                    .vote(proposal.id, 1)
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
+
+                assert.ok(tx.tx_result)
+                assert.ok(tx.tx_result.code === 0)
+                assert.ok(tx.height)
+            })
+
+            it('Proposal votes can be fetched', async () => {
+                const votes = await meleDelegator.query.governance.getVotes(
+                    String(proposal.id)
+                )
+
+                assert.ok(votes)
+
+                assert.ok(votes.length > 0)
+                assert.ok(votes[0].voter === meleValidator.signer.getAddress())
+            })
+
+            it('Community pool spend proposal can be created', async () => {
+                const txEvents = await meleDelegator.governance
+                    .submitCommunityPoolSpendProposal(
+                        [
+                            {
+                                denom: 'umelg',
+                                amount: '5000000',
+                            },
+                        ],
+                        'ProposalTestTitle',
+                        'ProposalTestDescription',
+                        mele.signer.getAddress(),
+                        [
+                            {
+                                denom: 'umelc',
+                                amount: '100',
+                            },
+                        ]
+                    )
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
+
+                assert.ok(tx.tx_result)
+                assert.ok(tx.tx_result.code === 0)
+                assert.ok(tx.height)
+            })
+
+            it('Burned pool spend proposal can be created', async () => {
+                const txEvents = await meleDelegator.governance
+                    .submitBurnedPoolSpendProposal(
+                        [
+                            {
+                                denom: 'umelg',
+                                amount: '5000000',
+                            },
+                        ],
+                        'ProposalTestTitle',
+                        'ProposalTestDescription',
+                        mele.signer.getAddress(),
+                        [
+                            {
+                                denom: 'umelc',
+                                amount: '100',
+                            },
+                        ]
+                    )
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            resolve(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+            })
+
+            it('Mint treasury supply proposal can be created', async () => {
+                const txEvents = await meleDelegator.governance
+                    .submitMintTreasurySupplyProposal(
+                        [
+                            {
+                                denom: 'umelg',
+                                amount: '5000000',
+                            },
+                        ],
+                        'ProposalTestTitle',
+                        'ProposalTestDescription',
+                        [
+                            {
+                                denom: 'umelc',
+                                amount: '100',
+                            },
+                        ]
+                    )
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
+
+                assert.ok(tx.tx_result)
+                assert.ok(tx.tx_result.code === 0)
+                assert.ok(tx.height)
+            })
+
+            it('Burn treasury supply proposal can be created', async () => {
+                const txEvents = await meleDelegator.governance
+                    .submitBurnTreasurySupplyProposal(
+                        [
+                            {
+                                denom: 'umelg',
+                                amount: '5000000',
+                            },
+                        ],
+                        'ProposalTestTitle',
+                        'ProposalTestDescription',
+                        [
+                            {
+                                denom: 'umelc',
+                                amount: '100',
+                            },
+                        ]
+                    )
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
+
+                assert.ok(tx.tx_result)
+                assert.ok(tx.tx_result.code === 0)
+                assert.ok(tx.height)
+            })
+
+            it('Parameter change proposal can be created', async () => {
+                const txEvents = await meleDelegator.governance
+                    .submitParameterChangeProposal(
+                        [
+                            {
+                                denom: 'umelg',
+                                amount: '5000000',
+                            },
+                        ],
+                        'ProposalTestTitle',
+                        'ProposalTestDescription',
+                        [
+                            {
+                                subspace: 'mstaking',
+                                key: 'MaxValidators',
+                                value: '105',
+                            },
+                        ]
+                    )
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
+
+                assert.ok(tx.tx_result)
+                assert.ok(tx.tx_result.code === 0)
+                assert.ok(tx.height)
+            })
+
+            it('Software upgrade proposal can be created', async () => {
+                const txEvents = await meleDelegator.governance
+                    .submitSoftwareUpgradeProposal(
+                        [
+                            {
+                                denom: 'umelg',
+                                amount: '5000000',
+                            },
+                        ],
+                        'ProposalTestTitle',
+                        'ProposalTestDescription',
+                        {
+                            name: 'TestUpgrade',
+                            height: Long.fromNumber(10000),
+                            info: 'Software upgrade test',
+                        }
+                    )
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
+
+                assert.ok(tx.tx_result)
+                assert.ok(tx.tx_result.code === 0)
+                assert.ok(tx.height)
+            })
+
+            it('Cancel software upgrade proposal can be created', async () => {
+                const txEvents = await meleDelegator.governance
+                    .submitCancelSoftwareUpgradeProposal(
+                        [
+                            {
+                                denom: 'umelg',
+                                amount: '5000000',
+                            },
+                        ],
+                        'ProposalTestTitle',
+                        'ProposalTestDescription'
+                    )
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
+
+                assert.ok(tx.tx_result)
+                assert.ok(tx.tx_result.code === 0)
+                assert.ok(tx.height)
+            })
+        })
+
+        describe('Control', () => {
+            it('Control module params can be queried', async () => {
+                let params = await mele.query.control.getParameters()
+
+                assert.ok(params)
+
+                assert.ok(params.managers)
+                assert.ok(params.managers.length)
+            })
+
+            it('Text proposal execution can be created', async () => {
+                const txEvents = await meleManager.control
+                    .submitTextProposal(
+                        'ExecutionTestTitle',
+                        'ExecutionTestDescription'
+                    )
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
+
+                assert.ok(tx.tx_result)
+                assert.ok(tx.tx_result.code === 0)
+                assert.ok(tx.height)
+            })
+
+            let execution
+
+            it('Executions can be fetched', async () => {
+                const executions = await meleManager.query.control.getExecutions()
+
+                execution = executions.pop()
+
+                assert.ok(execution)
+            })
+
+            it('Single execution can be fetched', async () => {
+                const aExecution = await meleManager.query.control.getExecution(
+                    String(execution.id)
+                )
+
+                assert.ok(aExecution)
+
+                assert.ok(aExecution.content)
+                assert.ok(aExecution.content.value)
+                assert.ok(
+                    aExecution.content.value.title === 'ExecutionTestTitle'
+                )
+                assert.ok(
+                    aExecution.content.value.description ===
+                        'ExecutionTestDescription'
+                )
+            })
+
+            it('Community pool spend proposal execution can be created', async () => {
+                const txEvents = await meleManager.control
+                    .submitCommunityPoolSpendProposal(
+                        'ExecutionTestTitle',
+                        'ExecutionTestDescription',
+                        mele.signer.getAddress(),
+                        [
+                            {
+                                denom: 'umelc',
+                                amount: '100',
+                            },
+                        ]
+                    )
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
+
+                assert.ok(tx.tx_result)
+                assert.ok(tx.tx_result.code === 0)
+                assert.ok(tx.height)
+            })
+
+            it('Burned pool spend proposal execution can be created', async () => {
+                const txEvents = await meleManager.control
+                    .submitBurnedPoolSpendProposal(
+                        'ExecutionTestTitle',
+                        'ExecutionTestDescription',
+                        mele.signer.getAddress(),
+                        [
+                            {
+                                denom: 'umelc',
+                                amount: '100',
+                            },
+                        ]
+                    )
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            resolve(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+            })
+
+            it('Mint treasury supply proposal execution can be created', async () => {
+                const txEvents = await meleManager.control
+                    .submitMintTreasurySupplyProposal(
+                        'ExecutionTestTitle',
+                        'ExecutionTestDescription',
+                        [
+                            {
+                                denom: 'umelc',
+                                amount: '100',
+                            },
+                        ]
+                    )
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
+
+                assert.ok(tx.tx_result)
+                assert.ok(tx.tx_result.code === 0)
+                assert.ok(tx.height)
+            })
+
+            it('Burn treasury supply proposal execution can be created', async () => {
+                const txEvents = await meleManager.control
+                    .submitBurnTreasurySupplyProposal(
+                        'ExecutionTestTitle',
+                        'ExecutionTestDescription',
+                        [
+                            {
+                                denom: 'umelc',
+                                amount: '100',
+                            },
+                        ]
+                    )
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
+
+                assert.ok(tx.tx_result)
+                assert.ok(tx.tx_result.code === 0)
+                assert.ok(tx.height)
+            })
+
+            it('Parameter change proposal execution can be created', async () => {
+                const txEvents = await meleManager.control
+                    .submitParameterChangeProposal(
+                        'ExecutionTestTitle',
+                        'ExecutionTestDescription',
+                        [
+                            {
+                                subspace: 'mstaking',
+                                key: 'MaxValidators',
+                                value: '105',
+                            },
+                        ]
+                    )
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
+
+                assert.ok(tx.tx_result)
+                assert.ok(tx.tx_result.code === 0)
+                assert.ok(tx.height)
+            })
+
+            it('Software upgrade execution can be created', async () => {
+                const txEvents = await meleManager.control
+                    .submitSoftwareUpgradeProposal(
+                        'ProposalTestTitle',
+                        'ProposalTestDescription',
+                        {
+                            name: 'TestUpgrade',
+                            height: Long.fromNumber(10000),
+                            info: 'Software upgrade test',
+                        }
+                    )
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
+
+                assert.ok(tx.tx_result)
+                assert.ok(tx.tx_result.code === 0)
+                assert.ok(tx.height)
+            })
+
+            // it('Software upgrade plan can be queried', async () => {
+            //     const plan = await mele.query.upgrade.getCurrent()
+
+            //     assert.ok(plan)
+
+            //     assert.ok(plan.value.name === 'TestUpgrade')
+            //     assert.ok(plan.value.height === '10000')
+            //     assert.ok(plan.value.planInfo === 'Software upgrade test')
+            // })
+
+            it('Cancel software upgrade execution can be created', async () => {
+                const txEvents = await meleManager.control
+                    .submitCancelSoftwareUpgradeProposal(
+                        'ProposalTestTitle',
+                        'ProposalTestDescription'
+                    )
+                    .sendTransaction()
+
+                assert.ok(txEvents)
+                const txPromise = new Promise((resolve, reject) => {
+                    txEvents
+                        .on('hash', hash => {
+                            assert.ok(hash)
+                        })
+                        .on('receipt', receipt => {
+                            assert.ok(receipt)
+                        })
+                        .on('confirmation', confirmation => {
+                            assert.ok(confirmation)
+
+                            resolve(confirmation)
+                        })
+                        .on('error', error => {
+                            reject(error)
+                        })
+                })
+
+                let tx = await txPromise
+                assert.ok(tx)
+                assert.ok(tx.hash)
+
+                assert.ok(tx.tx_result)
+                assert.ok(tx.tx_result.code === 0)
+                assert.ok(tx.height)
+            })
+        })
 
         describe('Treasury', () => {
             it('Treasury params can be fetched', async () => {
