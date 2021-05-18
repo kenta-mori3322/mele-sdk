@@ -35,7 +35,7 @@ const meleValidator2 = new Mele({
        Create a text proposal
     */
     console.log(chalk.cyan('1. Create a text proposal'))
-    let txEvents = mele.governance
+    let txEvents = await mele.governance
         .submitTextProposal(
             [
                 {
@@ -70,7 +70,7 @@ const meleValidator2 = new Mele({
        Deposit funds
     */
     console.log(chalk.cyan('2. Deposit funds'))
-    txEvents = mele.governance
+    txEvents = await mele.governance
         .deposit(proposalId, [
             {
                 denom: 'umelg',
@@ -87,7 +87,7 @@ const meleValidator2 = new Mele({
        Vote from validator 1
     */
     console.log(chalk.cyan('3. Vote from validator 1'))
-    txEvents = meleValidator1.governance
+    txEvents = await meleValidator1.governance
         .vote(proposalId, 'yes')
         .sendTransaction()
 
@@ -99,7 +99,7 @@ const meleValidator2 = new Mele({
        Vote from validator 2
     */
     console.log(chalk.cyan('4. Vote from validator 2'))
-    txEvents = meleValidator2.governance
+    txEvents = await meleValidator2.governance
         .vote(proposalId, 'yes')
         .sendTransaction()
 

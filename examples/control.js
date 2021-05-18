@@ -53,7 +53,7 @@ const mele = new Mele({
         chalk.yellow('Relaying the transaction and waiting for commit...')
     )
 
-    const txEvents = tx.sendTransaction()
+    const txEvents = await tx.sendTransaction()
 
     try {
         await Utils.promisify(txEvents)
