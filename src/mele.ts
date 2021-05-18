@@ -10,6 +10,8 @@ import Indexer from './indexer'
 import Staking from './transactions/staking'
 import Distribution from './transactions/distribution'
 import Treasury from './transactions/treasury'
+import Gov from './transactions/gov'
+import Control from './transactions/control'
 
 export interface Options {
     nodeUrl: string
@@ -37,6 +39,8 @@ export class Mele {
     private _staking: Staking
     private _distribution: Distribution
     private _treasury: Treasury
+    private _gov: Gov
+    private _control: Control
 
     constructor(opt: Options) {
         this._options = opt
@@ -66,6 +70,8 @@ export class Mele {
         this._distribution = new Distribution(this._broadcast)
         this._staking = new Staking(this._broadcast)
         this._treasury = new Treasury(this._broadcast)
+        this._gov = new Gov(this._broadcast)
+        this._control = new Control(this._broadcast)
     }
 
     get query(): Query {
@@ -90,6 +96,14 @@ export class Mele {
 
     get treasury(): Treasury {
         return this._treasury
+    }
+
+    get governance(): Gov {
+        return this._gov
+    }
+
+    get control(): Control {
+        return this._control
     }
 
     get indexer(): Indexer {
