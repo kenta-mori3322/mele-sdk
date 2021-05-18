@@ -14,7 +14,6 @@ import {
     MsgEditValidator,
     MsgUndelegate,
 } from "./codec/cosmos/staking/v1beta1/tx";
-
 import {
   MsgAddOperator,
   MsgRemoveOperator,
@@ -25,6 +24,40 @@ import {
   MsgCancelBurn,
   MsgApproveBurn,
 } from "./codec/mele/treasury/v1beta1/tx";
+
+import {
+    MsgSubmitProposal,
+    MsgVote,
+    MsgDeposit,
+} from "./codec/cosmos/gov/v1beta1/tx";
+
+import {
+    MsgSubmitExecution,
+} from "./codec/mele/control/v1beta1/tx";
+
+import {
+    TextProposal,
+} from "./codec/cosmos/gov/v1beta1/gov";
+
+import {
+    CommunityPoolSpendProposal,
+    BurnedPoolSpendProposal
+} from "./codec/cosmos/distribution/v1beta1/distribution"
+
+import {
+    BurnTreasurySupplyProposal,
+    MintTreasurySupplyProposal,
+} from "./codec/mele/treasury/v1beta1/treasury"
+
+import {
+    ParameterChangeProposal,
+} from "./codec/cosmos/params/v1beta1/params"
+
+import {
+    SoftwareUpgradeProposal,
+    CancelSoftwareUpgradeProposal,
+    Plan,
+} from "./codec/cosmos/upgrade/v1beta1/upgrade"
 
 export const defaultRegistryTypes: ReadonlyArray<[string, GeneratedType]> = [
     ['/cosmos.bank.v1beta1.MsgMultiSend', MsgMultiSend],
@@ -45,6 +78,19 @@ export const defaultRegistryTypes: ReadonlyArray<[string, GeneratedType]> = [
     ["/mele.treasury.v1beta1.MsgBurn", MsgBurn],
     ["/mele.treasury.v1beta1.MsgCancelBurn", MsgCancelBurn],
     ["/mele.treasury.v1beta1.MsgApproveBurn", MsgApproveBurn],
+    ["/mele.gov.v1beta1.TextProposal", TextProposal],
+    ["/mele.gov.v1beta1.MsgSubmitProposal", MsgSubmitProposal],
+    ["/mele.gov.v1beta1.MsgVote", MsgVote],
+    ["/mele.gov.v1beta1.MsgDeposit", MsgDeposit],
+    ["/mele.control.v1beta1.MsgSubmitExecution", MsgSubmitExecution],
+    ["/mele.distribution.v1beta1.CommunityPoolSpendProposal", CommunityPoolSpendProposal],
+    ["/mele.distribution.v1beta1.BurnedPoolSpendProposal", BurnedPoolSpendProposal],
+    ["/mele.treasury.v1beta1.BurnTreasurySupplyProposal", BurnTreasurySupplyProposal],
+    ["/mele.treasury.v1beta1.MintTreasurySupplyProposal", MintTreasurySupplyProposal],
+    ["/cosmos.params.v1beta1.ParameterChangeProposal", ParameterChangeProposal],
+    ["/mele.upgrade.v1beta1.SoftwareUpgradeProposal", SoftwareUpgradeProposal],
+    ["/mele.upgrade.v1beta1.CancelSoftwareUpgradeProposal", CancelSoftwareUpgradeProposal],
+    ["/mele.upgrade.v1beta1.Plan", Plan],
 ]
 
 function createDefaultRegistry(): Registry {
