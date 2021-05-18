@@ -94,7 +94,7 @@ export default class GovQuery {
     getProposals(
         voter: string = '',
         depositor: string = '',
-        status: string = '',
+        status: number = 0,
         page: number = 1,
         limit: number = 100
     ): Promise<Types.Proposal[]> {
