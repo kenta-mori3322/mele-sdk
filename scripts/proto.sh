@@ -20,6 +20,8 @@ protoc \
   "$COSMOS_PROTO_DIR/cosmos/base/v1beta1/coin.proto" \
   "$COSMOS_PROTO_DIR/mele/treasury/v1beta1/treasury.proto" \
   "$COSMOS_PROTO_DIR/mele/treasury/v1beta1/tx.proto" \
+  "$COSMOS_PROTO_DIR/mele/control/v1beta1/control.proto" \
+  "$COSMOS_PROTO_DIR/mele/control/v1beta1/tx.proto" \
   "$THIRD_PARTY_PROTO_DIR/confio/proofs.proto" \
   "$THIRD_PARTY_PROTO_DIR/tendermint/abci/types.proto" \
   "$THIRD_PARTY_PROTO_DIR/tendermint/crypto/keys.proto" \
@@ -28,19 +30,23 @@ protoc \
   "$THIRD_PARTY_PROTO_DIR/tendermint/types/params.proto" \
   "$THIRD_PARTY_PROTO_DIR/tendermint/types/types.proto" \
   "$THIRD_PARTY_PROTO_DIR/tendermint/types/validator.proto" \
-  "$THIRD_PARTY_PROTO_DIR/tendermint/version/types.proto"
-#   "$COSMOS_PROTO_DIR/cosmos/tx/signing/v1beta1/signing.proto" \
-#   "$COSMOS_PROTO_DIR/cosmos/tx/v1beta1/tx.proto" \
-#   "$COSMOS_PROTO_DIR/cosmos/auth/v1beta1/auth.proto" \
+  "$THIRD_PARTY_PROTO_DIR/tendermint/version/types.proto" \
+  "$COSMOS_PROTO_DIR/cosmos/gov/v1beta1/gov.proto" \
+  "$COSMOS_PROTO_DIR/cosmos/gov/v1beta1/query.proto" \
+  "$COSMOS_PROTO_DIR/cosmos/gov/v1beta1/tx.proto" \
+  "$COSMOS_PROTO_DIR/cosmos/distribution/v1beta1/distribution.proto" \
+  "$COSMOS_PROTO_DIR/cosmos/distribution/v1beta1/query.proto" \
+  "$COSMOS_PROTO_DIR/cosmos/distribution/v1beta1/tx.proto" \
+  "$COSMOS_PROTO_DIR/cosmos/upgrade/v1beta1/upgrade.proto" \
+  "$COSMOS_PROTO_DIR/cosmos/upgrade/v1beta1/query.proto" \
+  "$COSMOS_PROTO_DIR/cosmos/params/v1beta1/params.proto" \
+  "$COSMOS_PROTO_DIR/cosmos/params/v1beta1/query.proto"
 #   "$COSMOS_PROTO_DIR/cosmos/auth/v1beta1/query.proto" \
 #   "$COSMOS_PROTO_DIR/cosmos/bank/v1beta1/bank.proto" \
 #   "$COSMOS_PROTO_DIR/cosmos/bank/v1beta1/query.proto" \
 #   "$COSMOS_PROTO_DIR/cosmos/bank/v1beta1/tx.proto" \
 #   "$COSMOS_PROTO_DIR/cosmos/crypto/multisig/v1beta1/multisig.proto" \
 #   "$COSMOS_PROTO_DIR/cosmos/crypto/secp256k1/keys.proto" \
-#   "$COSMOS_PROTO_DIR/cosmos/distribution/v1beta1/distribution.proto" \
-#   "$COSMOS_PROTO_DIR/cosmos/distribution/v1beta1/query.proto" \
-#   "$COSMOS_PROTO_DIR/cosmos/distribution/v1beta1/tx.proto" \
 #   "$COSMOS_PROTO_DIR/cosmos/staking/v1beta1/query.proto" \
 #   "$COSMOS_PROTO_DIR/cosmos/staking/v1beta1/staking.proto" \
 #   "$COSMOS_PROTO_DIR/cosmos/staking/v1beta1/tx.proto" \
