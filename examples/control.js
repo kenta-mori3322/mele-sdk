@@ -13,12 +13,12 @@ const mele = new Mele({
 
 ;(async () => {
     /* Step 1
-       Query total supply
+       Query treasury
     */
-    console.log('\n', chalk.cyan('1. Query total supply'))
+    console.log('\n', chalk.cyan('1. Query treasury'))
     try {
-        const supply = await mele.query.supply.getTotalSupply()
-        let melc = supply.find(i => i.denom === 'umelc')
+        const supply = await mele.query.getAccountInfo('mele1vmafl8f3s6uuzwnxkqz0eza47v6ecn0te00crk')
+        let melc = supply.value.coins.find(i => i.denom === 'umelc')
 
         console.log(
             chalk.yellow('Balance: '),
@@ -59,13 +59,13 @@ const mele = new Mele({
         await Utils.promisify(txEvents)
 
         /* Step 3
-           Query total supply.
+           Query treasury.
         */
-        console.log('\n', chalk.cyan('3. Query total supply'))
+        console.log('\n', chalk.cyan('3. Query treasury'))
 
         try {
-            const newSupply = await mele.query.supply.getTotalSupply()
-            melc = newSupply.find(i => i.denom === 'umelc')
+            const newSupply = await mele.query.getAccountInfo('mele1vmafl8f3s6uuzwnxkqz0eza47v6ecn0te00crk')
+            melc = newSupply.value.coins.find(i => i.denom === 'umelc')
 
             console.log(
                 chalk.yellow('Balance: '),
