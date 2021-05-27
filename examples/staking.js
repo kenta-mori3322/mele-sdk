@@ -41,25 +41,25 @@ const mele = new Mele({
     )
     console.log(JSON.stringify(val, null, 4))
 
-    // const valDelegations = await mele.query.staking.getValidatorDelegations(
-    //     validator.operator_address
-    // )
-    // console.log(
-    //     chalk.green('Validator'),
-    //     chalk.white(validator.operator_address),
-    //     chalk.green('delegations')
-    // )
-    // console.log(JSON.stringify(valDelegations, null, 4))
+    const valDelegations = await mele.query.staking.getValidatorDelegations(
+        validator.operator_address
+    )
+    console.log(
+        chalk.green('Validator'),
+        chalk.white(validator.operator_address),
+        chalk.green('delegations')
+    )
+    console.log(JSON.stringify(valDelegations, null, 4))
 
-    // const valUnbondingDelegations = await mele.query.staking.getValidatorUnbondingDelegations(
-    //     validator.operator_address
-    // )
-    // console.log(
-    //     chalk.green('Validator'),
-    //     chalk.white(validator.operator_address),
-    //     chalk.green('unbonding delegations')
-    // )
-    // console.log(JSON.stringify(valUnbondingDelegations, null, 4))
+    const valUnbondingDelegations = await mele.query.staking.getValidatorUnbondingDelegations(
+        validator.operator_address
+    )
+    console.log(
+        chalk.green('Validator'),
+        chalk.white(validator.operator_address),
+        chalk.green('unbonding delegations')
+    )
+    console.log(JSON.stringify(valUnbondingDelegations, null, 4))
 
     const delDelegations = await mele.query.staking.getDelegatorDelegations(
         validator.delegator_address
