@@ -9,6 +9,7 @@ import MintQuery from './mint'
 import SlashingQuery from './slashing'
 import StakingQuery from './staking'
 import TreasuryQuery from './treasury'
+import UpgradeQuery from './upgrade'
 
 const Keys = {
     Query: {
@@ -33,6 +34,7 @@ export default class Query {
     private _mint: MintQuery
     private _treasury: TreasuryQuery
     private _control: ControlQuery
+    private _upgrade: UpgradeQuery
 
     constructor(transport: ITransport) {
         this._transport = transport
@@ -44,6 +46,7 @@ export default class Query {
         this._gov = new GovQuery(this._transport)
         this._treasury = new TreasuryQuery(this._transport)
         this._control = new ControlQuery(this._transport)
+        this._upgrade = new UpgradeQuery(this._transport)
     }
 
     get staking(): StakingQuery {
@@ -72,6 +75,10 @@ export default class Query {
 
     get control(): ControlQuery {
         return this._control
+    }
+
+    get upgrade(): UpgradeQuery {
+        return this._upgrade
     }
 
     /**
