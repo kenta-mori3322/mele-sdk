@@ -114,7 +114,7 @@ export default class StakingQuery {
 
         return this._transport.query<Types.Delegation[]>(
             [],
-            JSON.stringify({ ValidatorAddr: address }),
+            JSON.stringify({ ValidatorAddr: address, Page: '1' }),
             QueryPath,
             ValidatorDelegationsPath
         )
@@ -140,7 +140,7 @@ export default class StakingQuery {
 
         return this._transport.query<Types.Delegation[]>(
             [],
-            JSON.stringify({ ValidatorAddr: address }),
+            JSON.stringify({ ValidatorAddr: address, Page: '1' }),
             QueryPath,
             ValidatorUnbondingDelegationsPath
         )
