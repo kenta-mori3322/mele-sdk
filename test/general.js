@@ -1418,15 +1418,15 @@ describe('Mele Blockchain', function () {
                 assert.ok(tx.height)
             })
 
-            // it('Software upgrade plan can be queried', async () => {
-            //     const plan = await mele.query.upgrade.getCurrent()
+            it('Software upgrade plan can be queried', async () => {
+                const plan = await mele.query.upgrade.getCurrent()
 
-            //     assert.ok(plan)
+                assert.ok(plan)
 
-            //     assert.ok(plan.value.name === 'TestUpgrade')
-            //     assert.ok(plan.value.height === '10000')
-            //     assert.ok(plan.value.planInfo === 'Software upgrade test')
-            // })
+                assert.ok(plan.value.name === 'TestUpgrade')
+                assert.ok(plan.value.height === '10000')
+                assert.ok(plan.value.info === 'Software upgrade test')
+            })
 
             it('Cancel software upgrade execution can be created', async () => {
                 const txEvents = await meleManager.control
