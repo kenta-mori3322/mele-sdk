@@ -59,6 +59,11 @@ import {
     Plan,
 } from "./codec/cosmos/upgrade/v1beta1/upgrade"
 
+import {
+    AddFeeExcludedMessageProposal,
+    RemoveFeeExcludedMessageProposal,
+} from "./codec/mele/fee/v1beta1/fee"
+
 export const defaultRegistryTypes: ReadonlyArray<[string, GeneratedType]> = [
     ['/cosmos.bank.v1beta1.MsgMultiSend', MsgMultiSend],
     ["/mele.distribution.v1beta1.MsgFundCommunityPool", MsgFundCommunityPool],
@@ -91,6 +96,8 @@ export const defaultRegistryTypes: ReadonlyArray<[string, GeneratedType]> = [
     ["/mele.upgrade.v1beta1.SoftwareUpgradeProposal", SoftwareUpgradeProposal],
     ["/mele.upgrade.v1beta1.CancelSoftwareUpgradeProposal", CancelSoftwareUpgradeProposal],
     ["/mele.upgrade.v1beta1.Plan", Plan],
+    ["/mele.fee.v1beta1.AddFeeExcludedMessageProposal", AddFeeExcludedMessageProposal],
+    ["/mele.fee.v1beta1.RemoveFeeExcludedMessageProposal", RemoveFeeExcludedMessageProposal],
 ]
 
 function createDefaultRegistry(): Registry {
