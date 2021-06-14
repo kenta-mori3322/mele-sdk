@@ -118,8 +118,8 @@ describe('Mele Indexer', function () {
             assert.ok(validators.length > 0)
             assert.ok(validators[0])
 
-            const validatorUptime = await mele.indexer.validatorUptime(
-                validators[0].consensus_pubkey
+            const validatorUptime = await mele.indexer.validator(
+                validators[0].operator_address
             )
 
             assert.ok(validatorUptime)
