@@ -53,7 +53,7 @@ export default class Control extends TransactionApi {
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
+        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
     }
     /**
      * mele.control.**submitParameterChangeProposal**
@@ -98,7 +98,7 @@ export default class Control extends TransactionApi {
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
+        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
     }
     /**
      * mele.control.**submitCommunityPoolSpendProposal**
@@ -146,7 +146,7 @@ export default class Control extends TransactionApi {
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
+        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
     }
     /**
      * mele.control.**submitBurnedPoolSpendProposal**
@@ -194,7 +194,7 @@ export default class Control extends TransactionApi {
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
+        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
     }
     /**
      * mele.control.**submitMintTreasurySupplyProposal**
@@ -239,7 +239,7 @@ export default class Control extends TransactionApi {
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
+        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
     }
     /**
      * mele.control.**submitBurnTreasurySupplyProposal**
@@ -284,7 +284,7 @@ export default class Control extends TransactionApi {
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
+        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
     }
     /**
      * mele.control.**submitSoftwareUpgradeProposal**
@@ -333,7 +333,7 @@ export default class Control extends TransactionApi {
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
+        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
     }
     /**
      * mele.control.**submitCancelSoftwareUpgradeProposal**
@@ -375,6 +375,96 @@ export default class Control extends TransactionApi {
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
+        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
+    }
+    /**
+     * mele.control.**submitAddFeeExcludedMessageProposal**
+     *
+     * Submit an add fee excluded message proposal.
+     *
+     * @param {string} title - Text proposal title
+     * @param {string} description - Text proposal description
+     * @param {string} messageType - Type of the message.
+     *
+     * @memberof mele.control
+     * @inner
+     *
+     * @name AddFeeExcludedMessageProposal
+     *
+     * @returns {Transaction} transaction - Transaction class instance.
+     */
+     submitAddFeeExcludedMessageProposal(
+        title: string,
+        description: string,
+        messageType: string
+    ): Transaction {
+        let senderAddress = this.broadcast.signer.getAddress()
+
+        const msgs = [
+            {
+                typeUrl: '/mele.control.v1beta1.MsgSubmitExecution',
+                value: {
+                    proposer: senderAddress,
+                    content: {
+                        typeUrl: '/mele.fee.v1beta1.AddFeeExcludedMessageProposal',
+                        value: getRegistry().encode({
+                            typeUrl: '/mele.fee.v1beta1.AddFeeExcludedMessageProposal',
+                            value: {
+                                title: title,
+                                description: description,
+                                messageType: messageType,
+                            }
+                        })
+                    },
+                },
+            },
+        ]
+
+        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
+    }
+    /**
+     * mele.control.**submitRemoveFeeExcludedMessageProposal**
+     *
+     * Submit a remove fee excluded message proposal.
+     *
+     * @param {string} title - Text proposal title
+     * @param {string} description - Text proposal description
+     * @param {string} messageType - Type of the message.
+     *
+     * @memberof mele.control
+     * @inner
+     *
+     * @name RemoveFeeExcludedMessageProposal
+     *
+     * @returns {Transaction} transaction - Transaction class instance.
+     */
+     submitRemoveFeeExcludedMessageProposal(
+        title: string,
+        description: string,
+        messageType: string
+    ): Transaction {
+        let senderAddress = this.broadcast.signer.getAddress()
+
+        const msgs = [
+            {
+                typeUrl: '/mele.control.v1beta1.MsgSubmitExecution',
+                value: {
+                    proposer: senderAddress,
+                    content: {
+                        typeUrl: '/mele.fee.v1beta1.RemoveFeeExcludedMessageProposal',
+                        value: getRegistry().encode({
+                            typeUrl: '/mele.fee.v1beta1.RemoveFeeExcludedMessageProposal',
+                            value: {
+                                title: title,
+                                description: description,
+                                messageType: messageType,
+                            }
+                        })
+                    },
+                },
+            },
+        ]
+
+        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
     }
 }
