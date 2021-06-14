@@ -165,11 +165,14 @@ describe('Mele Blockchain', function () {
                 assert.ok(acc1.value)
                 assert.ok(acc2.value)
 
-                const txEvents = await mele.bank
+                let transferTx = mele.bank
                     .transfer(accountB.getAddress(), [
                         { denom: 'umelc', amount: String(amount) },
                     ])
-                    .sendTransaction()
+
+                let fees = await transferTx.calculateFees()
+
+                const txEvents = await transferTx.sendTransaction()
 
                 assert.ok(txEvents)
                 const txPromise = new Promise((resolve, reject) => {
@@ -211,7 +214,7 @@ describe('Mele Blockchain', function () {
                 assert.ok(newAcc1.value)
                 assert.ok(
                     Number(newAcc1.value.coins[0].amount) ===
-                        Number(acc1.value.coins[0].amount) - amount
+                        Number(acc1.value.coins[0].amount) - amount - fees
                 )
 
                 assert.ok(newAcc2.value)
