@@ -321,3 +321,9 @@ export interface UpgradePlan {
     height: number
     info: string
 }
+
+export interface FeeParams {
+    fee_percentage: string
+    minimum_fee: SDKCoin[]
+    maximum_fee: SDKCoin[]
+}
