@@ -42,7 +42,7 @@ export default class Gov extends TransactionApi {
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
+        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
     }
     /**
      * mele.gov.**deposit**
@@ -73,7 +73,7 @@ export default class Gov extends TransactionApi {
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
+        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
     }
     /**
      * mele.gov.**submitTextProposal**
@@ -118,7 +118,7 @@ export default class Gov extends TransactionApi {
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
+        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
     }
     /**
      * mele.gov.**submitParameterChangeProposal**
@@ -166,7 +166,7 @@ export default class Gov extends TransactionApi {
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
+        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
     }
     /**
      * mele.gov.**submitCommunityPoolSpendProposal**
@@ -217,7 +217,7 @@ export default class Gov extends TransactionApi {
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
+        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
     }
     /**
      * mele.gov.**submitBurnedPoolSpendProposal**
@@ -268,7 +268,7 @@ export default class Gov extends TransactionApi {
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
+        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
     }
     /**
      * mele.gov.**submitMintTreasurySupplyProposal**
@@ -316,7 +316,7 @@ export default class Gov extends TransactionApi {
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
+        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
     }
     /**
      * mele.gov.**submitBurnTreasurySupplyProposal**
@@ -364,7 +364,7 @@ export default class Gov extends TransactionApi {
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
+        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
     }
     /**
      * mele.gov.**submitSoftwareUpgradeProposal**
@@ -416,7 +416,7 @@ export default class Gov extends TransactionApi {
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
+        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
     }
     /**
      * mele.gov.**submitCancelSoftwareUpgradeProposal**
@@ -461,6 +461,102 @@ export default class Gov extends TransactionApi {
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs))
+        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
+    }
+    /**
+     * mele.gov.**submitAddFeeExcludedMessage**
+     *
+     * Submit an add fee excluded message proposal.
+     *
+     * @param {[SDKCoin]} initialDeposit - Initial deposit
+     * @param {string} title - Text proposal title
+     * @param {string} description - Text proposal description
+     * @param {string} messageType - Type of the message.
+     *
+     * @memberof mele.gov
+     * @inner
+     *
+     * @name AddFeeExcludedMessageProposal
+     *
+     * @returns {Transaction} transaction - Transaction class instance.
+     */
+     submitAddFeeExcludedMessageProposal(
+        initialDeposit: Coin[],
+        title: string,
+        description: string,
+        messageType: string
+    ): Transaction {
+        let senderAddress = this.broadcast.signer.getAddress()
+
+        const msgs = [
+            {
+                typeUrl: '/mele.gov.v1beta1.MsgSubmitProposal',
+                value: {
+                    proposer: senderAddress,
+                    initialDeposit: initialDeposit,
+                    content: {
+                        typeUrl: '/mele.fee.v1beta1.AddFeeExcludedMessageProposal',
+                        value: getRegistry().encode({
+                            typeUrl: '/mele.fee.v1beta1.AddFeeExcludedMessageProposal',
+                            value: {
+                                title: title,
+                                description: description,
+                                messageType: messageType,
+                            }
+                        })
+                    },
+                },
+            },
+        ]
+
+        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
+    }
+    /**
+     * mele.gov.**submitRemoveFeeExcludedMessage**
+     *
+     * Submit a remove fee excluded message proposal.
+     *
+     * @param {[SDKCoin]} initialDeposit - Initial deposit
+     * @param {string} title - Text proposal title
+     * @param {string} description - Text proposal description
+     * @param {string} messageType - Type of the message.
+     *
+     * @memberof mele.gov
+     * @inner
+     *
+     * @name RemoveFeeExcludedMessageProposal
+     *
+     * @returns {Transaction} transaction - Transaction class instance.
+     */
+     submitRemoveFeeExcludedMessageProposal(
+        initialDeposit: Coin[],
+        title: string,
+        description: string,
+        messageType: string
+    ): Transaction {
+        let senderAddress = this.broadcast.signer.getAddress()
+
+        const msgs = [
+            {
+                typeUrl: '/mele.gov.v1beta1.MsgSubmitProposal',
+                value: {
+                    proposer: senderAddress,
+                    initialDeposit: initialDeposit,
+                    content: {
+                        typeUrl: '/mele.fee.v1beta1.RemoveFeeExcludedMessageProposal',
+                        value: getRegistry().encode({
+                            typeUrl: '/mele.fee.v1beta1.RemoveFeeExcludedMessageProposal',
+                            value: {
+                                title: title,
+                                description: description,
+                                messageType: messageType,
+                            }
+                        })
+                    },
+                },
+            },
+        ]
+
+        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
     }
 }
