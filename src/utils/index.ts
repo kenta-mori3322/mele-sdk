@@ -21,6 +21,10 @@ export { fromUmelg, fromUmelc, smallestDenom, smallestStableDenom, toUmelg, toUm
 
 const ec = new EC('secp256k1')
 
+const MessageTypeMap = {
+    
+}
+
 export interface KeyPair {
     privateKey: string
     publicKey: string
@@ -151,4 +155,8 @@ export function convertValidatorPubKeyRaw(pubkey: string): string {
     const hashResult = shajs('sha256').update(key).digest('hex') as string
 
     return hashResult.slice(0, 40).toUpperCase()
+}
+
+export function convertMessageType(msgType: string) {
+    return MessageTypeMap[msgType]
 }
