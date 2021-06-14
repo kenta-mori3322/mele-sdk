@@ -66,11 +66,16 @@ interface ProposalVotes {
     voter: string
 }
 
-interface ValidatorUptime {
+interface Validator {
     uptime: number
     address: string
+    mele_address: string
     total_blocks_count: number
     missed_blocks_count: number
+    last_blocks: [{
+        height: number
+        missed: boolean
+    }]
 }
 
 interface History {
@@ -143,10 +148,8 @@ export default class Indexer {
         return IndexerApi.get(this._opts.endpoint, `proposal_votes/${id}`)
     }
 
-    async validatorUptime(pubkey: Key): Promise<ValidatorUptime> {
-        let valAddress = convertValidatorPubKeyRaw(pubkey.value)
-
-        return IndexerApi.get(this._opts.endpoint, `validator/${valAddress}`)
+    async validator(validatorAddress: string): Promise<Validator> {
+        return IndexerApi.get(this._opts.endpoint, `validator/${validatorAddress}`)
     }
 
     async history(query: any = {}): Promise<History[]> {
