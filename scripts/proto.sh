@@ -40,7 +40,9 @@ protoc \
   "$COSMOS_PROTO_DIR/cosmos/upgrade/v1beta1/upgrade.proto" \
   "$COSMOS_PROTO_DIR/cosmos/upgrade/v1beta1/query.proto" \
   "$COSMOS_PROTO_DIR/cosmos/params/v1beta1/params.proto" \
-  "$COSMOS_PROTO_DIR/cosmos/params/v1beta1/query.proto"
+  "$COSMOS_PROTO_DIR/cosmos/params/v1beta1/query.proto" \
+  "$COSMOS_PROTO_DIR/mele/fee/v1beta1/fee.proto" \
+  "$COSMOS_PROTO_DIR/mele/fee/v1beta1/genesis.proto"
 #   "$COSMOS_PROTO_DIR/cosmos/auth/v1beta1/query.proto" \
 #   "$COSMOS_PROTO_DIR/cosmos/bank/v1beta1/bank.proto" \
 #   "$COSMOS_PROTO_DIR/cosmos/bank/v1beta1/query.proto" \
