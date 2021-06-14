@@ -4,6 +4,7 @@ import { ResultBlock, ResultStatus, ResultTx } from '../transport/rpc'
 import ControlQuery from './control'
 
 import DistributionQuery from './distribution'
+import FeeQuery from './fee'
 import GovQuery from './gov'
 import MintQuery from './mint'
 import SlashingQuery from './slashing'
@@ -35,6 +36,7 @@ export default class Query {
     private _treasury: TreasuryQuery
     private _control: ControlQuery
     private _upgrade: UpgradeQuery
+    private _fee: FeeQuery
 
     constructor(transport: ITransport) {
         this._transport = transport
@@ -47,6 +49,7 @@ export default class Query {
         this._treasury = new TreasuryQuery(this._transport)
         this._control = new ControlQuery(this._transport)
         this._upgrade = new UpgradeQuery(this._transport)
+        this._fee = new FeeQuery(this._transport)
     }
 
     get staking(): StakingQuery {
@@ -79,6 +82,10 @@ export default class Query {
 
     get upgrade(): UpgradeQuery {
         return this._upgrade
+    }
+
+    get fee(): FeeQuery {
+        return this._fee
     }
 
     /**
