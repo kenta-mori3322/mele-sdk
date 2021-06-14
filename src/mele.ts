@@ -12,6 +12,7 @@ import Distribution from './transactions/distribution'
 import Treasury from './transactions/treasury'
 import Gov from './transactions/gov'
 import Control from './transactions/control'
+import Fee from './fee/fee'
 
 export interface Options {
     nodeUrl: string
@@ -41,6 +42,7 @@ export class Mele {
     private _treasury: Treasury
     private _gov: Gov
     private _control: Control
+    private _fee: Fee
 
     constructor(opt: Options) {
         this._options = opt
@@ -55,7 +57,9 @@ export class Mele {
         this._chainId = opt.chainId || 'test'
         this._maxFeeInCoin = opt.maxFeeInCoin || 0
 
-        this._broadcast = new Broadcast(this._transport, this._query, this._signer, {
+        this._fee = new Fee(this._query, this._signer)
+
+        this._broadcast = new Broadcast(this._transport, this._query, this._signer, this._fee, {
             txConfirmInterval: this._options.txConfirmInterval || 6000,
             txConfirmTries: this._options.txConfirmTries || 6,
             chainId: this._chainId,
@@ -108,5 +112,9 @@ export class Mele {
 
     get indexer(): Indexer {
         return this._indexer
+    }
+
+    get fee(): Fee {
+        return this._fee
     }
 }
