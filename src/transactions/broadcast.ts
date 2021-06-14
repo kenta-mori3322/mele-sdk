@@ -14,6 +14,7 @@ import { TxRaw } from '../transport/codec/cosmos/tx/v1beta1/tx'
 import { getRegistry } from '../transport/registry'
 
 import promiseRetry from 'promise-retry'
+import Fee from '../fee/fee'
 
 interface Options {
     txConfirmInterval: number
@@ -33,11 +34,13 @@ export default class Broadcast {
     private _query: Query
     private _options: Options
     private _signer: Signer
+    private _fee: Fee
 
-    constructor(transport: ITransport, query: Query, signer: Signer, opts: Options) {
+    constructor(transport: ITransport, query: Query, signer: Signer, fee: Fee, opts: Options) {
         this._transport = transport
         this._query = query
         this._signer = signer
+        this._fee = fee
 
         this._options = opts
     }
@@ -166,5 +169,9 @@ export default class Broadcast {
         const signedTx = Uint8Array.from(TxRaw.encode(txRaw).finish())
 
         return this.safeBroadcast(Buffer.from(signedTx).toString('base64'))
+    }
+
+    async calculateFees(messages: EncodeObject[]): Promise<number> {
+        return this._fee.calculateFees(messages)
     }
 }
