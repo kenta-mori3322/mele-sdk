@@ -1,5 +1,6 @@
 const { Mele, MnemonicSigner, Utils } = require('../lib/mele-sdk.cjs.js')
 const chalk = require('chalk')
+const Long = require('long')
 
 const CHAIN_ID = 'test'
 const RPC = 'http://localhost:26657/'
@@ -37,8 +38,8 @@ const meleValidator1 = new Mele({
             'Test software upgrade proposal',
             'Software upgrade',
             {
-                height: 9700,
-                name: 'TestUpgrade',
+                height: Long.fromNumber(390),
+                name: 'upgrade',
                 info: 'TestUpgradeInfo'
             }
         )
@@ -84,7 +85,7 @@ const meleValidator1 = new Mele({
     */
     console.log(chalk.cyan('3. Vote from validator 1'))
     txEvents = await meleValidator1.governance
-        .vote(proposalId, 'yes')
+        .vote(proposalId, 1)
         .sendTransaction()
 
     tx = await Utils.promisify(txEvents)
@@ -103,7 +104,7 @@ const meleValidator1 = new Mele({
     while (waiting) {
         proposal = await mele.query.governance.getProposal(proposalId)
 
-        if (proposal.proposal_status === 'Passed') {
+        if (proposal.status === 3) {
             console.log(JSON.stringify(proposal, null, 4))
 
             waiting = false
