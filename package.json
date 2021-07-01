@@ -1,6 +1,6 @@
 {
   "name": "mele-sdk",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "JavaScript SDK wrapper for Mele Blockchain",
   "typings": "lib/index.d.ts",
   "main": "lib/mele-sdk.cjs.js",
@@ -31,16 +31,17 @@
     "@cosmjs/encoding": "^0.24.1",
     "@cosmjs/proto-signing": "^0.24.1",
     "bech32": "^1.1.4",
+    "bignumber.js": "^9.0.1",
     "bip32": "^2.0.5",
     "bip39": "^3.0.2",
     "cross-fetch": "^3.0.5",
     "elliptic": "^6.5.3",
     "number-to-bn": "^1.7.0",
     "promise-retry": "^2.0.1",
+    "protobufjs": "^6.10.2",
     "query-string": "^6.13.1",
     "readable-stream": "^3.6.0",
-    "sha.js": "^2.4.11",
-    "protobufjs": "^6.10.2"
+    "sha.js": "^2.4.11"
   },
   "devDependencies": {
     "chalk": "^4.1.0",
