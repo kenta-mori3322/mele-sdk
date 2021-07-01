@@ -9,6 +9,7 @@ import GovQuery from './gov'
 import MintQuery from './mint'
 import SlashingQuery from './slashing'
 import StakingQuery from './staking'
+import SupplyQuery from './supply'
 import TreasuryQuery from './treasury'
 import UpgradeQuery from './upgrade'
 
@@ -37,6 +38,7 @@ export default class Query {
     private _control: ControlQuery
     private _upgrade: UpgradeQuery
     private _fee: FeeQuery
+    private _supply: SupplyQuery
 
     constructor(transport: ITransport) {
         this._transport = transport
@@ -50,6 +52,7 @@ export default class Query {
         this._control = new ControlQuery(this._transport)
         this._upgrade = new UpgradeQuery(this._transport)
         this._fee = new FeeQuery(this._transport)
+        this._supply = new SupplyQuery(this._transport)
     }
 
     get staking(): StakingQuery {
@@ -86,6 +89,10 @@ export default class Query {
 
     get fee(): FeeQuery {
         return this._fee
+    }
+
+    get supply(): SupplyQuery {
+        return this._supply
     }
 
     /**
