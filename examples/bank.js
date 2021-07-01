@@ -1,4 +1,4 @@
-const { Mele, MnemonicSigner } = require('../lib/mele-sdk.cjs.js')
+const { Mele, MnemonicSigner, Utils } = require('../lib/mele-sdk.cjs.js')
 const chalk = require('chalk')
 
 const mnemonic =
@@ -32,9 +32,20 @@ const recAddress = 'mele1c7nn5mt43m37t0zmqwh6rslrgcr3gd4pxqutpj'
     /* Step 2
        Transfer 100umelc from account 1 to account 2
     */
-    console.log(chalk.cyan('2. Transfer 100umelc from account 1 to account 2'))
-    const txEvents = await mele.bank
-        .transfer(recAddress, [{ denom: 'umelc', amount: '100' }])
+    console.log(chalk.cyan('2. Transfer 1000000000umelg from account 1 to account 2'))
+    const rTx = mele.bank
+        .transfer(recAddress, [{ denom: 'umelg', amount: '1000000000' }])
+
+    const fee = await rTx.calculateFees()
+    console.log(
+        chalk.green('Calculated fees: '),
+        chalk.white(fee),
+        chalk.magenta('umelc'),
+        chalk.white(Utils.fromUmelc(String(fee))),
+        chalk.magenta('MELC')
+    )
+
+    const txEvents = await rTx
         .sendTransaction()
     console.log(
         chalk.yellow('Relaying the transaction and waiting for commit...')
