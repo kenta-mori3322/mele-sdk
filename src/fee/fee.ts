@@ -2,6 +2,7 @@ import * as Types from '../common'
 import Query from '../query'
 import { Signer } from '../signer'
 import { convertMessageType } from '../utils'
+import BigNumber from 'bignumber.js'
 
 export default class Fee {
     private defaultParams: any
@@ -43,9 +44,25 @@ export default class Fee {
         }
     }
 
-    calculateSystemFee(fee: number): number {
+    async calculateSystemFee(umelcFee: number, umelgFee: number): Promise<number> {
         let feePercentage = this._params.fee_percentage
-        let systemFee = Math.trunc(fee * feePercentage)
+        let systemFee = Math.trunc(umelcFee * feePercentage)
+
+        if (umelgFee > 0) {
+            let supply = await this.query.supply.getSupplyOf('umelg')
+
+            let melgSupply = new BigNumber(supply.amount)
+
+		    let totalPercentage = new BigNumber(umelgFee).div(melgSupply)
+
+		    let totalUmelgFee = totalPercentage.times(new BigNumber(0.01)).times(melgSupply)
+
+            let melgPriceInMelc = new BigNumber(2.677)
+
+		    let totalUmelcFee = totalUmelgFee.times(melgPriceInMelc).integerValue().toNumber()
+
+		    systemFee = systemFee + totalUmelcFee
+        }
 
         let minimumFee = this._params.minimum_fee
         let maximumFee = this._params.maximum_fee
@@ -62,31 +79,31 @@ export default class Fee {
     }
 
     async calculateFees(msgs: any[]): Promise<number> {
-        let txFees = 0
         let systemFees = 0
 
         const feePayer = this.signer.getAddress()
 
         for (let i = 0; i < msgs.length; i++) {
-            let msgFee = 0
+            let msgFeeUmelc = 0
+            let msgFeeUmelg = 0
 
             switch (msgs[i].typeUrl) {
                 case '/cosmos.bank.v1beta1.MsgSend':
-                    msgFee += Number(msgs[i].value.amount[0].amount)
+                    msgFeeUmelc += Number((msgs[i].value.amount.find(z => z.denom === 'umelc') || {}).amount || 0)
+                    msgFeeUmelg += Number((msgs[i].value.amount.find(z => z.denom === 'umelg') || {}).amount || 0)
 
                     break
                 case '/cosmos.bank.v1beta1.MsgMultiSend':
                     for (let j = 0; j < msgs[i].value.inputs.length; j++) {
-                        msgFee += Number(msgs[i].value.inputs[j].coins[0].amount)
+                        msgFeeUmelc += Number((msgs[i].value.amount.find(z => z.denom === 'umelc') || {}).amount || 0)
+                        msgFeeUmelg += Number((msgs[i].value.amount.find(z => z.denom === 'umelg') || {}).amount || 0)
                     }
 
                     break
             }
 
-            txFees += msgFee
-
             if (this._params.fee_excluded_messages.indexOf(msgs[i].type) === -1) {
-                systemFees += this.calculateSystemFee(msgFee)
+                systemFees += await this.calculateSystemFee(msgFeeUmelc, msgFeeUmelg)
             }
         }
 
