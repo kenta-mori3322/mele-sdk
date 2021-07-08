@@ -36,9 +36,10 @@ export default [
                 stream: 'readable-stream',
                 'readable-stream': 'readableStream',
                 pbkdf2: 'pbkdf2',
+                libsodium: 'libsodium',
             },
         },
-        external: ['bip32', 'bip39', 'js-sha256', 'readable-stream', 'protobufjs'],
+        external: ['bip32', 'bip39', 'js-sha256', 'readable-stream', 'pbkdf2', 'libsodium', '@cosmjs/proto-signing'],
         onwarn: onWarn,
         plugins: [
             builtins(),
