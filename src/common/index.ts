@@ -326,4 +326,6 @@ export interface FeeParams {
     fee_percentage: string
     minimum_fee: SDKCoin[]
     maximum_fee: SDKCoin[]
+    melg_price: string
+    melg_fee_percentage: string
 }
