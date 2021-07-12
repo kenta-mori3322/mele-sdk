@@ -16,6 +16,8 @@ export default class Fee {
             minimum_fee: 200,
             maximum_fee: 100000000,
             fee_excluded_messages: [],
+            melg_fee_percentage: 0.01,
+            melg_price: 2.677,
         }
 
         this.query = query
@@ -34,6 +36,12 @@ export default class Fee {
         )
         this._params.maximum_fee = Number(
             ((feeParams.maximum_fee || [])[0] || {}).amount || this._params.maximum_fee
+        )
+        this._params.melg_fee_percentage = Number(
+            feeParams.melg_fee_percentage || this._params.melg_fee_percentage
+        )
+        this._params.melg_price = Number(
+            feeParams.melg_price || this._params.melg_price
         )
 
         let feeExcludedMessages: string[] = await this.query.fee.getExcludedMessages()
@@ -55,9 +63,9 @@ export default class Fee {
 
 		    let totalPercentage = new BigNumber(umelgFee).div(melgSupply)
 
-		    let totalUmelgFee = totalPercentage.times(new BigNumber(0.01)).times(melgSupply)
+		    let totalUmelgFee = totalPercentage.times(new BigNumber(this._params.melg_fee_percentage)).times(melgSupply)
 
-            let melgPriceInMelc = new BigNumber(2.677)
+            let melgPriceInMelc = new BigNumber(this._params.melg_price)
 
 		    let totalUmelcFee = totalUmelgFee.times(melgPriceInMelc).integerValue().toNumber()
 
