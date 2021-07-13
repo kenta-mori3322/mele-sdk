@@ -1,11 +1,11 @@
 {
   "name": "mele-sdk",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "JavaScript SDK wrapper for Mele Blockchain",
   "typings": "lib/index.d.ts",
   "main": "lib/mele-sdk.cjs.js",
   "module": "lib/mele-sdk.esm.js",
-  "browser": "lib/mele-sdk.umd.js",
+  "browser": "lib/mele-sdk.cjs.js",
   "files": [
     "lib"
   ],
