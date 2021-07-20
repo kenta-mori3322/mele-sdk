@@ -63,7 +63,7 @@ export default class Fee {
 
 		    let totalPercentage = new BigNumber(umelgFee).div(melgSupply)
 
-		    let totalUmelgFee = totalPercentage.times(new BigNumber(this._params.melg_fee_percentage)).times(melgSupply)
+		    let totalUmelgFee = totalPercentage.times(new BigNumber(this._params.melg_fee_percentage)).times(new BigNumber(umelgFee))
 
             let melgPriceInMelc = new BigNumber(this._params.melg_price)
 
