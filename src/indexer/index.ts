@@ -1,4 +1,3 @@
-import { convertValidatorPubKeyRaw } from '../utils'
 import IndexerApi from './api'
 
 interface IndexerOptions {
@@ -105,6 +104,14 @@ interface Key {
     value: string
 }
 
+interface Account {
+    _id: string
+    address: string,
+    amountMelg: string,
+    amountMelx: string,
+    txHash: string
+}
+
 export default class Indexer {
     private _opts: IndexerOptions
 
@@ -162,5 +169,9 @@ export default class Indexer {
 
     async burns(query: any = {}): Promise<Burn[]> {
         return IndexerApi.get(this._opts.endpoint, 'burns', query)
+    }
+
+    async accounts(query: any = {}): Promise<Account[]> {
+        return IndexerApi.get(this._opts.endpoint, 'accounts', query)
     }
 }

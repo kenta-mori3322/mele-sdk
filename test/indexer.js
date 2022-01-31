@@ -145,5 +145,11 @@ describe('Mele Indexer', function () {
 
             assert.ok(data)
         })
+
+        it('Accounts can be fetched', async () => {
+            const data = await mele.indexer.accounts()
+
+            assert.ok(data)
+        })
     })
 })
