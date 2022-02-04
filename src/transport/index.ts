@@ -25,7 +25,7 @@ export class Transport implements ITransport {
         this._rpc = new Rpc(opt.nodeUrl)
         this._nodeUrl = opt.nodeUrl
 
-        this._lcdUrl = this._nodeUrl.replace('26657', '1317')
+        this._lcdUrl = this._nodeUrl.replace('26657', '443')
     }
 
     block(height: number): Promise<ResultBlock> {
