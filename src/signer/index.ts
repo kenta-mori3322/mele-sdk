@@ -1,4 +1,4 @@
-import type { Signer } from './signer'
+import * as Signer from './signer'
 
 import { DefaultSigner } from './default'
 import { KeyPairSigner } from './keyPair'
