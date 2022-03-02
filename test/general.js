@@ -213,14 +213,14 @@ describe('Mele Blockchain', function () {
 
                 assert.ok(newAcc1.value)
                 assert.ok(
-                    Number(newAcc1.value.coins[0].amount) ===
-                        Number(acc1.value.coins[0].amount) - amount - fees
+                    Number(newAcc1.value.coins.find(item => item.denom == 'umelc')?.amount) ===
+                        Number(acc1.value.coins.find(item => item.denom == 'umelc')?.amount) - amount - fees
                 )
-
+                
                 assert.ok(newAcc2.value)
                 assert.ok(
-                    Number(newAcc2.value.coins[0].amount) ===
-                        Number(acc2.value.coins[0].amount) + amount
+                    Number(newAcc2.value.coins.find(item => item.denom == 'umelc')?.amount) ===
+                        Number(acc2.value.coins.find(item => item.denom == 'umelc')?.amount) + amount
                 )
 
                 txHash = tx.hash
@@ -410,11 +410,11 @@ describe('Mele Blockchain', function () {
                 assert.ok(res)
             })
 
-            it('Distribution burned pool can be fetched', async () => {
-                let res = await mele.query.distribution.getBurnedPool()
+            // it('Distribution burned pool can be fetched', async () => {
+            //     let res = await mele.query.distribution.getBurnedPool()
 
-                assert.ok(res)
-            })
+            //     assert.ok(res)
+            // })
 
             it('Validator rewards can be fetched', async () => {
                 let res = await mele.query.distribution.getValidatorOutstandingRewards(
@@ -1021,7 +1021,7 @@ describe('Mele Blockchain', function () {
                         'ProposalTestDescription',
                         {
                             name: 'TestUpgrade',
-                            height: Long.fromNumber(10000),
+                            height: Long.fromNumber(1000000),
                             info: 'Software upgrade test',
                         }
                     )
@@ -1387,7 +1387,7 @@ describe('Mele Blockchain', function () {
                         'ProposalTestDescription',
                         {
                             name: 'TestUpgrade',
-                            height: Long.fromNumber(10000),
+                            height: Long.fromNumber(1000000),
                             info: 'Software upgrade test',
                         }
                     )
@@ -1427,7 +1427,7 @@ describe('Mele Blockchain', function () {
                 assert.ok(plan)
 
                 assert.ok(plan.value.name === 'TestUpgrade')
-                assert.ok(plan.value.height === '10000')
+                assert.ok(plan.value.height === '1000000')
                 assert.ok(plan.value.info === 'Software upgrade test')
             })
 
