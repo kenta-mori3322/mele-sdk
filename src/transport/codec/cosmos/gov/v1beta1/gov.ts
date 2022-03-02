@@ -6,7 +6,7 @@ import { Duration } from '../../../google/protobuf/duration'
 import { Timestamp } from '../../../google/protobuf/timestamp'
 import { Coin } from '../../../cosmos/base/v1beta1/coin'
 
-export const protobufPackage = 'mele.gov.v1beta1'
+export const protobufPackage = 'cosmos.gov.v1beta1'
 
 /** VoteOption enumerates the valid vote options for a given governance proposal. */
 export enum VoteOption {

@@ -7,21 +7,21 @@ import Long from 'long'
 
 /**
  * Governance
- * @namespace mele.gov
+ * @namespace cosmos.gov
  * @type {object}
  * @memberof mele
  */
 
 export default class Gov extends TransactionApi {
     /**
-     * mele.gov.**vote**
+     * cosmos.gov.**vote**
      *
      * Vote for a given proposal.
      *
      * @param {number} proposalId - Proposal ID
      * @param {string} option - Vote option (yes | no | no_with_veto | abstain)
      *
-     * @memberof mele.gov
+     * @memberof cosmos.gov
      * @inner
      *
      * @name Vote
@@ -33,7 +33,7 @@ export default class Gov extends TransactionApi {
 
         const msgs = [
             {
-                typeUrl: '/mele.gov.v1beta1.MsgVote',
+                typeUrl: '/cosmos.gov.v1beta1.MsgVote',
                 value: {
                     proposalId: Long.fromNumber(proposalId),
                     voter: senderAddress,
@@ -45,14 +45,14 @@ export default class Gov extends TransactionApi {
         return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
     }
     /**
-     * mele.gov.**deposit**
+     * cosmos.gov.**deposit**
      *
      * Deposit an arbitrary amount of tokens to a given proposal.
      *
      * @param {number} proposalId - Proposal ID
      * @param {[SDKCoin]} amount - Amount of tokens
      *
-     * @memberof mele.gov
+     * @memberof cosmos.gov
      * @inner
      *
      * @name Deposit
@@ -64,7 +64,7 @@ export default class Gov extends TransactionApi {
 
         const msgs = [
             {
-                typeUrl: '/mele.gov.v1beta1.MsgDeposit',
+                typeUrl: '/cosmos.gov.v1beta1.MsgDeposit',
                 value: {
                     proposalId: Long.fromNumber(proposalId),
                     depositor: senderAddress,
@@ -76,7 +76,7 @@ export default class Gov extends TransactionApi {
         return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
     }
     /**
-     * mele.gov.**submitTextProposal**
+     * cosmos.gov.**submitTextProposal**
      *
      * Submit a text proposal.
      *
@@ -84,7 +84,7 @@ export default class Gov extends TransactionApi {
      * @param {string} title - Text proposal title
      * @param {string} description - Text proposal description
      *
-     * @memberof mele.gov
+     * @memberof cosmos.gov
      * @inner
      *
      * @name TextProposal
@@ -100,14 +100,14 @@ export default class Gov extends TransactionApi {
 
         const msgs = [
             {
-                typeUrl: '/mele.gov.v1beta1.MsgSubmitProposal',
+                typeUrl: '/cosmos.gov.v1beta1.MsgSubmitProposal',
                 value: {
                     proposer: senderAddress,
                     initialDeposit: initialDeposit,
                     content: {
-                        typeUrl: '/mele.gov.v1beta1.TextProposal',
+                        typeUrl: '/cosmos.gov.v1beta1.TextProposal',
                         value: getRegistry().encode({
-                            typeUrl: '/mele.gov.v1beta1.TextProposal',
+                            typeUrl: '/cosmos.gov.v1beta1.TextProposal',
                             value: {
                                 title: title,
                                 description: description,
@@ -121,7 +121,7 @@ export default class Gov extends TransactionApi {
         return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
     }
     /**
-     * mele.gov.**submitParameterChangeProposal**
+     * cosmos.gov.**submitParameterChangeProposal**
      *
      * Submit a parameter proposal.
      *
@@ -130,7 +130,7 @@ export default class Gov extends TransactionApi {
      * @param {string} description - Text proposal description
      * @param {[ParamChange]} changes - Parameter changes
      *
-     * @memberof mele.gov
+     * @memberof cosmos.gov
      * @inner
      *
      * @name ParameterChangeProposal
@@ -147,7 +147,7 @@ export default class Gov extends TransactionApi {
 
         const msgs = [
             {
-                typeUrl: '/mele.gov.v1beta1.MsgSubmitProposal',
+                typeUrl: '/cosmos.gov.v1beta1.MsgSubmitProposal',
                 value: {
                     proposer: senderAddress,
                     initialDeposit: initialDeposit,
@@ -169,7 +169,7 @@ export default class Gov extends TransactionApi {
         return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
     }
     /**
-     * mele.gov.**submitCommunityPoolSpendProposal**
+     * cosmos.gov.**submitCommunityPoolSpendProposal**
      *
      * Submit a community pool spend proposal.
      *
@@ -179,7 +179,7 @@ export default class Gov extends TransactionApi {
      * @param {string} recipient - Recipient address
      * @param {[SDKCoin]} amount - Amount of tokens to transfer.
      *
-     * @memberof mele.gov
+     * @memberof cosmos.gov
      * @inner
      *
      * @name CommunityPoolSpendProposal
@@ -197,14 +197,14 @@ export default class Gov extends TransactionApi {
 
         const msgs = [
             {
-                typeUrl: '/mele.gov.v1beta1.MsgSubmitProposal',
+                typeUrl: '/cosmos.gov.v1beta1.MsgSubmitProposal',
                 value: {
                     proposer: senderAddress,
                     initialDeposit: initialDeposit,
                     content: {
-                        typeUrl: '/mele.distribution.v1beta1.CommunityPoolSpendProposal',
+                        typeUrl: '/cosmos.distribution.v1beta1.CommunityPoolSpendProposal',
                         value: getRegistry().encode({
-                            typeUrl: '/mele.distribution.v1beta1.CommunityPoolSpendProposal',
+                            typeUrl: '/cosmos.distribution.v1beta1.CommunityPoolSpendProposal',
                             value: {
                                 title: title,
                                 description: description,
@@ -220,7 +220,7 @@ export default class Gov extends TransactionApi {
         return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
     }
     /**
-     * mele.gov.**submitBurnedPoolSpendProposal**
+     * cosmos.gov.**submitBurnedPoolSpendProposal**
      *
      * Submit a burned pool spend proposal.
      *
@@ -230,7 +230,7 @@ export default class Gov extends TransactionApi {
      * @param {string} recipient - Recipient address
      * @param {[SDKCoin]} amount - Amount of tokens to transfer.
      *
-     * @memberof mele.gov
+     * @memberof cosmos.gov
      * @inner
      *
      * @name BurnedPoolSpendProposal
@@ -248,14 +248,14 @@ export default class Gov extends TransactionApi {
 
         const msgs = [
             {
-                typeUrl: '/mele.gov.v1beta1.MsgSubmitProposal',
+                typeUrl: '/cosmos.gov.v1beta1.MsgSubmitProposal',
                 value: {
                     proposer: senderAddress,
                     initialDeposit: initialDeposit,
                     content: {
-                        typeUrl: '/mele.distribution.v1beta1.BurnedPoolSpendProposal',
+                        typeUrl: '/cosmos.distribution.v1beta1.BurnedPoolSpendProposal',
                         value: getRegistry().encode({
-                            typeUrl: '/mele.distribution.v1beta1.BurnedPoolSpendProposal',
+                            typeUrl: '/cosmos.distribution.v1beta1.BurnedPoolSpendProposal',
                             value: {
                                 title: title,
                                 description: description,
@@ -271,7 +271,7 @@ export default class Gov extends TransactionApi {
         return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
     }
     /**
-     * mele.gov.**submitMintTreasurySupplyProposal**
+     * cosmos.gov.**submitMintTreasurySupplyProposal**
      *
      * Submit a mint treasury supply proposal.
      *
@@ -280,7 +280,7 @@ export default class Gov extends TransactionApi {
      * @param {string} description - Text proposal description
      * @param {[SDKCoin]} amount - Amount of tokens to transfer.
      *
-     * @memberof mele.gov
+     * @memberof cosmos.gov
      * @inner
      *
      * @name MintTreasurySupplyProposal
@@ -297,7 +297,7 @@ export default class Gov extends TransactionApi {
 
         const msgs = [
             {
-                typeUrl: '/mele.gov.v1beta1.MsgSubmitProposal',
+                typeUrl: '/cosmos.gov.v1beta1.MsgSubmitProposal',
                 value: {
                     proposer: senderAddress,
                     initialDeposit: initialDeposit,
@@ -319,7 +319,7 @@ export default class Gov extends TransactionApi {
         return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
     }
     /**
-     * mele.gov.**submitBurnTreasurySupplyProposal**
+     * cosmos.gov.**submitBurnTreasurySupplyProposal**
      *
      * Submit a burn treasury supply proposal.
      *
@@ -328,7 +328,7 @@ export default class Gov extends TransactionApi {
      * @param {string} description - Text proposal description
      * @param {[SDKCoin]} amount - Amount of tokens to transfer.
      *
-     * @memberof mele.gov
+     * @memberof cosmos.gov
      * @inner
      *
      * @name BurnTreasurySupplyProposal
@@ -345,7 +345,7 @@ export default class Gov extends TransactionApi {
 
         const msgs = [
             {
-                typeUrl: '/mele.gov.v1beta1.MsgSubmitProposal',
+                typeUrl: '/cosmos.gov.v1beta1.MsgSubmitProposal',
                 value: {
                     proposer: senderAddress,
                     initialDeposit: initialDeposit,
@@ -367,7 +367,7 @@ export default class Gov extends TransactionApi {
         return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
     }
     /**
-     * mele.gov.**submitSoftwareUpgradeProposal**
+     * cosmos.gov.**submitSoftwareUpgradeProposal**
      *
      * Submit a software upgrade proposal.
      *
@@ -376,7 +376,7 @@ export default class Gov extends TransactionApi {
      * @param {string} description - Text proposal description
      * @param {UpgradePlan} plan - Upgrade plan.
      *
-     * @memberof mele.gov
+     * @memberof cosmos.gov
      * @inner
      *
      * @name SoftwareUpgradeProposal
@@ -393,14 +393,14 @@ export default class Gov extends TransactionApi {
 
         const msgs = [
             {
-                typeUrl: '/mele.gov.v1beta1.MsgSubmitProposal',
+                typeUrl: '/cosmos.gov.v1beta1.MsgSubmitProposal',
                 value: {
                     proposer: senderAddress,
                     initialDeposit: initialDeposit,
                     content: {
-                        typeUrl: '/mele.upgrade.v1beta1.SoftwareUpgradeProposal',
+                        typeUrl: '/cosmos.upgrade.v1beta1.SoftwareUpgradeProposal',
                         value: getRegistry().encode({
-                            typeUrl: '/mele.upgrade.v1beta1.SoftwareUpgradeProposal',
+                            typeUrl: '/cosmos.upgrade.v1beta1.SoftwareUpgradeProposal',
                             value: {
                                 title: title,
                                 description: description,
@@ -419,7 +419,7 @@ export default class Gov extends TransactionApi {
         return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
     }
     /**
-     * mele.gov.**submitCancelSoftwareUpgradeProposal**
+     * cosmos.gov.**submitCancelSoftwareUpgradeProposal**
      *
      * Submit a cancel software upgrade proposal.
      *
@@ -427,7 +427,7 @@ export default class Gov extends TransactionApi {
      * @param {string} title - Text proposal title
      * @param {string} description - Text proposal description
      *
-     * @memberof mele.gov
+     * @memberof cosmos.gov
      * @inner
      *
      * @name CancelSoftwareUpgradeProposal
@@ -443,14 +443,14 @@ export default class Gov extends TransactionApi {
 
         const msgs = [
             {
-                typeUrl: '/mele.gov.v1beta1.MsgSubmitProposal',
+                typeUrl: '/cosmos.gov.v1beta1.MsgSubmitProposal',
                 value: {
                     proposer: senderAddress,
                     initialDeposit: initialDeposit,
                     content: {
-                        typeUrl: '/mele.upgrade.v1beta1.CancelSoftwareUpgradeProposal',
+                        typeUrl: '/cosmos.upgrade.v1beta1.CancelSoftwareUpgradeProposal',
                         value: getRegistry().encode({
-                            typeUrl: '/mele.upgrade.v1beta1.CancelSoftwareUpgradeProposal',
+                            typeUrl: '/cosmos.upgrade.v1beta1.CancelSoftwareUpgradeProposal',
                             value: {
                                 title: title,
                                 description: description,
@@ -464,7 +464,7 @@ export default class Gov extends TransactionApi {
         return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
     }
     /**
-     * mele.gov.**submitAddFeeExcludedMessage**
+     * cosmos.gov.**submitAddFeeExcludedMessage**
      *
      * Submit an add fee excluded message proposal.
      *
@@ -473,7 +473,7 @@ export default class Gov extends TransactionApi {
      * @param {string} description - Text proposal description
      * @param {string} messageType - Type of the message.
      *
-     * @memberof mele.gov
+     * @memberof cosmos.gov
      * @inner
      *
      * @name AddFeeExcludedMessageProposal
@@ -490,7 +490,7 @@ export default class Gov extends TransactionApi {
 
         const msgs = [
             {
-                typeUrl: '/mele.gov.v1beta1.MsgSubmitProposal',
+                typeUrl: '/cosmos.gov.v1beta1.MsgSubmitProposal',
                 value: {
                     proposer: senderAddress,
                     initialDeposit: initialDeposit,
@@ -512,7 +512,7 @@ export default class Gov extends TransactionApi {
         return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
     }
     /**
-     * mele.gov.**submitRemoveFeeExcludedMessage**
+     * cosmos.gov.**submitRemoveFeeExcludedMessage**
      *
      * Submit a remove fee excluded message proposal.
      *
@@ -521,7 +521,7 @@ export default class Gov extends TransactionApi {
      * @param {string} description - Text proposal description
      * @param {string} messageType - Type of the message.
      *
-     * @memberof mele.gov
+     * @memberof cosmos.gov
      * @inner
      *
      * @name RemoveFeeExcludedMessageProposal
@@ -538,7 +538,7 @@ export default class Gov extends TransactionApi {
 
         const msgs = [
             {
-                typeUrl: '/mele.gov.v1beta1.MsgSubmitProposal',
+                typeUrl: '/cosmos.gov.v1beta1.MsgSubmitProposal',
                 value: {
                     proposer: senderAddress,
                     initialDeposit: initialDeposit,

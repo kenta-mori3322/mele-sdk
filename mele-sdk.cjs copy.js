@@ -16086,8 +16086,8 @@ const defaultRegistryTypes = [
     ["/cosmos.upgrade.v1beta1.SoftwareUpgradeProposal", SoftwareUpgradeProposal],
     ["/cosmos.upgrade.v1beta1.CancelSoftwareUpgradeProposal", CancelSoftwareUpgradeProposal],
     ["/cosmos.upgrade.v1beta1.Plan", Plan],
-    ["/mele.fee.v1beta1.AddFeeExcludedMessageProposal", AddFeeExcludedMessageProposal],
-    ["/mele.fee.v1beta1.RemoveFeeExcludedMessageProposal", RemoveFeeExcludedMessageProposal],
+    ["/cosmos.fee.v1beta1.AddFeeExcludedMessageProposal", AddFeeExcludedMessageProposal],
+    ["/cosmos.fee.v1beta1.RemoveFeeExcludedMessageProposal", RemoveFeeExcludedMessageProposal],
 ];
 function createDefaultRegistry() {
     return new protoSigning.Registry(defaultRegistryTypes);
@@ -17039,9 +17039,9 @@ class Gov extends TransactionApi {
                     proposer: senderAddress,
                     initialDeposit: initialDeposit,
                     content: {
-                        typeUrl: '/mele.fee.v1beta1.AddFeeExcludedMessageProposal',
+                        typeUrl: '/cosmos.fee.v1beta1.AddFeeExcludedMessageProposal',
                         value: getRegistry().encode({
-                            typeUrl: '/mele.fee.v1beta1.AddFeeExcludedMessageProposal',
+                            typeUrl: '/cosmos.fee.v1beta1.AddFeeExcludedMessageProposal',
                             value: {
                                 title: title,
                                 description: description,
@@ -17063,9 +17063,9 @@ class Gov extends TransactionApi {
                     proposer: senderAddress,
                     initialDeposit: initialDeposit,
                     content: {
-                        typeUrl: '/mele.fee.v1beta1.RemoveFeeExcludedMessageProposal',
+                        typeUrl: '/cosmos.fee.v1beta1.RemoveFeeExcludedMessageProposal',
                         value: getRegistry().encode({
-                            typeUrl: '/mele.fee.v1beta1.RemoveFeeExcludedMessageProposal',
+                            typeUrl: '/cosmos.fee.v1beta1.RemoveFeeExcludedMessageProposal',
                             value: {
                                 title: title,
                                 description: description,
@@ -17107,7 +17107,7 @@ class Control extends TransactionApi {
         let senderAddress = this.broadcast.signer.getAddress();
         const msgs = [
             {
-                typeUrl: '/mele.control.v1beta1.MsgSubmitExecution',
+                typeUrl: '/cosmos.control.v1beta1.MsgSubmitExecution',
                 value: {
                     executor: senderAddress,
                     content: {
@@ -17277,9 +17277,9 @@ class Control extends TransactionApi {
                 value: {
                     proposer: senderAddress,
                     content: {
-                        typeUrl: '/mele.fee.v1beta1.AddFeeExcludedMessageProposal',
+                        typeUrl: '/cosmos.fee.v1beta1.AddFeeExcludedMessageProposal',
                         value: getRegistry().encode({
-                            typeUrl: '/mele.fee.v1beta1.AddFeeExcludedMessageProposal',
+                            typeUrl: '/cosmos.fee.v1beta1.AddFeeExcludedMessageProposal',
                             value: {
                                 title: title,
                                 description: description,
@@ -17300,9 +17300,9 @@ class Control extends TransactionApi {
                 value: {
                     proposer: senderAddress,
                     content: {
-                        typeUrl: '/mele.fee.v1beta1.RemoveFeeExcludedMessageProposal',
+                        typeUrl: '/cosmos.fee.v1beta1.RemoveFeeExcludedMessageProposal',
                         value: getRegistry().encode({
-                            typeUrl: '/mele.fee.v1beta1.RemoveFeeExcludedMessageProposal',
+                            typeUrl: '/cosmos.fee.v1beta1.RemoveFeeExcludedMessageProposal',
                             value: {
                                 title: title,
                                 description: description,

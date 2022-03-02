@@ -4,7 +4,7 @@ import _m0 from 'protobufjs/minimal'
 import { Plan } from '../../../cosmos/upgrade/v1beta1/upgrade'
 import { Any } from '../../../google/protobuf/any'
 
-export const protobufPackage = 'mele.upgrade.v1beta1'
+export const protobufPackage = 'cosmos.upgrade.v1beta1'
 
 /**
  * QueryCurrentPlanRequest is the request type for the Query/CurrentPlan RPC
@@ -515,7 +515,7 @@ export class QueryClientImpl implements Query {
     ): Promise<QueryCurrentPlanResponse> {
         const data = QueryCurrentPlanRequest.encode(request).finish()
         const promise = this.rpc.request(
-            'mele.upgrade.v1beta1.Query',
+            'cosmos.upgrade.v1beta1.Query',
             'CurrentPlan',
             data
         )
@@ -529,7 +529,7 @@ export class QueryClientImpl implements Query {
     ): Promise<QueryAppliedPlanResponse> {
         const data = QueryAppliedPlanRequest.encode(request).finish()
         const promise = this.rpc.request(
-            'mele.upgrade.v1beta1.Query',
+            'cosmos.upgrade.v1beta1.Query',
             'AppliedPlan',
             data
         )
@@ -543,7 +543,7 @@ export class QueryClientImpl implements Query {
     ): Promise<QueryUpgradedConsensusStateResponse> {
         const data = QueryUpgradedConsensusStateRequest.encode(request).finish()
         const promise = this.rpc.request(
-            'mele.upgrade.v1beta1.Query',
+            'cosmos.upgrade.v1beta1.Query',
             'UpgradedConsensusState',
             data
         )

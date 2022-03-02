@@ -4,7 +4,7 @@ import _m0 from 'protobufjs/minimal'
 import { Any } from '../../../google/protobuf/any'
 import { Timestamp } from '../../../google/protobuf/timestamp'
 
-export const protobufPackage = 'mele.upgrade.v1beta1'
+export const protobufPackage = 'cosmos.upgrade.v1beta1'
 
 /** Plan specifies information about a planned upgrade and when it should occur. */
 export interface Plan {

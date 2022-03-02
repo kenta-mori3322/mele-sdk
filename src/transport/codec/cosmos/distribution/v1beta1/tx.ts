@@ -3,7 +3,7 @@ import Long from 'long'
 import _m0 from 'protobufjs/minimal'
 import { Coin } from '../../../cosmos/base/v1beta1/coin'
 
-export const protobufPackage = 'mele.distribution.v1beta1'
+export const protobufPackage = 'cosmos.distribution.v1beta1'
 
 /**
  * MsgSetWithdrawAddress sets the withdraw address for
@@ -681,7 +681,7 @@ export class MsgClientImpl implements Msg {
     ): Promise<MsgSetWithdrawAddressResponse> {
         const data = MsgSetWithdrawAddress.encode(request).finish()
         const promise = this.rpc.request(
-            'mele.distribution.v1beta1.Msg',
+            'cosmos.distribution.v1beta1.Msg',
             'SetWithdrawAddress',
             data
         )
@@ -695,7 +695,7 @@ export class MsgClientImpl implements Msg {
     ): Promise<MsgWithdrawDelegatorRewardResponse> {
         const data = MsgWithdrawDelegatorReward.encode(request).finish()
         const promise = this.rpc.request(
-            'mele.distribution.v1beta1.Msg',
+            'cosmos.distribution.v1beta1.Msg',
             'WithdrawDelegatorReward',
             data
         )
@@ -709,7 +709,7 @@ export class MsgClientImpl implements Msg {
     ): Promise<MsgWithdrawValidatorCommissionResponse> {
         const data = MsgWithdrawValidatorCommission.encode(request).finish()
         const promise = this.rpc.request(
-            'mele.distribution.v1beta1.Msg',
+            'cosmos.distribution.v1beta1.Msg',
             'WithdrawValidatorCommission',
             data
         )
@@ -723,7 +723,7 @@ export class MsgClientImpl implements Msg {
     ): Promise<MsgFundCommunityPoolResponse> {
         const data = MsgFundCommunityPool.encode(request).finish()
         const promise = this.rpc.request(
-            'mele.distribution.v1beta1.Msg',
+            'cosmos.distribution.v1beta1.Msg',
             'FundCommunityPool',
             data
         )

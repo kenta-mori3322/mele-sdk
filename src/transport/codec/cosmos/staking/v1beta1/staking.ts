@@ -7,7 +7,7 @@ import { Coin } from "../../../cosmos/base/v1beta1/coin";
 import { Timestamp } from "../../../google/protobuf/timestamp";
 import _m0 from "protobufjs/minimal";
 
-export const protobufPackage = "mele.staking.v1beta1";
+export const protobufPackage = "cosmos.staking.v1beta1";
 
 /** BondStatus is the status of a validator. */
 export enum BondStatus {

@@ -9,7 +9,7 @@ import {
 } from '../../../cosmos/gov/v1beta1/gov'
 import { Coin } from '../../../cosmos/base/v1beta1/coin'
 
-export const protobufPackage = 'mele.gov.v1beta1'
+export const protobufPackage = 'cosmos.gov.v1beta1'
 
 /**
  * MsgSubmitProposal defines an sdk.Msg type that supports submitting arbitrary
@@ -537,7 +537,7 @@ export class MsgClientImpl implements Msg {
     ): Promise<MsgSubmitProposalResponse> {
         const data = MsgSubmitProposal.encode(request).finish()
         const promise = this.rpc.request(
-            'mele.gov.v1beta1.Msg',
+            'cosmos.gov.v1beta1.Msg',
             'SubmitProposal',
             data
         )
@@ -548,7 +548,7 @@ export class MsgClientImpl implements Msg {
 
     Vote(request: MsgVote): Promise<MsgVoteResponse> {
         const data = MsgVote.encode(request).finish()
-        const promise = this.rpc.request('mele.gov.v1beta1.Msg', 'Vote', data)
+        const promise = this.rpc.request('cosmos.gov.v1beta1.Msg', 'Vote', data)
         return promise.then(data =>
             MsgVoteResponse.decode(new _m0.Reader(data))
         )
@@ -557,7 +557,7 @@ export class MsgClientImpl implements Msg {
     Deposit(request: MsgDeposit): Promise<MsgDepositResponse> {
         const data = MsgDeposit.encode(request).finish()
         const promise = this.rpc.request(
-            'mele.gov.v1beta1.Msg',
+            'cosmos.gov.v1beta1.Msg',
             'Deposit',
             data
         )

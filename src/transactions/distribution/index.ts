@@ -3,20 +3,20 @@ import { Transaction, TransactionApi } from '../index'
 
 /**
  * Distribution
- * @namespace mele.distribution
+ * @namespace cosmos.distribution
  * @type {object}
  * @memberof mele
  */
 
 export default class Distribution extends TransactionApi {
     /**
-     * mele.distribution.**withdrawDelegationReward**
+     * cosmos.distribution.**withdrawDelegationReward**
      *
      * Withdraw delegator reward from given validator.
      *
      * @param {string} validator - Validator address
      *
-     * @memberof mele.distribution
+     * @memberof cosmos.distribution
      * @inner
      *
      * @name WithdrawDelegationReward
@@ -28,7 +28,7 @@ export default class Distribution extends TransactionApi {
 
         const msgs = [
             {
-                typeUrl: '/mele.distribution.v1beta1.MsgWithdrawDelegatorReward',
+                typeUrl: '/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward',
                 value: {
                     delegatorAddress: senderAddress,
                     validatorAddress: validator,
@@ -40,13 +40,13 @@ export default class Distribution extends TransactionApi {
     }
 
     /**
-     * mele.distribution.**withdrawValidatorCommission**
+     * cosmos.distribution.**withdrawValidatorCommission**
      *
      * Withdraw validator commission.
      *
      * @param {string} validator - Validator address
      *
-     * @memberof mele.distribution
+     * @memberof cosmos.distribution
      * @inner
      *
      * @name WithdrawValidatorCommission
@@ -56,7 +56,7 @@ export default class Distribution extends TransactionApi {
     withdrawValidatorCommission(validator: string): Transaction {
         const msgs = [
             {
-                typeUrl: '/mele.distribution.v1beta1.MsgWithdrawValidatorCommission',
+                typeUrl: '/cosmos.distribution.v1beta1.MsgWithdrawValidatorCommission',
                 value: {
                     validatorAddress: validator,
                 },
@@ -67,13 +67,13 @@ export default class Distribution extends TransactionApi {
     }
 
     /**
-     * mele.distribution.**modifyWithdrawAddress**
+     * cosmos.distribution.**modifyWithdrawAddress**
      *
      * Modify delegator's withdraw address.
      *
      * @param {string} withdrawAddress - Withdraw address
      *
-     * @memberof mele.distribution
+     * @memberof cosmos.distribution
      * @inner
      *
      * @name ModifyWithdrawAddress
@@ -85,7 +85,7 @@ export default class Distribution extends TransactionApi {
 
         const msgs = [
             {
-                typeUrl: '/mele.distribution.v1beta1.MsgSetWithdrawAddress',
+                typeUrl: '/cosmos.distribution.v1beta1.MsgSetWithdrawAddress',
                 value: {
                     delegatorAddress: senderAddress,
                     withdrawAddress: withdrawAddress,
@@ -97,13 +97,13 @@ export default class Distribution extends TransactionApi {
     }
 
     /**
-     * mele.distribution.**fundCommunityPool**
+     * cosmos.distribution.**fundCommunityPool**
      *
      * Send tokens to the community pool.
      *
      * @param {string} amount - Amount to send
      *
-     * @memberof mele.distribution
+     * @memberof cosmos.distribution
      * @inner
      *
      * @name FundCommunityPool
@@ -115,7 +115,7 @@ export default class Distribution extends TransactionApi {
 
         const msgs = [
             {
-                typeUrl: '/mele.distribution.v1beta1.MsgFundCommunityPool',
+                typeUrl: '/cosmos.distribution.v1beta1.MsgFundCommunityPool',
                 value: {
                     amount: amount,
                     depositor: senderAddress,

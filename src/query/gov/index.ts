@@ -3,7 +3,7 @@ import { ITransport } from '../../transport'
 
 const Keys = {
     Query: {
-        QueryPath: 'mgov',
+        QueryPath: 'gov',
 
         ParametersPath: 'params',
         ProposalsPath: 'proposals',

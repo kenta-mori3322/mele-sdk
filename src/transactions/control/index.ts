@@ -40,9 +40,9 @@ export default class Control extends TransactionApi {
                 value: {
                     executor: senderAddress,
                     content: {
-                        typeUrl: '/mele.gov.v1beta1.TextProposal',
+                        typeUrl: '/cosmos.gov.v1beta1.TextProposal',
                         value: getRegistry().encode({
-                            typeUrl: '/mele.gov.v1beta1.TextProposal',
+                            typeUrl: '/cosmos.gov.v1beta1.TextProposal',
                             value: {
                                 title: title,
                                 description: description,
@@ -131,9 +131,9 @@ export default class Control extends TransactionApi {
                 value: {
                     executor: senderAddress,
                     content: {
-                        typeUrl: '/mele.distribution.v1beta1.CommunityPoolSpendProposal',
+                        typeUrl: '/cosmos.distribution.v1beta1.CommunityPoolSpendProposal',
                         value: getRegistry().encode({
-                            typeUrl: '/mele.distribution.v1beta1.CommunityPoolSpendProposal',
+                            typeUrl: '/cosmos.distribution.v1beta1.CommunityPoolSpendProposal',
                             value: {
                                 title: title,
                                 description: description,
@@ -179,9 +179,9 @@ export default class Control extends TransactionApi {
                 value: {
                     executor: senderAddress,
                     content: {
-                        typeUrl: '/mele.distribution.v1beta1.BurnedPoolSpendProposal',
+                        typeUrl: '/cosmos.distribution.v1beta1.BurnedPoolSpendProposal',
                         value: getRegistry().encode({
-                            typeUrl: '/mele.distribution.v1beta1.BurnedPoolSpendProposal',
+                            typeUrl: '/cosmos.distribution.v1beta1.BurnedPoolSpendProposal',
                             value: {
                                 title: title,
                                 description: description,
@@ -315,9 +315,9 @@ export default class Control extends TransactionApi {
                 value: {
                     executor: senderAddress,
                     content: {
-                        typeUrl: '/mele.upgrade.v1beta1.SoftwareUpgradeProposal',
+                        typeUrl: '/cosmos.upgrade.v1beta1.SoftwareUpgradeProposal',
                         value: getRegistry().encode({
-                            typeUrl: '/mele.upgrade.v1beta1.SoftwareUpgradeProposal',
+                            typeUrl: '/cosmos.upgrade.v1beta1.SoftwareUpgradeProposal',
                             value: {
                                 title: title,
                                 description: description,
@@ -362,9 +362,9 @@ export default class Control extends TransactionApi {
                 value: {
                     executor: senderAddress,
                     content: {
-                        typeUrl: '/mele.upgrade.v1beta1.CancelSoftwareUpgradeProposal',
+                        typeUrl: '/cosmos.upgrade.v1beta1.CancelSoftwareUpgradeProposal',
                         value: getRegistry().encode({
-                            typeUrl: '/mele.upgrade.v1beta1.CancelSoftwareUpgradeProposal',
+                            typeUrl: '/cosmos.upgrade.v1beta1.CancelSoftwareUpgradeProposal',
                             value: {
                                 title: title,
                                 description: description,

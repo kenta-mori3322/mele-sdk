@@ -666,7 +666,7 @@ describe('Mele Blockchain', function () {
                 assert.ok(aProposal)
 
                 assert.ok(aProposal.content)
-                assert.ok(aProposal.content.type === 'cosmos-sdk/TextProposal')
+                assert.ok(aProposal.content.type === 'gov/TextProposal')
                 assert.ok(aProposal.content.value)
                 assert.ok(aProposal.content.value.title === 'ProposalTestTitle')
                 assert.ok(
@@ -972,7 +972,7 @@ describe('Mele Blockchain', function () {
                         'ProposalTestDescription',
                         [
                             {
-                                subspace: 'mstaking',
+                                subspace: 'staking',
                                 key: 'MaxValidators',
                                 value: '105',
                             },
@@ -1344,7 +1344,7 @@ describe('Mele Blockchain', function () {
                         'ExecutionTestDescription',
                         [
                             {
-                                subspace: 'mstaking',
+                                subspace: 'staking',
                                 key: 'MaxValidators',
                                 value: '105',
                             },

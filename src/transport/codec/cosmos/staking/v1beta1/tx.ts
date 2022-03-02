@@ -6,7 +6,7 @@ import { Timestamp } from "../../../google/protobuf/timestamp";
 import Long from "long";
 import _m0 from "protobufjs/minimal";
 
-export const protobufPackage = "mele.staking.v1beta1";
+export const protobufPackage = "cosmos.staking.v1beta1";
 
 /** MsgCreateValidator defines a SDK message for creating a new validator. */
 export interface MsgCreateValidator {

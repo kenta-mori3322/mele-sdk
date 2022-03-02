@@ -14,7 +14,7 @@ import {
 } from '../../../cosmos/base/query/v1beta1/pagination'
 import { DecCoin, Coin } from '../../../cosmos/base/v1beta1/coin'
 
-export const protobufPackage = 'mele.distribution.v1beta1'
+export const protobufPackage = 'cosmos.distribution.v1beta1'
 
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
 export interface QueryParamsRequest {}
@@ -1876,7 +1876,7 @@ export class QueryClientImpl implements Query {
     Params(request: QueryParamsRequest): Promise<QueryParamsResponse> {
         const data = QueryParamsRequest.encode(request).finish()
         const promise = this.rpc.request(
-            'mele.distribution.v1beta1.Query',
+            'cosmos.distribution.v1beta1.Query',
             'Params',
             data
         )
@@ -1892,7 +1892,7 @@ export class QueryClientImpl implements Query {
             request
         ).finish()
         const promise = this.rpc.request(
-            'mele.distribution.v1beta1.Query',
+            'cosmos.distribution.v1beta1.Query',
             'ValidatorOutstandingRewards',
             data
         )
@@ -1908,7 +1908,7 @@ export class QueryClientImpl implements Query {
     ): Promise<QueryValidatorCommissionResponse> {
         const data = QueryValidatorCommissionRequest.encode(request).finish()
         const promise = this.rpc.request(
-            'mele.distribution.v1beta1.Query',
+            'cosmos.distribution.v1beta1.Query',
             'ValidatorCommission',
             data
         )
@@ -1922,7 +1922,7 @@ export class QueryClientImpl implements Query {
     ): Promise<QueryValidatorSlashesResponse> {
         const data = QueryValidatorSlashesRequest.encode(request).finish()
         const promise = this.rpc.request(
-            'mele.distribution.v1beta1.Query',
+            'cosmos.distribution.v1beta1.Query',
             'ValidatorSlashes',
             data
         )
@@ -1936,7 +1936,7 @@ export class QueryClientImpl implements Query {
     ): Promise<QueryDelegationRewardsResponse> {
         const data = QueryDelegationRewardsRequest.encode(request).finish()
         const promise = this.rpc.request(
-            'mele.distribution.v1beta1.Query',
+            'cosmos.distribution.v1beta1.Query',
             'DelegationRewards',
             data
         )
@@ -1950,7 +1950,7 @@ export class QueryClientImpl implements Query {
     ): Promise<QueryDelegationTotalRewardsResponse> {
         const data = QueryDelegationTotalRewardsRequest.encode(request).finish()
         const promise = this.rpc.request(
-            'mele.distribution.v1beta1.Query',
+            'cosmos.distribution.v1beta1.Query',
             'DelegationTotalRewards',
             data
         )
@@ -1964,7 +1964,7 @@ export class QueryClientImpl implements Query {
     ): Promise<QueryDelegatorValidatorsResponse> {
         const data = QueryDelegatorValidatorsRequest.encode(request).finish()
         const promise = this.rpc.request(
-            'mele.distribution.v1beta1.Query',
+            'cosmos.distribution.v1beta1.Query',
             'DelegatorValidators',
             data
         )
@@ -1980,7 +1980,7 @@ export class QueryClientImpl implements Query {
             request
         ).finish()
         const promise = this.rpc.request(
-            'mele.distribution.v1beta1.Query',
+            'cosmos.distribution.v1beta1.Query',
             'DelegatorWithdrawAddress',
             data
         )
@@ -1994,7 +1994,7 @@ export class QueryClientImpl implements Query {
     ): Promise<QueryCommunityPoolResponse> {
         const data = QueryCommunityPoolRequest.encode(request).finish()
         const promise = this.rpc.request(
-            'mele.distribution.v1beta1.Query',
+            'cosmos.distribution.v1beta1.Query',
             'CommunityPool',
             data
         )
@@ -2008,7 +2008,7 @@ export class QueryClientImpl implements Query {
     ): Promise<QueryBurnedPoolResponse> {
         const data = QueryBurnedPoolRequest.encode(request).finish()
         const promise = this.rpc.request(
-            'mele.distribution.v1beta1.Query',
+            'cosmos.distribution.v1beta1.Query',
             'BurnedPool',
             data
         )

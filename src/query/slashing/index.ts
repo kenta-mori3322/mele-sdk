@@ -3,7 +3,7 @@ import { ITransport } from '../../transport'
 
 const Keys = {
     Query: {
-        QueryPath: 'mslashing',
+        QueryPath: 'slashing',
 
         ParametersPath: 'parameters',
         SigningInfoPath: 'signingInfo',

@@ -4,7 +4,7 @@ import MintQuery from '../mint'
 
 const Keys = {
     Query: {
-        QueryPath: 'mstaking',
+        QueryPath: 'staking',
 
         ValidatorsPath: 'validators',
         ValidatorPath: 'validator',

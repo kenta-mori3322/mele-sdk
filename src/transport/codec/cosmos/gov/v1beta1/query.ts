@@ -18,7 +18,7 @@ import {
     PageResponse,
 } from '../../../cosmos/base/query/v1beta1/pagination'
 
-export const protobufPackage = 'mele.gov.v1beta1'
+export const protobufPackage = 'cosmos.gov.v1beta1'
 
 /** QueryProposalRequest is the request type for the Query/Proposal RPC method. */
 export interface QueryProposalRequest {
@@ -1565,7 +1565,7 @@ export class QueryClientImpl implements Query {
     Proposal(request: QueryProposalRequest): Promise<QueryProposalResponse> {
         const data = QueryProposalRequest.encode(request).finish()
         const promise = this.rpc.request(
-            'mele.gov.v1beta1.Query',
+            'cosmos.gov.v1beta1.Query',
             'Proposal',
             data
         )
@@ -1577,7 +1577,7 @@ export class QueryClientImpl implements Query {
     Proposals(request: QueryProposalsRequest): Promise<QueryProposalsResponse> {
         const data = QueryProposalsRequest.encode(request).finish()
         const promise = this.rpc.request(
-            'mele.gov.v1beta1.Query',
+            'cosmos.gov.v1beta1.Query',
             'Proposals',
             data
         )
@@ -1588,7 +1588,7 @@ export class QueryClientImpl implements Query {
 
     Vote(request: QueryVoteRequest): Promise<QueryVoteResponse> {
         const data = QueryVoteRequest.encode(request).finish()
-        const promise = this.rpc.request('mele.gov.v1beta1.Query', 'Vote', data)
+        const promise = this.rpc.request('cosmos.gov.v1beta1.Query', 'Vote', data)
         return promise.then(data =>
             QueryVoteResponse.decode(new _m0.Reader(data))
         )
@@ -1597,7 +1597,7 @@ export class QueryClientImpl implements Query {
     Votes(request: QueryVotesRequest): Promise<QueryVotesResponse> {
         const data = QueryVotesRequest.encode(request).finish()
         const promise = this.rpc.request(
-            'mele.gov.v1beta1.Query',
+            'cosmos.gov.v1beta1.Query',
             'Votes',
             data
         )
@@ -1609,7 +1609,7 @@ export class QueryClientImpl implements Query {
     Params(request: QueryParamsRequest): Promise<QueryParamsResponse> {
         const data = QueryParamsRequest.encode(request).finish()
         const promise = this.rpc.request(
-            'mele.gov.v1beta1.Query',
+            'cosmos.gov.v1beta1.Query',
             'Params',
             data
         )
@@ -1621,7 +1621,7 @@ export class QueryClientImpl implements Query {
     Deposit(request: QueryDepositRequest): Promise<QueryDepositResponse> {
         const data = QueryDepositRequest.encode(request).finish()
         const promise = this.rpc.request(
-            'mele.gov.v1beta1.Query',
+            'cosmos.gov.v1beta1.Query',
             'Deposit',
             data
         )
@@ -1633,7 +1633,7 @@ export class QueryClientImpl implements Query {
     Deposits(request: QueryDepositsRequest): Promise<QueryDepositsResponse> {
         const data = QueryDepositsRequest.encode(request).finish()
         const promise = this.rpc.request(
-            'mele.gov.v1beta1.Query',
+            'cosmos.gov.v1beta1.Query',
             'Deposits',
             data
         )
@@ -1647,7 +1647,7 @@ export class QueryClientImpl implements Query {
     ): Promise<QueryTallyResultResponse> {
         const data = QueryTallyResultRequest.encode(request).finish()
         const promise = this.rpc.request(
-            'mele.gov.v1beta1.Query',
+            'cosmos.gov.v1beta1.Query',
             'TallyResult',
             data
         )
