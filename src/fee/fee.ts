@@ -1,8 +1,8 @@
+import BigNumber from 'bignumber.js'
 import * as Types from '../common'
 import Query from '../query'
 import { Signer } from '../signer'
 import { convertMessageType } from '../utils'
-import BigNumber from 'bignumber.js'
 
 export default class Fee {
     private defaultParams: any
@@ -40,9 +40,7 @@ export default class Fee {
         this._params.melg_fee_percentage = Number(
             feeParams.melg_fee_percentage || this._params.melg_fee_percentage
         )
-        this._params.melg_price = Number(
-            feeParams.melg_price || this._params.melg_price
-        )
+        this._params.melg_price = Number(feeParams.melg_price || this._params.melg_price)
 
         let feeExcludedMessages: string[] = await this.query.fee.getExcludedMessages()
         if (feeExcludedMessages && feeExcludedMessages.length) {
@@ -61,15 +59,17 @@ export default class Fee {
 
             let melgSupply = new BigNumber(supply.amount)
 
-		    let totalPercentage = new BigNumber(umelgFee).div(melgSupply)
+            let totalPercentage = new BigNumber(umelgFee).div(melgSupply)
 
-		    let totalUmelgFee = totalPercentage.times(new BigNumber(this._params.melg_fee_percentage)).times(new BigNumber(umelgFee))
+            let totalUmelgFee = totalPercentage
+                .times(new BigNumber(this._params.melg_fee_percentage))
+                .times(new BigNumber(umelgFee))
 
             let melgPriceInMelc = new BigNumber(this._params.melg_price)
 
-		    let totalUmelcFee = totalUmelgFee.times(melgPriceInMelc).integerValue().toNumber()
+            let totalUmelcFee = totalUmelgFee.times(melgPriceInMelc).integerValue().toNumber()
 
-		    systemFee = systemFee + totalUmelcFee
+            systemFee = systemFee + totalUmelcFee
         }
 
         let minimumFee = this._params.minimum_fee
@@ -97,14 +97,22 @@ export default class Fee {
 
             switch (msgs[i].typeUrl) {
                 case '/cosmos.bank.v1beta1.MsgSend':
-                    msgFeeUmelc += Number((msgs[i].value.amount.find(z => z.denom === 'umelc') || {}).amount || 0)
-                    msgFeeUmelg += Number((msgs[i].value.amount.find(z => z.denom === 'umelg') || {}).amount || 0)
+                    msgFeeUmelc += Number(
+                        (msgs[i].value.amount.find(z => z.denom === 'umelc') || {}).amount || 0
+                    )
+                    msgFeeUmelg += Number(
+                        (msgs[i].value.amount.find(z => z.denom === 'umelg') || {}).amount || 0
+                    )
 
                     break
                 case '/cosmos.bank.v1beta1.MsgMultiSend':
                     for (let j = 0; j < msgs[i].value.inputs.length; j++) {
-                        msgFeeUmelc += Number((msgs[i].value.amount.find(z => z.denom === 'umelc') || {}).amount || 0)
-                        msgFeeUmelg += Number((msgs[i].value.amount.find(z => z.denom === 'umelg') || {}).amount || 0)
+                        msgFeeUmelc += Number(
+                            (msgs[i].value.amount.find(z => z.denom === 'umelc') || {}).amount || 0
+                        )
+                        msgFeeUmelg += Number(
+                            (msgs[i].value.amount.find(z => z.denom === 'umelg') || {}).amount || 0
+                        )
                     }
 
                     break

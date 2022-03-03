@@ -24,10 +24,7 @@ export interface ParamChange {
 const baseParameterChangeProposal: object = { title: '', description: '' }
 
 export const ParameterChangeProposal = {
-    encode(
-        message: ParameterChangeProposal,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(message: ParameterChangeProposal, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         if (message.title !== '') {
             writer.uint32(10).string(message.title)
         }
@@ -40,12 +37,8 @@ export const ParameterChangeProposal = {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): ParameterChangeProposal {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): ParameterChangeProposal {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseParameterChangeProposal,
@@ -61,9 +54,7 @@ export const ParameterChangeProposal = {
                     message.description = reader.string()
                     break
                 case 3:
-                    message.changes.push(
-                        ParamChange.decode(reader, reader.uint32())
-                    )
+                    message.changes.push(ParamChange.decode(reader, reader.uint32()))
                     break
                 default:
                     reader.skipType(tag & 7)
@@ -99,21 +90,16 @@ export const ParameterChangeProposal = {
     toJSON(message: ParameterChangeProposal): unknown {
         const obj: any = {}
         message.title !== undefined && (obj.title = message.title)
-        message.description !== undefined &&
-            (obj.description = message.description)
+        message.description !== undefined && (obj.description = message.description)
         if (message.changes) {
-            obj.changes = message.changes.map(e =>
-                e ? ParamChange.toJSON(e) : undefined
-            )
+            obj.changes = message.changes.map(e => (e ? ParamChange.toJSON(e) : undefined))
         } else {
             obj.changes = []
         }
         return obj
     },
 
-    fromPartial(
-        object: DeepPartial<ParameterChangeProposal>
-    ): ParameterChangeProposal {
+    fromPartial(object: DeepPartial<ParameterChangeProposal>): ParameterChangeProposal {
         const message = {
             ...baseParameterChangeProposal,
         } as ParameterChangeProposal
@@ -140,10 +126,7 @@ export const ParameterChangeProposal = {
 const baseParamChange: object = { subspace: '', key: '', value: '' }
 
 export const ParamChange = {
-    encode(
-        message: ParamChange,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(message: ParamChange, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         if (message.subspace !== '') {
             writer.uint32(10).string(message.subspace)
         }
@@ -157,8 +140,7 @@ export const ParamChange = {
     },
 
     decode(input: _m0.Reader | Uint8Array, length?: number): ParamChange {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = { ...baseParamChange } as ParamChange
         while (reader.pos < end) {
@@ -230,15 +212,7 @@ export const ParamChange = {
     },
 }
 
-type Builtin =
-    | Date
-    | Function
-    | Uint8Array
-    | string
-    | number
-    | boolean
-    | undefined
-    | Long
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined | Long
 export type DeepPartial<T> = T extends Builtin
     ? T
     : T extends Array<infer U>

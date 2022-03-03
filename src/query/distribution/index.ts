@@ -15,7 +15,7 @@ const Keys = {
         WithdrawAddrPath: 'withdraw_addr',
         CommunityPoolPath: 'community_pool',
         BurnedPoolPath: 'burned_pool',
-    }
+    },
 }
 
 /**

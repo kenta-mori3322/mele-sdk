@@ -65,18 +65,12 @@ export interface CancelSoftwareUpgradeProposal {
 const basePlan: object = { name: '', height: Long.ZERO, info: '' }
 
 export const Plan = {
-    encode(
-        message: Plan,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(message: Plan, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         if (message.name !== '') {
             writer.uint32(10).string(message.name)
         }
         if (message.time !== undefined) {
-            Timestamp.encode(
-                toTimestamp(message.time),
-                writer.uint32(18).fork()
-            ).ldelim()
+            Timestamp.encode(toTimestamp(message.time), writer.uint32(18).fork()).ldelim()
         }
         if (!message.height.isZero()) {
             writer.uint32(24).int64(message.height)
@@ -85,17 +79,13 @@ export const Plan = {
             writer.uint32(34).string(message.info)
         }
         if (message.upgradedClientState !== undefined) {
-            Any.encode(
-                message.upgradedClientState,
-                writer.uint32(42).fork()
-            ).ldelim()
+            Any.encode(message.upgradedClientState, writer.uint32(42).fork()).ldelim()
         }
         return writer
     },
 
     decode(input: _m0.Reader | Uint8Array, length?: number): Plan {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = { ...basePlan } as Plan
         while (reader.pos < end) {
@@ -105,9 +95,7 @@ export const Plan = {
                     message.name = reader.string()
                     break
                 case 2:
-                    message.time = fromTimestamp(
-                        Timestamp.decode(reader, reader.uint32())
-                    )
+                    message.time = fromTimestamp(Timestamp.decode(reader, reader.uint32()))
                     break
                 case 3:
                     message.height = reader.int64() as Long
@@ -116,10 +104,7 @@ export const Plan = {
                     message.info = reader.string()
                     break
                 case 5:
-                    message.upgradedClientState = Any.decode(
-                        reader,
-                        reader.uint32()
-                    )
+                    message.upgradedClientState = Any.decode(reader, reader.uint32())
                     break
                 default:
                     reader.skipType(tag & 7)
@@ -151,13 +136,8 @@ export const Plan = {
         } else {
             message.info = ''
         }
-        if (
-            object.upgradedClientState !== undefined &&
-            object.upgradedClientState !== null
-        ) {
-            message.upgradedClientState = Any.fromJSON(
-                object.upgradedClientState
-            )
+        if (object.upgradedClientState !== undefined && object.upgradedClientState !== null) {
+            message.upgradedClientState = Any.fromJSON(object.upgradedClientState)
         } else {
             message.upgradedClientState = undefined
         }
@@ -168,8 +148,7 @@ export const Plan = {
         const obj: any = {}
         message.name !== undefined && (obj.name = message.name)
         message.time !== undefined && (obj.time = message.time.toISOString())
-        message.height !== undefined &&
-            (obj.height = (message.height || Long.ZERO).toString())
+        message.height !== undefined && (obj.height = (message.height || Long.ZERO).toString())
         message.info !== undefined && (obj.info = message.info)
         message.upgradedClientState !== undefined &&
             (obj.upgradedClientState = message.upgradedClientState
@@ -200,13 +179,8 @@ export const Plan = {
         } else {
             message.info = ''
         }
-        if (
-            object.upgradedClientState !== undefined &&
-            object.upgradedClientState !== null
-        ) {
-            message.upgradedClientState = Any.fromPartial(
-                object.upgradedClientState
-            )
+        if (object.upgradedClientState !== undefined && object.upgradedClientState !== null) {
+            message.upgradedClientState = Any.fromPartial(object.upgradedClientState)
         } else {
             message.upgradedClientState = undefined
         }
@@ -217,10 +191,7 @@ export const Plan = {
 const baseSoftwareUpgradeProposal: object = { title: '', description: '' }
 
 export const SoftwareUpgradeProposal = {
-    encode(
-        message: SoftwareUpgradeProposal,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(message: SoftwareUpgradeProposal, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         if (message.title !== '') {
             writer.uint32(10).string(message.title)
         }
@@ -233,12 +204,8 @@ export const SoftwareUpgradeProposal = {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): SoftwareUpgradeProposal {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): SoftwareUpgradeProposal {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseSoftwareUpgradeProposal,
@@ -288,16 +255,13 @@ export const SoftwareUpgradeProposal = {
     toJSON(message: SoftwareUpgradeProposal): unknown {
         const obj: any = {}
         message.title !== undefined && (obj.title = message.title)
-        message.description !== undefined &&
-            (obj.description = message.description)
+        message.description !== undefined && (obj.description = message.description)
         message.plan !== undefined &&
             (obj.plan = message.plan ? Plan.toJSON(message.plan) : undefined)
         return obj
     },
 
-    fromPartial(
-        object: DeepPartial<SoftwareUpgradeProposal>
-    ): SoftwareUpgradeProposal {
+    fromPartial(object: DeepPartial<SoftwareUpgradeProposal>): SoftwareUpgradeProposal {
         const message = {
             ...baseSoftwareUpgradeProposal,
         } as SoftwareUpgradeProposal
@@ -336,12 +300,8 @@ export const CancelSoftwareUpgradeProposal = {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): CancelSoftwareUpgradeProposal {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): CancelSoftwareUpgradeProposal {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseCancelSoftwareUpgradeProposal,
@@ -383,14 +343,11 @@ export const CancelSoftwareUpgradeProposal = {
     toJSON(message: CancelSoftwareUpgradeProposal): unknown {
         const obj: any = {}
         message.title !== undefined && (obj.title = message.title)
-        message.description !== undefined &&
-            (obj.description = message.description)
+        message.description !== undefined && (obj.description = message.description)
         return obj
     },
 
-    fromPartial(
-        object: DeepPartial<CancelSoftwareUpgradeProposal>
-    ): CancelSoftwareUpgradeProposal {
+    fromPartial(object: DeepPartial<CancelSoftwareUpgradeProposal>): CancelSoftwareUpgradeProposal {
         const message = {
             ...baseCancelSoftwareUpgradeProposal,
         } as CancelSoftwareUpgradeProposal
@@ -408,15 +365,7 @@ export const CancelSoftwareUpgradeProposal = {
     },
 }
 
-type Builtin =
-    | Date
-    | Function
-    | Uint8Array
-    | string
-    | number
-    | boolean
-    | undefined
-    | Long
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined | Long
 export type DeepPartial<T> = T extends Builtin
     ? T
     : T extends Array<infer U>

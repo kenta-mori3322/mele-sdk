@@ -71,10 +71,12 @@ interface Validator {
     mele_address: string
     total_blocks_count: number
     missed_blocks_count: number
-    last_blocks: [{
-        height: number
-        missed: boolean
-    }]
+    last_blocks: [
+        {
+            height: number
+            missed: boolean
+        }
+    ]
 }
 
 interface History {
@@ -106,9 +108,9 @@ interface Key {
 
 interface Account {
     _id: string
-    address: string,
-    amountMelg: string,
-    amountMelx: string,
+    address: string
+    amountMelg: string
+    amountMelx: string
     txHash: string
 }
 

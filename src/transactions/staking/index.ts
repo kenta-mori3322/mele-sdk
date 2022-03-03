@@ -1,5 +1,5 @@
 import { Coin } from '../../transport/codec/cosmos/base/v1beta1/coin'
-import { Description, CommissionRates } from '../../transport/codec/cosmos/staking/v1beta1/staking'
+import { CommissionRates, Description } from '../../transport/codec/cosmos/staking/v1beta1/staking'
 import { Transaction, TransactionApi } from '../index'
 
 /**
@@ -54,7 +54,11 @@ export default class Staking extends TransactionApi {
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
+        return new Transaction(
+            msgs,
+            msgs => this.broadcast.sendTransaction(msgs),
+            msgs => this.broadcast.calculateFees(msgs)
+        )
     }
 
     /**
@@ -92,7 +96,11 @@ export default class Staking extends TransactionApi {
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
+        return new Transaction(
+            msgs,
+            msgs => this.broadcast.sendTransaction(msgs),
+            msgs => this.broadcast.calculateFees(msgs)
+        )
     }
 
     /**
@@ -124,7 +132,11 @@ export default class Staking extends TransactionApi {
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
+        return new Transaction(
+            msgs,
+            msgs => this.broadcast.sendTransaction(msgs),
+            msgs => this.broadcast.calculateFees(msgs)
+        )
     }
 
     /**
@@ -156,7 +168,11 @@ export default class Staking extends TransactionApi {
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
+        return new Transaction(
+            msgs,
+            msgs => this.broadcast.sendTransaction(msgs),
+            msgs => this.broadcast.calculateFees(msgs)
+        )
     }
 
     /**
@@ -175,11 +191,7 @@ export default class Staking extends TransactionApi {
      *
      * @returns {Transaction} transaction - Transaction class instance.
      */
-    beginRedelegate(
-        srcValidator: string,
-        dstValidator: string,
-        amount: Coin,
-    ): Transaction {
+    beginRedelegate(srcValidator: string, dstValidator: string, amount: Coin): Transaction {
         let senderAddress = this.broadcast.signer.getAddress()
 
         const msgs = [
@@ -194,6 +206,10 @@ export default class Staking extends TransactionApi {
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
+        return new Transaction(
+            msgs,
+            msgs => this.broadcast.sendTransaction(msgs),
+            msgs => this.broadcast.calculateFees(msgs)
+        )
     }
 }

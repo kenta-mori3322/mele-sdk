@@ -76,10 +76,7 @@ export interface MsgApproveBurnResponse {}
 const baseMsgAddOperator: object = { sender: '', operator: '' }
 
 export const MsgAddOperator = {
-    encode(
-        message: MsgAddOperator,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(message: MsgAddOperator, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         if (message.sender !== '') {
             writer.uint32(10).string(message.sender)
         }
@@ -90,8 +87,7 @@ export const MsgAddOperator = {
     },
 
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgAddOperator {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = { ...baseMsgAddOperator } as MsgAddOperator
         while (reader.pos < end) {
@@ -152,19 +148,12 @@ export const MsgAddOperator = {
 const baseMsgAddOperatorResponse: object = {}
 
 export const MsgAddOperatorResponse = {
-    encode(
-        _: MsgAddOperatorResponse,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(_: MsgAddOperatorResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): MsgAddOperatorResponse {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgAddOperatorResponse {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseMsgAddOperatorResponse,
@@ -192,9 +181,7 @@ export const MsgAddOperatorResponse = {
         return obj
     },
 
-    fromPartial(
-        _: DeepPartial<MsgAddOperatorResponse>
-    ): MsgAddOperatorResponse {
+    fromPartial(_: DeepPartial<MsgAddOperatorResponse>): MsgAddOperatorResponse {
         const message = {
             ...baseMsgAddOperatorResponse,
         } as MsgAddOperatorResponse
@@ -205,10 +192,7 @@ export const MsgAddOperatorResponse = {
 const baseMsgRemoveOperator: object = { sender: '', operator: '' }
 
 export const MsgRemoveOperator = {
-    encode(
-        message: MsgRemoveOperator,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(message: MsgRemoveOperator, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         if (message.sender !== '') {
             writer.uint32(10).string(message.sender)
         }
@@ -219,8 +203,7 @@ export const MsgRemoveOperator = {
     },
 
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgRemoveOperator {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = { ...baseMsgRemoveOperator } as MsgRemoveOperator
         while (reader.pos < end) {
@@ -281,19 +264,12 @@ export const MsgRemoveOperator = {
 const baseMsgRemoveOperatorResponse: object = {}
 
 export const MsgRemoveOperatorResponse = {
-    encode(
-        _: MsgRemoveOperatorResponse,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(_: MsgRemoveOperatorResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): MsgRemoveOperatorResponse {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgRemoveOperatorResponse {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseMsgRemoveOperatorResponse,
@@ -321,9 +297,7 @@ export const MsgRemoveOperatorResponse = {
         return obj
     },
 
-    fromPartial(
-        _: DeepPartial<MsgRemoveOperatorResponse>
-    ): MsgRemoveOperatorResponse {
+    fromPartial(_: DeepPartial<MsgRemoveOperatorResponse>): MsgRemoveOperatorResponse {
         const message = {
             ...baseMsgRemoveOperatorResponse,
         } as MsgRemoveOperatorResponse
@@ -334,10 +308,7 @@ export const MsgRemoveOperatorResponse = {
 const baseMsgDisburse: object = { operator: '', recipient: '', reference: '' }
 
 export const MsgDisburse = {
-    encode(
-        message: MsgDisburse,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(message: MsgDisburse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         if (message.operator !== '') {
             writer.uint32(10).string(message.operator)
         }
@@ -354,8 +325,7 @@ export const MsgDisburse = {
     },
 
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgDisburse {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = { ...baseMsgDisburse } as MsgDisburse
         message.amount = []
@@ -413,9 +383,7 @@ export const MsgDisburse = {
         message.operator !== undefined && (obj.operator = message.operator)
         message.recipient !== undefined && (obj.recipient = message.recipient)
         if (message.amount) {
-            obj.amount = message.amount.map(e =>
-                e ? Coin.toJSON(e) : undefined
-            )
+            obj.amount = message.amount.map(e => (e ? Coin.toJSON(e) : undefined))
         } else {
             obj.amount = []
         }
@@ -453,19 +421,12 @@ export const MsgDisburse = {
 const baseMsgDisburseResponse: object = {}
 
 export const MsgDisburseResponse = {
-    encode(
-        _: MsgDisburseResponse,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(_: MsgDisburseResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): MsgDisburseResponse {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgDisburseResponse {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = { ...baseMsgDisburseResponse } as MsgDisburseResponse
         while (reader.pos < end) {
@@ -502,10 +463,7 @@ const baseMsgCancelDisbursement: object = {
 }
 
 export const MsgCancelDisbursement = {
-    encode(
-        message: MsgCancelDisbursement,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(message: MsgCancelDisbursement, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         if (message.manager !== '') {
             writer.uint32(10).string(message.manager)
         }
@@ -518,12 +476,8 @@ export const MsgCancelDisbursement = {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): MsgCancelDisbursement {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgCancelDisbursement {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseMsgCancelDisbursement,
@@ -574,14 +528,11 @@ export const MsgCancelDisbursement = {
         const obj: any = {}
         message.manager !== undefined && (obj.manager = message.manager)
         message.recipient !== undefined && (obj.recipient = message.recipient)
-        message.scheduledFor !== undefined &&
-            (obj.scheduledFor = message.scheduledFor)
+        message.scheduledFor !== undefined && (obj.scheduledFor = message.scheduledFor)
         return obj
     },
 
-    fromPartial(
-        object: DeepPartial<MsgCancelDisbursement>
-    ): MsgCancelDisbursement {
+    fromPartial(object: DeepPartial<MsgCancelDisbursement>): MsgCancelDisbursement {
         const message = {
             ...baseMsgCancelDisbursement,
         } as MsgCancelDisbursement
@@ -607,19 +558,12 @@ export const MsgCancelDisbursement = {
 const baseMsgCancelDisbursementResponse: object = {}
 
 export const MsgCancelDisbursementResponse = {
-    encode(
-        _: MsgCancelDisbursementResponse,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(_: MsgCancelDisbursementResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): MsgCancelDisbursementResponse {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgCancelDisbursementResponse {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseMsgCancelDisbursementResponse,
@@ -647,9 +591,7 @@ export const MsgCancelDisbursementResponse = {
         return obj
     },
 
-    fromPartial(
-        _: DeepPartial<MsgCancelDisbursementResponse>
-    ): MsgCancelDisbursementResponse {
+    fromPartial(_: DeepPartial<MsgCancelDisbursementResponse>): MsgCancelDisbursementResponse {
         const message = {
             ...baseMsgCancelDisbursementResponse,
         } as MsgCancelDisbursementResponse
@@ -664,10 +606,7 @@ const baseMsgApproveDisbursement: object = {
 }
 
 export const MsgApproveDisbursement = {
-    encode(
-        message: MsgApproveDisbursement,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(message: MsgApproveDisbursement, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         if (message.manager !== '') {
             writer.uint32(10).string(message.manager)
         }
@@ -680,12 +619,8 @@ export const MsgApproveDisbursement = {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): MsgApproveDisbursement {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgApproveDisbursement {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseMsgApproveDisbursement,
@@ -736,14 +671,11 @@ export const MsgApproveDisbursement = {
         const obj: any = {}
         message.manager !== undefined && (obj.manager = message.manager)
         message.recipient !== undefined && (obj.recipient = message.recipient)
-        message.scheduledFor !== undefined &&
-            (obj.scheduledFor = message.scheduledFor)
+        message.scheduledFor !== undefined && (obj.scheduledFor = message.scheduledFor)
         return obj
     },
 
-    fromPartial(
-        object: DeepPartial<MsgApproveDisbursement>
-    ): MsgApproveDisbursement {
+    fromPartial(object: DeepPartial<MsgApproveDisbursement>): MsgApproveDisbursement {
         const message = {
             ...baseMsgApproveDisbursement,
         } as MsgApproveDisbursement
@@ -776,12 +708,8 @@ export const MsgApproveDisbursementResponse = {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): MsgApproveDisbursementResponse {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgApproveDisbursementResponse {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseMsgApproveDisbursementResponse,
@@ -809,9 +737,7 @@ export const MsgApproveDisbursementResponse = {
         return obj
     },
 
-    fromPartial(
-        _: DeepPartial<MsgApproveDisbursementResponse>
-    ): MsgApproveDisbursementResponse {
+    fromPartial(_: DeepPartial<MsgApproveDisbursementResponse>): MsgApproveDisbursementResponse {
         const message = {
             ...baseMsgApproveDisbursementResponse,
         } as MsgApproveDisbursementResponse
@@ -822,10 +748,7 @@ export const MsgApproveDisbursementResponse = {
 const baseMsgBurn: object = { operator: '' }
 
 export const MsgBurn = {
-    encode(
-        message: MsgBurn,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(message: MsgBurn, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         if (message.operator !== '') {
             writer.uint32(10).string(message.operator)
         }
@@ -836,8 +759,7 @@ export const MsgBurn = {
     },
 
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgBurn {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = { ...baseMsgBurn } as MsgBurn
         message.amount = []
@@ -878,9 +800,7 @@ export const MsgBurn = {
         const obj: any = {}
         message.operator !== undefined && (obj.operator = message.operator)
         if (message.amount) {
-            obj.amount = message.amount.map(e =>
-                e ? Coin.toJSON(e) : undefined
-            )
+            obj.amount = message.amount.map(e => (e ? Coin.toJSON(e) : undefined))
         } else {
             obj.amount = []
         }
@@ -907,16 +827,12 @@ export const MsgBurn = {
 const baseMsgBurnResponse: object = {}
 
 export const MsgBurnResponse = {
-    encode(
-        _: MsgBurnResponse,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(_: MsgBurnResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         return writer
     },
 
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgBurnResponse {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = { ...baseMsgBurnResponse } as MsgBurnResponse
         while (reader.pos < end) {
@@ -949,10 +865,7 @@ export const MsgBurnResponse = {
 const baseMsgCancelBurn: object = { manager: '', scheduledFor: '' }
 
 export const MsgCancelBurn = {
-    encode(
-        message: MsgCancelBurn,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(message: MsgCancelBurn, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         if (message.manager !== '') {
             writer.uint32(10).string(message.manager)
         }
@@ -963,8 +876,7 @@ export const MsgCancelBurn = {
     },
 
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgCancelBurn {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = { ...baseMsgCancelBurn } as MsgCancelBurn
         while (reader.pos < end) {
@@ -1002,8 +914,7 @@ export const MsgCancelBurn = {
     toJSON(message: MsgCancelBurn): unknown {
         const obj: any = {}
         message.manager !== undefined && (obj.manager = message.manager)
-        message.scheduledFor !== undefined &&
-            (obj.scheduledFor = message.scheduledFor)
+        message.scheduledFor !== undefined && (obj.scheduledFor = message.scheduledFor)
         return obj
     },
 
@@ -1026,19 +937,12 @@ export const MsgCancelBurn = {
 const baseMsgCancelBurnResponse: object = {}
 
 export const MsgCancelBurnResponse = {
-    encode(
-        _: MsgCancelBurnResponse,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(_: MsgCancelBurnResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): MsgCancelBurnResponse {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgCancelBurnResponse {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseMsgCancelBurnResponse,
@@ -1077,10 +981,7 @@ export const MsgCancelBurnResponse = {
 const baseMsgApproveBurn: object = { manager: '', scheduledFor: '' }
 
 export const MsgApproveBurn = {
-    encode(
-        message: MsgApproveBurn,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(message: MsgApproveBurn, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         if (message.manager !== '') {
             writer.uint32(10).string(message.manager)
         }
@@ -1091,8 +992,7 @@ export const MsgApproveBurn = {
     },
 
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgApproveBurn {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = { ...baseMsgApproveBurn } as MsgApproveBurn
         while (reader.pos < end) {
@@ -1130,8 +1030,7 @@ export const MsgApproveBurn = {
     toJSON(message: MsgApproveBurn): unknown {
         const obj: any = {}
         message.manager !== undefined && (obj.manager = message.manager)
-        message.scheduledFor !== undefined &&
-            (obj.scheduledFor = message.scheduledFor)
+        message.scheduledFor !== undefined && (obj.scheduledFor = message.scheduledFor)
         return obj
     },
 
@@ -1154,19 +1053,12 @@ export const MsgApproveBurn = {
 const baseMsgApproveBurnResponse: object = {}
 
 export const MsgApproveBurnResponse = {
-    encode(
-        _: MsgApproveBurnResponse,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(_: MsgApproveBurnResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): MsgApproveBurnResponse {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgApproveBurnResponse {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseMsgApproveBurnResponse,
@@ -1194,9 +1086,7 @@ export const MsgApproveBurnResponse = {
         return obj
     },
 
-    fromPartial(
-        _: DeepPartial<MsgApproveBurnResponse>
-    ): MsgApproveBurnResponse {
+    fromPartial(_: DeepPartial<MsgApproveBurnResponse>): MsgApproveBurnResponse {
         const message = {
             ...baseMsgApproveBurnResponse,
         } as MsgApproveBurnResponse
@@ -1207,16 +1097,10 @@ export const MsgApproveBurnResponse = {
 /** Msg defines the distribution Msg service. */
 export interface Msg {
     AddOperator(request: MsgAddOperator): Promise<MsgAddOperatorResponse>
-    RemoveOperator(
-        request: MsgRemoveOperator
-    ): Promise<MsgRemoveOperatorResponse>
+    RemoveOperator(request: MsgRemoveOperator): Promise<MsgRemoveOperatorResponse>
     Disburse(request: MsgDisburse): Promise<MsgDisburseResponse>
-    CancelDisbursement(
-        request: MsgCancelDisbursement
-    ): Promise<MsgCancelDisbursementResponse>
-    ApproveDisbursement(
-        request: MsgApproveDisbursement
-    ): Promise<MsgApproveDisbursementResponse>
+    CancelDisbursement(request: MsgCancelDisbursement): Promise<MsgCancelDisbursementResponse>
+    ApproveDisbursement(request: MsgApproveDisbursement): Promise<MsgApproveDisbursementResponse>
     Burn(request: MsgBurn): Promise<MsgBurnResponse>
     CancelBurn(request: MsgCancelBurn): Promise<MsgCancelBurnResponse>
     ApproveBurn(request: MsgApproveBurn): Promise<MsgApproveBurnResponse>
@@ -1229,124 +1113,58 @@ export class MsgClientImpl implements Msg {
     }
     AddOperator(request: MsgAddOperator): Promise<MsgAddOperatorResponse> {
         const data = MsgAddOperator.encode(request).finish()
-        const promise = this.rpc.request(
-            'mele.treasury.v1beta1.Msg',
-            'AddOperator',
-            data
-        )
-        return promise.then(data =>
-            MsgAddOperatorResponse.decode(new _m0.Reader(data))
-        )
+        const promise = this.rpc.request('mele.treasury.v1beta1.Msg', 'AddOperator', data)
+        return promise.then(data => MsgAddOperatorResponse.decode(new _m0.Reader(data)))
     }
 
-    RemoveOperator(
-        request: MsgRemoveOperator
-    ): Promise<MsgRemoveOperatorResponse> {
+    RemoveOperator(request: MsgRemoveOperator): Promise<MsgRemoveOperatorResponse> {
         const data = MsgRemoveOperator.encode(request).finish()
-        const promise = this.rpc.request(
-            'mele.treasury.v1beta1.Msg',
-            'RemoveOperator',
-            data
-        )
-        return promise.then(data =>
-            MsgRemoveOperatorResponse.decode(new _m0.Reader(data))
-        )
+        const promise = this.rpc.request('mele.treasury.v1beta1.Msg', 'RemoveOperator', data)
+        return promise.then(data => MsgRemoveOperatorResponse.decode(new _m0.Reader(data)))
     }
 
     Disburse(request: MsgDisburse): Promise<MsgDisburseResponse> {
         const data = MsgDisburse.encode(request).finish()
-        const promise = this.rpc.request(
-            'mele.treasury.v1beta1.Msg',
-            'Disburse',
-            data
-        )
-        return promise.then(data =>
-            MsgDisburseResponse.decode(new _m0.Reader(data))
-        )
+        const promise = this.rpc.request('mele.treasury.v1beta1.Msg', 'Disburse', data)
+        return promise.then(data => MsgDisburseResponse.decode(new _m0.Reader(data)))
     }
 
-    CancelDisbursement(
-        request: MsgCancelDisbursement
-    ): Promise<MsgCancelDisbursementResponse> {
+    CancelDisbursement(request: MsgCancelDisbursement): Promise<MsgCancelDisbursementResponse> {
         const data = MsgCancelDisbursement.encode(request).finish()
-        const promise = this.rpc.request(
-            'mele.treasury.v1beta1.Msg',
-            'CancelDisbursement',
-            data
-        )
-        return promise.then(data =>
-            MsgCancelDisbursementResponse.decode(new _m0.Reader(data))
-        )
+        const promise = this.rpc.request('mele.treasury.v1beta1.Msg', 'CancelDisbursement', data)
+        return promise.then(data => MsgCancelDisbursementResponse.decode(new _m0.Reader(data)))
     }
 
-    ApproveDisbursement(
-        request: MsgApproveDisbursement
-    ): Promise<MsgApproveDisbursementResponse> {
+    ApproveDisbursement(request: MsgApproveDisbursement): Promise<MsgApproveDisbursementResponse> {
         const data = MsgApproveDisbursement.encode(request).finish()
-        const promise = this.rpc.request(
-            'mele.treasury.v1beta1.Msg',
-            'ApproveDisbursement',
-            data
-        )
-        return promise.then(data =>
-            MsgApproveDisbursementResponse.decode(new _m0.Reader(data))
-        )
+        const promise = this.rpc.request('mele.treasury.v1beta1.Msg', 'ApproveDisbursement', data)
+        return promise.then(data => MsgApproveDisbursementResponse.decode(new _m0.Reader(data)))
     }
 
     Burn(request: MsgBurn): Promise<MsgBurnResponse> {
         const data = MsgBurn.encode(request).finish()
-        const promise = this.rpc.request(
-            'mele.treasury.v1beta1.Msg',
-            'Burn',
-            data
-        )
-        return promise.then(data =>
-            MsgBurnResponse.decode(new _m0.Reader(data))
-        )
+        const promise = this.rpc.request('mele.treasury.v1beta1.Msg', 'Burn', data)
+        return promise.then(data => MsgBurnResponse.decode(new _m0.Reader(data)))
     }
 
     CancelBurn(request: MsgCancelBurn): Promise<MsgCancelBurnResponse> {
         const data = MsgCancelBurn.encode(request).finish()
-        const promise = this.rpc.request(
-            'mele.treasury.v1beta1.Msg',
-            'CancelBurn',
-            data
-        )
-        return promise.then(data =>
-            MsgCancelBurnResponse.decode(new _m0.Reader(data))
-        )
+        const promise = this.rpc.request('mele.treasury.v1beta1.Msg', 'CancelBurn', data)
+        return promise.then(data => MsgCancelBurnResponse.decode(new _m0.Reader(data)))
     }
 
     ApproveBurn(request: MsgApproveBurn): Promise<MsgApproveBurnResponse> {
         const data = MsgApproveBurn.encode(request).finish()
-        const promise = this.rpc.request(
-            'mele.treasury.v1beta1.Msg',
-            'ApproveBurn',
-            data
-        )
-        return promise.then(data =>
-            MsgApproveBurnResponse.decode(new _m0.Reader(data))
-        )
+        const promise = this.rpc.request('mele.treasury.v1beta1.Msg', 'ApproveBurn', data)
+        return promise.then(data => MsgApproveBurnResponse.decode(new _m0.Reader(data)))
     }
 }
 
 interface Rpc {
-    request(
-        service: string,
-        method: string,
-        data: Uint8Array
-    ): Promise<Uint8Array>
+    request(service: string, method: string, data: Uint8Array): Promise<Uint8Array>
 }
 
-type Builtin =
-    | Date
-    | Function
-    | Uint8Array
-    | string
-    | number
-    | boolean
-    | undefined
-    | Long
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined | Long
 export type DeepPartial<T> = T extends Builtin
     ? T
     : T extends Array<infer U>

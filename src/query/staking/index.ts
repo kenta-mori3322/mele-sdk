@@ -21,7 +21,7 @@ const Keys = {
         PoolPath: 'pool',
         ParametersPath: 'parameters',
         HistoricalInfoPath: 'historicalInfo',
-    }
+    },
 }
 
 /**

@@ -8,7 +8,7 @@ const Keys = {
         ParametersPath: 'parameters',
         SigningInfoPath: 'signingInfo',
         SigningInfosPath: 'signingInfos',
-    }
+    },
 }
 
 /**

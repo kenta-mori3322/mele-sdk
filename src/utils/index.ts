@@ -21,9 +21,7 @@ export { fromUmelg, fromUmelc, smallestDenom, smallestStableDenom, toUmelg, toUm
 
 const ec = new EC('secp256k1')
 
-const MessageTypeMap = {
-    
-}
+const MessageTypeMap = {}
 
 export interface KeyPair {
     privateKey: string

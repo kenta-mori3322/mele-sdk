@@ -17,7 +17,7 @@ const Keys = {
         ParamDepositPath: 'deposit',
         ParamVotingPath: 'voting',
         ParamTallyingPath: 'tallying',
-    }
+    },
 }
 
 /**

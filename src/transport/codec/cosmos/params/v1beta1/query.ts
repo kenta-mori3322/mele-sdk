@@ -22,10 +22,7 @@ export interface QueryParamsResponse {
 const baseQueryParamsRequest: object = { subspace: '', key: '' }
 
 export const QueryParamsRequest = {
-    encode(
-        message: QueryParamsRequest,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(message: QueryParamsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         if (message.subspace !== '') {
             writer.uint32(10).string(message.subspace)
         }
@@ -35,12 +32,8 @@ export const QueryParamsRequest = {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): QueryParamsRequest {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsRequest {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = { ...baseQueryParamsRequest } as QueryParamsRequest
         while (reader.pos < end) {
@@ -101,22 +94,15 @@ export const QueryParamsRequest = {
 const baseQueryParamsResponse: object = {}
 
 export const QueryParamsResponse = {
-    encode(
-        message: QueryParamsResponse,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(message: QueryParamsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         if (message.param !== undefined) {
             ParamChange.encode(message.param, writer.uint32(10).fork()).ldelim()
         }
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): QueryParamsResponse {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsResponse {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = { ...baseQueryParamsResponse } as QueryParamsResponse
         while (reader.pos < end) {
@@ -146,9 +132,7 @@ export const QueryParamsResponse = {
     toJSON(message: QueryParamsResponse): unknown {
         const obj: any = {}
         message.param !== undefined &&
-            (obj.param = message.param
-                ? ParamChange.toJSON(message.param)
-                : undefined)
+            (obj.param = message.param ? ParamChange.toJSON(message.param) : undefined)
         return obj
     },
 
@@ -179,34 +163,16 @@ export class QueryClientImpl implements Query {
     }
     Params(request: QueryParamsRequest): Promise<QueryParamsResponse> {
         const data = QueryParamsRequest.encode(request).finish()
-        const promise = this.rpc.request(
-            'cosmos.params.v1beta1.Query',
-            'Params',
-            data
-        )
-        return promise.then(data =>
-            QueryParamsResponse.decode(new _m0.Reader(data))
-        )
+        const promise = this.rpc.request('cosmos.params.v1beta1.Query', 'Params', data)
+        return promise.then(data => QueryParamsResponse.decode(new _m0.Reader(data)))
     }
 }
 
 interface Rpc {
-    request(
-        service: string,
-        method: string,
-        data: Uint8Array
-    ): Promise<Uint8Array>
+    request(service: string, method: string, data: Uint8Array): Promise<Uint8Array>
 }
 
-type Builtin =
-    | Date
-    | Function
-    | Uint8Array
-    | string
-    | number
-    | boolean
-    | undefined
-    | Long
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined | Long
 export type DeepPartial<T> = T extends Builtin
     ? T
     : T extends Array<infer U>

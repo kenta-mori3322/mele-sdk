@@ -7,7 +7,7 @@ const Keys = {
 
         ParametersPath: 'params',
         PoolsPath: 'pools',
-    }
+    },
 }
 
 /**
@@ -40,10 +40,11 @@ export default class LiquidityQuery {
         const path = `mele/${Keys.Query.QueryPath}/v1beta1/${Keys.Query.ParametersPath}`
 
         return new Promise((resolve, reject) => {
-            this._transport.lcdQuery<any>(path)
-                .then((res) => resolve(res.params as Types.LiquidityParams))
+            this._transport
+                .lcdQuery<any>(path)
+                .then(res => resolve(res.params as Types.LiquidityParams))
                 .catch(err => reject(err))
-        }) 
+        })
     }
 
     /**
@@ -58,12 +59,13 @@ export default class LiquidityQuery {
      *
      * @returns {[LiquidityPool]} pools - Liquidity pools.
      */
-     getPools(): Promise<Types.LiquidityPool[]> {
+    getPools(): Promise<Types.LiquidityPool[]> {
         const path = `mele/${Keys.Query.QueryPath}/v1beta1/${Keys.Query.PoolsPath}`
 
         return new Promise((resolve, reject) => {
-            this._transport.lcdQuery<any>(path)
-                .then((res) => resolve(res.pools as Types.LiquidityPool[]))
+            this._transport
+                .lcdQuery<any>(path)
+                .then(res => resolve(res.pools as Types.LiquidityPool[]))
                 .catch(err => reject(err))
         })
     }
@@ -80,12 +82,13 @@ export default class LiquidityQuery {
      *
      * @returns {LiquidityPool} pool - Liquidity pool.
      */
-     getPool(id: string): Promise<Types.LiquidityPool> {
+    getPool(id: string): Promise<Types.LiquidityPool> {
         const path = `mele/${Keys.Query.QueryPath}/v1beta1/${Keys.Query.PoolsPath}/${id}`
 
         return new Promise((resolve, reject) => {
-            this._transport.lcdQuery<any>(path)
-                .then((res) => resolve(res.pool as Types.LiquidityPool))
+            this._transport
+                .lcdQuery<any>(path)
+                .then(res => resolve(res.pool as Types.LiquidityPool))
                 .catch(err => reject(err))
         })
     }

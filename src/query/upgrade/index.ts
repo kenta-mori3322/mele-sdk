@@ -7,7 +7,7 @@ const Keys = {
 
         CurrentPath: 'current',
         AppliedPath: 'applied',
-    }
+    },
 }
 
 /**

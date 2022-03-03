@@ -12,10 +12,7 @@ export interface BitArray {
 const baseBitArray: object = { bits: Long.ZERO, elems: Long.UZERO }
 
 export const BitArray = {
-    encode(
-        message: BitArray,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(message: BitArray, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         if (!message.bits.isZero()) {
             writer.uint32(8).int64(message.bits)
         }
@@ -28,8 +25,7 @@ export const BitArray = {
     },
 
     decode(input: _m0.Reader | Uint8Array, length?: number): BitArray {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = { ...baseBitArray } as BitArray
         message.elems = []
@@ -75,8 +71,7 @@ export const BitArray = {
 
     toJSON(message: BitArray): unknown {
         const obj: any = {}
-        message.bits !== undefined &&
-            (obj.bits = (message.bits || Long.ZERO).toString())
+        message.bits !== undefined && (obj.bits = (message.bits || Long.ZERO).toString())
         if (message.elems) {
             obj.elems = message.elems.map(e => (e || Long.UZERO).toString())
         } else {
@@ -102,15 +97,7 @@ export const BitArray = {
     },
 }
 
-type Builtin =
-    | Date
-    | Function
-    | Uint8Array
-    | string
-    | number
-    | boolean
-    | undefined
-    | Long
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined | Long
 export type DeepPartial<T> = T extends Builtin
     ? T
     : T extends Array<infer U>

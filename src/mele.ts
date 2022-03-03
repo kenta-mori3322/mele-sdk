@@ -6,14 +6,14 @@ import { ITransport, Transport } from './transport'
 
 import Bank from './transactions/bank'
 
-import Indexer from './indexer'
-import Staking from './transactions/staking'
-import Distribution from './transactions/distribution'
-import Treasury from './transactions/treasury'
-import Gov from './transactions/gov'
-import Control from './transactions/control'
 import Fee from './fee/fee'
+import Indexer from './indexer'
+import Control from './transactions/control'
+import Distribution from './transactions/distribution'
+import Gov from './transactions/gov'
 import Liquidity from './transactions/liquidity'
+import Staking from './transactions/staking'
+import Treasury from './transactions/treasury'
 
 export interface Options {
     nodeUrl: string

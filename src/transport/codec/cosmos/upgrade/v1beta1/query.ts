@@ -62,19 +62,12 @@ export interface QueryUpgradedConsensusStateResponse {
 const baseQueryCurrentPlanRequest: object = {}
 
 export const QueryCurrentPlanRequest = {
-    encode(
-        _: QueryCurrentPlanRequest,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(_: QueryCurrentPlanRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): QueryCurrentPlanRequest {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryCurrentPlanRequest {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseQueryCurrentPlanRequest,
@@ -102,9 +95,7 @@ export const QueryCurrentPlanRequest = {
         return obj
     },
 
-    fromPartial(
-        _: DeepPartial<QueryCurrentPlanRequest>
-    ): QueryCurrentPlanRequest {
+    fromPartial(_: DeepPartial<QueryCurrentPlanRequest>): QueryCurrentPlanRequest {
         const message = {
             ...baseQueryCurrentPlanRequest,
         } as QueryCurrentPlanRequest
@@ -125,12 +116,8 @@ export const QueryCurrentPlanResponse = {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): QueryCurrentPlanResponse {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryCurrentPlanResponse {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseQueryCurrentPlanResponse,
@@ -168,9 +155,7 @@ export const QueryCurrentPlanResponse = {
         return obj
     },
 
-    fromPartial(
-        object: DeepPartial<QueryCurrentPlanResponse>
-    ): QueryCurrentPlanResponse {
+    fromPartial(object: DeepPartial<QueryCurrentPlanResponse>): QueryCurrentPlanResponse {
         const message = {
             ...baseQueryCurrentPlanResponse,
         } as QueryCurrentPlanResponse
@@ -186,22 +171,15 @@ export const QueryCurrentPlanResponse = {
 const baseQueryAppliedPlanRequest: object = { name: '' }
 
 export const QueryAppliedPlanRequest = {
-    encode(
-        message: QueryAppliedPlanRequest,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(message: QueryAppliedPlanRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         if (message.name !== '') {
             writer.uint32(10).string(message.name)
         }
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): QueryAppliedPlanRequest {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryAppliedPlanRequest {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseQueryAppliedPlanRequest,
@@ -238,9 +216,7 @@ export const QueryAppliedPlanRequest = {
         return obj
     },
 
-    fromPartial(
-        object: DeepPartial<QueryAppliedPlanRequest>
-    ): QueryAppliedPlanRequest {
+    fromPartial(object: DeepPartial<QueryAppliedPlanRequest>): QueryAppliedPlanRequest {
         const message = {
             ...baseQueryAppliedPlanRequest,
         } as QueryAppliedPlanRequest
@@ -266,12 +242,8 @@ export const QueryAppliedPlanResponse = {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): QueryAppliedPlanResponse {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryAppliedPlanResponse {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseQueryAppliedPlanResponse,
@@ -304,14 +276,11 @@ export const QueryAppliedPlanResponse = {
 
     toJSON(message: QueryAppliedPlanResponse): unknown {
         const obj: any = {}
-        message.height !== undefined &&
-            (obj.height = (message.height || Long.ZERO).toString())
+        message.height !== undefined && (obj.height = (message.height || Long.ZERO).toString())
         return obj
     },
 
-    fromPartial(
-        object: DeepPartial<QueryAppliedPlanResponse>
-    ): QueryAppliedPlanResponse {
+    fromPartial(object: DeepPartial<QueryAppliedPlanResponse>): QueryAppliedPlanResponse {
         const message = {
             ...baseQueryAppliedPlanResponse,
         } as QueryAppliedPlanResponse
@@ -337,12 +306,8 @@ export const QueryUpgradedConsensusStateRequest = {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): QueryUpgradedConsensusStateRequest {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryUpgradedConsensusStateRequest {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseQueryUpgradedConsensusStateRequest,
@@ -403,20 +368,13 @@ export const QueryUpgradedConsensusStateResponse = {
         writer: _m0.Writer = _m0.Writer.create()
     ): _m0.Writer {
         if (message.upgradedConsensusState !== undefined) {
-            Any.encode(
-                message.upgradedConsensusState,
-                writer.uint32(10).fork()
-            ).ldelim()
+            Any.encode(message.upgradedConsensusState, writer.uint32(10).fork()).ldelim()
         }
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): QueryUpgradedConsensusStateResponse {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryUpgradedConsensusStateResponse {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseQueryUpgradedConsensusStateResponse,
@@ -425,10 +383,7 @@ export const QueryUpgradedConsensusStateResponse = {
             const tag = reader.uint32()
             switch (tag >>> 3) {
                 case 1:
-                    message.upgradedConsensusState = Any.decode(
-                        reader,
-                        reader.uint32()
-                    )
+                    message.upgradedConsensusState = Any.decode(reader, reader.uint32())
                     break
                 default:
                     reader.skipType(tag & 7)
@@ -442,13 +397,8 @@ export const QueryUpgradedConsensusStateResponse = {
         const message = {
             ...baseQueryUpgradedConsensusStateResponse,
         } as QueryUpgradedConsensusStateResponse
-        if (
-            object.upgradedConsensusState !== undefined &&
-            object.upgradedConsensusState !== null
-        ) {
-            message.upgradedConsensusState = Any.fromJSON(
-                object.upgradedConsensusState
-            )
+        if (object.upgradedConsensusState !== undefined && object.upgradedConsensusState !== null) {
+            message.upgradedConsensusState = Any.fromJSON(object.upgradedConsensusState)
         } else {
             message.upgradedConsensusState = undefined
         }
@@ -470,13 +420,8 @@ export const QueryUpgradedConsensusStateResponse = {
         const message = {
             ...baseQueryUpgradedConsensusStateResponse,
         } as QueryUpgradedConsensusStateResponse
-        if (
-            object.upgradedConsensusState !== undefined &&
-            object.upgradedConsensusState !== null
-        ) {
-            message.upgradedConsensusState = Any.fromPartial(
-                object.upgradedConsensusState
-            )
+        if (object.upgradedConsensusState !== undefined && object.upgradedConsensusState !== null) {
+            message.upgradedConsensusState = Any.fromPartial(object.upgradedConsensusState)
         } else {
             message.upgradedConsensusState = undefined
         }
@@ -487,13 +432,9 @@ export const QueryUpgradedConsensusStateResponse = {
 /** Query defines the gRPC upgrade querier service. */
 export interface Query {
     /** CurrentPlan queries the current upgrade plan. */
-    CurrentPlan(
-        request: QueryCurrentPlanRequest
-    ): Promise<QueryCurrentPlanResponse>
+    CurrentPlan(request: QueryCurrentPlanRequest): Promise<QueryCurrentPlanResponse>
     /** AppliedPlan queries a previously applied upgrade plan by its name. */
-    AppliedPlan(
-        request: QueryAppliedPlanRequest
-    ): Promise<QueryAppliedPlanResponse>
+    AppliedPlan(request: QueryAppliedPlanRequest): Promise<QueryAppliedPlanResponse>
     /**
      * UpgradedConsensusState queries the consensus state that will serve
      * as a trusted kernel for the next version of this chain. It will only be
@@ -510,32 +451,16 @@ export class QueryClientImpl implements Query {
     constructor(rpc: Rpc) {
         this.rpc = rpc
     }
-    CurrentPlan(
-        request: QueryCurrentPlanRequest
-    ): Promise<QueryCurrentPlanResponse> {
+    CurrentPlan(request: QueryCurrentPlanRequest): Promise<QueryCurrentPlanResponse> {
         const data = QueryCurrentPlanRequest.encode(request).finish()
-        const promise = this.rpc.request(
-            'cosmos.upgrade.v1beta1.Query',
-            'CurrentPlan',
-            data
-        )
-        return promise.then(data =>
-            QueryCurrentPlanResponse.decode(new _m0.Reader(data))
-        )
+        const promise = this.rpc.request('cosmos.upgrade.v1beta1.Query', 'CurrentPlan', data)
+        return promise.then(data => QueryCurrentPlanResponse.decode(new _m0.Reader(data)))
     }
 
-    AppliedPlan(
-        request: QueryAppliedPlanRequest
-    ): Promise<QueryAppliedPlanResponse> {
+    AppliedPlan(request: QueryAppliedPlanRequest): Promise<QueryAppliedPlanResponse> {
         const data = QueryAppliedPlanRequest.encode(request).finish()
-        const promise = this.rpc.request(
-            'cosmos.upgrade.v1beta1.Query',
-            'AppliedPlan',
-            data
-        )
-        return promise.then(data =>
-            QueryAppliedPlanResponse.decode(new _m0.Reader(data))
-        )
+        const promise = this.rpc.request('cosmos.upgrade.v1beta1.Query', 'AppliedPlan', data)
+        return promise.then(data => QueryAppliedPlanResponse.decode(new _m0.Reader(data)))
     }
 
     UpgradedConsensusState(
@@ -554,22 +479,10 @@ export class QueryClientImpl implements Query {
 }
 
 interface Rpc {
-    request(
-        service: string,
-        method: string,
-        data: Uint8Array
-    ): Promise<Uint8Array>
+    request(service: string, method: string, data: Uint8Array): Promise<Uint8Array>
 }
 
-type Builtin =
-    | Date
-    | Function
-    | Uint8Array
-    | string
-    | number
-    | boolean
-    | undefined
-    | Long
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined | Long
 export type DeepPartial<T> = T extends Builtin
     ? T
     : T extends Array<infer U>

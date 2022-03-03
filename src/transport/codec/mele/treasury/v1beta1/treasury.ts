@@ -75,10 +75,7 @@ const baseParams: object = {
 }
 
 export const Params = {
-    encode(
-        message: Params,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(message: Params, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         for (const v of message.managers) {
             writer.uint32(10).string(v!)
         }
@@ -95,8 +92,7 @@ export const Params = {
     },
 
     decode(input: _m0.Reader | Uint8Array, length?: number): Params {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = { ...baseParams } as Params
         message.managers = []
@@ -147,9 +143,7 @@ export const Params = {
             object.disbursementDelayDuration !== undefined &&
             object.disbursementDelayDuration !== null
         ) {
-            message.disbursementDelayDuration = String(
-                object.disbursementDelayDuration
-            )
+            message.disbursementDelayDuration = String(object.disbursementDelayDuration)
         } else {
             message.disbursementDelayDuration = ''
         }
@@ -169,16 +163,15 @@ export const Params = {
             obj.managers = []
         }
         if (message.disbursementDelayThresholdAmount) {
-            obj.disbursementDelayThresholdAmount = message.disbursementDelayThresholdAmount.map(
-                e => (e ? Coin.toJSON(e) : undefined)
+            obj.disbursementDelayThresholdAmount = message.disbursementDelayThresholdAmount.map(e =>
+                e ? Coin.toJSON(e) : undefined
             )
         } else {
             obj.disbursementDelayThresholdAmount = []
         }
         message.disbursementDelayDuration !== undefined &&
             (obj.disbursementDelayDuration = message.disbursementDelayDuration)
-        message.mintEnabled !== undefined &&
-            (obj.mintEnabled = message.mintEnabled)
+        message.mintEnabled !== undefined && (obj.mintEnabled = message.mintEnabled)
         return obj
     },
 
@@ -196,9 +189,7 @@ export const Params = {
             object.disbursementDelayThresholdAmount !== null
         ) {
             for (const e of object.disbursementDelayThresholdAmount) {
-                message.disbursementDelayThresholdAmount.push(
-                    Coin.fromPartial(e)
-                )
+                message.disbursementDelayThresholdAmount.push(Coin.fromPartial(e))
             }
         }
         if (
@@ -221,10 +212,7 @@ export const Params = {
 const baseTreasury: object = { mintGenesisSupply: false }
 
 export const Treasury = {
-    encode(
-        message: Treasury,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(message: Treasury, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         if (message.mintGenesisSupply === true) {
             writer.uint32(8).bool(message.mintGenesisSupply)
         }
@@ -241,8 +229,7 @@ export const Treasury = {
     },
 
     decode(input: _m0.Reader | Uint8Array, length?: number): Treasury {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = { ...baseTreasury } as Treasury
         message.targetSupply = []
@@ -255,14 +242,10 @@ export const Treasury = {
                     message.mintGenesisSupply = reader.bool()
                     break
                 case 2:
-                    message.targetSupply.push(
-                        Coin.decode(reader, reader.uint32())
-                    )
+                    message.targetSupply.push(Coin.decode(reader, reader.uint32()))
                     break
                 case 3:
-                    message.distributed.push(
-                        Coin.decode(reader, reader.uint32())
-                    )
+                    message.distributed.push(Coin.decode(reader, reader.uint32()))
                     break
                 case 4:
                     message.burned.push(Coin.decode(reader, reader.uint32()))
@@ -280,10 +263,7 @@ export const Treasury = {
         message.targetSupply = []
         message.distributed = []
         message.burned = []
-        if (
-            object.mintGenesisSupply !== undefined &&
-            object.mintGenesisSupply !== null
-        ) {
+        if (object.mintGenesisSupply !== undefined && object.mintGenesisSupply !== null) {
             message.mintGenesisSupply = Boolean(object.mintGenesisSupply)
         } else {
             message.mintGenesisSupply = false
@@ -311,23 +291,17 @@ export const Treasury = {
         message.mintGenesisSupply !== undefined &&
             (obj.mintGenesisSupply = message.mintGenesisSupply)
         if (message.targetSupply) {
-            obj.targetSupply = message.targetSupply.map(e =>
-                e ? Coin.toJSON(e) : undefined
-            )
+            obj.targetSupply = message.targetSupply.map(e => (e ? Coin.toJSON(e) : undefined))
         } else {
             obj.targetSupply = []
         }
         if (message.distributed) {
-            obj.distributed = message.distributed.map(e =>
-                e ? Coin.toJSON(e) : undefined
-            )
+            obj.distributed = message.distributed.map(e => (e ? Coin.toJSON(e) : undefined))
         } else {
             obj.distributed = []
         }
         if (message.burned) {
-            obj.burned = message.burned.map(e =>
-                e ? Coin.toJSON(e) : undefined
-            )
+            obj.burned = message.burned.map(e => (e ? Coin.toJSON(e) : undefined))
         } else {
             obj.burned = []
         }
@@ -339,10 +313,7 @@ export const Treasury = {
         message.targetSupply = []
         message.distributed = []
         message.burned = []
-        if (
-            object.mintGenesisSupply !== undefined &&
-            object.mintGenesisSupply !== null
-        ) {
+        if (object.mintGenesisSupply !== undefined && object.mintGenesisSupply !== null) {
             message.mintGenesisSupply = object.mintGenesisSupply
         } else {
             message.mintGenesisSupply = false
@@ -376,10 +347,7 @@ const baseDisbursement: object = {
 }
 
 export const Disbursement = {
-    encode(
-        message: Disbursement,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(message: Disbursement, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         if (message.operator !== '') {
             writer.uint32(10).string(message.operator)
         }
@@ -405,8 +373,7 @@ export const Disbursement = {
     },
 
     decode(input: _m0.Reader | Uint8Array, length?: number): Disbursement {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = { ...baseDisbursement } as Disbursement
         message.amount = []
@@ -488,16 +455,12 @@ export const Disbursement = {
         message.operator !== undefined && (obj.operator = message.operator)
         message.recipient !== undefined && (obj.recipient = message.recipient)
         if (message.amount) {
-            obj.amount = message.amount.map(e =>
-                e ? Coin.toJSON(e) : undefined
-            )
+            obj.amount = message.amount.map(e => (e ? Coin.toJSON(e) : undefined))
         } else {
             obj.amount = []
         }
-        message.scheduledAt !== undefined &&
-            (obj.scheduledAt = message.scheduledAt)
-        message.scheduledFor !== undefined &&
-            (obj.scheduledFor = message.scheduledFor)
+        message.scheduledAt !== undefined && (obj.scheduledAt = message.scheduledAt)
+        message.scheduledFor !== undefined && (obj.scheduledFor = message.scheduledFor)
         message.reference !== undefined && (obj.reference = message.reference)
         message.executed !== undefined && (obj.executed = message.executed)
         return obj
@@ -548,10 +511,7 @@ export const Disbursement = {
 const baseBurn: object = { operator: '', scheduledAt: '', scheduledFor: '' }
 
 export const Burn = {
-    encode(
-        message: Burn,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(message: Burn, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         if (message.operator !== '') {
             writer.uint32(10).string(message.operator)
         }
@@ -568,8 +528,7 @@ export const Burn = {
     },
 
     decode(input: _m0.Reader | Uint8Array, length?: number): Burn {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = { ...baseBurn } as Burn
         message.amount = []
@@ -626,16 +585,12 @@ export const Burn = {
         const obj: any = {}
         message.operator !== undefined && (obj.operator = message.operator)
         if (message.amount) {
-            obj.amount = message.amount.map(e =>
-                e ? Coin.toJSON(e) : undefined
-            )
+            obj.amount = message.amount.map(e => (e ? Coin.toJSON(e) : undefined))
         } else {
             obj.amount = []
         }
-        message.scheduledAt !== undefined &&
-            (obj.scheduledAt = message.scheduledAt)
-        message.scheduledFor !== undefined &&
-            (obj.scheduledFor = message.scheduledFor)
+        message.scheduledAt !== undefined && (obj.scheduledAt = message.scheduledAt)
+        message.scheduledFor !== undefined && (obj.scheduledFor = message.scheduledFor)
         return obj
     },
 
@@ -669,10 +624,7 @@ export const Burn = {
 const baseReferenceAmountInfo: object = { reference: '', amount: '' }
 
 export const ReferenceAmountInfo = {
-    encode(
-        message: ReferenceAmountInfo,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(message: ReferenceAmountInfo, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         if (message.reference !== '') {
             writer.uint32(10).string(message.reference)
         }
@@ -682,12 +634,8 @@ export const ReferenceAmountInfo = {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): ReferenceAmountInfo {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): ReferenceAmountInfo {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = { ...baseReferenceAmountInfo } as ReferenceAmountInfo
         while (reader.pos < end) {
@@ -764,12 +712,8 @@ export const MintTreasurySupplyProposal = {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): MintTreasurySupplyProposal {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): MintTreasurySupplyProposal {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseMintTreasurySupplyProposal,
@@ -821,21 +765,16 @@ export const MintTreasurySupplyProposal = {
     toJSON(message: MintTreasurySupplyProposal): unknown {
         const obj: any = {}
         message.title !== undefined && (obj.title = message.title)
-        message.description !== undefined &&
-            (obj.description = message.description)
+        message.description !== undefined && (obj.description = message.description)
         if (message.amount) {
-            obj.amount = message.amount.map(e =>
-                e ? Coin.toJSON(e) : undefined
-            )
+            obj.amount = message.amount.map(e => (e ? Coin.toJSON(e) : undefined))
         } else {
             obj.amount = []
         }
         return obj
     },
 
-    fromPartial(
-        object: DeepPartial<MintTreasurySupplyProposal>
-    ): MintTreasurySupplyProposal {
+    fromPartial(object: DeepPartial<MintTreasurySupplyProposal>): MintTreasurySupplyProposal {
         const message = {
             ...baseMintTreasurySupplyProposal,
         } as MintTreasurySupplyProposal
@@ -886,12 +825,8 @@ export const MintTreasurySupplyProposalWithDeposit = {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): MintTreasurySupplyProposalWithDeposit {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): MintTreasurySupplyProposalWithDeposit {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseMintTreasurySupplyProposalWithDeposit,
@@ -949,8 +884,7 @@ export const MintTreasurySupplyProposalWithDeposit = {
     toJSON(message: MintTreasurySupplyProposalWithDeposit): unknown {
         const obj: any = {}
         message.title !== undefined && (obj.title = message.title)
-        message.description !== undefined &&
-            (obj.description = message.description)
+        message.description !== undefined && (obj.description = message.description)
         message.amount !== undefined && (obj.amount = message.amount)
         message.deposit !== undefined && (obj.deposit = message.deposit)
         return obj
@@ -1005,12 +939,8 @@ export const BurnTreasurySupplyProposal = {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): BurnTreasurySupplyProposal {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): BurnTreasurySupplyProposal {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseBurnTreasurySupplyProposal,
@@ -1062,21 +992,16 @@ export const BurnTreasurySupplyProposal = {
     toJSON(message: BurnTreasurySupplyProposal): unknown {
         const obj: any = {}
         message.title !== undefined && (obj.title = message.title)
-        message.description !== undefined &&
-            (obj.description = message.description)
+        message.description !== undefined && (obj.description = message.description)
         if (message.amount) {
-            obj.amount = message.amount.map(e =>
-                e ? Coin.toJSON(e) : undefined
-            )
+            obj.amount = message.amount.map(e => (e ? Coin.toJSON(e) : undefined))
         } else {
             obj.amount = []
         }
         return obj
     },
 
-    fromPartial(
-        object: DeepPartial<BurnTreasurySupplyProposal>
-    ): BurnTreasurySupplyProposal {
+    fromPartial(object: DeepPartial<BurnTreasurySupplyProposal>): BurnTreasurySupplyProposal {
         const message = {
             ...baseBurnTreasurySupplyProposal,
         } as BurnTreasurySupplyProposal
@@ -1127,12 +1052,8 @@ export const BurnTreasurySupplyProposalWithDeposit = {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): BurnTreasurySupplyProposalWithDeposit {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): BurnTreasurySupplyProposalWithDeposit {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseBurnTreasurySupplyProposalWithDeposit,
@@ -1190,8 +1111,7 @@ export const BurnTreasurySupplyProposalWithDeposit = {
     toJSON(message: BurnTreasurySupplyProposalWithDeposit): unknown {
         const obj: any = {}
         message.title !== undefined && (obj.title = message.title)
-        message.description !== undefined &&
-            (obj.description = message.description)
+        message.description !== undefined && (obj.description = message.description)
         message.amount !== undefined && (obj.amount = message.amount)
         message.deposit !== undefined && (obj.deposit = message.deposit)
         return obj
@@ -1227,15 +1147,7 @@ export const BurnTreasurySupplyProposalWithDeposit = {
     },
 }
 
-type Builtin =
-    | Date
-    | Function
-    | Uint8Array
-    | string
-    | number
-    | boolean
-    | undefined
-    | Long
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined | Long
 export type DeepPartial<T> = T extends Builtin
     ? T
     : T extends Array<infer U>

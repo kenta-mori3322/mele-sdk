@@ -14,10 +14,7 @@ export interface GenesisState {
 const baseGenesisState: object = { feeExcludedMessages: '' }
 
 export const GenesisState = {
-    encode(
-        message: GenesisState,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(message: GenesisState, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         if (message.params !== undefined) {
             Params.encode(message.params, writer.uint32(10).fork()).ldelim()
         }
@@ -28,8 +25,7 @@ export const GenesisState = {
     },
 
     decode(input: _m0.Reader | Uint8Array, length?: number): GenesisState {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = { ...baseGenesisState } as GenesisState
         message.feeExcludedMessages = []
@@ -58,10 +54,7 @@ export const GenesisState = {
         } else {
             message.params = undefined
         }
-        if (
-            object.feeExcludedMessages !== undefined &&
-            object.feeExcludedMessages !== null
-        ) {
+        if (object.feeExcludedMessages !== undefined && object.feeExcludedMessages !== null) {
             for (const e of object.feeExcludedMessages) {
                 message.feeExcludedMessages.push(String(e))
             }
@@ -72,9 +65,7 @@ export const GenesisState = {
     toJSON(message: GenesisState): unknown {
         const obj: any = {}
         message.params !== undefined &&
-            (obj.params = message.params
-                ? Params.toJSON(message.params)
-                : undefined)
+            (obj.params = message.params ? Params.toJSON(message.params) : undefined)
         if (message.feeExcludedMessages) {
             obj.feeExcludedMessages = message.feeExcludedMessages.map(e => e)
         } else {
@@ -91,10 +82,7 @@ export const GenesisState = {
         } else {
             message.params = undefined
         }
-        if (
-            object.feeExcludedMessages !== undefined &&
-            object.feeExcludedMessages !== null
-        ) {
+        if (object.feeExcludedMessages !== undefined && object.feeExcludedMessages !== null) {
             for (const e of object.feeExcludedMessages) {
                 message.feeExcludedMessages.push(e)
             }
@@ -103,15 +91,7 @@ export const GenesisState = {
     },
 }
 
-type Builtin =
-    | Date
-    | Function
-    | Uint8Array
-    | string
-    | number
-    | boolean
-    | undefined
-    | Long
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined | Long
 export type DeepPartial<T> = T extends Builtin
     ? T
     : T extends Array<infer U>

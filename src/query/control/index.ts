@@ -8,7 +8,7 @@ const Keys = {
         ParametersPath: 'params',
         ExecutionsPath: 'executions',
         ExecutionPath: 'execution',
-    }
+    },
 }
 
 /**

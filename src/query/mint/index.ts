@@ -8,7 +8,7 @@ const Keys = {
         ParametersPath: 'parameters',
         InflationPath: 'inflation',
         AnnualProvisionsPath: 'annual_provisions',
-    }
+    },
 }
 
 /**

@@ -7,7 +7,7 @@ const Keys = {
 
         ParametersPath: 'parameters',
         ExcludedMessagesPath: 'excluded-messages',
-    }
+    },
 }
 
 /**

@@ -38,8 +38,7 @@ export const App = {
     },
 
     decode(input: _m0.Reader | Uint8Array, length?: number): App {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = { ...baseApp } as App
         while (reader.pos < end) {
@@ -101,10 +100,7 @@ export const App = {
 const baseConsensus: object = { block: Long.UZERO, app: Long.UZERO }
 
 export const Consensus = {
-    encode(
-        message: Consensus,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(message: Consensus, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         if (!message.block.isZero()) {
             writer.uint32(8).uint64(message.block)
         }
@@ -115,8 +111,7 @@ export const Consensus = {
     },
 
     decode(input: _m0.Reader | Uint8Array, length?: number): Consensus {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = { ...baseConsensus } as Consensus
         while (reader.pos < end) {
@@ -153,10 +148,8 @@ export const Consensus = {
 
     toJSON(message: Consensus): unknown {
         const obj: any = {}
-        message.block !== undefined &&
-            (obj.block = (message.block || Long.UZERO).toString())
-        message.app !== undefined &&
-            (obj.app = (message.app || Long.UZERO).toString())
+        message.block !== undefined && (obj.block = (message.block || Long.UZERO).toString())
+        message.app !== undefined && (obj.app = (message.app || Long.UZERO).toString())
         return obj
     },
 
@@ -176,15 +169,7 @@ export const Consensus = {
     },
 }
 
-type Builtin =
-    | Date
-    | Function
-    | Uint8Array
-    | string
-    | number
-    | boolean
-    | undefined
-    | Long
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined | Long
 export type DeepPartial<T> = T extends Builtin
     ? T
     : T extends Array<infer U>

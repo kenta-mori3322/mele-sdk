@@ -21,10 +21,7 @@ export interface Execution {
 const baseParams: object = { enabled: false, managers: '' }
 
 export const Params = {
-    encode(
-        message: Params,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(message: Params, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         if (message.enabled === true) {
             writer.uint32(8).bool(message.enabled)
         }
@@ -35,8 +32,7 @@ export const Params = {
     },
 
     decode(input: _m0.Reader | Uint8Array, length?: number): Params {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = { ...baseParams } as Params
         message.managers = []
@@ -104,10 +100,7 @@ export const Params = {
 const baseExecution: object = { id: Long.UZERO, submitTime: '', executor: '' }
 
 export const Execution = {
-    encode(
-        message: Execution,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(message: Execution, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         if (message.content !== undefined) {
             Any.encode(message.content, writer.uint32(10).fork()).ldelim()
         }
@@ -124,8 +117,7 @@ export const Execution = {
     },
 
     decode(input: _m0.Reader | Uint8Array, length?: number): Execution {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = { ...baseExecution } as Execution
         while (reader.pos < end) {
@@ -179,13 +171,9 @@ export const Execution = {
     toJSON(message: Execution): unknown {
         const obj: any = {}
         message.content !== undefined &&
-            (obj.content = message.content
-                ? Any.toJSON(message.content)
-                : undefined)
-        message.id !== undefined &&
-            (obj.id = (message.id || Long.UZERO).toString())
-        message.submitTime !== undefined &&
-            (obj.submitTime = message.submitTime)
+            (obj.content = message.content ? Any.toJSON(message.content) : undefined)
+        message.id !== undefined && (obj.id = (message.id || Long.UZERO).toString())
+        message.submitTime !== undefined && (obj.submitTime = message.submitTime)
         message.executor !== undefined && (obj.executor = message.executor)
         return obj
     },
@@ -216,15 +204,7 @@ export const Execution = {
     },
 }
 
-type Builtin =
-    | Date
-    | Function
-    | Uint8Array
-    | string
-    | number
-    | boolean
-    | undefined
-    | Long
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined | Long
 export type DeepPartial<T> = T extends Builtin
     ? T
     : T extends Array<infer U>

@@ -41,10 +41,7 @@ export interface RemoveFeeExcludedMessageProposalWithDeposit {
 const baseParams: object = { feePercentage: '' }
 
 export const Params = {
-    encode(
-        message: Params,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(message: Params, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         if (message.feePercentage !== '') {
             writer.uint32(10).string(message.feePercentage)
         }
@@ -58,8 +55,7 @@ export const Params = {
     },
 
     decode(input: _m0.Reader | Uint8Array, length?: number): Params {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = { ...baseParams } as Params
         message.minimumFee = []
@@ -71,14 +67,10 @@ export const Params = {
                     message.feePercentage = reader.string()
                     break
                 case 2:
-                    message.minimumFee.push(
-                        Coin.decode(reader, reader.uint32())
-                    )
+                    message.minimumFee.push(Coin.decode(reader, reader.uint32()))
                     break
                 case 3:
-                    message.maximumFee.push(
-                        Coin.decode(reader, reader.uint32())
-                    )
+                    message.maximumFee.push(Coin.decode(reader, reader.uint32()))
                     break
                 default:
                     reader.skipType(tag & 7)
@@ -92,10 +84,7 @@ export const Params = {
         const message = { ...baseParams } as Params
         message.minimumFee = []
         message.maximumFee = []
-        if (
-            object.feePercentage !== undefined &&
-            object.feePercentage !== null
-        ) {
+        if (object.feePercentage !== undefined && object.feePercentage !== null) {
             message.feePercentage = String(object.feePercentage)
         } else {
             message.feePercentage = ''
@@ -115,19 +104,14 @@ export const Params = {
 
     toJSON(message: Params): unknown {
         const obj: any = {}
-        message.feePercentage !== undefined &&
-            (obj.feePercentage = message.feePercentage)
+        message.feePercentage !== undefined && (obj.feePercentage = message.feePercentage)
         if (message.minimumFee) {
-            obj.minimumFee = message.minimumFee.map(e =>
-                e ? Coin.toJSON(e) : undefined
-            )
+            obj.minimumFee = message.minimumFee.map(e => (e ? Coin.toJSON(e) : undefined))
         } else {
             obj.minimumFee = []
         }
         if (message.maximumFee) {
-            obj.maximumFee = message.maximumFee.map(e =>
-                e ? Coin.toJSON(e) : undefined
-            )
+            obj.maximumFee = message.maximumFee.map(e => (e ? Coin.toJSON(e) : undefined))
         } else {
             obj.maximumFee = []
         }
@@ -138,10 +122,7 @@ export const Params = {
         const message = { ...baseParams } as Params
         message.minimumFee = []
         message.maximumFee = []
-        if (
-            object.feePercentage !== undefined &&
-            object.feePercentage !== null
-        ) {
+        if (object.feePercentage !== undefined && object.feePercentage !== null) {
             message.feePercentage = object.feePercentage
         } else {
             message.feePercentage = ''
@@ -183,12 +164,8 @@ export const AddFeeExcludedMessageProposal = {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): AddFeeExcludedMessageProposal {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): AddFeeExcludedMessageProposal {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseAddFeeExcludedMessageProposal,
@@ -238,16 +215,12 @@ export const AddFeeExcludedMessageProposal = {
     toJSON(message: AddFeeExcludedMessageProposal): unknown {
         const obj: any = {}
         message.title !== undefined && (obj.title = message.title)
-        message.description !== undefined &&
-            (obj.description = message.description)
-        message.messageType !== undefined &&
-            (obj.messageType = message.messageType)
+        message.description !== undefined && (obj.description = message.description)
+        message.messageType !== undefined && (obj.messageType = message.messageType)
         return obj
     },
 
-    fromPartial(
-        object: DeepPartial<AddFeeExcludedMessageProposal>
-    ): AddFeeExcludedMessageProposal {
+    fromPartial(object: DeepPartial<AddFeeExcludedMessageProposal>): AddFeeExcludedMessageProposal {
         const message = {
             ...baseAddFeeExcludedMessageProposal,
         } as AddFeeExcludedMessageProposal
@@ -301,8 +274,7 @@ export const AddFeeExcludedMessageProposalWithDeposit = {
         input: _m0.Reader | Uint8Array,
         length?: number
     ): AddFeeExcludedMessageProposalWithDeposit {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseAddFeeExcludedMessageProposalWithDeposit,
@@ -360,10 +332,8 @@ export const AddFeeExcludedMessageProposalWithDeposit = {
     toJSON(message: AddFeeExcludedMessageProposalWithDeposit): unknown {
         const obj: any = {}
         message.title !== undefined && (obj.title = message.title)
-        message.description !== undefined &&
-            (obj.description = message.description)
-        message.messageType !== undefined &&
-            (obj.messageType = message.messageType)
+        message.description !== undefined && (obj.description = message.description)
+        message.messageType !== undefined && (obj.messageType = message.messageType)
         message.deposit !== undefined && (obj.deposit = message.deposit)
         return obj
     },
@@ -421,12 +391,8 @@ export const RemoveFeeExcludedMessageProposal = {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): RemoveFeeExcludedMessageProposal {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): RemoveFeeExcludedMessageProposal {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseRemoveFeeExcludedMessageProposal,
@@ -476,10 +442,8 @@ export const RemoveFeeExcludedMessageProposal = {
     toJSON(message: RemoveFeeExcludedMessageProposal): unknown {
         const obj: any = {}
         message.title !== undefined && (obj.title = message.title)
-        message.description !== undefined &&
-            (obj.description = message.description)
-        message.messageType !== undefined &&
-            (obj.messageType = message.messageType)
+        message.description !== undefined && (obj.description = message.description)
+        message.messageType !== undefined && (obj.messageType = message.messageType)
         return obj
     },
 
@@ -539,8 +503,7 @@ export const RemoveFeeExcludedMessageProposalWithDeposit = {
         input: _m0.Reader | Uint8Array,
         length?: number
     ): RemoveFeeExcludedMessageProposalWithDeposit {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseRemoveFeeExcludedMessageProposalWithDeposit,
@@ -598,10 +561,8 @@ export const RemoveFeeExcludedMessageProposalWithDeposit = {
     toJSON(message: RemoveFeeExcludedMessageProposalWithDeposit): unknown {
         const obj: any = {}
         message.title !== undefined && (obj.title = message.title)
-        message.description !== undefined &&
-            (obj.description = message.description)
-        message.messageType !== undefined &&
-            (obj.messageType = message.messageType)
+        message.description !== undefined && (obj.description = message.description)
+        message.messageType !== undefined && (obj.messageType = message.messageType)
         message.deposit !== undefined && (obj.deposit = message.deposit)
         return obj
     },
@@ -636,15 +597,7 @@ export const RemoveFeeExcludedMessageProposalWithDeposit = {
     },
 }
 
-type Builtin =
-    | Date
-    | Function
-    | Uint8Array
-    | string
-    | number
-    | boolean
-    | undefined
-    | Long
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined | Long
 export type DeepPartial<T> = T extends Builtin
     ? T
     : T extends Array<infer U>

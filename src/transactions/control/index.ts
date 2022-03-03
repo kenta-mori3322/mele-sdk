@@ -1,9 +1,9 @@
+import Long from 'long'
 import { Coin } from '../../transport/codec/cosmos/base/v1beta1/coin'
 import { ParamChange } from '../../transport/codec/cosmos/params/v1beta1/params'
 import { Plan } from '../../transport/codec/cosmos/upgrade/v1beta1/upgrade'
 import { getRegistry } from '../../transport/registry'
 import { Transaction, TransactionApi } from '../index'
-import Long from 'long'
 
 /**
  * Control
@@ -28,10 +28,7 @@ export default class Control extends TransactionApi {
      *
      * @returns {Transaction} transaction - Transaction class instance.
      */
-    submitTextProposal(
-        title: string,
-        description: string
-    ): Transaction {
+    submitTextProposal(title: string, description: string): Transaction {
         let senderAddress = this.broadcast.signer.getAddress()
 
         const msgs = [
@@ -46,14 +43,18 @@ export default class Control extends TransactionApi {
                             value: {
                                 title: title,
                                 description: description,
-                            }
-                        })
+                            },
+                        }),
                     },
                 },
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
+        return new Transaction(
+            msgs,
+            msgs => this.broadcast.sendTransaction(msgs),
+            msgs => this.broadcast.calculateFees(msgs)
+        )
     }
     /**
      * mele.control.**submitParameterChangeProposal**
@@ -91,14 +92,18 @@ export default class Control extends TransactionApi {
                                 title: title,
                                 description: description,
                                 changes: changes,
-                            }
-                        })
+                            },
+                        }),
                     },
                 },
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
+        return new Transaction(
+            msgs,
+            msgs => this.broadcast.sendTransaction(msgs),
+            msgs => this.broadcast.calculateFees(msgs)
+        )
     }
     /**
      * mele.control.**submitCommunityPoolSpendProposal**
@@ -139,14 +144,18 @@ export default class Control extends TransactionApi {
                                 description: description,
                                 recipient: recipient,
                                 amount: amount,
-                            }
-                        })
+                            },
+                        }),
                     },
                 },
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
+        return new Transaction(
+            msgs,
+            msgs => this.broadcast.sendTransaction(msgs),
+            msgs => this.broadcast.calculateFees(msgs)
+        )
     }
     /**
      * mele.control.**submitBurnedPoolSpendProposal**
@@ -187,14 +196,18 @@ export default class Control extends TransactionApi {
                                 description: description,
                                 recipient: recipient,
                                 amount: amount,
-                            }
-                        },)
+                            },
+                        }),
                     },
                 },
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
+        return new Transaction(
+            msgs,
+            msgs => this.broadcast.sendTransaction(msgs),
+            msgs => this.broadcast.calculateFees(msgs)
+        )
     }
     /**
      * mele.control.**submitMintTreasurySupplyProposal**
@@ -232,14 +245,18 @@ export default class Control extends TransactionApi {
                                 title: title,
                                 description: description,
                                 amount: amount,
-                            }
-                        })
+                            },
+                        }),
                     },
                 },
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
+        return new Transaction(
+            msgs,
+            msgs => this.broadcast.sendTransaction(msgs),
+            msgs => this.broadcast.calculateFees(msgs)
+        )
     }
     /**
      * mele.control.**submitBurnTreasurySupplyProposal**
@@ -277,14 +294,18 @@ export default class Control extends TransactionApi {
                                 title: title,
                                 description: description,
                                 amount: amount,
-                            }
-                        })
+                            },
+                        }),
                     },
                 },
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
+        return new Transaction(
+            msgs,
+            msgs => this.broadcast.sendTransaction(msgs),
+            msgs => this.broadcast.calculateFees(msgs)
+        )
     }
     /**
      * mele.control.**submitSoftwareUpgradeProposal**
@@ -302,11 +323,7 @@ export default class Control extends TransactionApi {
      *
      * @returns {Transaction} transaction - Transaction class instance.
      */
-    submitSoftwareUpgradeProposal(
-        title: string,
-        description: string,
-        plan: Plan,
-    ): Transaction {
+    submitSoftwareUpgradeProposal(title: string, description: string, plan: Plan): Transaction {
         let senderAddress = this.broadcast.signer.getAddress()
 
         const msgs = [
@@ -325,15 +342,19 @@ export default class Control extends TransactionApi {
                                     name: plan.name,
                                     height: plan.height,
                                     info: plan.info,
-                                }
-                            }
-                        })
+                                },
+                            },
+                        }),
                     },
                 },
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
+        return new Transaction(
+            msgs,
+            msgs => this.broadcast.sendTransaction(msgs),
+            msgs => this.broadcast.calculateFees(msgs)
+        )
     }
     /**
      * mele.control.**submitCancelSoftwareUpgradeProposal**
@@ -350,10 +371,7 @@ export default class Control extends TransactionApi {
      *
      * @returns {Transaction} transaction - Transaction class instance.
      */
-    submitCancelSoftwareUpgradeProposal(
-        title: string,
-        description: string
-    ): Transaction {
+    submitCancelSoftwareUpgradeProposal(title: string, description: string): Transaction {
         let senderAddress = this.broadcast.signer.getAddress()
 
         const msgs = [
@@ -368,14 +386,18 @@ export default class Control extends TransactionApi {
                             value: {
                                 title: title,
                                 description: description,
-                            }
-                        })
+                            },
+                        }),
                     },
                 },
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
+        return new Transaction(
+            msgs,
+            msgs => this.broadcast.sendTransaction(msgs),
+            msgs => this.broadcast.calculateFees(msgs)
+        )
     }
     /**
      * mele.control.**submitAddFeeExcludedMessageProposal**
@@ -393,7 +415,7 @@ export default class Control extends TransactionApi {
      *
      * @returns {Transaction} transaction - Transaction class instance.
      */
-     submitAddFeeExcludedMessageProposal(
+    submitAddFeeExcludedMessageProposal(
         title: string,
         description: string,
         messageType: string
@@ -413,14 +435,18 @@ export default class Control extends TransactionApi {
                                 title: title,
                                 description: description,
                                 messageType: messageType,
-                            }
-                        })
+                            },
+                        }),
                     },
                 },
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
+        return new Transaction(
+            msgs,
+            msgs => this.broadcast.sendTransaction(msgs),
+            msgs => this.broadcast.calculateFees(msgs)
+        )
     }
     /**
      * mele.control.**submitRemoveFeeExcludedMessageProposal**
@@ -438,7 +464,7 @@ export default class Control extends TransactionApi {
      *
      * @returns {Transaction} transaction - Transaction class instance.
      */
-     submitRemoveFeeExcludedMessageProposal(
+    submitRemoveFeeExcludedMessageProposal(
         title: string,
         description: string,
         messageType: string
@@ -458,13 +484,17 @@ export default class Control extends TransactionApi {
                                 title: title,
                                 description: description,
                                 messageType: messageType,
-                            }
-                        })
+                            },
+                        }),
                     },
                 },
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
+        return new Transaction(
+            msgs,
+            msgs => this.broadcast.sendTransaction(msgs),
+            msgs => this.broadcast.calculateFees(msgs)
+        )
     }
 }

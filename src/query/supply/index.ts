@@ -7,7 +7,7 @@ const Keys = {
 
         TotalSupplyPath: 'total_supply',
         SupplyOfPath: 'supply_of',
-    }
+    },
 }
 
 /**
@@ -57,7 +57,7 @@ export default class SupplyQuery {
      *
      * @returns {SDKCoin} supplyOf - Supply of the given token.
      */
-     getSupplyOf(denom: string): Promise<Types.SDKCoin> {
+    getSupplyOf(denom: string): Promise<Types.SDKCoin> {
         const QueryPath = Keys.Query.QueryPath
         const SupplyOfPath = Keys.Query.SupplyOfPath
 

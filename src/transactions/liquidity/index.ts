@@ -1,5 +1,5 @@
-import { Transaction, TransactionApi } from '../index'
 import { Coin } from '../../transport/codec/cosmos/base/v1beta1/coin'
+import { Transaction, TransactionApi } from '../index'
 
 /**
  * Liquidity
@@ -24,10 +24,7 @@ export default class Liquidity extends TransactionApi {
      *
      * @returns {Transaction} transaction - Transaction class instance.
      */
-    createLiquidityPool(
-        pool_type: number,
-        coins: Coin[],
-    ): Transaction {
+    createLiquidityPool(pool_type: number, coins: Coin[]): Transaction {
         let senderAddress = this.broadcast.signer.getAddress()
 
         const msgs = [
@@ -41,7 +38,11 @@ export default class Liquidity extends TransactionApi {
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
+        return new Transaction(
+            msgs,
+            msgs => this.broadcast.sendTransaction(msgs),
+            msgs => this.broadcast.calculateFees(msgs)
+        )
     }
 
     /**
@@ -59,10 +60,7 @@ export default class Liquidity extends TransactionApi {
      *
      * @returns {Transaction} transaction - Transaction class instance.
      */
-    depositLiquidity(
-        pool_id: number,
-        coins: Coin[],
-    ): Transaction {
+    depositLiquidity(pool_id: number, coins: Coin[]): Transaction {
         let senderAddress = this.broadcast.signer.getAddress()
 
         const msgs = [
@@ -76,7 +74,11 @@ export default class Liquidity extends TransactionApi {
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
+        return new Transaction(
+            msgs,
+            msgs => this.broadcast.sendTransaction(msgs),
+            msgs => this.broadcast.calculateFees(msgs)
+        )
     }
 
     /**
@@ -94,10 +96,7 @@ export default class Liquidity extends TransactionApi {
      *
      * @returns {Transaction} transaction - Transaction class instance.
      */
-    withdrawLiquidity(
-        pool_id: number,
-        pool_coin: Coin,
-    ): Transaction {
+    withdrawLiquidity(pool_id: number, pool_coin: Coin): Transaction {
         let senderAddress = this.broadcast.signer.getAddress()
 
         const msgs = [
@@ -111,7 +110,11 @@ export default class Liquidity extends TransactionApi {
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
+        return new Transaction(
+            msgs,
+            msgs => this.broadcast.sendTransaction(msgs),
+            msgs => this.broadcast.calculateFees(msgs)
+        )
     }
 
     /**
@@ -125,7 +128,7 @@ export default class Liquidity extends TransactionApi {
      * @param {string} demand_coin_denom - The coin denomination to swap
      * @param {string} offer_coin_fee - The offer coin fee
      * @param {string} order_price - The coin denomination to swap
-     * 
+     *
      * @memberof mele.liquidity
      * @inner
      *
@@ -139,7 +142,7 @@ export default class Liquidity extends TransactionApi {
         offer_coin: Coin,
         demand_coin_denom: string,
         offer_coin_fee: Coin,
-        order_price: string,
+        order_price: string
     ): Transaction {
         let senderAddress = this.broadcast.signer.getAddress()
 
@@ -158,6 +161,10 @@ export default class Liquidity extends TransactionApi {
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
+        return new Transaction(
+            msgs,
+            msgs => this.broadcast.sendTransaction(msgs),
+            msgs => this.broadcast.calculateFees(msgs)
+        )
     }
 }

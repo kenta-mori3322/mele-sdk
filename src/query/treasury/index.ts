@@ -11,7 +11,7 @@ const Keys = {
         DisbursementsPath: 'disbursements',
         AllDisbursementsPath: 'all_disbursements',
         BurnsPath: 'burns',
-    }
+    },
 }
 
 /**
@@ -116,7 +116,7 @@ export default class TreasuryQuery {
      *
      * @returns {[Disbursement]} disbursements - Treasury disbursements.
      */
-     getAllDisbursements(): Promise<Types.Disbursement[]> {
+    getAllDisbursements(): Promise<Types.Disbursement[]> {
         const QueryPath = Keys.Query.QueryPath
         const AllDisbursementsPath = Keys.Query.AllDisbursementsPath
 

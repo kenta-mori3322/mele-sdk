@@ -1,9 +1,9 @@
+import Long from 'long'
 import { Coin } from '../../transport/codec/cosmos/base/v1beta1/coin'
 import { ParamChange } from '../../transport/codec/cosmos/params/v1beta1/params'
 import { Plan } from '../../transport/codec/cosmos/upgrade/v1beta1/upgrade'
 import { getRegistry } from '../../transport/registry'
 import { Transaction, TransactionApi } from '../index'
-import Long from 'long'
 
 /**
  * Governance
@@ -28,7 +28,7 @@ export default class Gov extends TransactionApi {
      *
      * @returns {Transaction} transaction - Transaction class instance.
      */
-     vote(proposalId: number, option: number): Transaction {
+    vote(proposalId: number, option: number): Transaction {
         let senderAddress = this.broadcast.signer.getAddress()
 
         const msgs = [
@@ -42,7 +42,11 @@ export default class Gov extends TransactionApi {
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
+        return new Transaction(
+            msgs,
+            msgs => this.broadcast.sendTransaction(msgs),
+            msgs => this.broadcast.calculateFees(msgs)
+        )
     }
     /**
      * cosmos.gov.**deposit**
@@ -73,7 +77,11 @@ export default class Gov extends TransactionApi {
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
+        return new Transaction(
+            msgs,
+            msgs => this.broadcast.sendTransaction(msgs),
+            msgs => this.broadcast.calculateFees(msgs)
+        )
     }
     /**
      * cosmos.gov.**submitTextProposal**
@@ -91,11 +99,7 @@ export default class Gov extends TransactionApi {
      *
      * @returns {Transaction} transaction - Transaction class instance.
      */
-    submitTextProposal(
-        initialDeposit: Coin[],
-        title: string,
-        description: string
-    ): Transaction {
+    submitTextProposal(initialDeposit: Coin[], title: string, description: string): Transaction {
         let senderAddress = this.broadcast.signer.getAddress()
 
         const msgs = [
@@ -111,14 +115,18 @@ export default class Gov extends TransactionApi {
                             value: {
                                 title: title,
                                 description: description,
-                            }
-                        })
+                            },
+                        }),
                     },
                 },
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
+        return new Transaction(
+            msgs,
+            msgs => this.broadcast.sendTransaction(msgs),
+            msgs => this.broadcast.calculateFees(msgs)
+        )
     }
     /**
      * cosmos.gov.**submitParameterChangeProposal**
@@ -159,14 +167,18 @@ export default class Gov extends TransactionApi {
                                 title: title,
                                 description: description,
                                 changes: changes,
-                            }
-                        })
+                            },
+                        }),
                     },
                 },
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
+        return new Transaction(
+            msgs,
+            msgs => this.broadcast.sendTransaction(msgs),
+            msgs => this.broadcast.calculateFees(msgs)
+        )
     }
     /**
      * cosmos.gov.**submitCommunityPoolSpendProposal**
@@ -210,14 +222,18 @@ export default class Gov extends TransactionApi {
                                 description: description,
                                 recipient: recipient,
                                 amount: amount,
-                            }
-                        })
+                            },
+                        }),
                     },
                 },
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
+        return new Transaction(
+            msgs,
+            msgs => this.broadcast.sendTransaction(msgs),
+            msgs => this.broadcast.calculateFees(msgs)
+        )
     }
     /**
      * cosmos.gov.**submitBurnedPoolSpendProposal**
@@ -261,14 +277,18 @@ export default class Gov extends TransactionApi {
                                 description: description,
                                 recipient: recipient,
                                 amount: amount,
-                            }
-                        },)
+                            },
+                        }),
                     },
                 },
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
+        return new Transaction(
+            msgs,
+            msgs => this.broadcast.sendTransaction(msgs),
+            msgs => this.broadcast.calculateFees(msgs)
+        )
     }
     /**
      * cosmos.gov.**submitMintTreasurySupplyProposal**
@@ -309,14 +329,18 @@ export default class Gov extends TransactionApi {
                                 title: title,
                                 description: description,
                                 amount: amount,
-                            }
-                        })
+                            },
+                        }),
                     },
                 },
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
+        return new Transaction(
+            msgs,
+            msgs => this.broadcast.sendTransaction(msgs),
+            msgs => this.broadcast.calculateFees(msgs)
+        )
     }
     /**
      * cosmos.gov.**submitBurnTreasurySupplyProposal**
@@ -357,14 +381,18 @@ export default class Gov extends TransactionApi {
                                 title: title,
                                 description: description,
                                 amount: amount,
-                            }
-                        })
+                            },
+                        }),
                     },
                 },
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
+        return new Transaction(
+            msgs,
+            msgs => this.broadcast.sendTransaction(msgs),
+            msgs => this.broadcast.calculateFees(msgs)
+        )
     }
     /**
      * cosmos.gov.**submitSoftwareUpgradeProposal**
@@ -387,7 +415,7 @@ export default class Gov extends TransactionApi {
         initialDeposit: Coin[],
         title: string,
         description: string,
-        plan: Plan,
+        plan: Plan
     ): Transaction {
         let senderAddress = this.broadcast.signer.getAddress()
 
@@ -408,15 +436,19 @@ export default class Gov extends TransactionApi {
                                     name: plan.name,
                                     height: plan.height,
                                     info: plan.info,
-                                }
-                            }
-                        })
+                                },
+                            },
+                        }),
                     },
                 },
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
+        return new Transaction(
+            msgs,
+            msgs => this.broadcast.sendTransaction(msgs),
+            msgs => this.broadcast.calculateFees(msgs)
+        )
     }
     /**
      * cosmos.gov.**submitCancelSoftwareUpgradeProposal**
@@ -454,14 +486,18 @@ export default class Gov extends TransactionApi {
                             value: {
                                 title: title,
                                 description: description,
-                            }
-                        })
+                            },
+                        }),
                     },
                 },
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
+        return new Transaction(
+            msgs,
+            msgs => this.broadcast.sendTransaction(msgs),
+            msgs => this.broadcast.calculateFees(msgs)
+        )
     }
     /**
      * cosmos.gov.**submitAddFeeExcludedMessage**
@@ -480,7 +516,7 @@ export default class Gov extends TransactionApi {
      *
      * @returns {Transaction} transaction - Transaction class instance.
      */
-     submitAddFeeExcludedMessageProposal(
+    submitAddFeeExcludedMessageProposal(
         initialDeposit: Coin[],
         title: string,
         description: string,
@@ -502,14 +538,18 @@ export default class Gov extends TransactionApi {
                                 title: title,
                                 description: description,
                                 messageType: messageType,
-                            }
-                        })
+                            },
+                        }),
                     },
                 },
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
+        return new Transaction(
+            msgs,
+            msgs => this.broadcast.sendTransaction(msgs),
+            msgs => this.broadcast.calculateFees(msgs)
+        )
     }
     /**
      * cosmos.gov.**submitRemoveFeeExcludedMessage**
@@ -528,7 +568,7 @@ export default class Gov extends TransactionApi {
      *
      * @returns {Transaction} transaction - Transaction class instance.
      */
-     submitRemoveFeeExcludedMessageProposal(
+    submitRemoveFeeExcludedMessageProposal(
         initialDeposit: Coin[],
         title: string,
         description: string,
@@ -550,13 +590,17 @@ export default class Gov extends TransactionApi {
                                 title: title,
                                 description: description,
                                 messageType: messageType,
-                            }
-                        })
+                            },
+                        }),
                     },
                 },
             },
         ]
 
-        return new Transaction(msgs, msgs => this.broadcast.sendTransaction(msgs), msgs => this.broadcast.calculateFees(msgs))
+        return new Transaction(
+            msgs,
+            msgs => this.broadcast.sendTransaction(msgs),
+            msgs => this.broadcast.calculateFees(msgs)
+        )
     }
 }

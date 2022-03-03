@@ -1,18 +1,15 @@
 /* eslint-disable */
 import Long from 'long'
 import _m0 from 'protobufjs/minimal'
+import { PageRequest, PageResponse } from '../../../cosmos/base/query/v1beta1/pagination'
+import { Coin, DecCoin } from '../../../cosmos/base/v1beta1/coin'
 import {
-    Params,
-    ValidatorOutstandingRewards,
-    ValidatorAccumulatedCommission,
-    ValidatorSlashEvent,
     DelegationDelegatorReward,
+    Params,
+    ValidatorAccumulatedCommission,
+    ValidatorOutstandingRewards,
+    ValidatorSlashEvent,
 } from '../../../cosmos/distribution/v1beta1/distribution'
-import {
-    PageRequest,
-    PageResponse,
-} from '../../../cosmos/base/query/v1beta1/pagination'
-import { DecCoin, Coin } from '../../../cosmos/base/v1beta1/coin'
 
 export const protobufPackage = 'cosmos.distribution.v1beta1'
 
@@ -187,19 +184,12 @@ export interface QueryBurnedPoolResponse {
 const baseQueryParamsRequest: object = {}
 
 export const QueryParamsRequest = {
-    encode(
-        _: QueryParamsRequest,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(_: QueryParamsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): QueryParamsRequest {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsRequest {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = { ...baseQueryParamsRequest } as QueryParamsRequest
         while (reader.pos < end) {
@@ -232,22 +222,15 @@ export const QueryParamsRequest = {
 const baseQueryParamsResponse: object = {}
 
 export const QueryParamsResponse = {
-    encode(
-        message: QueryParamsResponse,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(message: QueryParamsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         if (message.params !== undefined) {
             Params.encode(message.params, writer.uint32(10).fork()).ldelim()
         }
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): QueryParamsResponse {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsResponse {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = { ...baseQueryParamsResponse } as QueryParamsResponse
         while (reader.pos < end) {
@@ -277,9 +260,7 @@ export const QueryParamsResponse = {
     toJSON(message: QueryParamsResponse): unknown {
         const obj: any = {}
         message.params !== undefined &&
-            (obj.params = message.params
-                ? Params.toJSON(message.params)
-                : undefined)
+            (obj.params = message.params ? Params.toJSON(message.params) : undefined)
         return obj
     },
 
@@ -313,8 +294,7 @@ export const QueryValidatorOutstandingRewardsRequest = {
         input: _m0.Reader | Uint8Array,
         length?: number
     ): QueryValidatorOutstandingRewardsRequest {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseQueryValidatorOutstandingRewardsRequest,
@@ -337,10 +317,7 @@ export const QueryValidatorOutstandingRewardsRequest = {
         const message = {
             ...baseQueryValidatorOutstandingRewardsRequest,
         } as QueryValidatorOutstandingRewardsRequest
-        if (
-            object.validatorAddress !== undefined &&
-            object.validatorAddress !== null
-        ) {
+        if (object.validatorAddress !== undefined && object.validatorAddress !== null) {
             message.validatorAddress = String(object.validatorAddress)
         } else {
             message.validatorAddress = ''
@@ -350,8 +327,7 @@ export const QueryValidatorOutstandingRewardsRequest = {
 
     toJSON(message: QueryValidatorOutstandingRewardsRequest): unknown {
         const obj: any = {}
-        message.validatorAddress !== undefined &&
-            (obj.validatorAddress = message.validatorAddress)
+        message.validatorAddress !== undefined && (obj.validatorAddress = message.validatorAddress)
         return obj
     },
 
@@ -361,10 +337,7 @@ export const QueryValidatorOutstandingRewardsRequest = {
         const message = {
             ...baseQueryValidatorOutstandingRewardsRequest,
         } as QueryValidatorOutstandingRewardsRequest
-        if (
-            object.validatorAddress !== undefined &&
-            object.validatorAddress !== null
-        ) {
+        if (object.validatorAddress !== undefined && object.validatorAddress !== null) {
             message.validatorAddress = object.validatorAddress
         } else {
             message.validatorAddress = ''
@@ -381,10 +354,7 @@ export const QueryValidatorOutstandingRewardsResponse = {
         writer: _m0.Writer = _m0.Writer.create()
     ): _m0.Writer {
         if (message.rewards !== undefined) {
-            ValidatorOutstandingRewards.encode(
-                message.rewards,
-                writer.uint32(10).fork()
-            ).ldelim()
+            ValidatorOutstandingRewards.encode(message.rewards, writer.uint32(10).fork()).ldelim()
         }
         return writer
     },
@@ -393,8 +363,7 @@ export const QueryValidatorOutstandingRewardsResponse = {
         input: _m0.Reader | Uint8Array,
         length?: number
     ): QueryValidatorOutstandingRewardsResponse {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseQueryValidatorOutstandingRewardsResponse,
@@ -403,10 +372,7 @@ export const QueryValidatorOutstandingRewardsResponse = {
             const tag = reader.uint32()
             switch (tag >>> 3) {
                 case 1:
-                    message.rewards = ValidatorOutstandingRewards.decode(
-                        reader,
-                        reader.uint32()
-                    )
+                    message.rewards = ValidatorOutstandingRewards.decode(reader, reader.uint32())
                     break
                 default:
                     reader.skipType(tag & 7)
@@ -421,9 +387,7 @@ export const QueryValidatorOutstandingRewardsResponse = {
             ...baseQueryValidatorOutstandingRewardsResponse,
         } as QueryValidatorOutstandingRewardsResponse
         if (object.rewards !== undefined && object.rewards !== null) {
-            message.rewards = ValidatorOutstandingRewards.fromJSON(
-                object.rewards
-            )
+            message.rewards = ValidatorOutstandingRewards.fromJSON(object.rewards)
         } else {
             message.rewards = undefined
         }
@@ -446,9 +410,7 @@ export const QueryValidatorOutstandingRewardsResponse = {
             ...baseQueryValidatorOutstandingRewardsResponse,
         } as QueryValidatorOutstandingRewardsResponse
         if (object.rewards !== undefined && object.rewards !== null) {
-            message.rewards = ValidatorOutstandingRewards.fromPartial(
-                object.rewards
-            )
+            message.rewards = ValidatorOutstandingRewards.fromPartial(object.rewards)
         } else {
             message.rewards = undefined
         }
@@ -469,12 +431,8 @@ export const QueryValidatorCommissionRequest = {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): QueryValidatorCommissionRequest {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryValidatorCommissionRequest {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseQueryValidatorCommissionRequest,
@@ -497,10 +455,7 @@ export const QueryValidatorCommissionRequest = {
         const message = {
             ...baseQueryValidatorCommissionRequest,
         } as QueryValidatorCommissionRequest
-        if (
-            object.validatorAddress !== undefined &&
-            object.validatorAddress !== null
-        ) {
+        if (object.validatorAddress !== undefined && object.validatorAddress !== null) {
             message.validatorAddress = String(object.validatorAddress)
         } else {
             message.validatorAddress = ''
@@ -510,8 +465,7 @@ export const QueryValidatorCommissionRequest = {
 
     toJSON(message: QueryValidatorCommissionRequest): unknown {
         const obj: any = {}
-        message.validatorAddress !== undefined &&
-            (obj.validatorAddress = message.validatorAddress)
+        message.validatorAddress !== undefined && (obj.validatorAddress = message.validatorAddress)
         return obj
     },
 
@@ -521,10 +475,7 @@ export const QueryValidatorCommissionRequest = {
         const message = {
             ...baseQueryValidatorCommissionRequest,
         } as QueryValidatorCommissionRequest
-        if (
-            object.validatorAddress !== undefined &&
-            object.validatorAddress !== null
-        ) {
+        if (object.validatorAddress !== undefined && object.validatorAddress !== null) {
             message.validatorAddress = object.validatorAddress
         } else {
             message.validatorAddress = ''
@@ -549,12 +500,8 @@ export const QueryValidatorCommissionResponse = {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): QueryValidatorCommissionResponse {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryValidatorCommissionResponse {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseQueryValidatorCommissionResponse,
@@ -581,9 +528,7 @@ export const QueryValidatorCommissionResponse = {
             ...baseQueryValidatorCommissionResponse,
         } as QueryValidatorCommissionResponse
         if (object.commission !== undefined && object.commission !== null) {
-            message.commission = ValidatorAccumulatedCommission.fromJSON(
-                object.commission
-            )
+            message.commission = ValidatorAccumulatedCommission.fromJSON(object.commission)
         } else {
             message.commission = undefined
         }
@@ -606,9 +551,7 @@ export const QueryValidatorCommissionResponse = {
             ...baseQueryValidatorCommissionResponse,
         } as QueryValidatorCommissionResponse
         if (object.commission !== undefined && object.commission !== null) {
-            message.commission = ValidatorAccumulatedCommission.fromPartial(
-                object.commission
-            )
+            message.commission = ValidatorAccumulatedCommission.fromPartial(object.commission)
         } else {
             message.commission = undefined
         }
@@ -637,20 +580,13 @@ export const QueryValidatorSlashesRequest = {
             writer.uint32(24).uint64(message.endingHeight)
         }
         if (message.pagination !== undefined) {
-            PageRequest.encode(
-                message.pagination,
-                writer.uint32(34).fork()
-            ).ldelim()
+            PageRequest.encode(message.pagination, writer.uint32(34).fork()).ldelim()
         }
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): QueryValidatorSlashesRequest {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryValidatorSlashesRequest {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseQueryValidatorSlashesRequest,
@@ -668,10 +604,7 @@ export const QueryValidatorSlashesRequest = {
                     message.endingHeight = reader.uint64() as Long
                     break
                 case 4:
-                    message.pagination = PageRequest.decode(
-                        reader,
-                        reader.uint32()
-                    )
+                    message.pagination = PageRequest.decode(reader, reader.uint32())
                     break
                 default:
                     reader.skipType(tag & 7)
@@ -685,18 +618,12 @@ export const QueryValidatorSlashesRequest = {
         const message = {
             ...baseQueryValidatorSlashesRequest,
         } as QueryValidatorSlashesRequest
-        if (
-            object.validatorAddress !== undefined &&
-            object.validatorAddress !== null
-        ) {
+        if (object.validatorAddress !== undefined && object.validatorAddress !== null) {
             message.validatorAddress = String(object.validatorAddress)
         } else {
             message.validatorAddress = ''
         }
-        if (
-            object.startingHeight !== undefined &&
-            object.startingHeight !== null
-        ) {
+        if (object.startingHeight !== undefined && object.startingHeight !== null) {
             message.startingHeight = Long.fromString(object.startingHeight)
         } else {
             message.startingHeight = Long.UZERO
@@ -716,12 +643,9 @@ export const QueryValidatorSlashesRequest = {
 
     toJSON(message: QueryValidatorSlashesRequest): unknown {
         const obj: any = {}
-        message.validatorAddress !== undefined &&
-            (obj.validatorAddress = message.validatorAddress)
+        message.validatorAddress !== undefined && (obj.validatorAddress = message.validatorAddress)
         message.startingHeight !== undefined &&
-            (obj.startingHeight = (
-                message.startingHeight || Long.UZERO
-            ).toString())
+            (obj.startingHeight = (message.startingHeight || Long.UZERO).toString())
         message.endingHeight !== undefined &&
             (obj.endingHeight = (message.endingHeight || Long.UZERO).toString())
         message.pagination !== undefined &&
@@ -731,24 +655,16 @@ export const QueryValidatorSlashesRequest = {
         return obj
     },
 
-    fromPartial(
-        object: DeepPartial<QueryValidatorSlashesRequest>
-    ): QueryValidatorSlashesRequest {
+    fromPartial(object: DeepPartial<QueryValidatorSlashesRequest>): QueryValidatorSlashesRequest {
         const message = {
             ...baseQueryValidatorSlashesRequest,
         } as QueryValidatorSlashesRequest
-        if (
-            object.validatorAddress !== undefined &&
-            object.validatorAddress !== null
-        ) {
+        if (object.validatorAddress !== undefined && object.validatorAddress !== null) {
             message.validatorAddress = object.validatorAddress
         } else {
             message.validatorAddress = ''
         }
-        if (
-            object.startingHeight !== undefined &&
-            object.startingHeight !== null
-        ) {
+        if (object.startingHeight !== undefined && object.startingHeight !== null) {
             message.startingHeight = object.startingHeight as Long
         } else {
             message.startingHeight = Long.UZERO
@@ -778,20 +694,13 @@ export const QueryValidatorSlashesResponse = {
             ValidatorSlashEvent.encode(v!, writer.uint32(10).fork()).ldelim()
         }
         if (message.pagination !== undefined) {
-            PageResponse.encode(
-                message.pagination,
-                writer.uint32(18).fork()
-            ).ldelim()
+            PageResponse.encode(message.pagination, writer.uint32(18).fork()).ldelim()
         }
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): QueryValidatorSlashesResponse {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryValidatorSlashesResponse {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseQueryValidatorSlashesResponse,
@@ -801,15 +710,10 @@ export const QueryValidatorSlashesResponse = {
             const tag = reader.uint32()
             switch (tag >>> 3) {
                 case 1:
-                    message.slashes.push(
-                        ValidatorSlashEvent.decode(reader, reader.uint32())
-                    )
+                    message.slashes.push(ValidatorSlashEvent.decode(reader, reader.uint32()))
                     break
                 case 2:
-                    message.pagination = PageResponse.decode(
-                        reader,
-                        reader.uint32()
-                    )
+                    message.pagination = PageResponse.decode(reader, reader.uint32())
                     break
                 default:
                     reader.skipType(tag & 7)
@@ -840,9 +744,7 @@ export const QueryValidatorSlashesResponse = {
     toJSON(message: QueryValidatorSlashesResponse): unknown {
         const obj: any = {}
         if (message.slashes) {
-            obj.slashes = message.slashes.map(e =>
-                e ? ValidatorSlashEvent.toJSON(e) : undefined
-            )
+            obj.slashes = message.slashes.map(e => (e ? ValidatorSlashEvent.toJSON(e) : undefined))
         } else {
             obj.slashes = []
         }
@@ -853,9 +755,7 @@ export const QueryValidatorSlashesResponse = {
         return obj
     },
 
-    fromPartial(
-        object: DeepPartial<QueryValidatorSlashesResponse>
-    ): QueryValidatorSlashesResponse {
+    fromPartial(object: DeepPartial<QueryValidatorSlashesResponse>): QueryValidatorSlashesResponse {
         const message = {
             ...baseQueryValidatorSlashesResponse,
         } as QueryValidatorSlashesResponse
@@ -893,12 +793,8 @@ export const QueryDelegationRewardsRequest = {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): QueryDelegationRewardsRequest {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryDelegationRewardsRequest {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseQueryDelegationRewardsRequest,
@@ -924,18 +820,12 @@ export const QueryDelegationRewardsRequest = {
         const message = {
             ...baseQueryDelegationRewardsRequest,
         } as QueryDelegationRewardsRequest
-        if (
-            object.delegatorAddress !== undefined &&
-            object.delegatorAddress !== null
-        ) {
+        if (object.delegatorAddress !== undefined && object.delegatorAddress !== null) {
             message.delegatorAddress = String(object.delegatorAddress)
         } else {
             message.delegatorAddress = ''
         }
-        if (
-            object.validatorAddress !== undefined &&
-            object.validatorAddress !== null
-        ) {
+        if (object.validatorAddress !== undefined && object.validatorAddress !== null) {
             message.validatorAddress = String(object.validatorAddress)
         } else {
             message.validatorAddress = ''
@@ -945,31 +835,21 @@ export const QueryDelegationRewardsRequest = {
 
     toJSON(message: QueryDelegationRewardsRequest): unknown {
         const obj: any = {}
-        message.delegatorAddress !== undefined &&
-            (obj.delegatorAddress = message.delegatorAddress)
-        message.validatorAddress !== undefined &&
-            (obj.validatorAddress = message.validatorAddress)
+        message.delegatorAddress !== undefined && (obj.delegatorAddress = message.delegatorAddress)
+        message.validatorAddress !== undefined && (obj.validatorAddress = message.validatorAddress)
         return obj
     },
 
-    fromPartial(
-        object: DeepPartial<QueryDelegationRewardsRequest>
-    ): QueryDelegationRewardsRequest {
+    fromPartial(object: DeepPartial<QueryDelegationRewardsRequest>): QueryDelegationRewardsRequest {
         const message = {
             ...baseQueryDelegationRewardsRequest,
         } as QueryDelegationRewardsRequest
-        if (
-            object.delegatorAddress !== undefined &&
-            object.delegatorAddress !== null
-        ) {
+        if (object.delegatorAddress !== undefined && object.delegatorAddress !== null) {
             message.delegatorAddress = object.delegatorAddress
         } else {
             message.delegatorAddress = ''
         }
-        if (
-            object.validatorAddress !== undefined &&
-            object.validatorAddress !== null
-        ) {
+        if (object.validatorAddress !== undefined && object.validatorAddress !== null) {
             message.validatorAddress = object.validatorAddress
         } else {
             message.validatorAddress = ''
@@ -991,12 +871,8 @@ export const QueryDelegationRewardsResponse = {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): QueryDelegationRewardsResponse {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryDelegationRewardsResponse {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseQueryDelegationRewardsResponse,
@@ -1006,9 +882,7 @@ export const QueryDelegationRewardsResponse = {
             const tag = reader.uint32()
             switch (tag >>> 3) {
                 case 1:
-                    message.rewards.push(
-                        DecCoin.decode(reader, reader.uint32())
-                    )
+                    message.rewards.push(DecCoin.decode(reader, reader.uint32()))
                     break
                 default:
                     reader.skipType(tag & 7)
@@ -1034,9 +908,7 @@ export const QueryDelegationRewardsResponse = {
     toJSON(message: QueryDelegationRewardsResponse): unknown {
         const obj: any = {}
         if (message.rewards) {
-            obj.rewards = message.rewards.map(e =>
-                e ? DecCoin.toJSON(e) : undefined
-            )
+            obj.rewards = message.rewards.map(e => (e ? DecCoin.toJSON(e) : undefined))
         } else {
             obj.rewards = []
         }
@@ -1072,12 +944,8 @@ export const QueryDelegationTotalRewardsRequest = {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): QueryDelegationTotalRewardsRequest {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryDelegationTotalRewardsRequest {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseQueryDelegationTotalRewardsRequest,
@@ -1100,10 +968,7 @@ export const QueryDelegationTotalRewardsRequest = {
         const message = {
             ...baseQueryDelegationTotalRewardsRequest,
         } as QueryDelegationTotalRewardsRequest
-        if (
-            object.delegatorAddress !== undefined &&
-            object.delegatorAddress !== null
-        ) {
+        if (object.delegatorAddress !== undefined && object.delegatorAddress !== null) {
             message.delegatorAddress = String(object.delegatorAddress)
         } else {
             message.delegatorAddress = ''
@@ -1113,8 +978,7 @@ export const QueryDelegationTotalRewardsRequest = {
 
     toJSON(message: QueryDelegationTotalRewardsRequest): unknown {
         const obj: any = {}
-        message.delegatorAddress !== undefined &&
-            (obj.delegatorAddress = message.delegatorAddress)
+        message.delegatorAddress !== undefined && (obj.delegatorAddress = message.delegatorAddress)
         return obj
     },
 
@@ -1124,10 +988,7 @@ export const QueryDelegationTotalRewardsRequest = {
         const message = {
             ...baseQueryDelegationTotalRewardsRequest,
         } as QueryDelegationTotalRewardsRequest
-        if (
-            object.delegatorAddress !== undefined &&
-            object.delegatorAddress !== null
-        ) {
+        if (object.delegatorAddress !== undefined && object.delegatorAddress !== null) {
             message.delegatorAddress = object.delegatorAddress
         } else {
             message.delegatorAddress = ''
@@ -1144,10 +1005,7 @@ export const QueryDelegationTotalRewardsResponse = {
         writer: _m0.Writer = _m0.Writer.create()
     ): _m0.Writer {
         for (const v of message.rewards) {
-            DelegationDelegatorReward.encode(
-                v!,
-                writer.uint32(10).fork()
-            ).ldelim()
+            DelegationDelegatorReward.encode(v!, writer.uint32(10).fork()).ldelim()
         }
         for (const v of message.total) {
             DecCoin.encode(v!, writer.uint32(18).fork()).ldelim()
@@ -1155,12 +1013,8 @@ export const QueryDelegationTotalRewardsResponse = {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): QueryDelegationTotalRewardsResponse {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryDelegationTotalRewardsResponse {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseQueryDelegationTotalRewardsResponse,
@@ -1171,12 +1025,7 @@ export const QueryDelegationTotalRewardsResponse = {
             const tag = reader.uint32()
             switch (tag >>> 3) {
                 case 1:
-                    message.rewards.push(
-                        DelegationDelegatorReward.decode(
-                            reader,
-                            reader.uint32()
-                        )
-                    )
+                    message.rewards.push(DelegationDelegatorReward.decode(reader, reader.uint32()))
                     break
                 case 2:
                     message.total.push(DecCoin.decode(reader, reader.uint32()))
@@ -1218,9 +1067,7 @@ export const QueryDelegationTotalRewardsResponse = {
             obj.rewards = []
         }
         if (message.total) {
-            obj.total = message.total.map(e =>
-                e ? DecCoin.toJSON(e) : undefined
-            )
+            obj.total = message.total.map(e => (e ? DecCoin.toJSON(e) : undefined))
         } else {
             obj.total = []
         }
@@ -1262,12 +1109,8 @@ export const QueryDelegatorValidatorsRequest = {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): QueryDelegatorValidatorsRequest {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryDelegatorValidatorsRequest {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseQueryDelegatorValidatorsRequest,
@@ -1290,10 +1133,7 @@ export const QueryDelegatorValidatorsRequest = {
         const message = {
             ...baseQueryDelegatorValidatorsRequest,
         } as QueryDelegatorValidatorsRequest
-        if (
-            object.delegatorAddress !== undefined &&
-            object.delegatorAddress !== null
-        ) {
+        if (object.delegatorAddress !== undefined && object.delegatorAddress !== null) {
             message.delegatorAddress = String(object.delegatorAddress)
         } else {
             message.delegatorAddress = ''
@@ -1303,8 +1143,7 @@ export const QueryDelegatorValidatorsRequest = {
 
     toJSON(message: QueryDelegatorValidatorsRequest): unknown {
         const obj: any = {}
-        message.delegatorAddress !== undefined &&
-            (obj.delegatorAddress = message.delegatorAddress)
+        message.delegatorAddress !== undefined && (obj.delegatorAddress = message.delegatorAddress)
         return obj
     },
 
@@ -1314,10 +1153,7 @@ export const QueryDelegatorValidatorsRequest = {
         const message = {
             ...baseQueryDelegatorValidatorsRequest,
         } as QueryDelegatorValidatorsRequest
-        if (
-            object.delegatorAddress !== undefined &&
-            object.delegatorAddress !== null
-        ) {
+        if (object.delegatorAddress !== undefined && object.delegatorAddress !== null) {
             message.delegatorAddress = object.delegatorAddress
         } else {
             message.delegatorAddress = ''
@@ -1339,12 +1175,8 @@ export const QueryDelegatorValidatorsResponse = {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): QueryDelegatorValidatorsResponse {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryDelegatorValidatorsResponse {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseQueryDelegatorValidatorsResponse,
@@ -1418,12 +1250,8 @@ export const QueryDelegatorWithdrawAddressRequest = {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): QueryDelegatorWithdrawAddressRequest {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryDelegatorWithdrawAddressRequest {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseQueryDelegatorWithdrawAddressRequest,
@@ -1446,10 +1274,7 @@ export const QueryDelegatorWithdrawAddressRequest = {
         const message = {
             ...baseQueryDelegatorWithdrawAddressRequest,
         } as QueryDelegatorWithdrawAddressRequest
-        if (
-            object.delegatorAddress !== undefined &&
-            object.delegatorAddress !== null
-        ) {
+        if (object.delegatorAddress !== undefined && object.delegatorAddress !== null) {
             message.delegatorAddress = String(object.delegatorAddress)
         } else {
             message.delegatorAddress = ''
@@ -1459,8 +1284,7 @@ export const QueryDelegatorWithdrawAddressRequest = {
 
     toJSON(message: QueryDelegatorWithdrawAddressRequest): unknown {
         const obj: any = {}
-        message.delegatorAddress !== undefined &&
-            (obj.delegatorAddress = message.delegatorAddress)
+        message.delegatorAddress !== undefined && (obj.delegatorAddress = message.delegatorAddress)
         return obj
     },
 
@@ -1470,10 +1294,7 @@ export const QueryDelegatorWithdrawAddressRequest = {
         const message = {
             ...baseQueryDelegatorWithdrawAddressRequest,
         } as QueryDelegatorWithdrawAddressRequest
-        if (
-            object.delegatorAddress !== undefined &&
-            object.delegatorAddress !== null
-        ) {
+        if (object.delegatorAddress !== undefined && object.delegatorAddress !== null) {
             message.delegatorAddress = object.delegatorAddress
         } else {
             message.delegatorAddress = ''
@@ -1497,12 +1318,8 @@ export const QueryDelegatorWithdrawAddressResponse = {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): QueryDelegatorWithdrawAddressResponse {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryDelegatorWithdrawAddressResponse {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseQueryDelegatorWithdrawAddressResponse,
@@ -1525,10 +1342,7 @@ export const QueryDelegatorWithdrawAddressResponse = {
         const message = {
             ...baseQueryDelegatorWithdrawAddressResponse,
         } as QueryDelegatorWithdrawAddressResponse
-        if (
-            object.withdrawAddress !== undefined &&
-            object.withdrawAddress !== null
-        ) {
+        if (object.withdrawAddress !== undefined && object.withdrawAddress !== null) {
             message.withdrawAddress = String(object.withdrawAddress)
         } else {
             message.withdrawAddress = ''
@@ -1538,8 +1352,7 @@ export const QueryDelegatorWithdrawAddressResponse = {
 
     toJSON(message: QueryDelegatorWithdrawAddressResponse): unknown {
         const obj: any = {}
-        message.withdrawAddress !== undefined &&
-            (obj.withdrawAddress = message.withdrawAddress)
+        message.withdrawAddress !== undefined && (obj.withdrawAddress = message.withdrawAddress)
         return obj
     },
 
@@ -1549,10 +1362,7 @@ export const QueryDelegatorWithdrawAddressResponse = {
         const message = {
             ...baseQueryDelegatorWithdrawAddressResponse,
         } as QueryDelegatorWithdrawAddressResponse
-        if (
-            object.withdrawAddress !== undefined &&
-            object.withdrawAddress !== null
-        ) {
+        if (object.withdrawAddress !== undefined && object.withdrawAddress !== null) {
             message.withdrawAddress = object.withdrawAddress
         } else {
             message.withdrawAddress = ''
@@ -1564,19 +1374,12 @@ export const QueryDelegatorWithdrawAddressResponse = {
 const baseQueryCommunityPoolRequest: object = {}
 
 export const QueryCommunityPoolRequest = {
-    encode(
-        _: QueryCommunityPoolRequest,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(_: QueryCommunityPoolRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): QueryCommunityPoolRequest {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryCommunityPoolRequest {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseQueryCommunityPoolRequest,
@@ -1604,9 +1407,7 @@ export const QueryCommunityPoolRequest = {
         return obj
     },
 
-    fromPartial(
-        _: DeepPartial<QueryCommunityPoolRequest>
-    ): QueryCommunityPoolRequest {
+    fromPartial(_: DeepPartial<QueryCommunityPoolRequest>): QueryCommunityPoolRequest {
         const message = {
             ...baseQueryCommunityPoolRequest,
         } as QueryCommunityPoolRequest
@@ -1627,12 +1428,8 @@ export const QueryCommunityPoolResponse = {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): QueryCommunityPoolResponse {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryCommunityPoolResponse {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseQueryCommunityPoolResponse,
@@ -1668,18 +1465,14 @@ export const QueryCommunityPoolResponse = {
     toJSON(message: QueryCommunityPoolResponse): unknown {
         const obj: any = {}
         if (message.pool) {
-            obj.pool = message.pool.map(e =>
-                e ? DecCoin.toJSON(e) : undefined
-            )
+            obj.pool = message.pool.map(e => (e ? DecCoin.toJSON(e) : undefined))
         } else {
             obj.pool = []
         }
         return obj
     },
 
-    fromPartial(
-        object: DeepPartial<QueryCommunityPoolResponse>
-    ): QueryCommunityPoolResponse {
+    fromPartial(object: DeepPartial<QueryCommunityPoolResponse>): QueryCommunityPoolResponse {
         const message = {
             ...baseQueryCommunityPoolResponse,
         } as QueryCommunityPoolResponse
@@ -1696,19 +1489,12 @@ export const QueryCommunityPoolResponse = {
 const baseQueryBurnedPoolRequest: object = {}
 
 export const QueryBurnedPoolRequest = {
-    encode(
-        _: QueryBurnedPoolRequest,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(_: QueryBurnedPoolRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): QueryBurnedPoolRequest {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryBurnedPoolRequest {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseQueryBurnedPoolRequest,
@@ -1736,9 +1522,7 @@ export const QueryBurnedPoolRequest = {
         return obj
     },
 
-    fromPartial(
-        _: DeepPartial<QueryBurnedPoolRequest>
-    ): QueryBurnedPoolRequest {
+    fromPartial(_: DeepPartial<QueryBurnedPoolRequest>): QueryBurnedPoolRequest {
         const message = {
             ...baseQueryBurnedPoolRequest,
         } as QueryBurnedPoolRequest
@@ -1749,22 +1533,15 @@ export const QueryBurnedPoolRequest = {
 const baseQueryBurnedPoolResponse: object = {}
 
 export const QueryBurnedPoolResponse = {
-    encode(
-        message: QueryBurnedPoolResponse,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(message: QueryBurnedPoolResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         for (const v of message.pool) {
             Coin.encode(v!, writer.uint32(10).fork()).ldelim()
         }
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): QueryBurnedPoolResponse {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryBurnedPoolResponse {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseQueryBurnedPoolResponse,
@@ -1807,9 +1584,7 @@ export const QueryBurnedPoolResponse = {
         return obj
     },
 
-    fromPartial(
-        object: DeepPartial<QueryBurnedPoolResponse>
-    ): QueryBurnedPoolResponse {
+    fromPartial(object: DeepPartial<QueryBurnedPoolResponse>): QueryBurnedPoolResponse {
         const message = {
             ...baseQueryBurnedPoolResponse,
         } as QueryBurnedPoolResponse
@@ -1836,9 +1611,7 @@ export interface Query {
         request: QueryValidatorCommissionRequest
     ): Promise<QueryValidatorCommissionResponse>
     /** ValidatorSlashes queries slash events of a validator. */
-    ValidatorSlashes(
-        request: QueryValidatorSlashesRequest
-    ): Promise<QueryValidatorSlashesResponse>
+    ValidatorSlashes(request: QueryValidatorSlashesRequest): Promise<QueryValidatorSlashesResponse>
     /** DelegationRewards queries the total rewards accrued by a delegation. */
     DelegationRewards(
         request: QueryDelegationRewardsRequest
@@ -1859,13 +1632,9 @@ export interface Query {
         request: QueryDelegatorWithdrawAddressRequest
     ): Promise<QueryDelegatorWithdrawAddressResponse>
     /** CommunityPool queries the community pool coins. */
-    CommunityPool(
-        request: QueryCommunityPoolRequest
-    ): Promise<QueryCommunityPoolResponse>
+    CommunityPool(request: QueryCommunityPoolRequest): Promise<QueryCommunityPoolResponse>
     /** CommunityPool queries the community pool coins. */
-    BurnedPool(
-        request: QueryBurnedPoolRequest
-    ): Promise<QueryBurnedPoolResponse>
+    BurnedPool(request: QueryBurnedPoolRequest): Promise<QueryBurnedPoolResponse>
 }
 
 export class QueryClientImpl implements Query {
@@ -1875,31 +1644,21 @@ export class QueryClientImpl implements Query {
     }
     Params(request: QueryParamsRequest): Promise<QueryParamsResponse> {
         const data = QueryParamsRequest.encode(request).finish()
-        const promise = this.rpc.request(
-            'cosmos.distribution.v1beta1.Query',
-            'Params',
-            data
-        )
-        return promise.then(data =>
-            QueryParamsResponse.decode(new _m0.Reader(data))
-        )
+        const promise = this.rpc.request('cosmos.distribution.v1beta1.Query', 'Params', data)
+        return promise.then(data => QueryParamsResponse.decode(new _m0.Reader(data)))
     }
 
     ValidatorOutstandingRewards(
         request: QueryValidatorOutstandingRewardsRequest
     ): Promise<QueryValidatorOutstandingRewardsResponse> {
-        const data = QueryValidatorOutstandingRewardsRequest.encode(
-            request
-        ).finish()
+        const data = QueryValidatorOutstandingRewardsRequest.encode(request).finish()
         const promise = this.rpc.request(
             'cosmos.distribution.v1beta1.Query',
             'ValidatorOutstandingRewards',
             data
         )
         return promise.then(data =>
-            QueryValidatorOutstandingRewardsResponse.decode(
-                new _m0.Reader(data)
-            )
+            QueryValidatorOutstandingRewardsResponse.decode(new _m0.Reader(data))
         )
     }
 
@@ -1912,9 +1671,7 @@ export class QueryClientImpl implements Query {
             'ValidatorCommission',
             data
         )
-        return promise.then(data =>
-            QueryValidatorCommissionResponse.decode(new _m0.Reader(data))
-        )
+        return promise.then(data => QueryValidatorCommissionResponse.decode(new _m0.Reader(data)))
     }
 
     ValidatorSlashes(
@@ -1926,9 +1683,7 @@ export class QueryClientImpl implements Query {
             'ValidatorSlashes',
             data
         )
-        return promise.then(data =>
-            QueryValidatorSlashesResponse.decode(new _m0.Reader(data))
-        )
+        return promise.then(data => QueryValidatorSlashesResponse.decode(new _m0.Reader(data)))
     }
 
     DelegationRewards(
@@ -1940,9 +1695,7 @@ export class QueryClientImpl implements Query {
             'DelegationRewards',
             data
         )
-        return promise.then(data =>
-            QueryDelegationRewardsResponse.decode(new _m0.Reader(data))
-        )
+        return promise.then(data => QueryDelegationRewardsResponse.decode(new _m0.Reader(data)))
     }
 
     DelegationTotalRewards(
@@ -1968,17 +1721,13 @@ export class QueryClientImpl implements Query {
             'DelegatorValidators',
             data
         )
-        return promise.then(data =>
-            QueryDelegatorValidatorsResponse.decode(new _m0.Reader(data))
-        )
+        return promise.then(data => QueryDelegatorValidatorsResponse.decode(new _m0.Reader(data)))
     }
 
     DelegatorWithdrawAddress(
         request: QueryDelegatorWithdrawAddressRequest
     ): Promise<QueryDelegatorWithdrawAddressResponse> {
-        const data = QueryDelegatorWithdrawAddressRequest.encode(
-            request
-        ).finish()
+        const data = QueryDelegatorWithdrawAddressRequest.encode(request).finish()
         const promise = this.rpc.request(
             'cosmos.distribution.v1beta1.Query',
             'DelegatorWithdrawAddress',
@@ -1989,52 +1738,24 @@ export class QueryClientImpl implements Query {
         )
     }
 
-    CommunityPool(
-        request: QueryCommunityPoolRequest
-    ): Promise<QueryCommunityPoolResponse> {
+    CommunityPool(request: QueryCommunityPoolRequest): Promise<QueryCommunityPoolResponse> {
         const data = QueryCommunityPoolRequest.encode(request).finish()
-        const promise = this.rpc.request(
-            'cosmos.distribution.v1beta1.Query',
-            'CommunityPool',
-            data
-        )
-        return promise.then(data =>
-            QueryCommunityPoolResponse.decode(new _m0.Reader(data))
-        )
+        const promise = this.rpc.request('cosmos.distribution.v1beta1.Query', 'CommunityPool', data)
+        return promise.then(data => QueryCommunityPoolResponse.decode(new _m0.Reader(data)))
     }
 
-    BurnedPool(
-        request: QueryBurnedPoolRequest
-    ): Promise<QueryBurnedPoolResponse> {
+    BurnedPool(request: QueryBurnedPoolRequest): Promise<QueryBurnedPoolResponse> {
         const data = QueryBurnedPoolRequest.encode(request).finish()
-        const promise = this.rpc.request(
-            'cosmos.distribution.v1beta1.Query',
-            'BurnedPool',
-            data
-        )
-        return promise.then(data =>
-            QueryBurnedPoolResponse.decode(new _m0.Reader(data))
-        )
+        const promise = this.rpc.request('cosmos.distribution.v1beta1.Query', 'BurnedPool', data)
+        return promise.then(data => QueryBurnedPoolResponse.decode(new _m0.Reader(data)))
     }
 }
 
 interface Rpc {
-    request(
-        service: string,
-        method: string,
-        data: Uint8Array
-    ): Promise<Uint8Array>
+    request(service: string, method: string, data: Uint8Array): Promise<Uint8Array>
 }
 
-type Builtin =
-    | Date
-    | Function
-    | Uint8Array
-    | string
-    | number
-    | boolean
-    | undefined
-    | Long
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined | Long
 export type DeepPartial<T> = T extends Builtin
     ? T
     : T extends Array<infer U>

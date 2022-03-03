@@ -85,7 +85,7 @@ describe('Mele Blockchain', function () {
             const txPromise = new Promise((resolve, reject) => {
                 txEvents
                     .on('hash', hash => {
-                        console.log(hash)
+                        
                         assert.ok(hash)
                     })
                     .on('receipt', receipt => {
@@ -103,7 +103,6 @@ describe('Mele Blockchain', function () {
 
             
             let tx = await txPromise
-            console.log(tx)
 
             assert.ok(tx)
             assert.ok(tx.hash)
@@ -154,7 +153,6 @@ describe('Mele Blockchain', function () {
 
             
             let tx = await txPromise
-            console.log(tx)
 
             assert.ok(tx)
             assert.ok(tx.hash)
@@ -198,7 +196,6 @@ describe('Mele Blockchain', function () {
 
             
             let tx = await txPromise
-            console.log(tx)
 
             assert.ok(tx)
             assert.ok(tx.hash)
@@ -240,7 +237,6 @@ describe('Mele Blockchain', function () {
 
             
             let tx = await txPromise
-            console.log(tx)
 
             assert.ok(tx)
             assert.ok(tx.hash)

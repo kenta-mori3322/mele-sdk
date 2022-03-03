@@ -84,7 +84,7 @@ export default class Broadcast {
                                 new BroadcastError(
                                     BroadCastErrorEnum.DeliverTx,
                                     value.tx_result.log,
-                                    value.tx_result.code,
+                                    value.tx_result.code
                                 )
                             )
                         } else {

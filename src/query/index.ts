@@ -18,7 +18,7 @@ const Keys = {
     Query: {
         AuthModuleQueryPath: 'auth',
         AccountPath: 'account',
-    }
+    },
 }
 
 /**
@@ -101,7 +101,7 @@ export default class Query {
     get liquidity(): LiquidityQuery {
         return this._liquidity
     }
-    
+
     /**
      * mele.query.**getBlock**
      *

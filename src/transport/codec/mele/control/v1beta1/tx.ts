@@ -17,10 +17,7 @@ export interface MsgSubmitExecutionResponse {
 const baseMsgSubmitExecution: object = { executor: '' }
 
 export const MsgSubmitExecution = {
-    encode(
-        message: MsgSubmitExecution,
-        writer: _m0.Writer = _m0.Writer.create()
-    ): _m0.Writer {
+    encode(message: MsgSubmitExecution, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
         if (message.content !== undefined) {
             Any.encode(message.content, writer.uint32(10).fork()).ldelim()
         }
@@ -30,12 +27,8 @@ export const MsgSubmitExecution = {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): MsgSubmitExecution {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgSubmitExecution {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = { ...baseMsgSubmitExecution } as MsgSubmitExecution
         while (reader.pos < end) {
@@ -73,9 +66,7 @@ export const MsgSubmitExecution = {
     toJSON(message: MsgSubmitExecution): unknown {
         const obj: any = {}
         message.content !== undefined &&
-            (obj.content = message.content
-                ? Any.toJSON(message.content)
-                : undefined)
+            (obj.content = message.content ? Any.toJSON(message.content) : undefined)
         message.executor !== undefined && (obj.executor = message.executor)
         return obj
     },
@@ -109,12 +100,8 @@ export const MsgSubmitExecutionResponse = {
         return writer
     },
 
-    decode(
-        input: _m0.Reader | Uint8Array,
-        length?: number
-    ): MsgSubmitExecutionResponse {
-        const reader =
-            input instanceof _m0.Reader ? input : new _m0.Reader(input)
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgSubmitExecutionResponse {
+        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input)
         let end = length === undefined ? reader.len : reader.pos + length
         const message = {
             ...baseMsgSubmitExecutionResponse,
@@ -152,9 +139,7 @@ export const MsgSubmitExecutionResponse = {
         return obj
     },
 
-    fromPartial(
-        object: DeepPartial<MsgSubmitExecutionResponse>
-    ): MsgSubmitExecutionResponse {
+    fromPartial(object: DeepPartial<MsgSubmitExecutionResponse>): MsgSubmitExecutionResponse {
         const message = {
             ...baseMsgSubmitExecutionResponse,
         } as MsgSubmitExecutionResponse
@@ -169,9 +154,7 @@ export const MsgSubmitExecutionResponse = {
 
 /** Msg defines the distribution Msg service. */
 export interface Msg {
-    SubmitExecution(
-        request: MsgSubmitExecution
-    ): Promise<MsgSubmitExecutionResponse>
+    SubmitExecution(request: MsgSubmitExecution): Promise<MsgSubmitExecutionResponse>
 }
 
 export class MsgClientImpl implements Msg {
@@ -179,38 +162,18 @@ export class MsgClientImpl implements Msg {
     constructor(rpc: Rpc) {
         this.rpc = rpc
     }
-    SubmitExecution(
-        request: MsgSubmitExecution
-    ): Promise<MsgSubmitExecutionResponse> {
+    SubmitExecution(request: MsgSubmitExecution): Promise<MsgSubmitExecutionResponse> {
         const data = MsgSubmitExecution.encode(request).finish()
-        const promise = this.rpc.request(
-            'mele.control.v1beta1.Msg',
-            'SubmitExecution',
-            data
-        )
-        return promise.then(data =>
-            MsgSubmitExecutionResponse.decode(new _m0.Reader(data))
-        )
+        const promise = this.rpc.request('mele.control.v1beta1.Msg', 'SubmitExecution', data)
+        return promise.then(data => MsgSubmitExecutionResponse.decode(new _m0.Reader(data)))
     }
 }
 
 interface Rpc {
-    request(
-        service: string,
-        method: string,
-        data: Uint8Array
-    ): Promise<Uint8Array>
+    request(service: string, method: string, data: Uint8Array): Promise<Uint8Array>
 }
 
-type Builtin =
-    | Date
-    | Function
-    | Uint8Array
-    | string
-    | number
-    | boolean
-    | undefined
-    | Long
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined | Long
 export type DeepPartial<T> = T extends Builtin
     ? T
     : T extends Array<infer U>
