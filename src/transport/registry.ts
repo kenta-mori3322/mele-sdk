@@ -64,6 +64,13 @@ import {
     RemoveFeeExcludedMessageProposal,
 } from "./codec/mele/fee/v1beta1/fee"
 
+import {
+    MsgCreatePool,
+    MsgDepositWithinBatch,
+    MsgWithdrawWithinBatch,
+    MsgSwapWithinBatch,
+} from "./codec/mele/liquidity/v1beta1/tx"
+
 export const defaultRegistryTypes: ReadonlyArray<[string, GeneratedType]> = [
     ['/cosmos.bank.v1beta1.MsgMultiSend', MsgMultiSend],
     ["/cosmos.distribution.v1beta1.MsgFundCommunityPool", MsgFundCommunityPool],
@@ -98,6 +105,10 @@ export const defaultRegistryTypes: ReadonlyArray<[string, GeneratedType]> = [
     ["/cosmos.upgrade.v1beta1.Plan", Plan],
     ["/mele.fee.v1beta1.AddFeeExcludedMessageProposal", AddFeeExcludedMessageProposal],
     ["/mele.fee.v1beta1.RemoveFeeExcludedMessageProposal", RemoveFeeExcludedMessageProposal],
+    ["/mele.liquidity.v1beta1.MsgCreatePool", MsgCreatePool], 
+    ["/mele.liquidity.v1beta1.MsgDepositWithinBatch", MsgDepositWithinBatch], 
+    ["/mele.liquidity.v1beta1.MsgWithdrawWithinBatch", MsgWithdrawWithinBatch], 
+    ["/mele.liquidity.v1beta1.MsgSwapWithinBatch", MsgSwapWithinBatch], 
 ]
 
 function createDefaultRegistry(): Registry {

@@ -13,6 +13,7 @@ import Treasury from './transactions/treasury'
 import Gov from './transactions/gov'
 import Control from './transactions/control'
 import Fee from './fee/fee'
+import Liquidity from './transactions/liquidity'
 
 export interface Options {
     nodeUrl: string
@@ -43,6 +44,7 @@ export class Mele {
     private _gov: Gov
     private _control: Control
     private _fee: Fee
+    private _liquidity: Liquidity
 
     constructor(opt: Options) {
         this._options = opt
@@ -76,6 +78,7 @@ export class Mele {
         this._treasury = new Treasury(this._broadcast)
         this._gov = new Gov(this._broadcast)
         this._control = new Control(this._broadcast)
+        this._liquidity = new Liquidity(this._broadcast)
     }
 
     get query(): Query {
@@ -116,5 +119,9 @@ export class Mele {
 
     get fee(): Fee {
         return this._fee
+    }
+
+    get liquidity(): Liquidity {
+        return this._liquidity
     }
 }

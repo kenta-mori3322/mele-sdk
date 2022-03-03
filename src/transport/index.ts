@@ -25,7 +25,8 @@ export class Transport implements ITransport {
         this._rpc = new Rpc(opt.nodeUrl)
         this._nodeUrl = opt.nodeUrl
 
-        this._lcdUrl = this._nodeUrl.replace('blockchain', 'blockchain-api')
+        if (this._nodeUrl.includes('26657')) this._lcdUrl = this._nodeUrl.replace('26657', '1317')
+        else this._lcdUrl = this._nodeUrl.replace('blockchain', 'blockchain-api')
     }
 
     block(height: number): Promise<ResultBlock> {

@@ -329,3 +329,31 @@ export interface FeeParams {
     melg_price: string
     melg_fee_percentage: string
 }
+
+export interface LiquidityPoolType {
+    id: number
+    name: string
+    min_reserve_coin_num: number
+    max_reserve_coin_num: number
+    description: string
+}
+export interface LiquidityParams {
+    pool_types: LiquidityPoolType[]
+    min_init_deposit_amount: string
+    init_pool_coin_mint_amount: string
+    max_reserve_coin_amount: string
+    pool_creation_fee: SDKCoin[]
+    swap_fee_rate: string
+    withdraw_fee_rate: string
+    max_order_amount_ratio: string
+    unit_batch_height: number
+    circuit_breaker_enabled: boolean
+}
+
+export interface LiquidityPool {
+    id: number
+    type_id: number
+    reserve_coin_denoms: string[]
+    reserve_account_address: string
+    pool_coin_denom: string
+}

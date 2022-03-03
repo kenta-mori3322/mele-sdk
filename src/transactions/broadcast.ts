@@ -163,7 +163,7 @@ export default class Broadcast {
                     amount: '0',
                 },
             ],
-            gas: String(Math.ceil(messages.length / 10) * 200000),
+            gas: String(Math.ceil(messages.length / 10) * 300000),
         }
         const txRaw = await this.sign(messages, fee, 'sdk')
         const signedTx = Uint8Array.from(TxRaw.encode(txRaw).finish())

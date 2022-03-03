@@ -6,6 +6,7 @@ import ControlQuery from './control'
 import DistributionQuery from './distribution'
 import FeeQuery from './fee'
 import GovQuery from './gov'
+import LiquidityQuery from './liquidity'
 import MintQuery from './mint'
 import SlashingQuery from './slashing'
 import StakingQuery from './staking'
@@ -39,6 +40,7 @@ export default class Query {
     private _upgrade: UpgradeQuery
     private _fee: FeeQuery
     private _supply: SupplyQuery
+    private _liquidity: LiquidityQuery
 
     constructor(transport: ITransport) {
         this._transport = transport
@@ -53,6 +55,7 @@ export default class Query {
         this._upgrade = new UpgradeQuery(this._transport)
         this._fee = new FeeQuery(this._transport)
         this._supply = new SupplyQuery(this._transport)
+        this._liquidity = new LiquidityQuery(this._transport)
     }
 
     get staking(): StakingQuery {
@@ -95,6 +98,10 @@ export default class Query {
         return this._supply
     }
 
+    get liquidity(): LiquidityQuery {
+        return this._liquidity
+    }
+    
     /**
      * mele.query.**getBlock**
      *
